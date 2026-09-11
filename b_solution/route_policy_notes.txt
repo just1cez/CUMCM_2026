@@ -1,0 +1,65 @@
+Route-policy candidate design
+=============================
+
+Selection status
+----------------
+The candidate was evaluated on 200 paired synthetic worlds per problem. It preserved all waypoints and all cases cleared, but increased mean time by 23.073 seconds/source in Q3 and 54.402 seconds/source in Q4 relative to the nearest dynamic anchor policy. It is therefore retained as a negative-control experiment and is not the default policy.
+
+Scope and proof boundary
+------------------------
+`route_policy_candidate.py` is an optional policy module; it does not replace
+`planner.py` and reads no source truth. The returned route is an ordering of the
+input indices, not a new coverage set. Therefore the Q3 seven-point skeleton
+and Q4 31 triangular-lattice points at s=990 remain intact: every original
+waypoint is still visited exactly once. The discovery proof is unchanged,
+because it depends on the waypoint obligations and the conservative fallback,
+not on their visitation order. This is a travel-time candidate only.
+
+Static route optimization
+-------------------------
+`optimize_waypoints(points, start=(0, 0)) -> list[int]` first performs a
+nearest-neighbour construction seeded at `start`.  Ties are broken by the
+original index, making the result reproducible.  It then applies deterministic,
+first-improvement 2-opt exchanges.  For route edges (a,b) and (c,d), an
+exchange is accepted only when
+
+    ||a-c|| + ||b-d|| < ||a-b|| + ||c-d||,
+
+with the terminal edge omitted at the final point.  The exchanged segment is
+reversed, hence no point is inserted or deleted.  Each pass scans O(n^2)
+edge pairs and uses O(n) route storage; repeated improving passes have the
+usual data-dependent number of passes (each individual pass is O(n^2)).
+
+Malformed coordinates, non-finite values, or an invalid start return the exact
+identity index order `[0, ..., n-1]`.  This conservative fallback preserves
+all obligations and never guesses a hidden source count.  A non-sized input
+returns `[]`; callers should provide the certified waypoint collection.
+
+Dynamic task score
+------------------
+`task_priority(travel_distance, remaining_obligations, mec_center_distance,
+channel_switch_cost, uncertainty_penalty, weights=(1,1,1,1,1)) -> float`
+returns a lower-is-better scalar:
+
+    P = w_d d + w_o R + w_m d_MEC + w_s C_switch + w_u U.
+
+`R` is the caller-supplied number/measure of remaining certified coverage
+obligations; it is not inferred from observations or hidden source truth.
+`d_MEC` is distance to the current track minimum-enclosing-circle center.
+`C_switch` is the caller's channel-switch cost (zero if no switch), and `U`
+is an externally computed uncertainty penalty.  Weights are explicit so a
+report can disclose policy calibration without changing the proof.  Negative,
+non-finite, wrongly sized, or otherwise nonnumeric terms return `+inf`, a
+stable conservative fallback that cannot outrank valid tasks.  The score is
+O(1) time and O(1) extra space.
+
+Interfaces and risks
+--------------------
+The helper returns indices so existing coordinate objects and waypoint
+metadata remain owned by the caller.  Sorting or applying this order is
+optional; the certified planner must retain its exact fallback.  2-opt is a
+heuristic and is not claimed globally optimal.  Scores are likewise policy
+candidates: poorly calibrated weights can favor short travel over coverage,
+MEC localization, switching, or uncertainty.  In particular, this module
+cannot certify absence, discover sources, or establish official simulator
+performance; current local evidence remains synthetic.

@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "archive_sha256": "90cdffa7f739483cd7d59fbea659a7184a6c759c911326dce4b6264016be4477",
+  "manifest_hashes_verified": true,
+  "all_4430_behavioral_runs_reproduced_exactly": true,
+  "all_3080_enhancement_runs_reproduced_exactly": true,
+  "ring_sweep_reproduced_exactly": true,
+  "excluded_nondeterminism": "wall-clock real_duration_s only",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "verify_geometry.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.1978860420058481
+    },
+    {
+      "command": [
+        "python",
+        "intersection.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.19701316699502058
+    },
+    {
+      "command": [
+        "python",
+        "second_point.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.30004795899731107
+    },
+    {
+      "command": [
+        "python",
+        "experiments.py",
+        "--cases",
+        "500",
+        "--output",
+        "results/final_experiments.json"
+      ],
+      "returncode": 0,
+      "seconds": 11.462509582997882
+    },
+    {
+      "command": [
+        "python",
+        "enhancements.py"
+      ],
+      "returncode": 0,
+      "seconds": 16.90489795799658
+    },
+    {
+      "command": [
+        "python",
+        "ring_sweep.py"
+      ],
+      "returncode": 0,
+      "seconds": 5.315926374998526
+    },
+    {
+      "command": [
+        "python",
+        "verify_terminal.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.04464308399474248
+    },
+    {
+      "command": [
+        "python",
+        "verify_refinements.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.06721016600204166
+    },
+    {
+      "command": [
+        "python",
+        "verify_coverage_limits.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.018850042004487477
+    },
+    {
+      "command": [
+        "python",
+        "compare_routes.py"
+      ],
+      "returncode": 0,
+      "seconds": 2.25787491700612
+    },
+    {
+      "command": [
+        "python",
+        "compare_probes.py"
+      ],
+      "returncode": 0,
+      "seconds": 19.902635457998258
+    },
+    {
+      "command": [
+        "python",
+        "make_assets.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.9736742500099353
+    },
+    {
+      "command": [
+        "python",
+        "make_enhancement_assets.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.46831520900013857
+    },
+    {
+      "command": [
+        "latexmk",
+        "-xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "paper.tex"
+      ],
+      "returncode": 0,
+      "seconds": 10.863029125001049
+    },
+    {
+      "command": [
+        "latexmk",
+        "-xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "ai_usage.tex"
+      ],
+      "returncode": 0,
+      "seconds": 1.073301333002746
+    }
+  ]
+}

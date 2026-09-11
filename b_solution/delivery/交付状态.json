@@ -1,0 +1,9 @@
+{
+  "status": "VERIFIED_RESEARCH_VERSION_OFFICIAL_TESTS_DEFERRED",
+  "official_tests": "DEFERRED_BY_USER",
+  "human_review": "OUTSTANDING",
+  "source_files": 95,
+  "archive_bytes": 3340359,
+  "archive_sha256": "90cdffa7f739483cd7d59fbea659a7184a6c759c911326dce4b6264016be4477",
+  "extracted_archive_reproduction": "passed"
+}

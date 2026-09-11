@@ -1,0 +1,32 @@
+{
+  "evidence": "numerical_sanity_plus_analytic_geometry_not_official",
+  "route_cases": 50,
+  "ring_samples": 2000,
+  "ring_radius_m": 1200.0,
+  "exact_ring_cover_radius_m": 968.9015717043839,
+  "attained_boundary_radius_m": 968.9015717043836,
+  "radio_margin_m": 31.098428295616145,
+  "ring_tour_exhaustive": [
+    {
+      "radius_m": 1200.0,
+      "permutations": 720,
+      "minimum_length_m": 7200.0,
+      "analytic_length_m": 7200.0
+    },
+    {
+      "radius_m": 1550.0,
+      "permutations": 720,
+      "minimum_length_m": 9300.0,
+      "analytic_length_m": 9300.0
+    },
+    {
+      "radius_m": 1558.8457268119894,
+      "permutations": 720,
+      "minimum_length_m": 9353.074360871935,
+      "analytic_length_m": 9353.074360871937
+    }
+  ],
+  "source_vertex_six_neighbor_cases": 58,
+  "candidate_posterior_cases": 2820,
+  "max_interval_bound_violation_m": -0.11270042315317141
+}

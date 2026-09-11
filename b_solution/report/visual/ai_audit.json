@@ -1,0 +1,41 @@
+{
+  "pdf": "report/ai_usage.pdf",
+  "sha256": "66d5765faa0d7e82ea9d861748220c2676cc193127bc814a02cf0521ff43cc8b",
+  "pages": 3,
+  "size_mib": 0.2433614730834961,
+  "body_end_page": null,
+  "body_pages_excluding_abstract": null,
+  "abstract_keywords_on_first_page": false,
+  "out_of_page_spans": [],
+  "replacement_characters": 0,
+  "near_empty_pages": [],
+  "rendered_all_pages": true,
+  "dpi": 120,
+  "contact_sheets": [
+    "ai_sheet_01.png"
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "characters": 861,
+      "image": "ai_001.png",
+      "smallest_text_pt": 12.0,
+      "largest_text_pt": 22.0
+    },
+    {
+      "page": 2,
+      "characters": 953,
+      "image": "ai_002.png",
+      "smallest_text_pt": 12.0,
+      "largest_text_pt": 18.0
+    },
+    {
+      "page": 3,
+      "characters": 1013,
+      "image": "ai_003.png",
+      "smallest_text_pt": 10.5,
+      "largest_text_pt": 18.0
+    }
+  ],
+  "visual_review_status": "rendered_for_inspection_not_automatically_approved"
+}

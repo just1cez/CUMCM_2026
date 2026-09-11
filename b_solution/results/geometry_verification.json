@@ -1,0 +1,110 @@
+{
+  "evidence": "independent_numerical_checks_not_a_substitute_for_analytic_proofs",
+  "exact_forward_ray_regression": true,
+  "unbounded_refinement_rejected": true,
+  "mec_reference_cases": 504,
+  "maximum_mec_radius_error_m": 1.001353666651994e-09,
+  "realizable_counterexample": {
+    "stations": [
+      [
+        -874.7900212395758,
+        0.0
+      ],
+      [
+        473.3950106197879,
+        -757.5903813706012
+      ],
+      [
+        455.3950106197879,
+        788.767295906841
+      ]
+    ],
+    "bearings_deg": [
+      1,
+      121,
+      241
+    ],
+    "diameter_m": 36.00000000230944,
+    "mec_radius_m": 20.784609692846846
+  },
+  "containment_cases": 2000,
+  "bearings_per_case": 4,
+  "optical_interior_samples": 4000,
+  "coverage_source_samples": 2000,
+  "maximum_sampled_omni_distance_m": 899.4218748037118,
+  "minimum_sampled_directional_radio_slack_m": 19.8298353718626,
+  "triple_lens_samples": 10000,
+  "maximum_sampled_reception_excess_m": -0.8890675226746225,
+  "coverage_certificate": {
+    "certificate_kind": "analytic_geometric_cover",
+    "arena_radius_m": 1800.0,
+    "minimum_radio_radius_m": 1000.0,
+    "channels": 20,
+    "omni_legacy": {
+      "waypoint_count": 7,
+      "ring_radius_m": 1558.8457268119894,
+      "cover_radius_m": 900.0,
+      "radio_slack_m": 100.0,
+      "proof": "r<=900 is covered by the origin. For 900<=r<=1800, choose a ring center with angular gap <=pi/6. Then distance^2<=r^2-2700*r+2430000<=810000 by convexity and equality of the two endpoint values."
+    },
+    "omni_enhanced": {
+      "waypoint_count": 7,
+      "ring_radius_m": 1200.0,
+      "cover_radius_m": 968.9015717043839,
+      "radio_slack_m": 31.098428295616145,
+      "proof": "Exact envelope formula ring_cover_radius(1200); no point or channel obligation is removed."
+    },
+    "omni": {
+      "waypoint_count": 7,
+      "ring_radius_m": 1558.8457268119894,
+      "cover_radius_m": 900.0,
+      "radio_slack_m": 100.0,
+      "proof": "Legacy 900m certificate; enhanced 1200m certificate is in omni_enhanced."
+    },
+    "directional": {
+      "spacing_m": 990.0,
+      "basis_m": [
+        [
+          990.0,
+          0.0
+        ],
+        [
+          495.0,
+          857.3651497465942
+        ]
+      ],
+      "selection_radius_m": 2790.0,
+      "maximum_source_vertex_distance_m": 990.0,
+      "radio_slack_m": 10.0,
+      "waypoint_count": 31,
+      "inside_or_on_arena_count": 13,
+      "outside_arena_count": 18,
+      "norm_squared_units_counts": {
+        "0": 1,
+        "1": 6,
+        "3": 6,
+        "4": 6,
+        "7": 12
+      },
+      "maximum_waypoint_radius_m": 2619.2937979539447,
+      "closed_halfplane_required": true,
+      "boundary_guard_required": true,
+      "proof": "An elementary triangular-lattice triangle containing g has three vertices within spacing of g. Their norms are at most 1800+spacing, hence all are selected. Write g=sum(lambda_i*v_i), lambda_i>=0, sum(lambda_i)=1. For any emission normal n, sum(lambda_i*n dot (v_i-g))=0, so at least one vertex is in the closed emission halfplane. If g is a lattice vertex inside the source arena, all six nearest neighbors have norm <=1800+spacing and are selected; one makes angle <=pi/6 with any emission normal.",
+      "count_proof": "At spacing 990 the cutoff is i^2+i*j+j^2<=961/121. The possible shells are 0,1,3,4,7 with multiplicities 1,6,6,6,12. The arena cutoff is 400/121, leaving shells 0,1,3 inside and shells 4,7 outside."
+    },
+    "termination": "For each of 20 channels, retain either a confirmed successful clear or a complete all-no_signal covering scan for that channel. A detected but uncleared channel remains unresolved. With at most one source per channel, all 20 certificates imply no remaining source. Independently, 16 distinct confirmed clears reach the stated global upper bound. Fewer clears alone do not.",
+    "no_signal": {
+      "q3": "Excludes every source at distance <=1000 from that detector.",
+      "q4": "Does not exclude that disk: a source may emit away from the detector. Only the completed per-channel halfplane cover excludes every source position and orientation."
+    },
+    "assumptions": [
+      "Sources are stationary, persist until cleared, and use distinct channels.",
+      "Directional emission is a closed 180-degree halfplane with fixed orientation.",
+      "Reception reaches at least 1000 m throughout the emission halfplane.",
+      "All designated measurements actually complete on the indicated channel.",
+      "Near-source responses count as detections, not as no_signal.",
+      "Robot coordinates outside the radius-1800 source arena are permitted.",
+      "Geometric proofs use exact real coordinates; default float coordinates have 10 m range slack."
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+% 本文件为 paper.tex 使用的附录片段；主文件负责加载 listings 宏包。
+\section{匿名复现附录}
+本附录只列出匿名包中实际存在、可供复现使用的源文件。代码路径均相对于本文件所在的\texttt{report/}目录；结果路径均相对于匿名包项目根目录；不含个人绝对路径、队伍身份或私有凭据。主文件应在导言区加载\texttt{listings}并设置合适的Python样式。
+
+\subsection{运行与验证源代码}
+\lstinputlisting[language=Python,caption={规划器与恢复策略}]{../planner.py}
+\lstinputlisting[language=Python,caption={实验主程序}]{../experiments.py}
+\lstinputlisting[language=Python,caption={统一运行入口}]{../run.py}
+\lstinputlisting[language=Python,caption={几何计算}]{../geometry.py}
+\lstinputlisting[language=Python,caption={几何验证}]{../verify_geometry.py}
+\lstinputlisting[language=Python,caption={问题一原始交会区域分类与直径}]{../intersection.py}
+\lstinputlisting[language=Python,caption={覆盖与采样工具}]{../coverage.py}
+\lstinputlisting[language=Python,caption={环境与模拟器接口}]{../environment.py}
+\lstinputlisting[language=Python,caption={第二交点计算}]{../second_point.py}
+\lstinputlisting[language=Python,caption={恢复策略比较}]{../compare_recovery.py}
+\lstinputlisting[language=Python,caption={HTTP 客户端}]{../client.py}
+\lstinputlisting[language=Python,caption={HTTP 验证}]{../verify_http.py}
+\lstinputlisting[language=Python,caption={官方运行入口（仅获授权后使用）}]{../official_run.py}
+\lstinputlisting[language=Python,caption={数据驱动图表与轨迹生成}]{../make_assets.py}
+\lstinputlisting[language=Python,caption={PDF逐页渲染与结构审计}]{../audit_pdf.py}
+\lstinputlisting[language=Python,caption={匿名材料打包与解压复现验证}]{../package.py}
+\lstinputlisting[language=Python,caption={区间评分自适应测点候选}]{../active_policy_candidate.py}
+\lstinputlisting[language=Python,caption={骨架路由候选}]{../route_policy_candidate.py}
+\lstinputlisting[language=Python,caption={路由候选对照实验}]{../compare_routes.py}
+\lstinputlisting[language=Python,caption={自适应测点对照实验}]{../compare_probes.py}
+\lstinputlisting[language=Python,caption={超时终端状态回归}]{../verify_terminal.py}
+\lstinputlisting[language=Python,caption={环半径与滚动调度开发比较}]{../develop_anchors.py}
+\lstinputlisting[language=Python,caption={增强策略样本外实验}]{../enhancements.py}
+\lstinputlisting[language=Python,caption={Q3环半径筛选与新世界确认}]{../ring_sweep.py}
+\lstinputlisting[language=Python,caption={增强几何及区间评分交叉验证}]{../verify_refinements.py}
+\lstinputlisting[language=Python,caption={31格点不可删反例验证}]{../verify_coverage_limits.py}
+\lstinputlisting[language=Python,caption={增强策略图表生成}]{../make_enhancement_assets.py}
+\lstinputlisting[language=TeX,caption={覆盖上界理论片段}]{../coverage_limits.tex}
+\lstinputlisting[language=TeX,caption={默认有限时间证明片段}]{bound_proof.tex}
+\lstinputlisting[language=TeX,caption={样本外增强分析片段}]{enhancements.tex}
+
+\subsection{匿名文件清单与结果接口}
+\begin{longtable}{p{0.60\textwidth}p{0.32\textwidth}}
+\toprule 文件或目录 & 用途\\\midrule
+\path{results/final_experiments.json} & 4430次最终合成运行\\
+\path{results/enhancement_experiments.json} & 3080次样本外增强运行\\
+\path{results/ring_sweep.json} & Q3环半径开发筛选及样本外配对证据\\
+\path{results/coverage_limits.json} & 全部31点不可删构造\\
+\path{results/refinement_verification.json} & 收缩环与角区间上界验证\\
+\path{results/geometry_verification.json} & 几何交叉核验与回归\\
+\path{results/intersection_verification.json} & 原始交会区域三种状态\\
+\path{results/http_verification.json} & 幂等重试与计时验证\\
+\path{results/http_deadline_verification.json} & 慢速响应绝对期限验证\\
+\path{results/second_point_example.json} & 第二测点候选评分\\
+\path{results/recovery_development.json} & 恢复策略开发对照\\
+\path{results/visual_review.json} & PDF逐页视觉检查记录\\
+\path{results/enhancement_review.json} & 增强策略独立审阅记录\\
+\path{results/paper_review.json} & 非官方自动审阅记录\\
+\path{results/final_review.json} & 新结论与新世界证据的最终独立审查\\
+\path{report/generated/} & 自动数字、表格与轨迹证据\\
+\path{report/figures/} & 基础及增强矢量图\\
+\path{report/ai_usage.tex} & AI使用详情源文件\\
+\path{reproduce.txt}、\path{requirements.txt} & 命令、环境及依赖\\
+\path{MANIFEST.json} & 支撑包内文件校验值\\
+\path{results/route_candidate_comparison.json} & 路由候选负结果\\
+\path{results/adaptive_candidate_comparison.json} & 自适应测点候选负结果与子指标\\
+\path{results/terminal_verification.json} & 虚拟/现实期限终端回归\\
+\path{theory_additions.txt}、\path{paper_expansion.txt} & 独立理论草稿\\
+\path{report/generated/coverage_limits_table.tex} & 不可删性汇总表\\
+\bottomrule
+\end{longtable}
+图表由\path{make_assets.py}和\path{make_enhancement_assets.py}读取对应JSON生成，完整代码如上。\path{audit_pdf.py}渲染全部页面并检查文字边界；\path{package.py --verify}解压支撑包，重新运行计算和编译，不以原目录存在文件代替解压可复现性。
+
+含有官方 \texttt{robot\_id} 的私有 HTTP 日志不进入匿名包；如正式流程要求提交官方加密导出，应保持官方给出的原文件名和原始字节，不在公开包中复制或改写。官方模拟器尚未运行，故本附录不提供官方输出。

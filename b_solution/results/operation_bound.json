@@ -1,0 +1,23 @@
+{
+  "evidence": "arithmetic_of_analytic_bound_not_simulation",
+  "scope": "enhanced policy: Q3 ring1200, Q4 rolling skeleton, fixed probes, six probes",
+  "skeleton_edge_upper_m": 5240,
+  "skeleton_move_upper_m": 162440,
+  "positive_source_distance_upper_m": 1500,
+  "strip_axial_upper_m": 1501,
+  "strip_width_upper_m": 53,
+  "station_probe_bound_m": 1505.7891618682877,
+  "source_probe_bound_m": 3005.789161868288,
+  "local_transition_upper_m": 6020,
+  "local_task_entry_upper_m": 7500,
+  "optional_center_clear_access_upper_m": 4520,
+  "optical_access_upper_m": 4520,
+  "optical_cover_centers_upper": 216,
+  "optical_snake_length_upper_m": 7570,
+  "distance_upper_m": 1029800,
+  "measure_upper": 1212,
+  "clear_attempt_upper": 3584,
+  "virtual_time_upper_s": 231152.0,
+  "virtual_time_upper_h": 64.2088888888889,
+  "proof": "report/bound_proof.tex; no guarantee for real network deadline"
+}

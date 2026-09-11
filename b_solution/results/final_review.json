@@ -1,0 +1,53 @@
+{
+  "review_type": "independent AI review; not contestant manual review",
+  "reviewers": ["FinalRingProof", "FinalRingEvidence"],
+  "rubric": "Non-official qualitative review of assumptions, mathematical validity, evidence separation, and reproducibility; no award prediction",
+  "source_verdict": "accepted within the declared synthetic-research scope",
+  "math_review": {
+    "blocking_findings": [],
+    "accepted": [
+      "Exact 6d origin-start open tour for all six ring points; no claim about adaptive detours",
+      "Ring coverage derivative restricted to the supported radius interval",
+      "Outward-boundary arccos domain R<=d<=R+q and maximum atan(q/R)",
+      "31 witnesses certify fixed-lattice irreducibility, not global optimality",
+      "All six neighbors are selected for source vertices inside the arena; no assertion for exterior vertices"
+    ],
+    "calculation_evidence": ["results/refinement_verification.json", "results/coverage_limits.json"]
+  },
+  "statistical_review": {
+    "source_findings": [],
+    "development_seeds": [1000000, 1000149],
+    "fresh_confirmation_seeds": [2300000, 2300499],
+    "earlier_reuse_disclosed": "1100000..1100499 was used exploratorily and is not the fresh confirmation evidence",
+    "saved_ring_executions": 2200,
+    "selected_radius_m": 1200,
+    "comparison_radius_m": 1250,
+    "evidence": "results/ring_sweep.json retains every run, pairing, cost verification, and paired-mean interval"
+  },
+  "resolved_source_findings": [
+    "Separated rho_opt, rho_cov and rho_ring notation",
+    "Clarified T/N equals official T/K only for complete clearance",
+    "Qualified route reduction as empirical rather than universal",
+    "Removed unsupported separate 2-opt CPU measurement claim",
+    "Documented the 2200 ring executions separately from 3080 enhancement executions",
+    "Restored terminal regression in archive replay and added stale-asset/PDF audit guards",
+    "Corrected reversed deletion cases in the standalone fixed-seven-point proof"
+  ],
+  "delivery_finding": {
+    "issue": "The older delivery archive predated the ring experiment and its verification proof was stale",
+    "required_resolution": "Regenerate PDFs and archive with current package.py --verify",
+    "acceptance_evidence": "delivery/复现验证.json must report ring_sweep_reproduced_exactly and match the current ZIP SHA-256; the review itself does not substitute for this execution"
+  },
+  "page_rule": {
+    "source": "https://www.mcm.edu.cn/html_cn/node/4cd596519c9eb9fbd866398f6df0caa3.html",
+    "articles": [3, 4, 10],
+    "interpretation": "Abstract is a separate page; body after abstract <=30 pages; appendix pages unlimited",
+    "prior_review_objection": "The earlier abstract-inclusive limit interpretation was rejected after reading the official rule"
+  },
+  "limits": [
+    "Reviewers inspected source and saved evidence without executing experiments; Main performed the numerical runs",
+    "Efficiency claims apply only to declared local synthetic worlds and fixed-location error fields",
+    "Official simulator runs and six encrypted logs remain deferred by user",
+    "Actual contestant-led modeling responsibility and manual review remain outstanding"
+  ]
+}

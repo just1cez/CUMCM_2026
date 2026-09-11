@@ -1,0 +1,30 @@
+{
+  "review_type": "independent AI review of non-official research version",
+  "scope": ["report/paper.tex", "report/appendix.tex", "report/ai_usage.tex", "results/final_experiments.json", "source algorithms and evidence interfaces"],
+  "reviewers": ["PaperMath", "PaperEvidence"],
+  "rubric": {"assumptions_and_problem_coverage": 25, "mathematical_derivation": 40, "algorithm_completeness": 25, "evidence_boundary_and_reproducibility": 10},
+  "scores": {"mathematics_and_algorithm": 95, "evidence_and_presentation": "pass_with_research_scope_limit"},
+  "passed_scope": [
+    "Q1 forward bearing halfplanes, raw bounded/unbounded/infeasible classification, vertex diameter, legal triangle counterexample, MEC criterion",
+    "Q2 triple-disk safe reception lens, distance-angle conditioning, explicit non-global sampled candidate ranking",
+    "Q3 seven-point full disk cover, per-channel stopping certificate and unknown-count handling",
+    "Q4 31-node triangular lattice with exterior nodes, convex-hull closed-halfplane discovery proof, negative-observation semantics",
+    "Whole-polygon optical fallback, bounded loss recovery, action timing, source-truth isolation",
+    "Synthetic denominators, held-out seed ranges, pairwise comparison, sensitivity and recovery ablation disclosures"
+  ],
+  "resolved_findings": [
+    {"issue": "Unsupported operational bound", "resolution": "Added explicit source-distance recurrence, cross-source entry, ring/lattice route and action-count derivation; recomputed enhanced fixed-probe bound 231152 s = 64.21 h", "evidence": "report/bound_proof.tex; results/operation_bound.json"},
+    {"issue": "Gaussian Fisher wording", "resolution": "Restricted Fisher name to an explicitly stated auxiliary Gaussian likelihood; bounded-error model remains primary", "evidence": "geometry_notes.txt; report/paper.tex Q2"},
+    {"issue": "Zero-error forward-ray degeneracy", "resolution": "Added explicit forward projection halfplane and regression", "evidence": "verify_geometry.py; results/geometry_verification.json"},
+    {"issue": "Extreme lattice refinement", "resolution": "Supported spacing restricted to [900,999] m; default 990 m has analytic directional and numerical slack", "evidence": "coverage.py; coverage_notes.txt"},
+    {"issue": "Slow or truncated HTTP responses", "resolution": "Content-Length truncation retries same request ID; queue-based absolute deadline fails closed without state advancement", "evidence": "client.py; results/http_verification.json; results/http_deadline_verification.json"}
+  ],
+  "limitations": [
+    "Official simulator cannot currently run and was deferred by user; no official practice or formal metrics and no six encrypted logs",
+    "No actual contestant manual review record; AI review cannot satisfy that official requirement",
+    "Efficiency evidence applies only to explicitly synthetic distributions and fixed error fields",
+    "The online route is a feasibility-preserving heuristic, not a proof of globally shortest total time",
+    "Q4 negative observations are conservatively retained rather than fully eliminated in a joint position-direction state"
+  ],
+  "verdict": "Technically coherent and evidence-consistent research version; not contest-submission-ready until human review and official tests are actually completed."
+}

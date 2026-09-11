@@ -1,0 +1,8 @@
+{
+  "official_status": "DEFERRED_BY_USER",
+  "reason": "User states the official simulator cannot currently run and explicitly requests deferral. No further download/start/test attempts. Six formal runs and encrypted exports remain future work; current deliverable is a verified research paper with synthetic evidence, not a contest-ready submission.",
+  "required_evidence": ["Q3 official practice results with revealed denominator", "Q4 official practice results with revealed denominator", "Q3 three official case codes, metrics and unchanged encrypted simulator-exported logs", "Q4 three official case codes, metrics and unchanged encrypted simulator-exported logs"],
+  "available_work": ["Rigorous Q1/Q2 solution", "Guaranteed-coverage Q3/Q4 algorithms", "Python py314 implementation", "Explicit synthetic simulation experiments", "Official HTTP client", "Detailed verified solution report"],
+  "submission_state": "NOT_READY_FOR_SUBMISSION",
+  "human_review": "Not performed by an actual contestant in this session; must not be claimed as performed."
+}

@@ -1,0 +1,1610 @@
+{
+  "parameters": {
+    "arena_radius": 1800.0,
+    "point_count": 31,
+    "receive_radius": 1000.0,
+    "spacing": 990.0
+  },
+  "q1000_static_seven_irreducible": {
+    "boundary_arc_capacity_of_five": 5.890309702162739,
+    "minimum_fixed_subset": 7,
+    "origin_to_ring": 1558.8457268119894
+  },
+  "q3_boundary_angle_lower_bound": {
+    "half_angle_radians": 0.5235987755982988,
+    "minimum_points": 7,
+    "q": 900.0,
+    "reason": "six arcs have total angular capacity 2*pi only at equality; equality ring misses origin"
+  },
+  "q4_global_outer_boundary_lower_bound": {
+    "attained_half_angle_radians": 0.5070985043923368,
+    "checked_detector_radii": 1001,
+    "half_angle_radians": 0.507098504392337,
+    "minimum_outer_detectors": 7,
+    "optimal_detector_radius": 2059.1260281974,
+    "statement": "lower bound for arbitrary placements at an outward boundary source; not a 31-point global optimum claim"
+  },
+  "witnesses": [
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          0
+        ],
+        [
+          -2,
+          1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1732.5,
+        428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        -0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        -0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            -3,
+            1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        -3,
+        1
+      ],
+      "source": [
+        -1733.3660254037845,
+        429.1825748732971
+      ],
+      "source_radius": 1785.7086718160347,
+      "target": [
+        -3,
+        1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          1
+        ],
+        [
+          -2,
+          2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1237.5,
+        1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        -0.8660254037844386,
+        0.5000000000000001
+      ],
+      "normal": [
+        -0.8660254037844386,
+        0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            -3,
+            2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999793,
+      "solevertex": [
+        -3,
+        2
+      ],
+      "source": [
+        -1238.3660254037845,
+        1286.5477246198911
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        -3,
+        2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1732.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        -0.8660254037844386,
+        -0.49999999999999994
+      ],
+      "normal": [
+        -0.8660254037844386,
+        -0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            -2,
+            -1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        -2,
+        -1
+      ],
+      "source": [
+        -1733.3660254037845,
+        -429.1825748732971
+      ],
+      "source_radius": 1785.7086718160347,
+      "target": [
+        -2,
+        -1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1237.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -3430.460598986377,
+      "n": [
+        -0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        -0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            -2,
+            0
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        -2,
+        0
+      ],
+      "source": [
+        -1238.3660254037845,
+        -428.1825748732971
+      ],
+      "source_radius": 1310.3017706999763,
+      "target": [
+        -2,
+        0
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1485.0,
+        0.0
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -2573.0954492397823,
+      "n": [
+        0.0,
+        1.0
+      ],
+      "normal": [
+        0.0,
+        1.0
+      ],
+      "reachable": [
+        [
+          [
+            -2,
+            1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        -2,
+        1
+      ],
+      "source": [
+        -1485.0,
+        1.0
+      ],
+      "source_radius": 1485.0003367002985,
+      "target": [
+        -2,
+        1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          1
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -990.0,
+        857.3651497465942
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -3430.4605989863767,
+      "n": [
+        0.0,
+        1.0
+      ],
+      "normal": [
+        0.0,
+        1.0
+      ],
+      "reachable": [
+        [
+          [
+            -2,
+            2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        -2,
+        2
+      ],
+      "source": [
+        -990.0,
+        858.3651497465942
+      ],
+      "source_radius": 1310.3017706999763,
+      "target": [
+        -2,
+        2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -495.0,
+        1714.7302994931883
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.82574873297,
+      "n": [
+        0.0,
+        1.0
+      ],
+      "normal": [
+        0.0,
+        1.0
+      ],
+      "reachable": [
+        [
+          [
+            -2,
+            3
+          ],
+          856.3651497465939
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        -2,
+        3
+      ],
+      "source": [
+        -495.0,
+        1715.7302994931883
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        -2,
+        3
+      ],
+      "target_distance": 856.3651497465939
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          -2
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1237.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        -0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "normal": [
+        -0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            -2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999793,
+      "solevertex": [
+        -1,
+        -2
+      ],
+      "source": [
+        -1238.3660254037845,
+        -1286.5477246198911
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        -1,
+        -2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          0
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1485.0,
+        0.0
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -2573.0954492397823,
+      "n": [
+        0.0,
+        -1.0
+      ],
+      "normal": [
+        0.0,
+        -1.0
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            -1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        -1,
+        -1
+      ],
+      "source": [
+        -1485.0,
+        -1.0
+      ],
+      "source_radius": 1485.0003367002985,
+      "target": [
+        -1,
+        -1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1732.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -858.3651497465942,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            0
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        -1,
+        0
+      ],
+      "source": [
+        -1731.6339745962155,
+        -428.1825748732971
+      ],
+      "source_radius": 1783.7871339935753,
+      "target": [
+        -1,
+        0
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          1
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1237.5,
+        428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -1715.7302994931883,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        -1,
+        1
+      ],
+      "source": [
+        -1236.6339745962155,
+        429.1825748732971
+      ],
+      "source_radius": 1308.992463576665,
+      "target": [
+        -1,
+        1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -2,
+          2
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -742.5,
+        1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -2573.0954492397827,
+      "n": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            2
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        -1,
+        2
+      ],
+      "source": [
+        -741.6339745962156,
+        1286.5477246198911
+      ],
+      "source_radius": 1485.0003367002982,
+      "target": [
+        -1,
+        2
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        495.0,
+        1714.7302994931883
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.82574873297,
+      "n": [
+        0.0,
+        1.0
+      ],
+      "normal": [
+        0.0,
+        1.0
+      ],
+      "reachable": [
+        [
+          [
+            -1,
+            3
+          ],
+          856.3651497465939
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        -1,
+        3
+      ],
+      "source": [
+        495.0,
+        1715.7302994931883
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        -1,
+        3
+      ],
+      "target_distance": 856.3651497465939
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -990.0,
+        -857.3651497465942
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -3430.4605989863767,
+      "n": [
+        0.0,
+        -1.0
+      ],
+      "normal": [
+        0.0,
+        -1.0
+      ],
+      "reachable": [
+        [
+          [
+            0,
+            -2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        0,
+        -2
+      ],
+      "source": [
+        -990.0,
+        -858.3651497465942
+      ],
+      "source_radius": 1310.3017706999763,
+      "target": [
+        0,
+        -2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          -1
+        ],
+        [
+          0,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -1237.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -858.3651497465949,
+      "n": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "normal": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "reachable": [
+        [
+          [
+            0,
+            -1
+          ],
+          856.365149746594
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        0,
+        -1
+      ],
+      "source": [
+        -1236.6339745962155,
+        -1285.5477246198911
+      ],
+      "source_radius": 1783.787133993575,
+      "target": [
+        0,
+        -1
+      ],
+      "target_distance": 856.365149746594
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -742.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -1715.7302994931886,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            0,
+            0
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997945,
+      "solevertex": [
+        0,
+        0
+      ],
+      "source": [
+        -741.6339745962156,
+        -428.1825748732971
+      ],
+      "source_radius": 856.3651497465943,
+      "target": [
+        0,
+        0
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -247.5,
+        428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -2573.0954492397827,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            0,
+            1
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997945,
+      "solevertex": [
+        0,
+        1
+      ],
+      "source": [
+        -246.63397459621555,
+        429.1825748732971
+      ],
+      "source_radius": 495.00101009997945,
+      "target": [
+        0,
+        1
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          -1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        247.5,
+        1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -3430.460598986377,
+      "n": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            0,
+            2
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        0,
+        2
+      ],
+      "source": [
+        248.36602540378445,
+        1286.5477246198911
+      ],
+      "source_radius": 1310.301770699976,
+      "target": [
+        0,
+        2
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          1,
+          -2
+        ],
+        [
+          0,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -495.0,
+        -1714.7302994931883
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.82574873297,
+      "n": [
+        0.0,
+        -1.0
+      ],
+      "normal": [
+        0.0,
+        -1.0
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            -3
+          ],
+          856.3651497465939
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        1,
+        -3
+      ],
+      "source": [
+        -495.0,
+        -1715.7302994931883
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        1,
+        -3
+      ],
+      "target_distance": 856.3651497465939
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -742.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -2573.0954492397827,
+      "n": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            -2
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        1,
+        -2
+      ],
+      "source": [
+        -741.6339745962156,
+        -1286.5477246198911
+      ],
+      "source_radius": 1485.0003367002982,
+      "target": [
+        1,
+        -2
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        -247.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -1715.7302994931892,
+      "n": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "normal": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            -1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        1,
+        -1
+      ],
+      "source": [
+        -246.63397459621555,
+        -1285.5477246198911
+      ],
+      "source_radius": 1308.9924635766647,
+      "target": [
+        1,
+        -1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        247.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -2573.0954492397827,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            0
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997945,
+      "solevertex": [
+        1,
+        0
+      ],
+      "source": [
+        248.36602540378445,
+        -428.1825748732971
+      ],
+      "source_radius": 495.00101009997945,
+      "target": [
+        1,
+        0
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        742.5,
+        428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -3430.4605989863767,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            1
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997945,
+      "solevertex": [
+        1,
+        1
+      ],
+      "source": [
+        743.3660254037844,
+        429.1825748732971
+      ],
+      "source_radius": 858.3651497465942,
+      "target": [
+        1,
+        1
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        1237.5,
+        1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            1,
+            2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999793,
+      "solevertex": [
+        1,
+        2
+      ],
+      "source": [
+        1238.3660254037845,
+        1286.5477246198911
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        1,
+        2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          2,
+          -2
+        ],
+        [
+          1,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        495.0,
+        -1714.7302994931883
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.82574873297,
+      "n": [
+        0.0,
+        -1.0
+      ],
+      "normal": [
+        0.0,
+        -1.0
+      ],
+      "reachable": [
+        [
+          [
+            2,
+            -3
+          ],
+          856.3651497465939
+        ]
+      ],
+      "second_detector_distance": 495.0010100999795,
+      "solevertex": [
+        2,
+        -3
+      ],
+      "source": [
+        495.0,
+        -1715.7302994931883
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        2,
+        -3
+      ],
+      "target_distance": 856.3651497465939
+    },
+    {
+      "edge_neighbors": [
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        247.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -3430.460598986377,
+      "n": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            2,
+            -2
+          ],
+          856.3651497465943
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        2,
+        -2
+      ],
+      "source": [
+        248.36602540378445,
+        -1286.5477246198911
+      ],
+      "source_radius": 1310.301770699976,
+      "target": [
+        2,
+        -2
+      ],
+      "target_distance": 856.3651497465943
+    },
+    {
+      "edge_neighbors": [
+        [
+          1,
+          -1
+        ],
+        [
+          2,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        742.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -2573.095449239783,
+      "n": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "normal": [
+        0.8660254037844388,
+        0.4999999999999999
+      ],
+      "reachable": [
+        [
+          [
+            2,
+            -1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.00101009997934,
+      "solevertex": [
+        2,
+        -1
+      ],
+      "source": [
+        743.3660254037844,
+        -1285.5477246198911
+      ],
+      "source_radius": 1485.0003367002982,
+      "target": [
+        2,
+        -1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        1237.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -3430.460598986377,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            2,
+            0
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        2,
+        0
+      ],
+      "source": [
+        1238.3660254037845,
+        -428.1825748732971
+      ],
+      "source_radius": 1310.3017706999763,
+      "target": [
+        2,
+        0
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        1732.5,
+        428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            2,
+            1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        2,
+        1
+      ],
+      "source": [
+        1733.3660254037845,
+        429.1825748732971
+      ],
+      "source_radius": 1785.7086718160347,
+      "target": [
+        2,
+        1
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          2,
+          -1
+        ],
+        [
+          2,
+          -2
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        1237.5,
+        -1286.0477246198911
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769724,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "normal": [
+        0.8660254037844386,
+        -0.5000000000000001
+      ],
+      "reachable": [
+        [
+          [
+            3,
+            -2
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999793,
+      "solevertex": [
+        3,
+        -2
+      ],
+      "source": [
+        1238.3660254037845,
+        -1286.5477246198911
+      ],
+      "source_radius": 1785.7086718160344,
+      "target": [
+        3,
+        -2
+      ],
+      "target_distance": 856.3651497465942
+    },
+    {
+      "edge_neighbors": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "epsilon": 1.0,
+      "midpoint": [
+        1732.5,
+        -428.6825748732971
+      ],
+      "midpoint_to_nearest_other_positive": 1309.6468989769721,
+      "min_other_forward": -4287.825748732971,
+      "n": [
+        0.8660254037844386,
+        -0.49999999999999994
+      ],
+      "normal": [
+        0.8660254037844386,
+        -0.49999999999999994
+      ],
+      "reachable": [
+        [
+          [
+            3,
+            -1
+          ],
+          856.3651497465942
+        ]
+      ],
+      "second_detector_distance": 495.0010100999794,
+      "solevertex": [
+        3,
+        -1
+      ],
+      "source": [
+        1733.3660254037845,
+        -429.1825748732971
+      ],
+      "source_radius": 1785.7086718160347,
+      "target": [
+        3,
+        -1
+      ],
+      "target_distance": 856.3651497465942
+    }
+  ]
+}

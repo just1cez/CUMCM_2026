@@ -1,0 +1,27 @@
+# macOS and editor metadata
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Python caches and local tooling state
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.ruff_cache/
+**/.ruff_cache/
+
+# LaTeX build products (source PDFs and .tex files remain tracked)
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.xdv
+*.out
+*.synctex.gz
+
+# Rendered visual-review rasters are local inspection products; the audit JSON is canonical
+b_solution/report/visual/*.png
+
+# HTTP fixture request logs may contain request identifiers; JSON summaries remain tracked
+b_solution/results/*.jsonl

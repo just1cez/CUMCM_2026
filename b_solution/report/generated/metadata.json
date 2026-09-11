@@ -1,0 +1,109 @@
+{
+  "evidence": "local_synthetic_not_official",
+  "official_calls": 0,
+  "asset_set": "base_comparison_with_enhanced_trajectory",
+  "input_sha256": {
+    "results/final_experiments.json": "af40f38ca500a3e5f0c47978626098401a18735dd5cabd312323d8e17927f193",
+    "results/geometry_verification.json": "23008600135edd94430a36bceddbfb02d1a12a7561531e580f6a29e7cf18a4b3",
+    "results/http_verification.json": "55d24530b29555d8b9274026be6b01d7dd70df19cb8724e347651b0b73d295fb",
+    "results/second_point_example.json": "30736bb6d467cae1c428c45015912e7c27e972f1b009fad08cc2751c825c6c1c",
+    "make_assets.py": "a9890375d992517e6959c7a5596178278c279881983172e170db2565674fdf39",
+    "planner.py": "bc05a7979f4eeebd57011209c4ffe2e0c493a48aac2aea7d4037a18867055999",
+    "environment.py": "6144f761cd41c22a301bfd2511554346bf61e7157afc850b6291e6648d79fff7",
+    "geometry.py": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357",
+    "coverage.py": "661b77f3433e6cb936ddc0be1dcccbbc1b89378fc141f6f976028551e24a374c",
+    "second_point.py": "b9da434f9b9440dd9e5f938ee59d45c0afad14b2a9b5486d4b1da56b9b9652cd",
+    "results/enhancement_experiments.json": "2c8db27c7ae11270919462091728af7eb62db9df92e2d362145bcc661c4625f9",
+    "results/ring_sweep.json": "af9410568ea5fad1bf8c6ec8e93ee7154dbe63297cd4043d63909006e6d96e59"
+  },
+  "matplotlib_version": "3.11.1",
+  "figures": [
+    "coverage.pdf",
+    "geometry.pdf",
+    "q2_lens.pdf",
+    "performance.pdf",
+    "trajectories.pdf",
+    "recovery.pdf",
+    "enhancement_geometry.pdf",
+    "enhancement_performance.pdf"
+  ],
+  "tables": [
+    "comparison_table.tex",
+    "stress_table.tex",
+    "sensitivity_table.tex",
+    "recovery_table.tex",
+    "verification_table.tex",
+    "enhancement_table.tex",
+    "enhancement_costs.tex",
+    "enhancement_stress.tex",
+    "candidate_table.tex",
+    "coverage_limits_table.tex"
+  ],
+  "enhancement_metadata": "enhancement_metadata.json",
+  "layout": {
+    "width_cm": 16,
+    "minimum_font_pt": 10,
+    "backend": "Agg",
+    "format": "vector PDF"
+  },
+  "metric": "Mean, median and nearest-rank p90 of per-world T/N; never pooled sum(T)/sum(N). Gains are reduction of group means; ECDFs use the same seeds per policy.",
+  "denominators": {
+    "all_runs_including_paired_repeats": 4430,
+    "main_worlds_per_problem": 500,
+    "trajectory_replays_additional_to_experiments": 2
+  },
+  "seed_ranges": {
+    "main": [
+      600000,
+      600499
+    ],
+    "stress": [
+      700000,
+      700019
+    ],
+    "probe_sensitivity": [
+      800000,
+      800029
+    ],
+    "spacing_sensitivity": [
+      900000,
+      900029
+    ],
+    "recovery": [
+      610000,
+      610099
+    ],
+    "trajectory": 20260910
+  },
+  "parameters": {
+    "strategy": "enhanced",
+    "anchor_policy_Q3": "nearest",
+    "anchor_policy_Q4": "rolling",
+    "ring_radius_Q3_m": 1200,
+    "spacing_Q4_m": 990,
+    "probe_scale": 0.22,
+    "max_probes": 6,
+    "loss_recovery_Q4": true,
+    "bearing_halfwidth_deg": 1.005,
+    "Q2_source_samples": 180,
+    "Q2_second_errors_deg": [
+      -1,
+      0,
+      1
+    ],
+    "Q2_optimality": "Finite candidate/sample comparison only, no global or continuous minimax certificate"
+  },
+  "distributions": {
+    "random": "N uniform integer 10..16; distinct channels uniformly sampled; positions iid area-uniform radius-1800 disk; radii uniform [1000,1500]; orientations uniform [0,2pi). Q3 all omni; Q4 uniform directional count 1..N-1 and uniform subset.",
+    "minimum_radius": "Random geometry, radio radius exactly 1000 m.",
+    "outward_boundary": "16 equally spaced boundary sources with seeded rotation, radius 1000; Q4 15 outward directional and one omni.",
+    "clustered": "16 area-uniform sources in radius-35 disk with center at radius1650; radio radius1000."
+  },
+  "error_fields": {
+    "smooth": "Deterministic bounded two-sinusoid field.",
+    "extreme": "Coordinate/seed/channel hash selecting +/-1 degree.",
+    "iid_location": "Coordinate/seed/channel hash uniform [-1,1], not independent repeat measurements."
+  },
+  "trajectory_evidence": "trajectory_q3.json and trajectory_q4.json preserve complete observable logs, accepted paths, successful robot clearing locations and post-exit aggregate summaries. No hidden source coordinates inspected.",
+  "determinism": "PDF creation timestamps suppressed; no random plotting jitter. Raw real-duration/timing observations may vary between replays; figures use virtual time only."
+}

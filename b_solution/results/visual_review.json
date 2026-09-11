@@ -1,0 +1,56 @@
+{
+  "status": "visual_review_completed_for_current_research_version",
+  "scope": {
+    "paper_pdf": "report/paper.pdf",
+    "paper_sha256": "bf6910db6062d9c12ae5bf9d2ceeadf30209a570873e467d39dce44acc87bddd",
+    "paper_pages": 120,
+    "body_end_page": 31,
+    "body_pages_excluding_abstract": 30,
+    "ai_usage_pdf": "report/ai_usage.pdf",
+    "ai_usage_sha256": "66d5765faa0d7e82ea9d861748220c2676cc193127bc814a02cf0521ff43cc8b",
+    "ai_usage_pages": 3
+  },
+  "render_evidence": {
+    "paper_audit": "report/visual/paper_audit.json",
+    "ai_audit": "report/visual/ai_audit.json",
+    "paper_contact_sheets": 20,
+    "ai_contact_sheets": 1,
+    "dpi": 120,
+    "all_pages_rendered": true,
+    "out_of_page_spans": [],
+    "replacement_characters": 0,
+    "near_empty_pages": []
+  },
+  "visual_inspection": {
+    "method": "Main direct inspection of body sheets and full page13; image-model inspection of every numbered page on all20 paper sheets and the AI sheet",
+    "paper_page_ranges_inspected": [[1,6],[7,12],[13,18],[19,24],[25,30],[31,36],[37,42],[43,48],[49,54],[55,60],[61,66],[67,72],[73,78],[79,84],[85,90],[91,96],[97,102],[103,108],[109,114],[115,120]],
+    "ai_pages_inspected": [1,2,3],
+    "resolved_issue": "Page13 Q4 Outside:18 legend was clipped; increased plotting bottom space and anchored legends to figure coordinates. Full-resolution final page13 now shows both legend rows intact.",
+    "other_findings": "No visible clipping or overlapping text found on the remaining pages; code listings continue normally across page breaks",
+    "accepted_layout_limits": [
+      "Interior pages26 and27 retain whitespace because the next large inline figure does not fit; no content is missing",
+      "Final bibliography and appendix closing pages have ordinary unused space",
+      "Appendix source is intentionally small and zoomable; contact sheets cannot certify every individual tiny glyph"
+    ]
+  },
+  "log_checks": {
+    "paper_overfull": false,
+    "paper_underfull": false,
+    "paper_missing_characters": false,
+    "paper_undefined_references": false,
+    "ai_overfull": false,
+    "ai_underfull": false,
+    "ai_missing_characters": false,
+    "ai_undefined_references": false
+  },
+  "format_checks": {
+    "body_page_limit": "30 body pages after the separate abstract; appendix excluded",
+    "rule": "Official2026 format articles3,4,10: abstract separate, following body<=30 pages, appendix unlimited",
+    "abstract_keywords": "pass",
+    "text_bounds": "pass"
+  },
+  "limitations": [
+    "This automated visual review is not contestant manual review",
+    "Official simulator tests and six encrypted official logs remain deferred by user"
+  ]
+}

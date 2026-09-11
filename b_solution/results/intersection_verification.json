@@ -1,0 +1,37 @@
+{
+  "evidence": "Q1_direct_halfplane_algorithm_examples",
+  "bounded": {
+    "status": "bounded",
+    "vertices": [
+      [
+        2.010855956817914e-13,
+        0.0
+      ],
+      [
+        35.99999999999974,
+        0.0
+      ],
+      [
+        17.999999999999744,
+        31.176914536239778
+      ]
+    ],
+    "diameter_m": 35.999999999999986,
+    "mec_center": [
+      17.999999999999964,
+      10.392304845413392
+    ],
+    "mec_radius_m": 20.784609691826397,
+    "max_halfplane_residual_m": 5.400124791776761e-13
+  },
+  "unbounded": {
+    "status": "unbounded",
+    "vertices": [],
+    "diameter_m": null
+  },
+  "infeasible": {
+    "status": "infeasible",
+    "vertices": [],
+    "diameter_m": null
+  }
+}

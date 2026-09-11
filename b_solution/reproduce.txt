@@ -1,0 +1,82 @@
+CUMCM 2026 B — 可复现研究版
+
+一、交付状态
+官方模拟器按用户明确要求搁置。当前论文、代码和数据是经过自动审查与本地验证的研究版本；不含六次正式测试、官方案例编码、加密日志或真实参赛队人工核验记录，不可直接冒充完整参赛提交。
+
+二、运行环境
+从解压后的项目根目录执行以下Python命令，统一使用conda py314：
+  conda run -n py314 python --version
+  conda run -n py314 python -m pip install -r requirements.txt
+
+在线策略、HTTP客户端及合成环境使用标准库。问题一直接线性规划、独立几何验证和制图另用numpy、scipy、matplotlib；PDF检查用PyMuPDF和matplotlib依赖的Pillow。实际版本见results/environment_manifest.json。LaTeX需要XeLaTeX及latexmk，使用TeX发行版中的Fandol中文字体，无需个人机器字体。
+
+三、单次合成世界与最终完整试验
+  conda run -n py314 python run.py --problem 3 --seed 20260910
+  conda run -n py314 python run.py --problem 4 --seed 20260910
+  conda run -n py314 python run.py --problem 4 --scenario outward_boundary --error-mode extreme
+  conda run -n py314 python experiments.py --cases 500 --output results/final_experiments.json
+
+最后一条命令执行4430次运行：每问500个世界上baseline、batched、integrated三策略的配对比较，360次压力运行、270次敏感性运行及800次恢复消融。并非4430个独立随机世界。主随机种子600000–600499，恢复消融610000–610099，压力700000–700019，敏感性800000及900000起的30个种子。所有实验通过公开动作响应决策；总源数仅在退出后用于评价。每步虚拟时间另由实验脚本复算。
+
+四、几何和开发对照
+  conda run -n py314 python verify_geometry.py
+  conda run -n py314 python intersection.py
+  conda run -n py314 python second_point.py
+  conda run -n py314 python compare_recovery.py
+  conda run -n py314 python develop_anchors.py
+  conda run -n py314 python ring_sweep.py
+  conda run -n py314 python enhancements.py
+  conda run -n py314 python compare_routes.py
+  conda run -n py314 python compare_probes.py
+  conda run -n py314 python verify_terminal.py
+  conda run -n py314 python verify_refinements.py
+  conda run -n py314 python verify_coverage_limits.py
+
+本轮默认策略为enhanced：Q3保留1200米七点环，Q4采用滚动2-opt剩余骨架排序，均保留固定测向与光学后备。原integrated是明确对照。3080次增强主比较和压力运行独立记录在enhancement_experiments.json；4430次基础运行另存，不混合分母。ring_sweep.py复用150个开发世界比较8个半径，再以500个全新世界确认两个冻结半径，共2200次执行（非2200个独立世界）。
+
+enhancements.py保存策略、问题、场景和误差模式下的逐世界结果；make_enhancement_assets.py重算分母、成本分解、配对差值及图表。ring_sweep.py使用开发种子1000000–1000149和新确认种子2300000–2300499，保存全部逐世界结果、差值、均值区间和全清计数，结果仅排除现实运行耗时。早期复用1100000组的比较不充当最终新样本证据。verify_coverage_limits.py检验31点见证及Q4外向圆周下界；verify_refinements.py核验环覆盖、全部720种骨架顺序、圆域内格点六邻点和测向区间上界。
+
+verify_geometry同时生成默认增强动作规模解析上界operation_bound.json。intersection不添加人工包围框，分别演示原始测向半平面交的有界、无界和不可行情形。second_point是归一化候选评分示例，不是官方数据。compare_recovery使用500000–500099作为早期开发种子，develop_anchors使用1000000–1000149作为增强选择期种子；二者不能替代最终样本外比较。
+
+五、本地HTTP故障回归（不是官方模拟器）
+终端一运行截断响应夹具：
+  conda run -n py314 python verify_http.py --server --port 12026 --case truncated
+终端二执行：
+  conda run -n py314 python verify_http.py --port 12026 --case truncated
+完成后终端一按Ctrl-C关闭该夹具。
+
+另一组检查慢速响应的绝对期限，终端一：
+  conda run -n py314 python verify_http.py --server --port 12027 --case deadline
+终端二：
+  conda run -n py314 python verify_http.py --port 12027 --case deadline
+完成后关闭夹具。结果为http_verification.json、http_deadline_verification.json及同名JSONL，均位于results。每次使用独立临时工作日志，因此可重复运行；这些日志不含真实参赛队身份，不是官方加密导出。
+
+六、图表、论文和PDF检查
+在项目根目录执行：
+  conda run -n py314 python make_enhancement_assets.py
+  conda run -n py314 python make_assets.py
+
+在report目录执行：
+  latexmk -xelatex -interaction=nonstopmode -halt-on-error paper.tex
+  latexmk -xelatex -interaction=nonstopmode -halt-on-error ai_usage.tex
+
+回到项目根目录执行：
+  conda run -n py314 python audit_pdf.py --pdf report/paper.pdf --prefix paper
+  conda run -n py314 python audit_pdf.py --pdf report/ai_usage.pdf --prefix ai
+
+make_assets读取已保存JSON，重新计算汇总并核对，再生成数字宏、表格、六幅矢量图及两个完整可观察轨迹。audit_pdf会把每一页渲染至report/visual，生成六页一组的拼图和结构审计JSON。它不自动宣称视觉检查合格；需实际查看所有页面，并更新results/visual_review.json。正文与摘要页要求由审计脚本检查；附录完整列出本项目可运行代码。
+
+七、匿名打包与完整复现
+打包只收集白名单文件，不含原始赛题、个人路径、账户信息、临时文件或官方私有日志。包内MANIFEST.json记录每个文件的SHA-256。执行 conda run -n py314 python package.py --verify 会先检查图表输入和PDF审计哈希，然后将支撑包解压至临时目录，重跑几何、问题一、问题二、4430次基础运行、3080次增强运行、2200次环筛选运行、终端验证和候选对照，重建图表并编译论文及AI详情。除现实运行耗时外，逐世界结果必须一致。复现验证.json位于delivery，关联该ZIP的哈希；不能将上次生成的验证文件用于新ZIP。输出在delivery：
+  B题研究论文.pdf
+  AI工具使用详情.pdf
+  B题研究支撑材料.zip
+  复现验证.json
+  交付状态.json
+
+只有相应验证确已完成，才能把状态记为通过。包内自动审查不是参赛队员人工审查。无须运行check_environment.py，也不需要任何个人目录中的资源。
+
+八、以后恢复官方测试时
+当前不要下载、启动、登录或调用官方模拟器。未来经授权并由官方GUI开启正确题号的演练后，official_run.py可连接已经就绪的本机HTTP接口。其参数为--problem、--robot-id、--output-dir（新目录），可选--base-url；它不启动GUI正式测试，也不伪造案例编码。
+
+官方明文请求日志含真实robot_id，只能保存在私有工作目录，不能未经脱敏进入匿名论文或公开分享。正式支撑材料所要求的六份官方加密日志必须由模拟器原名导出、保留原始字节并核对上传；当前研究包没有这些文件。本地JSONL和合成实验均不能替代正式成绩。正式参赛前还必须完成真实参赛队对核心模型、计算、代码和论文的逐项人工核验，并如实更新AI使用说明。
