@@ -1,8 +1,8 @@
 {
   "pdf": "report/ai_usage.pdf",
-  "sha256": "66d5765faa0d7e82ea9d861748220c2676cc193127bc814a02cf0521ff43cc8b",
-  "pages": 3,
-  "size_mib": 0.2433614730834961,
+  "sha256": "e7388a421212c44b938a7c736a7c26a642f8a02c9aaa3337faa21eee10d1dd19",
+  "pages": 4,
+  "size_mib": 0.25970458984375,
   "body_end_page": null,
   "body_pages_excluding_abstract": null,
   "abstract_keywords_on_first_page": false,
@@ -17,22 +17,29 @@
   "page_records": [
     {
       "page": 1,
-      "characters": 861,
+      "characters": 881,
       "image": "ai_001.png",
-      "smallest_text_pt": 12.0,
+      "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 22.0
     },
     {
       "page": 2,
-      "characters": 953,
+      "characters": 976,
       "image": "ai_002.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
     },
     {
       "page": 3,
-      "characters": 1013,
+      "characters": 1110,
       "image": "ai_003.png",
+      "smallest_text_pt": 12.0,
+      "largest_text_pt": 18.0
+    },
+    {
+      "page": 4,
+      "characters": 544,
+      "image": "ai_004.png",
       "smallest_text_pt": 10.5,
       "largest_text_pt": 18.0
     }

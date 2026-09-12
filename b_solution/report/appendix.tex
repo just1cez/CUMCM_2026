@@ -30,15 +30,23 @@
 \lstinputlisting[language=Python,caption={增强几何及区间评分交叉验证}]{../verify_refinements.py}
 \lstinputlisting[language=Python,caption={31格点不可删反例验证}]{../verify_coverage_limits.py}
 \lstinputlisting[language=Python,caption={增强策略图表生成}]{../make_enhancement_assets.py}
-\lstinputlisting[language=TeX,caption={覆盖上界理论片段}]{../coverage_limits.tex}
-\lstinputlisting[language=TeX,caption={默认有限时间证明片段}]{bound_proof.tex}
-\lstinputlisting[language=TeX,caption={样本外增强分析片段}]{enhancements.tex}
+\lstinputlisting[language=Python,caption={25点极坐标覆盖候选与解析证书}]{../polar_coverage_candidate.py}
+\lstinputlisting[language=Python,caption={发现与清除联合调度候选}]{../joint_dispatch_candidate.py}
+\lstinputlisting[language=Python,caption={分层光学覆盖候选（非默认）}]{../optical_policy_candidate.py}
+\lstinputlisting[language=Python,caption={独立开发集上的候选筛选}]{../refinement_study.py}
+\lstinputlisting[language=Python,caption={冻结策略的样本外消融与压力实验}]{../research_experiments.py}
+\lstinputlisting[language=Python,caption={新覆盖与策略行为的独立核验}]{../verify_research.py}
+\lstinputlisting[language=Python,caption={新研究数字、图表与轨迹生成}]{../make_research_assets.py}
 
 \subsection{匿名文件清单与结果接口}
 \begin{longtable}{p{0.60\textwidth}p{0.32\textwidth}}
 \toprule 文件或目录 & 用途\\\midrule
 \path{results/final_experiments.json} & 4430次最终合成运行\\
 \path{results/enhancement_experiments.json} & 3080次样本外增强运行\\
+\path{results/refinement_development.json} & 2550次独立开发运行\textup{（非样本外）}\\
+\path{results/research_experiments.json} & 10700次冻结策略研究运行\\
+\path{results/research_verification.json} & 新覆盖、光学与行为证书核验\\
+\path{results/research_review.json} & 本轮最终独立自动审查\\
 \path{results/ring_sweep.json} & Q3环半径开发筛选及样本外配对证据\\
 \path{results/coverage_limits.json} & 全部31点不可删构造\\
 \path{results/refinement_verification.json} & 收缩环与角区间上界验证\\
@@ -53,7 +61,7 @@
 \path{results/paper_review.json} & 非官方自动审阅记录\\
 \path{results/final_review.json} & 新结论与新世界证据的最终独立审查\\
 \path{report/generated/} & 自动数字、表格与轨迹证据\\
-\path{report/figures/} & 基础及增强矢量图\\
+\path{report/figures/} & 基础、历史增强及新研究矢量图\\
 \path{report/ai_usage.tex} & AI使用详情源文件\\
 \path{reproduce.txt}、\path{requirements.txt} & 命令、环境及依赖\\
 \path{MANIFEST.json} & 支撑包内文件校验值\\
@@ -62,8 +70,14 @@
 \path{results/terminal_verification.json} & 虚拟/现实期限终端回归\\
 \path{theory_additions.txt}、\path{paper_expansion.txt} & 独立理论草稿\\
 \path{report/generated/coverage_limits_table.tex} & 不可删性汇总表\\
+\path{polar_coverage_notes.txt} & 极坐标覆盖推导草稿\\
+\path{joint_dispatch_notes.txt} & 联合调度推导草稿\\
+\path{optical_policy_notes.txt} & 光学候选推导草稿\\
+\path{report/research_theory.tex} & 正文直接引用的新理论片段\\
+\path{report/generated/research_metadata.json} & 新图表输入哈希与分母记录\\
+\path{contracts.json}、\path{report_contracts.json} & 接口与证据口径的描述性快照\\
 \bottomrule
 \end{longtable}
-图表由\path{make_assets.py}和\path{make_enhancement_assets.py}读取对应JSON生成，完整代码如上。\path{audit_pdf.py}渲染全部页面并检查文字边界；\path{package.py --verify}解压支撑包，重新运行计算和编译，不以原目录存在文件代替解压可复现性。
+图表由\path{make_assets.py}、\path{make_enhancement_assets.py}和\path{make_research_assets.py}读取对应JSON生成，完整可运行代码如上。理论片段已在正文引用，不重复以代码字体排印中文。notes文件只记录推导，实际结果以结果JSON为准。默认\texttt{refined}与历史\texttt{enhanced}分开标注；2550次开发运行不进入10700次冻结研究的分母。\path{audit_pdf.py}渲染全部页面并检查文字边界；\path{package.py --verify}解压支撑包，完整重建五组共22960次实验运行并逐项比较，仅排除真实墙钟\texttt{real\_duration\_s}及其派生最大值\texttt{max\_real\_duration\_s}，保留其余行为和统计字段；随后重建图表与编译，不以原目录存在文件代替解压可复现性。
 
 含有官方 \texttt{robot\_id} 的私有 HTTP 日志不进入匿名包；如正式流程要求提交官方加密导出，应保持官方给出的原文件名和原始字节，不在公开包中复制或改写。官方模拟器尚未运行，故本附录不提供官方输出。

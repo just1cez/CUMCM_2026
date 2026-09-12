@@ -1,11 +1,24 @@
 {
   "status": "passed",
-  "archive_sha256": "90cdffa7f739483cd7d59fbea659a7184a6c759c911326dce4b6264016be4477",
+  "archive_sha256": "855605d5020e14a52c8eaff70bbb0f10ccf89bddf1e57765c874ffe5a485c1f7",
   "manifest_hashes_verified": true,
   "all_4430_behavioral_runs_reproduced_exactly": true,
   "all_3080_enhancement_runs_reproduced_exactly": true,
   "ring_sweep_reproduced_exactly": true,
-  "excluded_nondeterminism": "wall-clock real_duration_s only",
+  "all_2200_ring_runs_reproduced_exactly": true,
+  "all_10700_research_runs_reproduced_exactly": true,
+  "all_2550_development_runs_reproduced_exactly": true,
+  "research_verification_reproduced_exactly": true,
+  "generated_asset_input_hashes_verified": true,
+  "experiment_runs_reproduced_by_dataset": {
+    "final_experiments.json": 4430,
+    "enhancement_experiments.json": 3080,
+    "ring_sweep.json": 2200,
+    "refinement_development.json": 2550,
+    "research_experiments.json": 10700
+  },
+  "experiment_runs_reproduced_total": 22960,
+  "excluded_nondeterminism": "measured wall-clock real_duration_s and its summary maximum max_real_duration_s only",
   "commands": [
     {
       "command": [
@@ -13,7 +26,7 @@
         "verify_geometry.py"
       ],
       "returncode": 0,
-      "seconds": 1.1978860420058481
+      "seconds": 1.0145043750089826
     },
     {
       "command": [
@@ -21,7 +34,7 @@
         "intersection.py"
       ],
       "returncode": 0,
-      "seconds": 0.19701316699502058
+      "seconds": 0.19034737499896437
     },
     {
       "command": [
@@ -29,7 +42,7 @@
         "second_point.py"
       ],
       "returncode": 0,
-      "seconds": 0.30004795899731107
+      "seconds": 0.2932254580082372
     },
     {
       "command": [
@@ -41,7 +54,7 @@
         "results/final_experiments.json"
       ],
       "returncode": 0,
-      "seconds": 11.462509582997882
+      "seconds": 11.335029957990628
     },
     {
       "command": [
@@ -49,7 +62,7 @@
         "enhancements.py"
       ],
       "returncode": 0,
-      "seconds": 16.90489795799658
+      "seconds": 16.31685779200052
     },
     {
       "command": [
@@ -57,7 +70,7 @@
         "ring_sweep.py"
       ],
       "returncode": 0,
-      "seconds": 5.315926374998526
+      "seconds": 5.059388958005002
     },
     {
       "command": [
@@ -65,7 +78,7 @@
         "verify_terminal.py"
       ],
       "returncode": 0,
-      "seconds": 0.04464308399474248
+      "seconds": 0.042091916999197565
     },
     {
       "command": [
@@ -73,7 +86,7 @@
         "verify_refinements.py"
       ],
       "returncode": 0,
-      "seconds": 0.06721016600204166
+      "seconds": 0.06316595899988897
     },
     {
       "command": [
@@ -81,7 +94,7 @@
         "verify_coverage_limits.py"
       ],
       "returncode": 0,
-      "seconds": 0.018850042004487477
+      "seconds": 0.01624387499759905
     },
     {
       "command": [
@@ -89,7 +102,7 @@
         "compare_routes.py"
       ],
       "returncode": 0,
-      "seconds": 2.25787491700612
+      "seconds": 2.179315832996508
     },
     {
       "command": [
@@ -97,7 +110,35 @@
         "compare_probes.py"
       ],
       "returncode": 0,
-      "seconds": 19.902635457998258
+      "seconds": 18.84966591600096
+    },
+    {
+      "command": [
+        "python",
+        "verify_research.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.0778791670018109
+    },
+    {
+      "command": [
+        "python",
+        "refinement_study.py",
+        "--cases",
+        "150",
+        "--seed",
+        "3100000"
+      ],
+      "returncode": 0,
+      "seconds": 18.594289791988558
+    },
+    {
+      "command": [
+        "python",
+        "research_experiments.py"
+      ],
+      "returncode": 0,
+      "seconds": 73.63786266700481
     },
     {
       "command": [
@@ -105,7 +146,7 @@
         "make_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.9736742500099353
+      "seconds": 0.7352663750061765
     },
     {
       "command": [
@@ -113,7 +154,15 @@
         "make_enhancement_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.46831520900013857
+      "seconds": 0.4185546669905307
+    },
+    {
+      "command": [
+        "python",
+        "make_research_assets.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.5839559999876656
     },
     {
       "command": [
@@ -124,7 +173,7 @@
         "paper.tex"
       ],
       "returncode": 0,
-      "seconds": 10.863029125001049
+      "seconds": 11.78830783299054
     },
     {
       "command": [
@@ -135,7 +184,7 @@
         "ai_usage.tex"
       ],
       "returncode": 0,
-      "seconds": 1.073301333002746
+      "seconds": 1.0501998330000788
     }
   ]
 }

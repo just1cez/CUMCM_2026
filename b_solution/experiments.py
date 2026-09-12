@@ -24,6 +24,10 @@ def run_case(
     anchor_policy=None,
     ring_radius=None,
     probe_policy="fixed",
+    coverage_policy=None,
+    optical_policy="rectangle",
+    dispatch_policy=None,
+    scan_policy=None,
 ):
     env = LocalSimulator(seed, problem, error_mode, scenario)
     planner = Planner(
@@ -36,6 +40,10 @@ def run_case(
         anchor_policy=anchor_policy,
         ring_radius=ring_radius,
         probe_policy=probe_policy,
+        coverage_policy=coverage_policy,
+        optical_policy=optical_policy,
+        dispatch_policy=dispatch_policy,
+        scan_policy=scan_policy,
     )
     p = planner.run()
     assert p["certificate_complete"] is True
@@ -77,6 +85,10 @@ def run_case(
         "spacing_m": spacing,
         "certificate_complete": p["certificate_complete"],
         "timing_independently_verified": True,
+        "coverage_policy": p["coverage_policy"],
+        "optical_policy": p["optical_policy"],
+        "dispatch_policy": p["dispatch_policy"],
+        "scan_policy": p["scan_policy"],
     }
 
 

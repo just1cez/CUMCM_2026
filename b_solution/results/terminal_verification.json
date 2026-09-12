@@ -2,7 +2,7 @@
   "evidence": "local_protocol_shaped_terminal_regression_not_official",
   "automatic_virtual_timeout": {
     "problem": 3,
-    "strategy": "enhanced",
+    "strategy": "refined",
     "cleared_channels": [],
     "n_cleared": 0,
     "virtual_time_s": 11.0,
@@ -39,11 +39,15 @@
     "visited_anchors": 1,
     "total_anchors": 7,
     "optical_fallbacks": 0,
-    "termination": "incomplete_virtual_timeout"
+    "termination": "incomplete_virtual_timeout",
+    "coverage_policy": "ring",
+    "optical_policy": "rectangle",
+    "dispatch_policy": "center",
+    "scan_policy": "unknown"
   },
   "preflight_real_deadline": {
     "problem": 3,
-    "strategy": "enhanced",
+    "strategy": "refined",
     "cleared_channels": [],
     "n_cleared": 0,
     "virtual_time_s": 0.0,
@@ -80,7 +84,11 @@
     "visited_anchors": 0,
     "total_anchors": 7,
     "optical_fallbacks": 0,
-    "termination": "incomplete_TimeoutError"
+    "termination": "incomplete_TimeoutError",
+    "coverage_policy": "ring",
+    "optical_policy": "rectangle",
+    "dispatch_policy": "center",
+    "scan_policy": "unknown"
   },
   "never_exited_after_terminal": true,
   "near_at_limit_not_absent": true,

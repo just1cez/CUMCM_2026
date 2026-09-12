@@ -46,6 +46,18 @@ SOURCES = (
     "route_policy_candidate.py",
     "active_policy_notes.txt",
     "route_policy_notes.txt",
+    "polar_coverage_candidate.py",
+    "polar_coverage_notes.txt",
+    "joint_dispatch_candidate.py",
+    "joint_dispatch_notes.txt",
+    "optical_policy_candidate.py",
+    "optical_policy_notes.txt",
+    "refinement_study.py",
+    "research_experiments.py",
+    "verify_research.py",
+    "make_research_assets.py",
+    "contracts.json",
+    "report_contracts.json",
     "enhancements.py",
     "ring_sweep.py",
     "develop_anchors.py",
@@ -72,6 +84,10 @@ RESULTS = (
     "enhancement_review.json",
     "coverage_limits.json",
     "refinement_verification.json",
+    "refinement_development.json",
+    "research_experiments.json",
+    "research_verification.json",
+    "research_review.json",
     "http_verification.json",
     "http_deadline_verification.json",
     "review_resolutions.json",
@@ -81,6 +97,25 @@ RESULTS = (
     "final_review.json",
     "environment_manifest.json",
 )
+
+
+def verify_asset_inputs(root: Path):
+    for metadata_name in ("metadata.json", "enhancement_metadata.json", "research_metadata.json"):
+        metadata = json.loads((root / "report/generated" / metadata_name).read_text())
+        for name, expected in metadata["input_sha256"].items():
+            actual = hashlib.sha256((root / name).read_bytes()).hexdigest()
+            if actual != expected:
+                raise ValueError(f"Stale generated asset input: {name}")
+
+
+def deterministic_content(value):
+    """Exclude measured wall clocks and their maximum, not behavioral statistics."""
+    if isinstance(value, dict):
+        return {key: deterministic_content(item) for key, item in value.items()
+                if key not in ("real_duration_s", "max_real_duration_s")}
+    if isinstance(value, list):
+        return [deterministic_content(item) for item in value]
+    return value
 
 
 def verify_archive(archive: Path):
@@ -97,11 +132,18 @@ def verify_archive(archive: Path):
         for name, information in manifest["files"].items():
             raw = (extracted / name).read_bytes()
             assert hashlib.sha256(raw).hexdigest() == information["sha256"], name
-        baseline = json.loads(
-            (extracted / "results/final_experiments.json").read_text()
-        )
-        enhanced_baseline = json.loads((extracted / "results/enhancement_experiments.json").read_text())
-        ring_baseline = json.loads((extracted / "results/ring_sweep.json").read_text())
+        verify_asset_inputs(extracted)
+        expected_runs = {
+            "final_experiments.json": 4430,
+            "enhancement_experiments.json": 3080,
+            "ring_sweep.json": 2200,
+            "refinement_development.json": 2550,
+            "research_experiments.json": 10700,
+        }
+        baselines = {
+            name: json.loads((extracted / "results" / name).read_text())
+            for name in (*expected_runs, "research_verification.json")
+        }
         commands = [
             [sys.executable, "verify_geometry.py"],
             [sys.executable, "intersection.py"],
@@ -121,8 +163,12 @@ def verify_archive(archive: Path):
             [sys.executable, "verify_coverage_limits.py"],
             [sys.executable, "compare_routes.py"],
             [sys.executable, "compare_probes.py"],
+            [sys.executable, "verify_research.py"],
+            [sys.executable, "refinement_study.py", "--cases", "150", "--seed", "3100000"],
+            [sys.executable, "research_experiments.py"],
             [sys.executable, "make_assets.py"],
             [sys.executable, "make_enhancement_assets.py"],
+            [sys.executable, "make_research_assets.py"],
             [
                 "latexmk",
                 "-xelatex",
@@ -147,7 +193,7 @@ def verify_archive(archive: Path):
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
-                timeout=240,
+                timeout=1800,
                 check=False,
                 env={**os.environ, "MPLBACKEND": "Agg"},
             )
@@ -162,20 +208,23 @@ def verify_archive(archive: Path):
                 raise RuntimeError(
                     f"Extracted archive command failed: {command}\n{completed.stdout[-12000:]}"
                 )
-        replay = json.loads((extracted / "results/final_experiments.json").read_text())
-        assert baseline["total_runs"] == replay["total_runs"] == 4430
-        assert len(baseline["runs"]) == len(replay["runs"])
-        for old, new in zip(baseline["runs"], replay["runs"]):
-            for key in old:
-                if key != "real_duration_s":
-                    assert old[key] == new[key], (old["seed"], key, old[key], new[key])
-        enhanced_replay = json.loads((extracted / "results/enhancement_experiments.json").read_text())
-        assert enhanced_baseline["total_runs"] == enhanced_replay["total_runs"] == 3080
-        for old, new in zip(enhanced_baseline["runs"], enhanced_replay["runs"], strict=True):
-            assert {k: v for k, v in old.items() if k != "real_duration_s"} == {
-                k: v for k, v in new.items() if k != "real_duration_s"}
-        ring_replay = json.loads((extracted / "results/ring_sweep.json").read_text())
-        assert ring_baseline == ring_replay
+        reproduced_runs = {}
+        for name, baseline in baselines.items():
+            replay = json.loads((extracted / "results" / name).read_text())
+            if name in expected_runs:
+                expected = expected_runs[name]
+                assert baseline["total_runs"] == replay["total_runs"] == expected, name
+                if name == "ring_sweep.json":
+                    count = sum(len(group["runs"]) for phase in ("development", "held_out")
+                                for group in replay[phase].values())
+                else:
+                    count = len(replay["runs"])
+                    for old, new in zip(baseline["runs"], replay["runs"], strict=True):
+                        assert deterministic_content(old) == deterministic_content(new), (name, old["seed"])
+                assert count == expected, (name, count)
+                reproduced_runs[name] = count
+            assert deterministic_content(baseline) == deterministic_content(replay), name
+        verify_asset_inputs(extracted)
         for filename in ("paper", "ai_usage"):
             log = (extracted / "report" / f"{filename}.log").read_text(errors="replace")
             assert "Missing character:" not in log and "Overfull" not in log
@@ -190,7 +239,14 @@ def verify_archive(archive: Path):
         "all_4430_behavioral_runs_reproduced_exactly": True,
         "all_3080_enhancement_runs_reproduced_exactly": True,
         "ring_sweep_reproduced_exactly": True,
-        "excluded_nondeterminism": "wall-clock real_duration_s only",
+        "all_2200_ring_runs_reproduced_exactly": True,
+        "all_10700_research_runs_reproduced_exactly": True,
+        "all_2550_development_runs_reproduced_exactly": True,
+        "research_verification_reproduced_exactly": True,
+        "generated_asset_input_hashes_verified": True,
+        "experiment_runs_reproduced_by_dataset": reproduced_runs,
+        "experiment_runs_reproduced_total": sum(reproduced_runs.values()),
+        "excluded_nondeterminism": "measured wall-clock real_duration_s and its summary maximum max_real_duration_s only",
         "commands": records,
     }
 
@@ -199,12 +255,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-    for metadata_name in ("metadata.json", "enhancement_metadata.json"):
-        metadata = json.loads((ROOT / "report/generated" / metadata_name).read_text())
-        for name, expected in metadata["input_sha256"].items():
-            actual = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-            if actual != expected:
-                raise ValueError(f"Stale generated asset input: {name}")
+    verify_asset_inputs(ROOT)
     for prefix, name in (("paper", "paper"), ("ai", "ai_usage")):
         audit = json.loads((ROOT / "report/visual" / f"{prefix}_audit.json").read_text())
         actual = hashlib.sha256((ROOT / "report" / f"{name}.pdf").read_bytes()).hexdigest()

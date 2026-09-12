@@ -1,0 +1,110 @@
+{
+  "evidence": "independent_finite_geometry_and_behavior_checks_not_official",
+  "polar": [
+    {
+      "variant": "seed25",
+      "triangles": 36,
+      "edges": 60,
+      "noncrossing_tiling_verified": true,
+      "maximum_edge_m": 990.0,
+      "coordinate_error_against_decimal_m": 1.5594646644301221e-12,
+      "directional_cases": 22050,
+      "adverse_single_vertex_perturbations": 44100,
+      "maximum_witness_distance_m": 990.9821350274045,
+      "minimum_witness_projection_m": 0.9999999999999647,
+      "explicit_route_length_m": 18190.59089316654,
+      "robust_certificate": {
+        "shift_m": 1.0,
+        "per_waypoint_euclidean_error_bound_m": 0.25,
+        "triangle_diameter_upper_bound_m": 990.0,
+        "guard_disk_radius_m": 1801.0,
+        "ideal_forward_projection_lower_bound_m": 1.0,
+        "perturbed_forward_projection_lower_bound_m": 0.75,
+        "perturbed_detection_distance_upper_bound_m": 991.25,
+        "proof": "h=g+shift*n lies in the outer polygon; a triangle containing h has a vertex v with n.(v-g)>=shift and |v-g|<=diameter+shift"
+      }
+    },
+    {
+      "variant": "compact25",
+      "triangles": 36,
+      "edges": 60,
+      "noncrossing_tiling_verified": true,
+      "maximum_edge_m": 992.3160610904937,
+      "coordinate_error_against_decimal_m": 1.5191237061068178e-12,
+      "directional_cases": 22050,
+      "adverse_single_vertex_perturbations": 44100,
+      "maximum_witness_distance_m": 997.0633266675625,
+      "minimum_witness_projection_m": 5.000000000000032,
+      "explicit_route_length_m": 17932.509429328325,
+      "robust_certificate": {
+        "shift_m": 5.0,
+        "per_waypoint_euclidean_error_bound_m": 1.0,
+        "triangle_diameter_upper_bound_m": 993.0,
+        "guard_disk_radius_m": 1805.0,
+        "ideal_forward_projection_lower_bound_m": 5.0,
+        "perturbed_forward_projection_lower_bound_m": 4.0,
+        "perturbed_detection_distance_upper_bound_m": 999.0,
+        "proof": "h=g+shift*n lies in the outer polygon; a triangle containing h has a vertex v with n.(v-g)>=shift and |v-g|<=diameter+shift"
+      }
+    }
+  ],
+  "optical": {
+    "polygons": 125,
+    "interior_and_boundary_samples": 24072,
+    "maximum_sampled_distance_m": 19.610167736789577,
+    "lower_cover_proxy_cost_cases": 36,
+    "scope": "interior sampling supplements exact per-cell corner certificates, not a proof by sampling"
+  },
+  "dispatch": [
+    {
+      "choice": "center",
+      "completed": [
+        [
+          "anchor",
+          7
+        ],
+        [
+          "target",
+          3
+        ],
+        [
+          "anchor",
+          9
+        ]
+      ]
+    },
+    {
+      "choice": "guarded",
+      "completed": [
+        [
+          "anchor",
+          7
+        ],
+        [
+          "anchor",
+          9
+        ],
+        [
+          "target",
+          3
+        ]
+      ]
+    }
+  ],
+  "scan_obligations": [
+    {
+      "problem": 3,
+      "scan_policy": "unknown",
+      "known_skip_never_certified_absent": true,
+      "negative_reading_kept_detected": true,
+      "success_completed_remaining_obligation": true
+    },
+    {
+      "problem": 4,
+      "scan_policy": "useful",
+      "known_skip_never_certified_absent": true,
+      "negative_reading_kept_detected": true,
+      "success_completed_remaining_obligation": true
+    }
+  ]
+}

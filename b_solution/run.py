@@ -15,7 +15,7 @@ def run_local(
     problem: int,
     scenario: str = "random",
     error_mode: str = "smooth",
-    strategy: str = "enhanced",
+    strategy: str = "refined",
 ) -> dict:
     env = LocalSimulator(
         seed, problem=problem, scenario=scenario, error_mode=error_mode
@@ -34,8 +34,8 @@ def main() -> None:
     parser.add_argument("--error-mode", default="smooth")
     parser.add_argument(
         "--strategy",
-        choices=("baseline", "batched", "integrated", "enhanced"),
-        default="enhanced",
+        choices=("baseline", "batched", "integrated", "enhanced", "refined"),
+        default="refined",
     )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()

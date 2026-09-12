@@ -9,6 +9,9 @@ from client import AmbiguousActionError, DeadlineExceeded
 from coverage import directional_waypoints, omni_waypoints
 from geometry import clip_bearing, enclosing_circle, initial_polygon, optical_cover
 from route_policy_candidate import optimize_waypoints
+from joint_dispatch_candidate import choose_task
+from optical_policy_candidate import certified_optical_cover
+from polar_coverage_candidate import polar_waypoints
 
 
 class SessionTerminated(RuntimeError):
@@ -38,7 +41,7 @@ class Planner:
         self,
         environment,
         problem=3,
-        strategy="enhanced",
+        strategy="refined",
         spacing=990.0,
         probe_scale=0.22,
         max_probes=6,
@@ -46,18 +49,29 @@ class Planner:
         anchor_policy=None,
         probe_policy="fixed",
         ring_radius=None,
+        coverage_policy=None,
+        optical_policy="rectangle",
+        dispatch_policy=None,
+        scan_policy=None,
     ):
         if problem not in (3, 4) or strategy not in (
             "baseline",
             "batched",
             "integrated",
             "enhanced",
+            "refined",
         ):
             raise ValueError("Unsupported problem or strategy")
         if anchor_policy is None:
-            anchor_policy = "rolling" if strategy == "enhanced" and problem == 4 else "nearest"
-        if ring_radius is None and strategy == "enhanced" and problem == 3:
+            anchor_policy = "rolling" if strategy in ("enhanced", "refined") and problem == 4 else "nearest"
+        if ring_radius is None and strategy in ("enhanced", "refined") and problem == 3:
             ring_radius = 1200.0
+        if coverage_policy is None:
+            coverage_policy = "compact25" if strategy == "refined" and problem == 4 else "lattice"
+        if dispatch_policy is None:
+            dispatch_policy = ("center" if problem == 3 else "guarded") if strategy == "refined" else "separate"
+        if scan_policy is None:
+            scan_policy = ("unknown" if problem == 3 else "useful") if strategy == "refined" else "all"
         if anchor_policy not in ("nearest", "two_opt", "rolling"):
             raise ValueError("Unsupported anchor policy")
         if probe_policy not in ("fixed", "adaptive"):
@@ -66,11 +80,25 @@ class Planner:
             raise ValueError("Directional lattice spacing must be in [900, 999] m")
         if not 0 < probe_scale <= 1 or max_probes < 1:
             raise ValueError("Invalid localization policy parameters")
+        if coverage_policy not in ("lattice", "seed25", "compact25"):
+            raise ValueError("Unsupported discovery coverage policy")
+        if optical_policy not in ("rectangle", "slabs"):
+            raise ValueError("Unsupported optical covering policy")
+        if dispatch_policy not in ("separate", "center", "guarded"):
+            raise ValueError("Unsupported task dispatch policy")
+        if scan_policy not in ("all", "unknown", "useful"):
+            raise ValueError("Unsupported known-channel scan policy")
+        self.scan_policy = scan_policy
+        self.coverage_policy = coverage_policy if problem == 4 else "ring"
+        self.optical_policy = optical_policy
+        self.dispatch_policy = dispatch_policy
         self.environment = environment
         self.problem = problem
         self.strategy = strategy
         self.waypoints = (
-            omni_waypoints(ring_radius) if problem == 3 else directional_waypoints(spacing)
+            omni_waypoints(ring_radius) if problem == 3 else
+            directional_waypoints(spacing) if coverage_policy == "lattice" else
+            polar_waypoints(coverage_policy)
         )
         self.anchor_policy = anchor_policy
         self.anchor_order = optimize_waypoints(self.waypoints) if anchor_policy == "two_opt" else []
@@ -165,6 +193,13 @@ class Planner:
         for channel in channels:
             if channel in self.cleared:
                 continue
+            if channel in self.tracks:
+                if self.scan_policy == "unknown":
+                    continue
+                if self.scan_policy == "useful":
+                    center, radius = enclosing_circle(self.tracks[channel].polygon)
+                    if radius <= 19.9 or dist(point, center) - radius > 1500:
+                        continue
             self.measure(channel, point)
             self.scan_records[channel].add(index)
             if len(self.cleared) == 16:
@@ -185,7 +220,8 @@ class Planner:
 
     def optical_finish(self, channel):
         self.fallbacks += 1
-        cover = optical_cover(self.tracks[channel].polygon, radius=19.9)
+        covering = certified_optical_cover if self.optical_policy == "slabs" else optical_cover
+        cover = covering(self.tracks[channel].polygon, radius=19.9)
         if not cover:
             raise InconsistentObservations("An empty region cannot certify clearing")
         start = min(range(len(cover)), key=lambda k: dist(self.position, cover[k]))
@@ -293,7 +329,7 @@ class Planner:
 
     def share_current_stop(self):
         """Fuse an extra bearing for known sources at an already reached stop."""
-        if self.strategy not in ("integrated", "enhanced") or self.terminal_reason is not None or len(self.cleared) == 16:
+        if self.strategy not in ("integrated", "enhanced", "refined") or self.terminal_reason is not None or len(self.cleared) == 16:
             return
         for channel in list(self.tracks):
             if channel in self.cleared:
@@ -354,6 +390,10 @@ class Planner:
             "total_anchors": len(self.waypoints),
             "optical_fallbacks": self.fallbacks,
             "termination": self.termination,
+            "coverage_policy": self.coverage_policy,
+            "optical_policy": self.optical_policy,
+            "dispatch_policy": self.dispatch_policy,
+            "scan_policy": self.scan_policy,
         }
 
     def run(self):
@@ -379,6 +419,19 @@ class Planner:
                     self.localize(next(iter(self.tracks)))
                 elif self.pending:
                     self.scan_anchor(self.next_anchor())
+                continue
+            if self.dispatch_policy != "separate":
+                kind, index = choose_task(
+                    self.position,
+                    {i: self.waypoints[i] for i in sorted(self.pending)},
+                    {ch: enclosing_circle(track.polygon) for ch, track in self.tracks.items()},
+                    choice=self.dispatch_policy,
+                )
+                if kind == "target":
+                    self.localize(index)
+                    self.share_current_stop()
+                else:
+                    self.scan_anchor(index)
                 continue
             targets = [
                 (dist(self.position, enclosing_circle(t.polygon)[0]), ch)
