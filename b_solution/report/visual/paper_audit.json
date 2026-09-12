@@ -1,8 +1,8 @@
 {
-  "pdf": "report/paper.pdf",
-  "sha256": "99194bccfe6c4e5ba690e4dae404150a04e9901eaac9d678963f302d5dbdae2f",
-  "pages": 162,
-  "size_mib": 1.7467613220214844,
+  "pdf": "paper.pdf",
+  "sha256": "4171c6826abfce0b6e93b82de1e81f43d0cfefdb07478aaf014ca9b0279ca365",
+  "pages": 173,
+  "size_mib": 1.8560972213745117,
   "body_end_page": 27,
   "body_pages_excluding_abstract": 26,
   "abstract_keywords_on_first_page": true,
@@ -38,14 +38,16 @@
     "paper_sheet_24.png",
     "paper_sheet_25.png",
     "paper_sheet_26.png",
-    "paper_sheet_27.png"
+    "paper_sheet_27.png",
+    "paper_sheet_28.png",
+    "paper_sheet_29.png"
   ],
   "page_records": [
     {
       "page": 1,
-      "characters": 881,
+      "characters": 1049,
       "image": "paper_001.png",
-      "smallest_text_pt": 10.5,
+      "smallest_text_pt": 12.0,
       "largest_text_pt": 22.0
     },
     {
@@ -197,28 +199,28 @@
     },
     {
       "page": 23,
-      "characters": 1250,
+      "characters": 1562,
       "image": "paper_023.png",
       "smallest_text_pt": 6.973800182342529,
       "largest_text_pt": 18.0
     },
     {
       "page": 24,
-      "characters": 1087,
+      "characters": 1030,
       "image": "paper_024.png",
       "smallest_text_pt": 9.000449180603027,
       "largest_text_pt": 15.0
     },
     {
       "page": 25,
-      "characters": 1137,
+      "characters": 1174,
       "image": "paper_025.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 18.0
     },
     {
       "page": 26,
-      "characters": 1113,
+      "characters": 1180,
       "image": "paper_026.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
@@ -302,876 +304,953 @@
     },
     {
       "page": 38,
-      "characters": 1910,
+      "characters": 1914,
       "image": "paper_038.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 39,
-      "characters": 2069,
+      "characters": 2228,
       "image": "paper_039.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 40,
-      "characters": 2414,
+      "characters": 2338,
       "image": "paper_040.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 41,
-      "characters": 2390,
+      "characters": 2358,
       "image": "paper_041.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 42,
-      "characters": 2456,
+      "characters": 2455,
       "image": "paper_042.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 43,
-      "characters": 2394,
+      "characters": 2430,
       "image": "paper_043.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 44,
-      "characters": 2002,
+      "characters": 2021,
       "image": "paper_044.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 45,
-      "characters": 2520,
+      "characters": 2437,
       "image": "paper_045.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 46,
-      "characters": 2691,
+      "characters": 2749,
       "image": "paper_046.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 47,
-      "characters": 2743,
+      "characters": 2803,
       "image": "paper_047.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 48,
-      "characters": 2535,
+      "characters": 2502,
       "image": "paper_048.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 49,
-      "characters": 2446,
+      "characters": 2329,
       "image": "paper_049.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 50,
-      "characters": 2840,
+      "characters": 2971,
       "image": "paper_050.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 51,
-      "characters": 2944,
+      "characters": 2911,
       "image": "paper_051.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 52,
-      "characters": 3235,
+      "characters": 3223,
       "image": "paper_052.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 53,
-      "characters": 2437,
+      "characters": 2497,
       "image": "paper_053.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 54,
-      "characters": 2369,
+      "characters": 2351,
       "image": "paper_054.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 55,
-      "characters": 2307,
+      "characters": 2274,
       "image": "paper_055.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 56,
-      "characters": 1965,
+      "characters": 1941,
       "image": "paper_056.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 57,
-      "characters": 2219,
+      "characters": 2166,
       "image": "paper_057.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 58,
-      "characters": 1918,
+      "characters": 2043,
       "image": "paper_058.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 59,
-      "characters": 2477,
+      "characters": 2414,
       "image": "paper_059.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 60,
-      "characters": 1967,
+      "characters": 1992,
       "image": "paper_060.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 61,
-      "characters": 2391,
+      "characters": 2437,
       "image": "paper_061.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 62,
-      "characters": 2545,
+      "characters": 2421,
       "image": "paper_062.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 63,
-      "characters": 1986,
+      "characters": 2107,
       "image": "paper_063.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 64,
-      "characters": 2075,
+      "characters": 2019,
       "image": "paper_064.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 65,
-      "characters": 1987,
+      "characters": 2023,
       "image": "paper_065.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 66,
-      "characters": 2010,
+      "characters": 2016,
       "image": "paper_066.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 67,
-      "characters": 2216,
+      "characters": 2192,
       "image": "paper_067.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 68,
-      "characters": 2397,
+      "characters": 2301,
       "image": "paper_068.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 69,
-      "characters": 2260,
+      "characters": 2251,
       "image": "paper_069.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 70,
-      "characters": 1884,
+      "characters": 2016,
       "image": "paper_070.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 71,
-      "characters": 2283,
+      "characters": 2272,
       "image": "paper_071.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 72,
-      "characters": 1864,
+      "characters": 1906,
       "image": "paper_072.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 73,
-      "characters": 2131,
+      "characters": 2116,
       "image": "paper_073.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 74,
-      "characters": 1688,
+      "characters": 1703,
       "image": "paper_074.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 75,
-      "characters": 1570,
+      "characters": 1608,
       "image": "paper_075.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 76,
-      "characters": 1937,
+      "characters": 1834,
       "image": "paper_076.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 77,
-      "characters": 2131,
+      "characters": 2161,
       "image": "paper_077.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 78,
-      "characters": 2012,
+      "characters": 1957,
       "image": "paper_078.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 79,
-      "characters": 2147,
+      "characters": 2208,
       "image": "paper_079.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 80,
-      "characters": 2299,
+      "characters": 2168,
       "image": "paper_080.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 81,
-      "characters": 2320,
+      "characters": 2452,
       "image": "paper_081.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 82,
-      "characters": 2762,
+      "characters": 2871,
       "image": "paper_082.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 83,
-      "characters": 2056,
+      "characters": 1900,
       "image": "paper_083.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 84,
-      "characters": 2249,
+      "characters": 2359,
       "image": "paper_084.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 85,
-      "characters": 1589,
+      "characters": 1559,
       "image": "paper_085.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 86,
-      "characters": 2277,
+      "characters": 2075,
       "image": "paper_086.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 87,
-      "characters": 3081,
+      "characters": 3122,
       "image": "paper_087.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 88,
-      "characters": 2863,
+      "characters": 2754,
       "image": "paper_088.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 89,
-      "characters": 2368,
+      "characters": 2265,
       "image": "paper_089.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 90,
-      "characters": 3345,
+      "characters": 3493,
       "image": "paper_090.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 91,
-      "characters": 3314,
+      "characters": 3634,
       "image": "paper_091.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 92,
-      "characters": 2265,
+      "characters": 2401,
       "image": "paper_092.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 93,
-      "characters": 2327,
+      "characters": 2210,
       "image": "paper_093.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 94,
-      "characters": 3228,
+      "characters": 3062,
       "image": "paper_094.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 95,
-      "characters": 2235,
+      "characters": 2241,
       "image": "paper_095.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 96,
-      "characters": 2324,
+      "characters": 2409,
       "image": "paper_096.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 97,
-      "characters": 2483,
+      "characters": 2168,
       "image": "paper_097.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 98,
-      "characters": 2535,
+      "characters": 2939,
       "image": "paper_098.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 99,
-      "characters": 2666,
+      "characters": 2459,
       "image": "paper_099.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 100,
-      "characters": 2435,
+      "characters": 2467,
       "image": "paper_100.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 101,
-      "characters": 2774,
+      "characters": 3066,
       "image": "paper_101.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 102,
-      "characters": 2376,
+      "characters": 2316,
       "image": "paper_102.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 103,
-      "characters": 2639,
+      "characters": 2572,
       "image": "paper_103.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 104,
-      "characters": 2948,
+      "characters": 2697,
       "image": "paper_104.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 105,
-      "characters": 2165,
+      "characters": 2337,
       "image": "paper_105.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 106,
-      "characters": 3024,
+      "characters": 2812,
       "image": "paper_106.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 107,
-      "characters": 2129,
+      "characters": 2453,
       "image": "paper_107.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 108,
-      "characters": 3164,
+      "characters": 2853,
       "image": "paper_108.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 109,
-      "characters": 3355,
+      "characters": 3468,
       "image": "paper_109.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 110,
-      "characters": 3720,
+      "characters": 3518,
       "image": "paper_110.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 111,
-      "characters": 3663,
+      "characters": 3767,
       "image": "paper_111.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 112,
-      "characters": 3793,
+      "characters": 3569,
       "image": "paper_112.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 113,
-      "characters": 3916,
+      "characters": 3977,
       "image": "paper_113.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 114,
-      "characters": 3359,
+      "characters": 3280,
       "image": "paper_114.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 115,
-      "characters": 2623,
+      "characters": 2945,
       "image": "paper_115.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 116,
-      "characters": 2479,
+      "characters": 2503,
       "image": "paper_116.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 117,
-      "characters": 2608,
+      "characters": 2447,
       "image": "paper_117.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 118,
-      "characters": 2900,
+      "characters": 3170,
       "image": "paper_118.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 119,
-      "characters": 2017,
+      "characters": 2148,
       "image": "paper_119.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 120,
-      "characters": 2780,
+      "characters": 2718,
       "image": "paper_120.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 121,
-      "characters": 2452,
+      "characters": 2504,
       "image": "paper_121.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 122,
-      "characters": 2950,
+      "characters": 2750,
       "image": "paper_122.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 123,
-      "characters": 2376,
+      "characters": 2325,
       "image": "paper_123.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 124,
-      "characters": 3131,
+      "characters": 3076,
       "image": "paper_124.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 125,
-      "characters": 3481,
+      "characters": 3508,
       "image": "paper_125.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 126,
-      "characters": 3399,
+      "characters": 3311,
       "image": "paper_126.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 127,
-      "characters": 2684,
+      "characters": 3110,
       "image": "paper_127.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 128,
-      "characters": 3452,
+      "characters": 2890,
       "image": "paper_128.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 129,
-      "characters": 3856,
+      "characters": 4001,
       "image": "paper_129.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 130,
-      "characters": 3824,
+      "characters": 3817,
       "image": "paper_130.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 131,
-      "characters": 1835,
+      "characters": 2333,
       "image": "paper_131.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 132,
-      "characters": 2020,
+      "characters": 2024,
       "image": "paper_132.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 133,
-      "characters": 2264,
+      "characters": 2030,
       "image": "paper_133.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 134,
-      "characters": 2241,
+      "characters": 2215,
       "image": "paper_134.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 135,
-      "characters": 2166,
+      "characters": 2254,
       "image": "paper_135.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 136,
-      "characters": 2439,
+      "characters": 1968,
       "image": "paper_136.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 137,
-      "characters": 1762,
+      "characters": 2326,
       "image": "paper_137.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 138,
-      "characters": 2000,
+      "characters": 1942,
       "image": "paper_138.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 139,
-      "characters": 2124,
+      "characters": 1910,
       "image": "paper_139.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 140,
-      "characters": 1968,
+      "characters": 2028,
       "image": "paper_140.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 141,
-      "characters": 3512,
+      "characters": 3084,
       "image": "paper_141.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 142,
-      "characters": 2046,
+      "characters": 2632,
       "image": "paper_142.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 143,
-      "characters": 2307,
+      "characters": 2048,
       "image": "paper_143.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 144,
-      "characters": 1493,
+      "characters": 1757,
       "image": "paper_144.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 145,
-      "characters": 1883,
+      "characters": 1584,
       "image": "paper_145.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 146,
-      "characters": 2217,
+      "characters": 2246,
       "image": "paper_146.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 147,
-      "characters": 2012,
+      "characters": 2045,
       "image": "paper_147.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 148,
-      "characters": 2187,
+      "characters": 2378,
       "image": "paper_148.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 149,
-      "characters": 2021,
+      "characters": 2066,
       "image": "paper_149.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 150,
-      "characters": 2085,
+      "characters": 2103,
       "image": "paper_150.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 151,
-      "characters": 1954,
+      "characters": 1848,
       "image": "paper_151.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 152,
-      "characters": 2474,
+      "characters": 2551,
       "image": "paper_152.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 153,
-      "characters": 2199,
+      "characters": 2207,
       "image": "paper_153.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 154,
-      "characters": 2695,
+      "characters": 2504,
       "image": "paper_154.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 155,
-      "characters": 2285,
+      "characters": 2146,
       "image": "paper_155.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 156,
-      "characters": 1629,
+      "characters": 1886,
       "image": "paper_156.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 157,
-      "characters": 1683,
+      "characters": 1783,
       "image": "paper_157.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 158,
-      "characters": 2078,
+      "characters": 1931,
       "image": "paper_158.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 159,
-      "characters": 2007,
+      "characters": 1878,
       "image": "paper_159.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 160,
-      "characters": 1391,
+      "characters": 1894,
       "image": "paper_160.png",
       "smallest_text_pt": 6.5,
-      "largest_text_pt": 15.0
+      "largest_text_pt": 12.0
     },
     {
       "page": 161,
-      "characters": 1444,
+      "characters": 2929,
       "image": "paper_161.png",
-      "smallest_text_pt": 12.0,
+      "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 162,
-      "characters": 1316,
+      "characters": 3902,
       "image": "paper_162.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 163,
+      "characters": 3512,
+      "image": "paper_163.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 164,
+      "characters": 4047,
+      "image": "paper_164.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 165,
+      "characters": 4815,
+      "image": "paper_165.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 166,
+      "characters": 3283,
+      "image": "paper_166.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 167,
+      "characters": 3454,
+      "image": "paper_167.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 168,
+      "characters": 3150,
+      "image": "paper_168.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 169,
+      "characters": 3027,
+      "image": "paper_169.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 170,
+      "characters": 3271,
+      "image": "paper_170.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 171,
+      "characters": 2877,
+      "image": "paper_171.png",
+      "smallest_text_pt": 6.5,
+      "largest_text_pt": 15.0
+    },
+    {
+      "page": 172,
+      "characters": 1517,
+      "image": "paper_172.png",
+      "smallest_text_pt": 12.0,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 173,
+      "characters": 1008,
+      "image": "paper_173.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 12.0
     }

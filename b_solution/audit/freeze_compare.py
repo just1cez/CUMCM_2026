@@ -29,7 +29,7 @@ def main():
         for name,cfg in configs.items():
             groups[name]=[dict(run_field(s,p,cfg), configuration=name) for s in range(START,START+COUNT)]
         rows[str(p)]={"seed_range":[START,START+COUNT-1],"summary":stats(groups["refined"],groups["candidate"]),"runs":groups}
-    out={"evidence":"fresh_locked_local_synthetic_paired_not_official","selection":"candidate fixed from exploratory 8200000..8200149 and audit evidence; no tuning after freeze","seed_range":[START,START+COUNT-1],"configurations":CONFIGS,"results":rows}
+    out={"evidence":"supplemental_locked_local_synthetic_paired_not_official","selection":"candidate configuration copied from the separately documented field_confirmation decision; this 8300000..8300999 run is an independent supplemental freeze check, not a parameter-selection dataset","seed_range":[START,START+COUNT-1],"configurations":CONFIGS,"results":rows}
     OUT.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")
     print(json.dumps({p:v["summary"] for p,v in rows.items()},ensure_ascii=False,indent=2))
 if __name__=="__main__": main()

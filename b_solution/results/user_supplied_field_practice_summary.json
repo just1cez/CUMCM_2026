@@ -1,0 +1,17 @@
+{
+  "evidence": "user_supplied_official_simulator_practice_aggregate",
+  "formal_test": false,
+  "paired_with_refined": false,
+  "raw_logs_in_archive": false,
+  "note": "Aggregate values supplied by the project user; not independently regenerated from the archived 20 refined practice traces and not an official counterfactual experiment.",
+  "refined": {
+    "Q3": {"runs": 10, "cleared": "139/139", "mean_equal_run_T_per_source_s": 237.998263, "median_s": 237.1266},
+    "Q4": {"runs": 10, "cleared": "138/138", "mean_equal_run_T_per_source_s": 531.177617, "median_s": 506.4079}
+  },
+  "field": {
+    "Q3": {"runs": 11, "cleared": "134/134", "mean_equal_run_T_per_source_s": 263.550883, "median_s": 288.6187},
+    "Q4": {"runs": 12, "cleared": "166/166", "mean_equal_run_T_per_source_s": 484.966300, "median_s": 438.2540}
+  },
+  "decision": {"Q3": "refined", "Q4": "field"},
+  "interpretation": "Non-paired practice observations are diagnostic only; they do not estimate a causal field improvement. Q3 shows a slower field trend and Q4 a faster field trend, while local paired evidence is separate."
+}

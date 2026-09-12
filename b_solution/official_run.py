@@ -27,8 +27,8 @@ def main():
     parser.add_argument(
         "--strategy",
         choices=("field", "refined"),
-        default="field",
-        help="field: new policy; refined: unchanged controller used in the 20 practice runs",
+        default=None,
+        help="默认Q3使用refined、Q4使用field；可显式指定任一策略",
     )
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -40,10 +40,11 @@ def main():
     )
     started = monotonic()
     try:
+        effective_strategy = args.strategy if args.strategy is not None else ("refined" if args.problem == 3 else "field")
         planner = (
             FieldPlanner(client, problem=args.problem)
-            if args.strategy == "field"
-            else Planner(client, problem=args.problem, strategy="refined")
+            if effective_strategy == "field"
+            else Planner(client, problem=args.problem, strategy=effective_strategy)
         )
         result = planner.run()
         result.update(

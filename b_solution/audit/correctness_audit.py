@@ -105,14 +105,19 @@ def timing_and_state_audit():
     try: r.action("/measure", (1., 2.), 1)
     except RuntimeError: pass
     if (r.position, r.virtual_time) != ((0., 0.), 0.): failures.append("rejected action advanced state")
-    # Spy on the pre-localization hook: exactly one attempt, no hidden second call.
+    # Exercise the one-per-channel contract across two localize calls at
+    # different positions; the second call must not issue another probe.
     from planner import Track
     spy = FieldPlanner(E(), problem=3, premeasure=True)
     spy.tracks[1] = Track(polygon=[(-100., -100.), (100., -100.), (100., 100.), (-100., 100.)])
     attempts = []
     def one_measure(channel, point):
-        attempts.append((channel, tuple(point))); spy.terminal_reason = "spy_stop"; return "no_signal"
+        attempts.append((channel, tuple(point)))
+        spy.terminal_reason = "spy_stop"
+        return "no_signal"
     spy.measure = one_measure
+    spy.localize(1)
+    spy.position = (500., 0.)
     spy.localize(1)
     if len(attempts) != 1: failures.append({"premeasure_attempts": len(attempts)})
     # Independent virtual-time recomputation from observable LocalSimulator log.

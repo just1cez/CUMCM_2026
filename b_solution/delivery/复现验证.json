@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "archive_sha256": "2ea602dde62afd82b851cfac75844f506ec6198d9a0f712905e23aa21ddf8eda",
+  "archive_sha256": "c50482c5a2bfd8e1e339939ec0b67fa641be90c2205d49d65ea4538fc80effab",
   "manifest_hashes_verified": true,
   "all_4430_behavioral_runs_reproduced_exactly": true,
   "all_3080_enhancement_runs_reproduced_exactly": true,
@@ -101,7 +101,7 @@
         "verify_geometry.py"
       ],
       "returncode": 0,
-      "seconds": 1.0162495830008993
+      "seconds": 1.0407370419998188
     },
     {
       "command": [
@@ -109,7 +109,7 @@
         "intersection.py"
       ],
       "returncode": 0,
-      "seconds": 0.19340462499530986
+      "seconds": 0.19521316701138858
     },
     {
       "command": [
@@ -117,7 +117,7 @@
         "second_point.py"
       ],
       "returncode": 0,
-      "seconds": 0.299665583006572
+      "seconds": 0.2983033749915194
     },
     {
       "command": [
@@ -129,7 +129,7 @@
         "results/final_experiments.json"
       ],
       "returncode": 0,
-      "seconds": 11.43123979200027
+      "seconds": 11.476240250005503
     },
     {
       "command": [
@@ -137,7 +137,7 @@
         "enhancements.py"
       ],
       "returncode": 0,
-      "seconds": 16.430152084009023
+      "seconds": 16.413241166999796
     },
     {
       "command": [
@@ -145,7 +145,7 @@
         "ring_sweep.py"
       ],
       "returncode": 0,
-      "seconds": 5.068112249995465
+      "seconds": 5.102586499997415
     },
     {
       "command": [
@@ -153,7 +153,7 @@
         "verify_terminal.py"
       ],
       "returncode": 0,
-      "seconds": 0.04354862500622403
+      "seconds": 0.048324791991035454
     },
     {
       "command": [
@@ -161,7 +161,7 @@
         "verify_refinements.py"
       ],
       "returncode": 0,
-      "seconds": 0.06419683300191537
+      "seconds": 0.06410670799959917
     },
     {
       "command": [
@@ -169,7 +169,7 @@
         "verify_coverage_limits.py"
       ],
       "returncode": 0,
-      "seconds": 0.01751362498907838
+      "seconds": 0.017432749998988584
     },
     {
       "command": [
@@ -177,7 +177,7 @@
         "compare_routes.py"
       ],
       "returncode": 0,
-      "seconds": 2.2019264999980805
+      "seconds": 2.189611249996233
     },
     {
       "command": [
@@ -185,7 +185,7 @@
         "compare_probes.py"
       ],
       "returncode": 0,
-      "seconds": 18.718248499993933
+      "seconds": 19.00996383400343
     },
     {
       "command": [
@@ -193,7 +193,7 @@
         "verify_research.py"
       ],
       "returncode": 0,
-      "seconds": 1.2388391249987762
+      "seconds": 1.23149450001074
     },
     {
       "command": [
@@ -203,7 +203,7 @@
         "practice_data"
       ],
       "returncode": 0,
-      "seconds": 0.15944091699202545
+      "seconds": 0.15869233400735538
     },
     {
       "command": [
@@ -211,7 +211,7 @@
         "make_official_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.017764958000043407
+      "seconds": 0.01746058299613651
     },
     {
       "command": [
@@ -219,7 +219,7 @@
         "fast_vs_compact_410.py"
       ],
       "returncode": 0,
-      "seconds": 19.547551790994476
+      "seconds": 19.717705707997084
     },
     {
       "command": [
@@ -231,7 +231,7 @@
         "3100000"
       ],
       "returncode": 0,
-      "seconds": 18.746777667009155
+      "seconds": 18.59199908399023
     },
     {
       "command": [
@@ -239,7 +239,7 @@
         "research_experiments.py"
       ],
       "returncode": 0,
-      "seconds": 73.67691416600428
+      "seconds": 73.57957858299778
     },
     {
       "command": [
@@ -247,7 +247,7 @@
         "verify_field.py"
       ],
       "returncode": 0,
-      "seconds": 0.735790624996298
+      "seconds": 0.7441607079963433
     },
     {
       "command": [
@@ -259,7 +259,7 @@
         "6100000"
       ],
       "returncode": 0,
-      "seconds": 27.966252665995853
+      "seconds": 27.94488066599297
     },
     {
       "command": [
@@ -267,7 +267,7 @@
         "field_confirmation.py"
       ],
       "returncode": 0,
-      "seconds": 105.12018533299852
+      "seconds": 105.62914458299929
     },
     {
       "command": [
@@ -275,7 +275,7 @@
         "make_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.7523725000064587
+      "seconds": 0.7666618749935878
     },
     {
       "command": [
@@ -283,7 +283,7 @@
         "make_enhancement_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.4231792499922449
+      "seconds": 0.4241332919918932
     },
     {
       "command": [
@@ -291,7 +291,7 @@
         "make_research_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.5943568340007914
+      "seconds": 0.5928568340023048
     },
     {
       "command": [
@@ -299,7 +299,7 @@
         "make_field_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.397028749997844
+      "seconds": 0.3947983749967534
     },
     {
       "command": [
@@ -310,7 +310,7 @@
         "paper.tex"
       ],
       "returncode": 0,
-      "seconds": 14.88297004099877
+      "seconds": 16.261615875002462
     },
     {
       "command": [
@@ -321,7 +321,7 @@
         "ai_usage.tex"
       ],
       "returncode": 0,
-      "seconds": 1.0526018749951618
+      "seconds": 1.053736874993774
     }
   ]
 }

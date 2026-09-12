@@ -81,6 +81,12 @@ SOURCES = (
     "requirements.txt",
     "reproduce.txt",
     "official_status.json",
+    "audit/route_exact_audit.py",
+    "audit/q3_ablation_audit.py",
+    "audit/distribution_audit.py",
+    "audit/correctness_audit.py",
+    "audit/alternative_screen.py",
+    "audit/freeze_compare.py",
 )
 RESULTS = (
     "final_experiments.json",
@@ -115,9 +121,15 @@ RESULTS = (
     "paper_review.json",
     "visual_review.json",
     "final_review.json",
+    "user_supplied_field_practice_summary.json",
     "environment_manifest.json",
+    "audit_route_exact.json",
+    "audit_q3_ablation.json",
+    "audit_distribution.json",
+    "audit_correctness.json",
+    "audit_alternatives.json",
+    "audit_freeze_compare.json",
 )
-
 
 def verify_asset_inputs(root: Path):
     for metadata_name in ("metadata.json", "enhancement_metadata.json", "research_metadata.json", "official_practice_metadata.json", "field_metadata.json"):
@@ -443,7 +455,7 @@ def main():
         "official_practice": "Twenty user-supplied Q3/Q4 practice observations were analyzed offline; formal tests and encrypted exports remain pending",
         "official_practice_replay_boundary": "All 20 supplied traces are independently costed; strict baseline policy replay matches only 8/20. Divergence stops replay, with no fabricated responses.",
         "practice_source_files": 60,
-        "default_strategy": "field",
+        "default_strategy": "Q3 refined, Q4 field; explicit --strategy overrides",
         "official_practice_control": "refined, probe_scale=0.22 for Q3 and Q4",
         "human_review": "No actual contestant review record; AI review is not human review",
         "python_environment": "conda py314",

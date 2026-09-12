@@ -14,6 +14,7 @@
 \input{generated/field_comparison.tex}
 \end{table}
 问题三从\FieldQThreeControl{}降至\FieldQThreeTime{}秒/源，降低\FieldQThreeGain\%；问题四从\FieldQFourControl{}降至\FieldQFourTime{}秒/源，降低\FieldQFourGain\%。节省均值分别为\FieldQThreeSaved{}和\FieldQFourSaved{}秒/源，近似95\%区间分别为$[\FieldQThreeLower,\FieldQThreeUpper]$与$[\FieldQFourLower,\FieldQFourUpper]$；分别\FieldQThreeFaster/1000和\FieldQFourFaster/1000局更快。两题均1000/1000全清，不以降低清除率换时间。问题四$p_{90}$由682.86降至642.48秒/源，样本最坏值由825.03降至760.05秒/源。
+补充的用户汇总记录（\path{results/user_supplied_field_practice_summary.json}）报告了新的非配对官方模拟器演练：\texttt{field}在Q3为11局、134/134个源，逐局等权平均263.550883秒/源；原\texttt{refined}为10局、139/139个源，237.998263秒/源。Q4中\texttt{field}为12局、166/166个源，484.966300秒/源；原\texttt{refined}为10局、138/138个源，531.177617秒/源。案例不同且原始新日志未纳入本匿名包，因此这只是策略选择的诊断依据，不是因果比较。综合该非配对官方信号与本地配对证据，最终可执行默认取Q3\texttt{refined}、Q4\texttt{field}；两题均保留显式\texttt{--strategy}覆盖选项。
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/field_performance.pdf}
@@ -34,6 +35,6 @@
 Q3平均行程由12607.63降至12143.48米，Q4由24581.18降至22499.71米。Q4失败清除尝试均值却由1.782增至2.089次/局，说明不能把失败次数本身当作任务目标；它的增加被移动节省抵消。这里的失败统计是尝试次数/局，不是失败案例比例，所有案例最终均全清。
 
 \subsection{压力、数值与现实运行边界}
-22个压力或替代误差组全部全清，完整逐组均值、区间和更快案例数保存在\path{results/field_confirmation.json}及\path{report/generated/field_stress.tex}。Q4最小接收半径三组平均改善约5.90\%至7.06\%，边界向外三组约5.49\%至5.86\%；聚集平滑误差组的节省区间为$[-9.37,44.84]$秒/源，包含零，不能宣称在该组证实改善。Q3边界源收益较小，聚集组约0.53\%至0.63\%，不主张逐场景等比例下降，更不主张每局占优。
+22个本地压力/替代误差组全部全清，完整逐组均值、区间和更快案例数保存在\path{results/field_confirmation.json}及\path{report/generated/field_stress.tex}。Q4最小接收半径三组平均改善约5.90\%至7.06\%，边界向外三组约5.49\%至5.86\%；聚集源部分组的节省区间为$[-9.37,44.84]$秒/源，包含零，不能宣称在该组证实改善。Q3边界源收益较小，聚集组约0.53\%至0.63\%，不主张逐场景等比例下降，更不主张每局占优。
 
 独立检查包含3000次负约束真实源包含性、1000米边界与退化域、双精度溢出拒绝、开放路线任务守恒、两任务可解析最优例、200组清除圆交接近及现实截止。保守内接多边形和顶点复验提供几何依据，随机检查只补充实现证据。两题新策略在主检验中本地单局最大运算耗时分别约\FieldQThreeWall{}秒、\FieldQFourWall{}秒；这些数值不包含官方HTTP延迟，不能替代20分钟现实期限的实测。现有20轮官方日志验证的是原refined，新field必须在新的官方演练局确认，正式测试仍需各题三次原始结果及加密日志。

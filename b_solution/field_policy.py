@@ -40,6 +40,7 @@ class FieldPlanner(Planner):
             (0.0 if problem == 3 else 1.0) if risk_weight is None else risk_weight
         )
         self.negative_stations = {channel: [] for channel in range(1, 21)}
+        self.premeasured_channels = set()
         self.zero_travel_probes = 0
         self.negative_cuts = 0
         self.clear_access_saved_m = 0.0
@@ -66,7 +67,12 @@ class FieldPlanner(Planner):
 
     def localize(self, channel):
         track = self.tracks.get(channel)
-        if self.premeasure and track is not None and self.terminal_reason is None:
+        if (
+            self.premeasure
+            and channel not in self.premeasured_channels
+            and track is not None
+            and self.terminal_reason is None
+        ):
             center, radius = enclosing_circle(track.polygon)
             if (
                 radius > 38
@@ -75,6 +81,7 @@ class FieldPlanner(Planner):
             ):
                 self.zero_travel_probes += 1
                 self.measure(channel, self.position)
+                self.premeasured_channels.add(channel)
                 if channel in self.cleared or self.terminal_reason is not None:
                     return
         return super().localize(channel)

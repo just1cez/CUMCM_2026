@@ -1,6 +1,6 @@
 {
-  "evidence": "fresh_locked_local_synthetic_paired_not_official",
-  "selection": "candidate fixed from exploratory 8200000..8200149 and audit evidence; no tuning after freeze",
+  "evidence": "supplemental_locked_local_synthetic_paired_not_official",
+  "selection": "candidate configuration copied from the separately documented field_confirmation decision; this 8300000..8300999 run is an independent supplemental freeze check, not a parameter-selection dataset",
   "seed_range": [
     8300000,
     8300999

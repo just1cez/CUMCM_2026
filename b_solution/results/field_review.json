@@ -6,11 +6,11 @@
     "FieldEvidenceReview"
   ],
   "production": {
-    "default_cli_strategy": "field",
+    "default_cli_strategy": "problem-specific: refined for Q3 and field for Q4; explicit --strategy override",
     "officially_observed_control": "refined",
     "unchanged_probe_scale_both_questions": 0.22,
-    "Q3": "ring1200, unknown discovery scans, route portfolio with zero radius penalty, conservative negative-disk outer hull, one eligible zero-travel premeasure, certified clear-point approach",
-    "Q4": "compact25, useful discovery scans, route portfolio with unit radius penalty, eligible premeasure; no negative-disk update and no clear-point approach",
+    "Q3": "ring1200, unknown discovery scans, refined default; field remains an explicitly selectable local candidate with zero radius penalty, conservative negative-disk outer hull, one eligible zero-travel premeasure per channel, and certified clear-point approach",
+    "Q4": "compact25, useful discovery scans, field default with route portfolio and eligible one-time-per-channel premeasure; no negative-disk update and no clear-point approach",
     "official_field_verification": "Not performed; fresh official practice is required"
   },
   "original_practice_evidence": {

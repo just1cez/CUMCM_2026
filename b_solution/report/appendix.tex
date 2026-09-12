@@ -48,6 +48,12 @@
 \lstinputlisting[language=Python,caption={新策略几何和行为核验}]{../verify_field.py}
 \lstinputlisting[language=Python,caption={脱敏官方演练原始反馈分析与严格回放}]{../official_analysis.py}
 \lstinputlisting[language=Python,caption={新策略数据驱动图表生成}]{../make_field_assets.py}
+\lstinputlisting[language=Python,caption={局部最优、机制消融、分布与状态专项审查}]{../audit/route_exact_audit.py}
+\lstinputlisting[language=Python,caption={Q3八组机制消融}]{../audit/q3_ablation_audit.py}
+\lstinputlisting[language=Python,caption={分布偏差诊断}]{../audit/distribution_audit.py}
+\lstinputlisting[language=Python,caption={正确性与状态核验}]{../audit/correctness_audit.py}
+\lstinputlisting[language=Python,caption={独立候选筛选}]{../audit/alternative_screen.py}
+\lstinputlisting[language=Python,caption={补充冻结配对核验}]{../audit/freeze_compare.py}
 
 \subsection{匿名文件清单与结果接口}
 \begin{longtable}{p{0.60\textwidth}p{0.32\textwidth}}
@@ -100,7 +106,7 @@
 \path{contracts.json}、\path{report_contracts.json} & 接口与证据口径的描述性快照\\
 \bottomrule
 \end{longtable}
-图表由\path{make_assets.py}、\path{make_enhancement_assets.py}、\path{make_research_assets.py}、\path{make_official_assets.py}和\path{make_field_assets.py}读取对应JSON生成，完整可运行代码如上。理论片段已在正文引用，不重复以代码字体排印中文。notes文件只记录推导，实际结果以结果JSON为准。入口默认\texttt{field}，\texttt{--strategy refined}保留20轮官方演练原算法，两题探测比例均为0.22；历史\texttt{enhanced}另列。2550和2250次开发不进入对应10700和9400次冻结研究分母；fast25仅为内部负候选，其2000次辅助运行另计。
+图表由\path{make_assets.py}、\path{make_enhancement_assets.py}、\path{make_research_assets.py}、\path{make_official_assets.py}和\path{make_field_assets.py}读取对应JSON生成，完整可运行代码如上。理论片段已在正文引用，不重复以代码字体排印中文。notes文件只记录推导，实际结果以结果JSON为准。入口按问题默认\texttt{Q3 refined、Q4 field}，\texttt{--strategy}可显式覆盖；两题探测比例均为0.22；历史\texttt{enhanced}另列。完整复现所需审查脚本及结果也保留在支撑包中。
 \path{audit_pdf.py}渲染全部页面并检查文字边界；\path{package.py --verify}在移除\texttt{PYTHONPATH}的临时解压目录中完整重建七组核心实验，共34610次执行，逐项比较完整JSON，仅排除本地墙钟\texttt{real\_duration\_s}及派生\texttt{max\_real\_duration\_s}、\texttt{max\_real\_s}。五份metadata输入哈希在初末校验。脱敏演练文件不重生，逐个核对SHA-256，运行\path{official_analysis.py --handoff practice_data}重新分析并比较；随后重建全部图表与编译，不以原目录存在文件代替复现通过。
 
 未经脱敏的私有HTTP日志、正式加密日志及模拟器程序不进入本匿名研究包。仅收录manifest指定、经\texttt{robot\_id=TEAM\_REDACTED}及路径范围检查的60个演练原始文件；退出后源数、类型和案例标签只能用于离线评价。20轮成本均由原始请求与反馈独立复算；严格旧策略动作回放仅8轮完整匹配，其余在首次未观测动作处停止，不造反馈。随包原始材料支持离线分析复现，不代表新策略官方成绩或全部旧策略回放通过。正式六份加密日志和真实人工审核仍未完成。

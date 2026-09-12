@@ -16,15 +16,16 @@ def run_local(
     problem: int,
     scenario: str = "random",
     error_mode: str = "smooth",
-    strategy: str = "field",
+    strategy: str | None = None,
 ) -> dict:
     env = LocalSimulator(
         seed, problem=problem, scenario=scenario, error_mode=error_mode
     )
+    effective_strategy = strategy if strategy is not None else ("refined" if problem == 3 else "field")
     planner = (
         FieldPlanner(env, problem=problem)
-        if strategy == "field"
-        else Planner(env, problem=problem, strategy=strategy)
+        if effective_strategy == "field"
+        else Planner(env, problem=problem, strategy=effective_strategy)
     )
     planner_result = planner.run()
     result = {"planner": planner_result, "simulator": env.summary()}
@@ -40,7 +41,8 @@ def main() -> None:
     parser.add_argument(
         "--strategy",
         choices=("baseline", "batched", "integrated", "enhanced", "refined", "field"),
-        default="field",
+        default=None,
+        help="默认Q3使用refined、Q4使用field；可显式指定任一策略",
     )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
