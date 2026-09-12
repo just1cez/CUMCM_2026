@@ -1,8 +1,12 @@
 {
-  "official_status": "DEFERRED_BY_USER",
-  "reason": "User states the official simulator cannot currently run and explicitly requests deferral. No further download/start/test attempts. Six formal runs and encrypted exports remain future work; current deliverable is a verified research paper with synthetic evidence, not a contest-ready submission.",
-  "required_evidence": ["Q3 official practice results with revealed denominator", "Q4 official practice results with revealed denominator", "Q3 three official case codes, metrics and unchanged encrypted simulator-exported logs", "Q4 three official case codes, metrics and unchanged encrypted simulator-exported logs"],
-  "available_work": ["Rigorous Q1/Q2 solution", "Guaranteed-coverage Q3/Q4 algorithms", "Python py314 implementation", "Explicit synthetic simulation experiments", "Official HTTP client", "Detailed verified solution report"],
+  "official_status": "PRACTICE_COMPLETE_FORMAL_PENDING",
+  "reason": "User supplied ten Q3 and ten Q4 official simulator practice observations. They were validated from the manifest, sanitized request logs and post-exit result files, then analyzed offline. Formal tests remain pending; no formal result or encrypted-log claim is made.",
+  "practice_evidence": ["b_solution/results/official_practice_analysis.json", "ai_optimization_handoff_20260912/manifest.csv", "ai_optimization_handoff_20260912/data/controller/q3/", "ai_optimization_handoff_20260912/data/controller/q4/", "ai_optimization_handoff_20260912/data/simulator_results/"],
+  "archive_practice_inputs": "practice_data/manifest.csv and exactly 60 manifest-listed sanitized raw files; robot_id=TEAM_REDACTED, source scope and per-file hashes checked. No unsanitized private raw logs or formal encrypted data.",
+  "default_strategy": "field; --strategy refined retains the 20-practice control, probe_scale=0.22 for both Q3/Q4",
+  "offline_replay_boundary": "official_analysis.py independently costs all 20 observed traces. Strict baseline replay fully matches 8/20 and stops at first unobserved request otherwise; no synthetic feedback. Post-exit case/source/type labels are offline only. Local field confirmation is not an official improvement.",
+  "required_evidence": ["Q3 three official case codes, metrics and unchanged encrypted simulator-exported logs", "Q4 three official case codes, metrics and unchanged encrypted simulator-exported logs"],
+  "available_work": ["Q1/Q2 mathematical research", "Coverage-certified Q3/Q4 algorithms", "Python py314 field and historical refined implementation", "Historical and fresh paired local simulation evidence", "20 official practice observations with canonical offline analysis", "Official HTTP client", "Report sources; final PDF/archive verification requires actual generated proof"],
   "submission_state": "NOT_READY_FOR_SUBMISSION",
   "human_review": "Not performed by an actual contestant in this session; must not be claimed as performed."
 }

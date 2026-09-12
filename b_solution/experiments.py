@@ -77,7 +77,7 @@ def run_case(
         "strategy": strategy,
         "visited_anchors": p["visited_anchors"],
         "optical_fallbacks": p["optical_fallbacks"],
-        "probe_scale": probe_scale,
+        "probe_scale": p["probe_scale"],
         "loss_recovery_requested": loss_recovery,
         "loss_recovery": p["loss_recovery"],
         "anchor_policy": p["anchor_policy"],

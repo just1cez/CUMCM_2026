@@ -1,0 +1,9 @@
+{
+  "evidence": "exact_sha256_matches_before_removal",
+  "count": 2,
+  "files": [
+    {"path": "analysis/official_run_analysis.json", "root_matches": ["b_solution/results/official_practice_analysis.json"]},
+    {"path": "analysis/fast_vs_compact_410.json", "root_matches": ["b_solution/results/fast_vs_compact_410.json"]}
+  ],
+  "action": "Removed after the original 41 code/docs duplicates; unique simulator logs and analysis scripts remain."
+}

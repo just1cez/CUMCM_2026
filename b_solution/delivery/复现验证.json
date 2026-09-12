@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "archive_sha256": "855605d5020e14a52c8eaff70bbb0f10ccf89bddf1e57765c874ffe5a485c1f7",
+  "archive_sha256": "2ea602dde62afd82b851cfac75844f506ec6198d9a0f712905e23aa21ddf8eda",
   "manifest_hashes_verified": true,
   "all_4430_behavioral_runs_reproduced_exactly": true,
   "all_3080_enhancement_runs_reproduced_exactly": true,
@@ -9,16 +9,91 @@
   "all_10700_research_runs_reproduced_exactly": true,
   "all_2550_development_runs_reproduced_exactly": true,
   "research_verification_reproduced_exactly": true,
+  "all_2250_field_development_runs_reproduced_exactly": true,
+  "all_9400_field_confirmation_runs_reproduced_exactly": true,
+  "field_verification_reproduced_exactly": true,
+  "practice_source_hashes_verified_before_and_after": {
+    "manifest.csv": "36718b82e29619d03127286f5238ba75a894435b6250cf8674a1d7f57249240f",
+    "data/controller/q3/round_01/private_requests.jsonl": "b069b9361063a4fd0b5f00c7f001303815d005fd48bf38242d2f67175a8230f6",
+    "data/controller/q3/round_01/observed_result.json": "92ba87f84be4ea7deded919fbff6cc84766a69d736450328ac6f7c1abbbd4862",
+    "data/simulator_results/practice-p3-3349950054818020053-BUWJ-NM9Q-E3FP-KBNQ.result.json": "e478b87e6a2d07b9c7321692ca4a68810ada6eb1d0e57a4714a5676055e3b51a",
+    "data/controller/q3/round_02/private_requests.jsonl": "bc77589de3b6a6fd578bb8926f427edefaf35facf18b02d2e91dcb2ecd766f3a",
+    "data/controller/q3/round_02/observed_result.json": "32487970e8fcc20aa31ae4b4fc3b6965c2a16f52174e061b0f31254d83422819",
+    "data/simulator_results/practice-p3-7676077248861405373-XSTE-PSFN-9F8U-8P2D.result.json": "ab6ff1626db8fd4c80c8335b7ed9d69d03349e0971e7af4d3ec2ace3026f70af",
+    "data/controller/q3/round_03/private_requests.jsonl": "d550988cdaf6eb131437c1e0597f0c248fc3260b1b17f3bd1cc25e405301d1fc",
+    "data/controller/q3/round_03/observed_result.json": "f929e66aa61999643a4bd0fcd5417a26effcf992d891858d421b7d0d55ae6da3",
+    "data/simulator_results/practice-p3-2071173284715469153-WQXS-VYHK-4B2N-4NWU.result.json": "a4e8706d8359ebf7d828c92fbafbdf6b2f09171a6ed67d7d39ff8d0cb9e5c1a2",
+    "data/controller/q3/round_04/private_requests.jsonl": "f098dec742c4c8d54c0ac02b3febf6ae501eea9fb81e28230518eccef4536546",
+    "data/controller/q3/round_04/observed_result.json": "97416cc22c9a7f1ecceecfaa6c995f631b247d8c0e5b3812fe277556299504ef",
+    "data/simulator_results/practice-p3-5232102300600009848-3YB4-CC66-WNAD-XVQ9.result.json": "8b068893588cf2627c92ec6f8da268cfe7e5a26296f8ca7bde885589a14fb267",
+    "data/controller/q3/round_05/private_requests.jsonl": "b6e1a2136b294f18b295b9a78dbecf0c53aac2b5a7ec79e996a499e7a5722422",
+    "data/controller/q3/round_05/observed_result.json": "293fe0dfbfe6800529a3e2c66e57b68976a4a1ef6af22ba1c17f6247f57394a8",
+    "data/simulator_results/practice-p3-1792001531297228478-AKGC-XRSQ-KQ42-DE4U.result.json": "7ea67cd5597b992c6ac76a791c01535f4e1e1cf2b59764e8843e196766dc137f",
+    "data/controller/q3/round_06/private_requests.jsonl": "fc2e9e4f9e2f48791476dc505fae76fec36d814b99d92dee336f96edb99b3fe9",
+    "data/controller/q3/round_06/observed_result.json": "04fc1d166af8628b03946527c43b9a3207ad679b6a9601f0a2a7c2baeb02b6cc",
+    "data/simulator_results/practice-p3-6099312020903226064-F22D-5NT7-9XRW-7DY6.result.json": "8ed4d2fa846262cab4b7a97b5b0afa684a35f207736e9a32b6c21807e593c717",
+    "data/controller/q3/round_07/private_requests.jsonl": "9c2c2d6676bd63ae81e2518ef25c9e3e505722bce0ec58978fe586945583fad6",
+    "data/controller/q3/round_07/observed_result.json": "c0abde249ad7f436398d986e95520d1b920164826119b74fe2a2878b71ae9da7",
+    "data/simulator_results/practice-p3-8062991651294343284-FDS3-ZJ7Q-V3E9-2QDN.result.json": "79afa6cf0d1502bd73ceb37f70e027d8417bbdc51ccf9e2912ff43a59945d10a",
+    "data/controller/q3/round_08/private_requests.jsonl": "17a4d41a41e2b3dc3f0e6dba9208e00731c094b97015659210a409f8c641aec8",
+    "data/controller/q3/round_08/observed_result.json": "bda315be751dd3c05849b4d68e42d79209dad8731e27945c4be0ab45e55811bc",
+    "data/simulator_results/practice-p3-263953402046542304-XMZP-GEJC-W9KA-UTWY.result.json": "3b500779520b942b81f5bd93ed4cd0762a28fcf7566c473e33253246a0a0715a",
+    "data/controller/q3/round_09/private_requests.jsonl": "80ba45ab4cc44b46f04eb6b272662932ba1829acfaac17f7b89544098a09ce5e",
+    "data/controller/q3/round_09/observed_result.json": "6225cb89ab226b6e247995336e74f3a1ccbdfab7495b0bd2adff1b334522855b",
+    "data/simulator_results/practice-p3-1488554021349292333-8V3W-N88T-ED46-PXCE.result.json": "963c32098bef1a91c1fcd8c5e750d7c46411143cf356df5f2d3900b36f419403",
+    "data/controller/q3/round_10/private_requests.jsonl": "8f41b102db7bf3e7fc4bb5a9caf85bae82935d7bd4cb49b4942580633f09e035",
+    "data/controller/q3/round_10/observed_result.json": "ac571a1805294eabcc307fcb05bcd7e9d584465f3ae603e0539805e8fbfb01df",
+    "data/simulator_results/practice-p3-1798405950189116048-HGVD-7ZTC-XNGP-2JRT.result.json": "c58a05668bb97d4157363f29b75121963934799f40d23dbd5a6e4818b2e68144",
+    "data/controller/q4/round_01/private_requests.jsonl": "6a7dd0fc81c960d711f7b304b1606320792efae79374793373f9f25d99215a92",
+    "data/controller/q4/round_01/observed_result.json": "32e7231316eadaae80fea2f343987f38358146db6089f3d407190178ac6d420b",
+    "data/simulator_results/practice-p4-1670855544732265531-ZGME-Z9ZY-UQDJ-UZRF.result.json": "fa2ce1812b51c1ce60e234ee4085ad75212c0fd53daa818d16752f1062acf1d3",
+    "data/controller/q4/round_02/private_requests.jsonl": "d9c7ec7a5aa6ecb2cd6e46bc640c3273ef8a82d90adbe0a768f570b959bcbdcd",
+    "data/controller/q4/round_02/observed_result.json": "8a05e0797b3559128fa87d957129a8386a5b7485fb97de7e6d4b93d54e95b504",
+    "data/simulator_results/practice-p4-9031206563019523957-AQVF-W7A2-YAFY-F6JT.result.json": "2d9404addf86c0e75b818bbba7cec0e13eadba84deed64d9fdd23aa2a14bac0c",
+    "data/controller/q4/round_03/private_requests.jsonl": "edd9ad084da338935a022a49e14aa9807a64356c77693aa1abf0b473bcb47b09",
+    "data/controller/q4/round_03/observed_result.json": "fdfc9e6418fe3170e0aeeae15bdecfbc9a3279ef51f245383d9d0a90b692a660",
+    "data/simulator_results/practice-p4-1997217957909316958-HS4Z-3F9D-BE4W-FUBW.result.json": "55962b0840533030781052c989f89f3ca018fd9959fa732d45cfca2654009a2d",
+    "data/controller/q4/round_04/private_requests.jsonl": "d5b9a1674c2f92d56061a3f1d94f9a078f8f08e921a8c0e0727965193604d6d9",
+    "data/controller/q4/round_04/observed_result.json": "b6454aa25ceaded7bfb242be48a975c26cb10387d7e090ac823ac241cb41ae24",
+    "data/simulator_results/practice-p4-7521842019012197038-BFSU-HJRZ-2WQX-63MP.result.json": "bffbbaa6e6efa353f3830cac9f466e56c17b31e87e3d944a17475186bb6a163d",
+    "data/controller/q4/round_05/private_requests.jsonl": "1fbe13a219231922a76c6d5224cc8a398254cd3547e5b39cf340bb78ade7c1a5",
+    "data/controller/q4/round_05/observed_result.json": "3973f54c2ce272c9652f461638e7f41097e854f8f196ff6db60221683bfd1452",
+    "data/simulator_results/practice-p4-6580933971648287660-RFFB-U23B-VMS7-ASRE.result.json": "673697a7f082810832f7019231a82d63223c6f9cf016ea056fbbc4b2aa48ed51",
+    "data/controller/q4/round_06/private_requests.jsonl": "57496ac2ebdb4cc5f78f94ab09e5aeae1752f763302503360075d87c2174afa3",
+    "data/controller/q4/round_06/observed_result.json": "258b784b0b67fa70a1be0a18354f5a651cde7b41471b14027a1dbb37f96b9f7b",
+    "data/simulator_results/practice-p4-1673592989269465981-AJFX-AY9F-VETM-UBJ8.result.json": "8fdb9d3be8ffd9728dcaeabc0271643133b80a20d250850d9d807cf637670655",
+    "data/controller/q4/round_07/private_requests.jsonl": "dc465afb1a84c6622d218e4ff16324d6e6e3c8b76bf6e2e245d07bde0706d52c",
+    "data/controller/q4/round_07/observed_result.json": "f31dbb5e4d79895ef92daba2db4c667d31af580a11259a0cbbbda2c38a4ad143",
+    "data/simulator_results/practice-p4-4793335555652097164-CR6D-5DV5-WCJQ-6N3F.result.json": "0acd658ef70bca7d37608477872787f90336687de9cbd3a9ec51e44f68030246",
+    "data/controller/q4/round_08/private_requests.jsonl": "040422f81de6195ffd195da8fc11f3f19978184d3ddb26f09d9ef253dfd5fe98",
+    "data/controller/q4/round_08/observed_result.json": "041dcb78f04a7fd7ae95c5a3ee73305661e207b024e06887b6ab63a2a3f9a7ff",
+    "data/simulator_results/practice-p4-8027391456339273959-TY94-4B9M-J2RU-EDHA.result.json": "6edcd6258103fb5ec90d968aa030d4352718bdc1bc492070ff222a60f033250f",
+    "data/controller/q4/round_09/private_requests.jsonl": "eb67a1b17d0580be86e71ee21dd2970c6f5fcbd9d0e34ca2db04aa353460febb",
+    "data/controller/q4/round_09/observed_result.json": "8f1327abb1094d3ec23f4b178bf7ba4e23a982f0f32b9f649692cfda0a584620",
+    "data/simulator_results/practice-p4-8797320313496514818-5J2D-BATC-W2P2-BNQ2.result.json": "0704c65b5e4feff10ba8e09483955584dbb924ec1f8c5b59ee2220ee50c56258",
+    "data/controller/q4/round_10/private_requests.jsonl": "64dfb1d3802392a2d2b3fd275eec27226165c7a73ba5ecb1102ac324d1eb59be",
+    "data/controller/q4/round_10/observed_result.json": "b07211db162826e7cbd08c1b82a006aba82ee1aa63d2b9a1f1ca2a7931f93ad9",
+    "data/simulator_results/practice-p4-4631655174647658919-CENN-WQ49-E4D5-9JJ7.result.json": "fbe43dae47c9e61286038de1bb7d6a888d5cc39e6ecb3e8b1471d343ccfb67e1"
+  },
+  "immutable_source_hashes_verified_after_replay": true,
+  "pythonpath_removed": true,
+  "official_practice_analysis_reproduced_exactly": true,
+  "fast_vs_compact_screen_reproduced_exactly": true,
   "generated_asset_input_hashes_verified": true,
   "experiment_runs_reproduced_by_dataset": {
     "final_experiments.json": 4430,
     "enhancement_experiments.json": 3080,
     "ring_sweep.json": 2200,
     "refinement_development.json": 2550,
-    "research_experiments.json": 10700
+    "research_experiments.json": 10700,
+    "field_development.json": 2250,
+    "field_confirmation.json": 9400
   },
-  "experiment_runs_reproduced_total": 22960,
-  "excluded_nondeterminism": "measured wall-clock real_duration_s and its summary maximum max_real_duration_s only",
+  "experiment_runs_reproduced_total": 34610,
+  "auxiliary_runs_excluded_from_core_total": {
+    "fast_vs_compact_410.json": 2000
+  },
+  "excluded_nondeterminism": "local measured wall-clock real_duration_s, max_real_duration_s and max_real_s only; official timestamp/runtime observations remain exact",
   "commands": [
     {
       "command": [
@@ -26,7 +101,7 @@
         "verify_geometry.py"
       ],
       "returncode": 0,
-      "seconds": 1.0145043750089826
+      "seconds": 1.0162495830008993
     },
     {
       "command": [
@@ -34,7 +109,7 @@
         "intersection.py"
       ],
       "returncode": 0,
-      "seconds": 0.19034737499896437
+      "seconds": 0.19340462499530986
     },
     {
       "command": [
@@ -42,7 +117,7 @@
         "second_point.py"
       ],
       "returncode": 0,
-      "seconds": 0.2932254580082372
+      "seconds": 0.299665583006572
     },
     {
       "command": [
@@ -54,7 +129,7 @@
         "results/final_experiments.json"
       ],
       "returncode": 0,
-      "seconds": 11.335029957990628
+      "seconds": 11.43123979200027
     },
     {
       "command": [
@@ -62,7 +137,7 @@
         "enhancements.py"
       ],
       "returncode": 0,
-      "seconds": 16.31685779200052
+      "seconds": 16.430152084009023
     },
     {
       "command": [
@@ -70,7 +145,7 @@
         "ring_sweep.py"
       ],
       "returncode": 0,
-      "seconds": 5.059388958005002
+      "seconds": 5.068112249995465
     },
     {
       "command": [
@@ -78,7 +153,7 @@
         "verify_terminal.py"
       ],
       "returncode": 0,
-      "seconds": 0.042091916999197565
+      "seconds": 0.04354862500622403
     },
     {
       "command": [
@@ -86,7 +161,7 @@
         "verify_refinements.py"
       ],
       "returncode": 0,
-      "seconds": 0.06316595899988897
+      "seconds": 0.06419683300191537
     },
     {
       "command": [
@@ -94,7 +169,7 @@
         "verify_coverage_limits.py"
       ],
       "returncode": 0,
-      "seconds": 0.01624387499759905
+      "seconds": 0.01751362498907838
     },
     {
       "command": [
@@ -102,7 +177,7 @@
         "compare_routes.py"
       ],
       "returncode": 0,
-      "seconds": 2.179315832996508
+      "seconds": 2.2019264999980805
     },
     {
       "command": [
@@ -110,7 +185,7 @@
         "compare_probes.py"
       ],
       "returncode": 0,
-      "seconds": 18.84966591600096
+      "seconds": 18.718248499993933
     },
     {
       "command": [
@@ -118,7 +193,33 @@
         "verify_research.py"
       ],
       "returncode": 0,
-      "seconds": 1.0778791670018109
+      "seconds": 1.2388391249987762
+    },
+    {
+      "command": [
+        "python",
+        "official_analysis.py",
+        "--handoff",
+        "practice_data"
+      ],
+      "returncode": 0,
+      "seconds": 0.15944091699202545
+    },
+    {
+      "command": [
+        "python",
+        "make_official_assets.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.017764958000043407
+    },
+    {
+      "command": [
+        "python",
+        "fast_vs_compact_410.py"
+      ],
+      "returncode": 0,
+      "seconds": 19.547551790994476
     },
     {
       "command": [
@@ -130,7 +231,7 @@
         "3100000"
       ],
       "returncode": 0,
-      "seconds": 18.594289791988558
+      "seconds": 18.746777667009155
     },
     {
       "command": [
@@ -138,7 +239,35 @@
         "research_experiments.py"
       ],
       "returncode": 0,
-      "seconds": 73.63786266700481
+      "seconds": 73.67691416600428
+    },
+    {
+      "command": [
+        "python",
+        "verify_field.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.735790624996298
+    },
+    {
+      "command": [
+        "python",
+        "field_study.py",
+        "--cases",
+        "150",
+        "--seed",
+        "6100000"
+      ],
+      "returncode": 0,
+      "seconds": 27.966252665995853
+    },
+    {
+      "command": [
+        "python",
+        "field_confirmation.py"
+      ],
+      "returncode": 0,
+      "seconds": 105.12018533299852
     },
     {
       "command": [
@@ -146,7 +275,7 @@
         "make_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.7352663750061765
+      "seconds": 0.7523725000064587
     },
     {
       "command": [
@@ -154,7 +283,7 @@
         "make_enhancement_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.4185546669905307
+      "seconds": 0.4231792499922449
     },
     {
       "command": [
@@ -162,7 +291,15 @@
         "make_research_assets.py"
       ],
       "returncode": 0,
-      "seconds": 0.5839559999876656
+      "seconds": 0.5943568340007914
+    },
+    {
+      "command": [
+        "python",
+        "make_field_assets.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.397028749997844
     },
     {
       "command": [
@@ -173,7 +310,7 @@
         "paper.tex"
       ],
       "returncode": 0,
-      "seconds": 11.78830783299054
+      "seconds": 14.88297004099877
     },
     {
       "command": [
@@ -184,7 +321,7 @@
         "ai_usage.tex"
       ],
       "returncode": 0,
-      "seconds": 1.0501998330000788
+      "seconds": 1.0526018749951618
     }
   ]
 }

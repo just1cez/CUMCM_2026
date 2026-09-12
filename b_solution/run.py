@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from environment import LocalSimulator
+from field_policy import FieldPlanner
 from planner import Planner
 
 
@@ -15,12 +16,16 @@ def run_local(
     problem: int,
     scenario: str = "random",
     error_mode: str = "smooth",
-    strategy: str = "refined",
+    strategy: str = "field",
 ) -> dict:
     env = LocalSimulator(
         seed, problem=problem, scenario=scenario, error_mode=error_mode
     )
-    planner = Planner(env, problem=problem, strategy=strategy)
+    planner = (
+        FieldPlanner(env, problem=problem)
+        if strategy == "field"
+        else Planner(env, problem=problem, strategy=strategy)
+    )
     planner_result = planner.run()
     result = {"planner": planner_result, "simulator": env.summary()}
     return result
@@ -34,8 +39,8 @@ def main() -> None:
     parser.add_argument("--error-mode", default="smooth")
     parser.add_argument(
         "--strategy",
-        choices=("baseline", "batched", "integrated", "enhanced", "refined"),
-        default="refined",
+        choices=("baseline", "batched", "integrated", "enhanced", "refined", "field"),
+        default="field",
     )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()

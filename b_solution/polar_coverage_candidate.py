@@ -18,7 +18,9 @@ def _parameters(variant: str) -> tuple[float, float, float, float, float]:
         return 990.0, 1865.0, 1.0, 0.25, 990.0
     if variant == "compact25":
         return 940.0, 1870.0, 5.0, 1.0, 993.0
-    raise ValueError("variant must be 'seed25' or 'compact25'")
+    if variant == "fast25":
+        return 928.0, 1865.0, 1.0, 0.75, 998.25
+    raise ValueError("variant must be 'seed25', 'compact25' or 'fast25'")
 
 
 def polar_waypoints(variant: str = "seed25") -> list[Point]:

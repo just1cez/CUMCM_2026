@@ -1,0 +1,313 @@
+{
+  "evidence": "exact_sha256_matches_before_removal",
+  "count": 43,
+  "files": [
+    {
+      "path": "code/b_solution/package.py",
+      "sha256": "38ecd4c358b28f6750549f7bddbf966dbfb6686665f39cbe7055f55d99514701",
+      "root_matches": [
+        "b_solution/package.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/research_experiments.py",
+      "sha256": "77f85805b1a3e9b8fb347c7497b2a27256e17f631bda575b08ae3dd3e5e06dbd",
+      "root_matches": [
+        "b_solution/research_experiments.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/run.py",
+      "sha256": "f65129ba83e86f4f8bf07808ab8c01456132080124d696becd7f0ce4a7bc3ac8",
+      "root_matches": [
+        "b_solution/run.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/optical_policy_candidate.py",
+      "sha256": "8d318765c03a1f9ab6cf95f8beaa03659f4b985cb4f8476184626a07f0eac8e4",
+      "root_matches": [
+        "b_solution/optical_policy_candidate.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/official_run.py",
+      "sha256": "b689d1d3ea44c2589ec5cf8ef76992c293aa617559e517c3273cd0b9da138142",
+      "root_matches": [
+        "b_solution/official_run.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/compare_recovery.py",
+      "sha256": "0609bc0d7c344bee520f507621a7715f983c7eb15c1422efa0dfd582e08fa218",
+      "root_matches": [
+        "b_solution/compare_recovery.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/requirements.txt",
+      "sha256": "a4366a7037ccdbaa8b28ad170338802ba53f8b4d530a137986f45f5c1949fa27",
+      "root_matches": [
+        "b_solution/requirements.txt"
+      ]
+    },
+    {
+      "path": "code/b_solution/make_enhancement_assets.py",
+      "sha256": "62c9414b68fef24489bdab5823ea00fd98ab70f857a82215e1e535de6a4b2c2a",
+      "root_matches": [
+        "b_solution/make_enhancement_assets.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/compare_probes.py",
+      "sha256": "7354fef704bb48102ce42fa4edf1f37632f1c871232aac541778b976752a9e0d",
+      "root_matches": [
+        "b_solution/compare_probes.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/check_environment.py",
+      "sha256": "ad6828c1753a51d3aad2c2a13a304260c5e39f76dbf7c43f2fcd52e5019ff341",
+      "root_matches": [
+        "b_solution/check_environment.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/client.py",
+      "sha256": "dec4fb314de716817d90796e9f076d487e637bf986f5ce3d94e664e8cc20b835",
+      "root_matches": [
+        "b_solution/client.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_http.py",
+      "sha256": "a4c061ee21316c3c291de3a88f682d684478c5e7eae44c40fd935124ada14cb6",
+      "root_matches": [
+        "b_solution/verify_http.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/make_research_assets.py",
+      "sha256": "e443e83830df4c849639934a37a23236a5cd1aa4ce24688233defea97aab4286",
+      "root_matches": [
+        "b_solution/make_research_assets.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/polar_coverage_candidate.py",
+      "sha256": "1281191dc1be2b1a9a9c7e0c1d38ce043d5c139e36f38df0c67ea9946e7bc1b8",
+      "root_matches": [
+        "b_solution/polar_coverage_candidate.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_coverage_limits.py",
+      "sha256": "466737088c2013e53b47fc6a607d0419d8135dc6682d51969d02acd4a3eb27fd",
+      "root_matches": [
+        "b_solution/verify_coverage_limits.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/develop_anchors.py",
+      "sha256": "727f15ba2b55f46f4b80a84eef38aeb877c53a6a5d09ac51daba228c5b2255b2",
+      "root_matches": [
+        "b_solution/develop_anchors.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_refinements.py",
+      "sha256": "04b20fd69e93e2fc4b10aa5df29d0d4322644b85c5832f9b2545acc10391bb18",
+      "root_matches": [
+        "b_solution/verify_refinements.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/coverage.py",
+      "sha256": "661b77f3433e6cb936ddc0be1dcccbbc1b89378fc141f6f976028551e24a374c",
+      "root_matches": [
+        "b_solution/coverage.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/active_policy_candidate.py",
+      "sha256": "27e5421eedb9e6d768dfb5002f689a1e86407dfe7c67dcc90e5d692ba6a99e20",
+      "root_matches": [
+        "b_solution/active_policy_candidate.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_geometry.py",
+      "sha256": "09af50733d7e20720398667cfd9d9c3fd3d9161a1471bf3d026b913f349e6966",
+      "root_matches": [
+        "b_solution/verify_geometry.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/compare_routes.py",
+      "sha256": "f0a439993aa46b07ead91b92842d7afa3696392a70fd5e41fe2f93e2a1dbff0e",
+      "root_matches": [
+        "b_solution/compare_routes.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/route_policy_candidate.py",
+      "sha256": "56b06a66d376185239d5c3fa088791ebfaf1d9878463272d7b9d86726743d161",
+      "root_matches": [
+        "b_solution/route_policy_candidate.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/ring_sweep.py",
+      "sha256": "809dbbac028ae3f640f7a2bc6fe4b32d5a714f899e3db792105d92a215f218ce",
+      "root_matches": [
+        "b_solution/ring_sweep.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/enhancements.py",
+      "sha256": "9c47716d4c63d39b8b98f1e0f463d3f47c194a1f64c13899b3e5de5da88ddae4",
+      "root_matches": [
+        "b_solution/enhancements.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/contracts.json",
+      "sha256": "3db3c68afe592dcd2fd72bad6a0771364da738c4be5fcfa22ec97ee4e710dcd5",
+      "root_matches": [
+        "b_solution/contracts.json"
+      ]
+    },
+    {
+      "path": "code/b_solution/geometry.py",
+      "sha256": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357",
+      "root_matches": [
+        "b_solution/geometry.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/second_point.py",
+      "sha256": "b9da434f9b9440dd9e5f938ee59d45c0afad14b2a9b5486d4b1da56b9b9652cd",
+      "root_matches": [
+        "b_solution/second_point.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/environment.py",
+      "sha256": "6144f761cd41c22a301bfd2511554346bf61e7157afc850b6291e6648d79fff7",
+      "root_matches": [
+        "b_solution/environment.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/audit_pdf.py",
+      "sha256": "0a2687f91bcab33c6bb8fad649ad6da48bcab34d7857b4eee6e79f7f2dfaaa6f",
+      "root_matches": [
+        "b_solution/audit_pdf.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/joint_dispatch_candidate.py",
+      "sha256": "e21831b2160d3cb0c8da1400c7c1484a818a2902218d510e7d14238475ae2250",
+      "root_matches": [
+        "b_solution/joint_dispatch_candidate.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/reproduce.txt",
+      "sha256": "314c2d822ccc9b436bacff93d8ea27ae1c9ae88ecadf68e2a73a8570c30e736b",
+      "root_matches": [
+        "b_solution/reproduce.txt"
+      ]
+    },
+    {
+      "path": "code/b_solution/intersection.py",
+      "sha256": "3c69e9cea50fb45e5d525cd5231b8c27eccd6022271857189dfc3587f2565862",
+      "root_matches": [
+        "b_solution/intersection.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_research.py",
+      "sha256": "5013af527c57812515bbc628e927457093d339046e5e95c7504bfe9261426555",
+      "root_matches": [
+        "b_solution/verify_research.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/refinement_study.py",
+      "sha256": "a5d1dde1351d7e890feff3c950226d708cb643341788e9864c37d51346c91460",
+      "root_matches": [
+        "b_solution/refinement_study.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/verify_terminal.py",
+      "sha256": "4303d442bcad5365a32bbc5986d62b720f95bf82d4ff445b89b5c8f6bb6f9163",
+      "root_matches": [
+        "b_solution/verify_terminal.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/make_assets.py",
+      "sha256": "a9890375d992517e6959c7a5596178278c279881983172e170db2565674fdf39",
+      "root_matches": [
+        "b_solution/make_assets.py"
+      ]
+    },
+    {
+      "path": "code/b_solution/report_contracts.json",
+      "sha256": "8245aef5a04a009066425699a12574153b85afd7a599a7aca98416b526d0f847",
+      "root_matches": [
+        "b_solution/report_contracts.json"
+      ]
+    },
+    {
+      "path": "docs/B题.pdf",
+      "sha256": "81c992a9bee5376308c4768b58719b177f17d6ee1f9861577a851924c5a838ca",
+      "root_matches": [
+        "CUMCM2026Problems/B题/B题.pdf"
+      ]
+    },
+    {
+      "path": "docs/附件1.docx",
+      "sha256": "20a27603ea81efa8f11658b3fa5b859a69aa3ff88fb3664d2abb80d740b47553",
+      "root_matches": [
+        "附件1.docx",
+        "CUMCM2026Problems/B题/附件/附件1.docx"
+      ]
+    },
+    {
+      "path": "docs/附件2.docx",
+      "sha256": "c882513d5b7e0ec50f3068570ea55fdc1b5c4a5fa2d6e9e54e79b33cf0858cb2",
+      "root_matches": [
+        "附件2.docx",
+        "CUMCM2026Problems/B题/附件/附件2.docx"
+      ]
+    },
+    {
+      "path": "docs/模拟器检测指导.md",
+      "sha256": "6f519128269b6f2fc3220b7f164905ad6f016ff9da148cfb9f3553dcd48bbbf3",
+      "root_matches": [
+        "模拟器检测指导.md"
+      ]
+    },
+    {
+      "path": "code/b_solution/planner.py",
+      "sha256": "14a05bd84c568a5b4d59fd26244ff990d66ab7fd366ba41b0ef9670479e183d8",
+      "root_matches": [
+        "b_solution/planner.py"
+      ],
+      "tested_revision": "e08ac3b0e53e8198b00c5fd8a1d38c6aff47ba9f"
+    },
+    {
+      "path": "code/b_solution/experiments.py",
+      "sha256": "31ebe02f08cf139e9aa36dd862707e01eb57613d91feccf0a8b4bfdcf8870f59",
+      "root_matches": [
+        "b_solution/experiments.py"
+      ],
+      "tested_revision": "e08ac3b0e53e8198b00c5fd8a1d38c6aff47ba9f"
+    }
+  ],
+  "tested_source_revision": "e08ac3b0e53e8198b00c5fd8a1d38c6aff47ba9f",
+  "action": "Removed duplicate handoff code/docs; original tested bytes remain bound to this Git revision. Raw practice observations unchanged."
+}

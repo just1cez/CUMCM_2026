@@ -1,8 +1,8 @@
 {
   "pdf": "report/ai_usage.pdf",
-  "sha256": "e7388a421212c44b938a7c736a7c26a642f8a02c9aaa3337faa21eee10d1dd19",
-  "pages": 4,
-  "size_mib": 0.25970458984375,
+  "sha256": "2ffa5c394447d0e6b0e1ac3bb13e2bd487aab294276d6fc705666a8c8fccc049",
+  "pages": 5,
+  "size_mib": 0.2818136215209961,
   "body_end_page": null,
   "body_pages_excluding_abstract": null,
   "abstract_keywords_on_first_page": false,
@@ -17,31 +17,38 @@
   "page_records": [
     {
       "page": 1,
-      "characters": 881,
+      "characters": 885,
       "image": "ai_001.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 22.0
     },
     {
       "page": 2,
-      "characters": 976,
+      "characters": 1002,
       "image": "ai_002.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
     },
     {
       "page": 3,
-      "characters": 1110,
+      "characters": 1222,
       "image": "ai_003.png",
+      "smallest_text_pt": 12.0,
+      "largest_text_pt": 12.0
+    },
+    {
+      "page": 4,
+      "characters": 1042,
+      "image": "ai_004.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
     },
     {
-      "page": 4,
-      "characters": 544,
-      "image": "ai_004.png",
+      "page": 5,
+      "characters": 182,
+      "image": "ai_005.png",
       "smallest_text_pt": 10.5,
-      "largest_text_pt": 18.0
+      "largest_text_pt": 12.0
     }
   ],
   "visual_review_status": "rendered_for_inspection_not_automatically_approved"

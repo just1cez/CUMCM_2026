@@ -155,7 +155,6 @@ def verify_optical():
             "maximum_sampled_distance_m":max_distance,"lower_cover_proxy_cost_cases":improved,
             "scope":"interior sampling supplements exact per-cell corner certificates, not a proof by sampling"}
 
-
 def verify_dispatch():
     anchors={7:(-2.,0.),9:(10.,0.)};targets={3:((1.,0.),20.)}
     kinds=[]
@@ -207,8 +206,9 @@ def verify_scan_obligations():
 
 
 def main():
-    polar=[verify_polar(variant) for variant in ("seed25","compact25")]
+    polar=[verify_polar(variant) for variant in ("seed25","compact25","fast25")]
     assert polar[0]["explicit_route_length_m"]-polar[1]["explicit_route_length_m"]>179.5
+    assert polar[1]["explicit_route_length_m"]-polar[2]["explicit_route_length_m"]>100
     result={"evidence":"independent_finite_geometry_and_behavior_checks_not_official",
             "polar":polar,"optical":verify_optical(),"dispatch":verify_dispatch(),
             "scan_obligations":verify_scan_obligations()}

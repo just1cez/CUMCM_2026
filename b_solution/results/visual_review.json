@@ -1,13 +1,14 @@
 {
-  "status": "visual_review_completed_for_current_refined_research_version",
+  "status": "visual_review_completed_for_current_field_paper",
   "scope": {
     "paper_pdf": "report/paper.pdf",
-    "paper_sha256": "bf3ddad295603e57ee947fa3a22832d838dd8a3d78461b406cc843e47c409068",
-    "paper_pages": 127,
-    "body_pages_excluding_abstract": 24,
+    "paper_sha256": "99194bccfe6c4e5ba690e4dae404150a04e9901eaac9d678963f302d5dbdae2f",
+    "paper_pages": 162,
+    "body_end_page": 27,
+    "body_pages_excluding_abstract": 26,
     "ai_usage_pdf": "report/ai_usage.pdf",
-    "ai_usage_sha256": "e7388a421212c44b938a7c736a7c26a642f8a02c9aaa3337faa21eee10d1dd19",
-    "ai_usage_pages": 4
+    "ai_usage_sha256": "2ffa5c394447d0e6b0e1ac3bb13e2bd487aab294276d6fc705666a8c8fccc049",
+    "ai_usage_pages": 5
   },
   "render_evidence": {
     "paper_audit": "report/visual/paper_audit.json",
@@ -15,11 +16,12 @@
     "dpi": 120,
     "all_pages_rendered": true,
     "out_of_page_spans": [],
-    "replacement_characters": 0
+    "replacement_characters": 0,
+    "near_empty_pages": []
   },
   "visual_inspection": {
-    "method": "Main inspected body contact sheets and full pressure-table page; vision-model inspection covered every numbered paper page and all AI pages. After inline pressure-table layout correction, pages19–30 were rechecked on the final render.",
-    "paper_page_ranges_inspected": [
+    "method": "Main inspected body sheets and full-resolution pages51/82/83; image-model checks covered every numbered page on27 paper sheets. Pages79–162 were rechecked after caption/auxiliary-script changes. AI five pages checked after wrapping corrections.",
+    "page_ranges_inspected": [
       [
         1,
         6
@@ -106,199 +108,206 @@
       ],
       [
         127,
-        127
+        132
+      ],
+      [
+        133,
+        138
+      ],
+      [
+        139,
+        144
+      ],
+      [
+        145,
+        150
+      ],
+      [
+        151,
+        156
+      ],
+      [
+        157,
+        162
       ]
     ],
-    "ai_pages_inspected": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "page_reports": [
+    "earlier_unchanged_page_reports": [
       {
         "pages": [
           1,
           6
         ],
-        "result": "- **Page 1**：未见明显排版问题。\n- **Page 2**：未见明显排版问题。\n- **Page 3**：表格、公式未见截断、溢出或重叠。\n- **Page 4**：未见明显问题；页末正文续至 Page 5，分页正常。\n- **Page 5**：图表、公式未见截断或重叠；列表续至 Page 6，未见异常分页。\n- **Page 6**：未见明显排版问题。\n\n受拼图分辨率限制，细微缺字无法可靠确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           7,
           12
         ],
-        "result": "- Page 7：未见明显排版问题。\n- Page 8：图表、图例及正文未见重叠或截断。\n- Page 9：未见明显排版问题；页首列表为正常跨页续接。\n- Page 10：未见明显排版问题。\n- Page 11：未见明显排版问题。\n- Page 12：未见明显排版问题。\n\n仅据当前拼图判断，细微缺字受分辨率限制。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           13,
           18
         ],
-        "result": "- Page 13：未见明显排版问题。\n- Page 14：图表与正文无重叠，未见明显排版问题。\n- Page 15：未见明显排版问题。\n- Page 16：未见明显排版问题。\n- Page 17：未见明显排版问题。\n- Page 18：未见明显排版问题。\n\n未发现可见截断、溢出或异常空白／分页；细微缺字受拼图清晰度限制，无法完全确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           19,
           24
         ],
-        "result": "Final recheck: Pages19–24 have no visible truncation, overlap or abnormal whitespace. Page22 pressure table is followed by sensitivity discussion/table; previously isolated float page resolved."
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           25,
           30
         ],
-        "result": "- Page 25：未见明显排版问题。\n- Page 26：未见明显排版问题。\n- Page 27：未见明显排版问题。\n- Page 28：未见明显排版问题。\n- Page 29：未见明显排版问题。\n- Page 30：未见明显排版问题。\n\n代码跨页衔接正常，未见明确截断、溢出或重叠。受拼图分辨率限制，细小字符是否缺失无法可靠确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           31,
           36
         ],
-        "result": "- **Page 31、Page 32、Page 33、Page 34、Page 35、Page 36：均未见明显排版问题。**\n- 代码跨页续排正常，未见明显截断、溢出、重叠、缺字或异常空白／分页。\n\n仅据拼图可见内容判断，细微字符缺损无法确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           37,
           42
         ],
-        "result": "- Page 37：未见明显排版问题。\n- Page 38：未见明显排版问题。\n- Page 39：未见明显排版问题。\n- Page 40：未见明显排版问题。\n- Page 41：未见明显排版问题。\n- Page 42：未见明显排版问题。\n\n代码跨页延续正常；拼图分辨率有限，细微缺字无法可靠确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           43,
           48
         ],
-        "result": "| 页码 | 可见排版检查 |\n|---|---|\n| Page 43 | 未见明显问题 |\n| Page 44 | 未见明显问题 |\n| Page 45 | 未见明显问题，两段代码及标题无重叠 |\n| Page 46 | 未见明显问题 |\n| Page 47 | 未见明显问题，两段代码及标题无重叠 |\n| Page 48 | 未见明显问题 |\n\n代码跨页为正常续排，未见明显裁切、溢出或异常空白。受拼图分辨率限制，细微缺字无法确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           49,
           54
         ],
-        "result": "- Page 49：未见明显排版问题。\n- Page 50：未见明显排版问题。\n- Page 51：未见明显排版问题。\n- Page 52：未见明显排版问题。\n- Page 53：未见明显排版问题。\n- Page 54：未见明显排版问题。\n\n可见代码为正常跨页续排，未见明显截断、溢出、重叠、缺字或异常空白。"
+        "result": "Pages49–54: no defect; page51 alleged crop checked at full resolution: source112 wraps onto the next line and119 ends with visible quotes/comma."
       },
       {
         "pages": [
           55,
           60
         ],
-        "result": "- Page 55：未见明显排版问题。\n- Page 56：未见明显排版问题。\n- Page 57：未见明显排版问题。\n- Page 58：未见明显排版问题。\n- Page 59：未见明显排版问题。\n- Page 60：未见明显排版问题。\n\n可见代码跨页属正常续排，未见明显截断、溢出、重叠或异常空白。细微缺字受拼图清晰度限制，无法确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           61,
           66
         ],
-        "result": "**Page 61、Page 62、Page 63、Page 64、Page 65、Page 66：均未见明显排版问题。**\n\n代码跨页续排、标题与代码框衔接正常；未见可见截断、文字溢出、重叠或异常空白／分页。\n\n限于拼图分辨率，细微缺字无法确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           67,
           72
         ],
-        "result": "- Page 67：未见明显排版问题。\n- Page 68：未见明显排版问题。\n- Page 69：未见明显排版问题。\n- Page 70：未见明显排版问题。\n- Page 71：未见明显排版问题。\n- Page 72：未见明显排版问题。\n\n代码跨页续排未见异常；未见明显截断、溢出或重叠。受拼图分辨率限制，细微缺字无法可靠确认。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       },
       {
         "pages": [
           73,
           78
         ],
-        "result": "- Page 73：未见明显排版问题。\n- Page 74：未见明显排版问题。\n- Page 75：未见明显排版问题。\n- Page 76：未见明显排版问题。\n- Page 77：未见明显排版问题。\n- Page 78：未见明显排版问题。\n\n代码跨页续排未见异常；受拼图分辨率限制，细微缺字无法确认。"
-      },
-      {
-        "pages": [
-          79,
-          84
-        ],
-        "result": "- Page 79：未见明显排版问题。\n- Page 80：未见明显排版问题。\n- Page 81：未见明显排版问题。\n- Page 82：未见明显排版问题。\n- Page 83：未见明显排版问题。\n- Page 84：未见明显排版问题。\n\n代码跨页续排正常，未见明显截断、溢出、重叠、缺字或异常空白。结论限于拼图可辨识范围。"
-      },
-      {
-        "pages": [
-          85,
-          90
-        ],
-        "result": "- Page 85：未见明显排版问题。\n- Page 86：未见明显排版问题。\n- Page 87：未见明显排版问题。\n- Page 88：未见明显排版问题。\n- Page 89：未见明显排版问题。\n- Page 90：未见明显排版问题。\n\n代码跨页为正常续排，未见明显截断、溢出或重叠。拼图清晰度有限，细微缺字无法可靠确认。"
-      },
-      {
-        "pages": [
-          91,
-          96
-        ],
-        "result": "- Page 91：未见明显排版问题。\n- Page 92：未见明显排版问题。\n- Page 93：未见明显排版问题。\n- Page 94：未见明显排版问题。\n- Page 95：未见明显排版问题。\n- Page 96：未见明显排版问题。\n\n可见代码跨页接续正常，未见明显截断、溢出、重叠或异常空白。拼图分辨率有限，细微缺字无法可靠确认。"
-      },
-      {
-        "pages": [
-          97,
-          102
-        ],
-        "result": "- **Page 97**：未见明显排版问题。\n- **Page 98**：未见明显排版问题。\n- **Page 99**：未见明显排版问题。\n- **Page 100**：未见明显排版问题。\n- **Page 101**：未见明显排版问题。\n- **Page 102**：未见明显排版问题。\n\n代码跨页续排正常，未见明显截断、溢出、重叠或异常空白。受拼图分辨率限制，细微缺字无法确认。"
-      },
-      {
-        "pages": [
-          103,
-          108
-        ],
-        "result": "- Page 103：未见明显排版问题。\n- Page 104：未见明显排版问题。\n- Page 105：未见明显排版问题。\n- Page 106：未见明显排版问题。\n- Page 107：未见明显排版问题。\n- Page 108：未见明显排版问题。\n\n仅据拼图可见内容判断；正常代码换行、跨页续排未计为截断。"
-      },
-      {
-        "pages": [
-          109,
-          114
-        ],
-        "result": "- Page 109：未见明显排版问题。\n- Page 110：未见明显排版问题。\n- Page 111：未见明显排版问题。\n- Page 112：未见明显排版问题。\n- Page 113：未见明显排版问题。\n- Page 114：未见明显排版问题。\n\n代码跨页处未见异常截断。拼图分辨率有限，细微缺字无法可靠确认。"
-      },
-      {
-        "pages": [
-          115,
-          120
-        ],
-        "result": "- Page 115：未见明显排版问题。\n- Page 116：未见明显排版问题。\n- Page 117：未见明显排版问题。\n- Page 118：未见明显排版问题。\n- Page 119：未见明显排版问题。\n- Page 120：未见明显排版问题。\n\n可见代码跨页续接正常，未见截断、溢出、重叠或异常分页。拼图清晰度有限，细微缺字无法可靠判断。"
-      },
-      {
-        "pages": [
-          121,
-          126
-        ],
-        "result": "- Page 121：未见明显排版问题。\n- Page 122：未见明显排版问题。\n- Page 123：未见明显排版问题。\n- Page 124：未见明显排版问题。\n- Page 125：未见明显排版问题。\n- Page 126：未见明显排版问题。\n\n代码换行、跨页续排未见异常。拼图分辨率有限，细微缺字无法可靠确认。"
-      },
-      {
-        "pages": [
-          127,
-          127
-        ],
-        "result": "Page 127：已检查，未见明显截断、溢出、重叠、缺字或异常分页；页末留白不计为问题。"
+        "result": "No visible clipping, overlap, unusual blank page or broken continuation found."
       }
     ],
-    "ai_report": "- **Page 1**：未见明显排版问题。\n- **Page 2**：未见明显排版问题，列表跨页衔接正常。\n- **Page 3**：未见明显截断、溢出、重叠或异常分页。\n- **Page 4**：未见明显排版问题；末页留白正常，不计为错误。\n\n受拼图分辨率限制，细微缺字无法完全确认。",
-    "resolved_issue": "Changed pressure table to inline placement; final page22 now carries following discussion and sensitivity table, without the former centered float-only whitespace.",
+    "final_appendix_reports": [
+      {
+        "sheet": 14,
+        "review": "- 第79页：未见明显排版异常。\n- 第80页：未见明显排版异常。\n- 第81页：未见明显排版异常。\n- 第82页：未见明显排版异常。\n- 第83页：未见明显异常，标题与代码首行未分离。\n- 第84页：未见明显异常，页底新标题与代码首行未分离。\n\n细字清晰度有限，仅判断可见的明显问题。"
+      },
+      {
+        "sheet": 15,
+        "review": "- 85页：未见明显排版异常。\n- 86页：未见明显排版异常。\n- 87页：未见明显裁切、重叠或异常空白。\n- 88页：未见明显排版异常。\n- 89页：跨页代码接续正常，未见明显异常。\n- 90页：未见明显裁切、重叠或异常空白。"
+      },
+      {
+        "sheet": 16,
+        "review": "- 第91页：未见明显排版异常。\n- 第92页：未见明显排版异常，标题与首行未分离。\n- 第93页：未见明显排版异常。\n- 第94页：未见明显排版异常。\n- 第95页：未见明显排版异常。\n- 第96页：未见明显排版异常，标题与首行未分离。\n\n跨页代码属正常续排；细微缺字受图像清晰度限制，无法确认。"
+      },
+      {
+        "sheet": 17,
+        "review": "- 第97页：未见明显排版异常。\n- 第98页：未见明显排版异常。\n- 第99页：未见明显排版异常。\n- 第100页：未见明显排版异常。\n- 第101页：未见明显排版异常。\n- 第102页：未见明显排版异常。"
+      },
+      {
+        "sheet": 18,
+        "review": "- 第103页：未见文字/代码裁切、重叠、明显缺字；标题与首行衔接正常。\n- 第104页：未见明显排版异常；代码跨页衔接正常，底部留白正常。\n- 第105页：未见文字/代码裁切、重叠、明显缺字；标题与首行衔接正常。\n- 第106页：未见明显排版异常；代码跨页衔接正常。\n- 第107页：未见文字/代码裁切、重叠、明显缺字；标题与首行衔接正常。\n- 第108页：未见文字/代码裁切、重叠、明显缺字；代码跨页衔接正常。"
+      },
+      {
+        "sheet": 19,
+        "review": "109：未见明显裁切、重叠、缺字或异常空白。  \n110：未见明显排版异常。  \n111：未见明显排版异常。  \n112：未见明显排版异常。  \n113：未见明显排版异常；跨页代码衔接正常。  \n114：未见明显排版异常；末页留白正常。"
+      },
+      {
+        "sheet": 20,
+        "review": "- 115：未见明显排版异常。\n- 116：未见明显排版异常。\n- 117：未见明显排版异常。\n- 118：未见明显排版异常。\n- 119：未见明显排版异常。\n- 120：未见明显排版异常。"
+      },
+      {
+        "sheet": 21,
+        "review": "- **121：未见明显裁切、重叠或缺字；代码为跨页延续，正常。**\n- **122：未见明显排版异常；标题与代码首行衔接正常。**\n- **123：未见明显排版异常；标题与代码首行衔接正常。**\n- **124：未见明显裁切、重叠或缺字；标题与首行衔接正常。**\n- **125：未见明显排版异常；代码为跨页延续，正常。**\n- **126：未见明显裁切、重叠或缺字；末页下方留白正常。**"
+      },
+      {
+        "sheet": 22,
+        "review": "- **127**：未见文字/代码裁切、重叠、明显缺字；标题与首行间距正常。  \n- **128**：未见上述排版问题。  \n- **129**：未见上述排版问题。  \n- **130**：未见上述排版问题。  \n- **131**：未见上述排版问题；标题与首行间距正常。  \n- **132**：未见上述排版问题；末尾代码跨页属正常。"
+      },
+      {
+        "sheet": 23,
+        "review": "- **133**：未见文字/代码裁切、重叠、明显缺字；Listing 37 标题与代码衔接正常。  \n- **134**：未见明显排版异常。  \n- **135**：未见明显排版异常。  \n- **136**：未见文字/代码裁切、重叠或明显缺字；Listing 38 标题与首行衔接正常。  \n- **137**：未见文字/代码裁切、重叠或明显缺字；Listing 39 标题与首行衔接正常。  \n- **138**：未见明显排版异常。  \n\n跨页代码与页末留白均属正常。"
+      },
+      {
+        "sheet": 24,
+        "review": "- 139页：未见明显排版异常。\n- 140页：未见明显排版异常。\n- 141页：未见明显排版异常。\n- 142页：未见明显排版异常，标题与首行未分离。\n- 143页：未见明显排版异常。\n- 144页：未见明显排版异常，末页留白正常。"
+      },
+      {
+        "sheet": 25,
+        "review": "- 145页：未见明显排版异常。\n- 146页：未见明显排版异常。\n- 147页：未见明显排版异常。\n- 148页：未见明显排版异常。\n- 149页：未见明显排版异常。\n- 150页：未见明显排版异常。\n\n可见跨页代码均按正常续排处理。"
+      },
+      {
+        "sheet": 26,
+        "review": "- **151**：未见文字/代码裁切、重叠、明显缺字或异常空白。  \n- **152**：未见明显排版问题；代码跨页连续属正常。  \n- **153**：未见文字/代码裁切、重叠或明显缺字。  \n- **154**：未见明显排版问题；代码跨页连续属正常。  \n- **155**：未见文字/代码裁切、重叠、标题与首行分离等问题。  \n- **156**：未见文字/代码裁切、重叠或明显缺字；末页留白属正常。"
+      },
+      {
+        "sheet": 27,
+        "review": "- **157：** 未见文字/代码裁切、重叠或明显缺字；跨页代码正常。  \n- **158：** 未见明显排版异常。  \n- **159：** 未见明显排版异常。  \n- **160：** 代码、A.2 标题及表格间距正常，未见裁切、重叠或标题与首行分离。  \n- **161：** 两列清单及说明未见明显重叠、裁切或缺字。  \n- **162：** 顶部清单与下方正文衔接正常，未见明显排版异常；底部留白正常。"
+      }
+    ],
+    "ai_report": "- 第1页：未见明显排版异常。\n- 第2页：未见明显排版异常，跨页续接正常。\n- 第3页：未见明显排版异常。\n- 第4页：未见明显排版异常，标题与首行均在同页。\n- 第5页：未见明显排版异常；末页留白正常。\n\n以上仅据可见版面判断，不判断细小字形。",
+    "resolved_issues": [
+      "Listing15 caption was alone at page82 footer; Needspace now keeps caption and first code lines together on page83.",
+      "AI disclosure long paths/ranges wrapped explicitly; no remaining Overfull diagnostics."
+    ],
     "accepted_limits": [
-      "Code listings continue normally across pages and use small zoomable type.",
-      "Contact-sheet visual review does not certify every tiny glyph; logs separately show no missing characters.",
-      "Ordinary bibliography/appendix closing-page whitespace is retained."
-    ]
+      "Contact-sheet review cannot certify every small glyph; compiler logs and text-bound audits supplement visual inspection.",
+      "Source listings are deliberately small and zoomable; normal code continuation and final-page whitespace are retained."
+    ],
+    "last_change_recheck": {
+      "rendered_page_comparison": "Exactly161 of162 pages pixel-identical to the previously reviewed PDF; only page92 changed.",
+      "page": 92,
+      "result": "Full-resolution inspection confirms status string and adjacent listing are contained and readable."
+    }
   },
   "log_checks": {
     "paper_overfull": false,
     "paper_missing_characters": false,
     "paper_undefined_references": false,
-    "paper_underfull_count": 3,
+    "paper_underfull_count": 2,
     "ai_overfull": false,
     "ai_missing_characters": false,
-    "ai_undefined_references": false,
-    "ai_underfull_count": 0,
-    "underfull_assessment": "Minor spacing in two body paragraphs and one appendix path paragraph; inspected, no clipping or missing text."
-  },
-  "format_checks": {
-    "abstract_keywords_on_first_page": true,
-    "body_page_limit": 30,
-    "actual_body_pages": 24,
-    "paper_pages_including_appendix": 127,
-    "appendix_pages": 102
+    "ai_undefined_references": false
   },
   "limitations": [
-    "Automated visual inspection is not actual contestant manual review.",
-    "Official simulator results and six encrypted logs remain absent."
+    "Automated visual review is not contestant manual review.",
+    "New field strategy has no official performance confirmation yet."
   ]
 }

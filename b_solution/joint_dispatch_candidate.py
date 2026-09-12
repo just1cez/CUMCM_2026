@@ -18,6 +18,7 @@ def choose_task(
     targets: dict[int, tuple[Point, float]],
     *,
     choice: str = "guarded",
+    risk_weight: float = 1.0,
 ) -> Task:
     """Choose the first task of a joint nearest-insertion/open-2-opt route.
 
@@ -31,8 +32,8 @@ def choose_task(
     All tasks remain in the internal permutation, even at identical positions.
     Ties use target before anchor, then ascending integer ID; insertion gaps
     and 2-opt segments are scanned left to right.  Inputs are not modified.
-    Both mappings empty, invalid choice, or nonfinite geometry raises ValueError.
-    Runtime is O(n**3), storage O(n**2), with at most n improving 2-opt moves.
+    Both mappings empty, invalid choice, nonfinite geometry, or an invalid risk
+    weight raises ValueError.
     """
     if choice not in ("center", "guarded"):
         raise ValueError("choice must be 'center' or 'guarded'")
@@ -51,7 +52,9 @@ def choose_task(
         raise ValueError("positions must be finite two-dimensional points")
     if any(not isfinite(radius) or radius < 0 for radius in radii):
         raise ValueError("MEC radii must be finite and nonnegative")
-    penalty = radii if choice == "guarded" else [0.0] * n
+    if not isfinite(risk_weight) or risk_weight < 0:
+        raise ValueError("risk_weight must be finite and nonnegative")
+    penalty = [risk_weight * radius for radius in radii] if choice == "guarded" else [0.0] * n
     origin = [dist(position, point) for point in coords]
     edges = [[0.0] * n for _ in range(n)]
     for i in range(n):

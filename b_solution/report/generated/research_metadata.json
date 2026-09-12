@@ -6,13 +6,13 @@
   "input_sha256": {
     "results/research_experiments.json": "6951f7fcafb8c4eba281aed88d66c48525b40a2a2b87e6149bcda89925d7600f",
     "results/refinement_development.json": "615811539f3f53d487302f352011476ea10c7584cf23502bcb3ff91e7d8920d8",
-    "results/research_verification.json": "6227c43d54c8f93806ffb12e20b1eb52dc9e9ae229727b9097a3239196e85ad1",
-    "planner.py": "14a05bd84c568a5b4d59fd26244ff990d66ab7fd366ba41b0ef9670479e183d8",
+    "results/research_verification.json": "0ea4b7aa1203c04d988181bf48d2c4695d1803765a8b6286c1acce7033f24cdb",
+    "planner.py": "dbfd8b1340a27f3a3692328fb38806298a34ec0429cebd95e593abdc31daa301",
     "geometry.py": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357",
     "coverage.py": "661b77f3433e6cb936ddc0be1dcccbbc1b89378fc141f6f976028551e24a374c",
     "environment.py": "6144f761cd41c22a301bfd2511554346bf61e7157afc850b6291e6648d79fff7",
-    "polar_coverage_candidate.py": "1281191dc1be2b1a9a9c7e0c1d38ce043d5c139e36f38df0c67ea9946e7bc1b8",
-    "joint_dispatch_candidate.py": "e21831b2160d3cb0c8da1400c7c1484a818a2902218d510e7d14238475ae2250",
+    "polar_coverage_candidate.py": "bb5daee934882ca35ec6e13affb0206aebe36058b3828e9234be2c513e8c69c8",
+    "joint_dispatch_candidate.py": "1a2afefc0821d393b078922969cd70514d530cd67b2ee2621c4b326a6a0abf6a",
     "make_research_assets.py": "e443e83830df4c849639934a37a23236a5cd1aa4ce24688233defea97aab4286",
     "research_experiments.py": "77f85805b1a3e9b8fb347c7497b2a27256e17f631bda575b08ae3dd3e5e06dbd",
     "refinement_study.py": "a5d1dde1351d7e890feff3c950226d708cb643341788e9864c37d51346c91460"

@@ -80,7 +80,7 @@ class Planner:
             raise ValueError("Directional lattice spacing must be in [900, 999] m")
         if not 0 < probe_scale <= 1 or max_probes < 1:
             raise ValueError("Invalid localization policy parameters")
-        if coverage_policy not in ("lattice", "seed25", "compact25"):
+        if coverage_policy not in ("lattice", "seed25", "compact25", "fast25"):
             raise ValueError("Unsupported discovery coverage policy")
         if optical_policy not in ("rectangle", "slabs"):
             raise ValueError("Unsupported optical covering policy")
@@ -346,6 +346,7 @@ class Planner:
             if self.terminal_reason is not None:
                 return
 
+
     def next_anchor(self):
         if self.anchor_policy == "two_opt":
             return min(self.pending, key=lambda i: self.anchor_rank[i])
@@ -379,6 +380,7 @@ class Planner:
             "average_time_s": self.virtual_time / len(self.cleared)
             if self.cleared else None,
             "probe_policy": self.probe_policy,
+            "probe_scale": self.probe_scale,
             "anchor_policy": self.anchor_policy,
             "ring_radius_m": hypot(*self.waypoints[1]) if self.problem == 3 else None,
             "loss_recovery": self.loss_recovery,
@@ -405,6 +407,14 @@ class Planner:
             self.termination = self.termination or "incomplete_" + type(exc).__name__
             return self._result()
 
+    def select_task(self):
+        return choose_task(
+            self.position,
+            {i: self.waypoints[i] for i in sorted(self.pending)},
+            {ch: enclosing_circle(track.polygon) for ch, track in self.tracks.items()},
+            choice=self.dispatch_policy,
+        )
+
     def _run_body(self):
         entry_started = monotonic()
         entered = self.action("/enter")
@@ -421,12 +431,7 @@ class Planner:
                     self.scan_anchor(self.next_anchor())
                 continue
             if self.dispatch_policy != "separate":
-                kind, index = choose_task(
-                    self.position,
-                    {i: self.waypoints[i] for i in sorted(self.pending)},
-                    {ch: enclosing_circle(track.polygon) for ch, track in self.tracks.items()},
-                    choice=self.dispatch_policy,
-                )
+                kind, index = self.select_task()
                 if kind == "target":
                     self.localize(index)
                     self.share_current_stop()
@@ -434,8 +439,8 @@ class Planner:
                     self.scan_anchor(index)
                 continue
             targets = [
-                (dist(self.position, enclosing_circle(t.polygon)[0]), ch)
-                for ch, t in self.tracks.items()
+                (dist(self.position, enclosing_circle(track.polygon)[0]), ch)
+                for ch, track in self.tracks.items()
             ]
             anchors = [
                 (

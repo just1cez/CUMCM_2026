@@ -21,6 +21,7 @@
       "virtual_time_s": 3091.982207,
       "average_time_s": 309.1982207,
       "probe_policy": "fixed",
+      "probe_scale": 0.22,
       "anchor_policy": "nearest",
       "ring_radius_m": 1200.0,
       "loss_recovery": false,
@@ -76,7 +77,7 @@
       "switches": 125,
       "clear_attempts": 10,
       "failed_clears": 0,
-      "real_duration_s": 0.0017248329968424514,
+      "real_duration_s": 0.001784791995305568,
       "exit_reason": "user_exit"
     }
   },
@@ -102,6 +103,7 @@
       "virtual_time_s": 10017.168547,
       "average_time_s": 1001.7168546999999,
       "probe_policy": "fixed",
+      "probe_scale": 0.22,
       "anchor_policy": "rolling",
       "ring_radius_m": null,
       "loss_recovery": true,
@@ -157,7 +159,7 @@
       "switches": 364,
       "clear_attempts": 13,
       "failed_clears": 3,
-      "real_duration_s": 0.014971624987083487,
+      "real_duration_s": 0.015044291008962318,
       "exit_reason": "user_exit"
     }
   }

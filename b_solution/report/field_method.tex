@@ -1,0 +1,66 @@
+\section{由官方演练瓶颈驱动的安全效率层}
+\label{field:sec-method}
+官方20轮演练的已接受动作表明，历史\texttt{refined}的主要费用来自移动，而不是失败清除。这是按式\eqref{eq:time}分解\emph{已执行动作}得到的诊断，不是新路线的反事实成绩。为此，\texttt{field}在不改变发现骨架和清除证书的前提下，改进任务排序、利用问题三的负观测，并减少可避免的局部接入移动。问题三仍用1200米七点环、\texttt{center}/\texttt{unknown}；问题四仍用\texttt{compact25}、\texttt{guarded}/\texttt{useful}。两题固定横向探测比例均为0.22；历史\texttt{refined}保持原算法，不能把其官方记录重新标成\texttt{field}记录。以下包含关系和有限性是解析结论；完整时间收益须由独立本地配对实验评价，尚不构成\texttt{field}通过官方测试的证据。
+
+\subsection{保留旧路线的多初解与单点搬移}
+\label{field:sec-route}
+每轮仍对全部待扫描骨架点和已知未清除源构造开放路线，目标沿用式\eqref{new:eq-route-proxy}的$J_\gamma$，问题三、四分别取$\gamma=0,1$，不添加返回原点的边。候选包括：原最近插入及其有界2-opt所得的完整控制路线；每步同时选择未插入任务与插入空隙的全局最便宜插入路线；按当前位置距离加首项半径惩罚排序，以前两个不同任务分别起步的近邻路线。重复排列只计算一次，但同坐标的不同任务绝不合并。
+
+每个初解最多进行$\min(n,12)$轮最佳改善搜索，同时检查连续区间反转（2-opt）和把一个任务移入另一空隙（Or-opt1）。涉及首项的操作同步更新起点边及半径惩罚。候选增量须超过与当前代理值尺度相关的$10^{-12}$数值门槛，接受前再完整重算$J_\gamma$并要求严格下降；无改善或完整复算不通过即停止。原控制路线始终保留，最后取代理值最小的完整排列，因此在同一任务集与同一代理计算下
+\begin{equation}
+ J_\gamma(\pi_{\rm field})\le J_\gamma(\pi_{\rm control}).
+ \label{field:eq-proxy-control}
+\end{equation}
+该不等式\emph{不}保证首跳更短、真实总行程更短或式\eqref{eq:time}中的$T$更小：实际只执行首任务，随后的观测、清除终点和频道切换均会改变未来费用。有限轮数也不保证达到局部或全局最优。距离矩阵占$O(n^2)$空间，有界多初解搜索的保守时间上界仍为$O(n^3)$。
+
+\subsection{仅问题三使用负观测的保守凸外包}
+\label{field:sec-negative}
+问题三所有源全向发射，故在位置$s$收到有效\texttt{no\_signal}时，若该频道有未清除源$g$，必有$\|g-s\|>r$，其中$r=1000$米。直接将圆盘差表示为单个凸多边形并不成立。为保留既有凸几何接口，构造严格位于该圆盘内部的正十六边形
+\begin{equation}
+ Q=\operatorname{conv}\left\{s+r\cos\frac\pi{16}
+ \begin{pmatrix}\cos(2j\pi/16)\\\sin(2j\pi/16)\end{pmatrix}
+ :j=0,\ldots,15\right\}.
+ \label{field:eq-negative-polygon}
+\end{equation}
+这里顶点半径是$r\cos(\pi/16)$，不是$r$。$Q$的内切半径为$r\cos^2(\pi/16)$，因此相对于半径$r$的圆，其最大径向缺口为
+\begin{equation}
+ \operatorname{gap}=r\bigl(1-\cos^2(\pi/16)\bigr).
+ \label{field:eq-negative-gap}
+\end{equation}
+这刻意保留一圈不删的余量；它不是最终可行域误差界，因为随后取凸包还可能填回被排除的区域。
+
+令$H_j^{\rm out}$为$Q$第$j$条边的闭外侧半平面，将当前保守域$P$分别向外侧裁剪，再取所有保留片的凸包：
+\begin{equation}
+ P^+=\operatorname{conv}\left(\bigcup_{j=0}^{15}
+                 (P\cap H_j^{\rm out})\right),\qquad
+ g\in P\setminus B^\circ(s,r)\ \Longrightarrow\ g\in P^+\subseteq P.
+ \label{field:eq-negative-safe}
+\end{equation}
+证明只需注意$Q\subset B^\circ(s,r)$，圆外真源必处于至少一条边的外侧，而$P$为凸集。式\eqref{eq:poly}提供正观测的初始包含不变量；交替施加正约束与式\eqref{field:eq-negative-safe}即可归纳保留真源。实现缓存首次发现前的有效负观测，建轨及后续更新时再使用；半平面向保留侧外扩极小浮点余量，空结果报告观测不一致，不能重置域或虚构无源。上述证明针对精确几何及显式保守余量，并非全套浮点运算的形式化认证。
+
+\textbf{问题四绝不删盘。}定向源可能因机器人处于发射背面而在1000米内无信号；该反馈不蕴含任何完整位置圆盘为空。问题四禁用上述更新，继续保留正观测约束和原有限恢复规则。
+
+\subsection{一次原地预检测与保证清除的安全接近}
+\label{field:sec-local}
+对即将定位的已知频道，设当前位置为$q$、当前最小包围圆为$B(z_*,r_*)$。仅当$r_*>38$米、该频道未在\emph{完全相同坐标}$q$检测过，且$\|q-z_*\|-r_*\le1500$米时，先执行一次原地预检测（\texttt{premeasure}）。最后一个条件只说明保守域可能与接收范围相交，不保证收到信号，尤其不能保证定向源可见。预检测不产生移动，但仍支付5秒检测及可能的换频费用；它不是免费信息，也不是重复独立采样降噪。实际\texttt{near}按原规则清除，正示向更新域，负反馈仅按本题许可解释，之后进入原局部过程。\textbf{这一次在原有至多6次固定测向之外}，不能写成六次预算内。两题均保留该条件分支，问题四是否触发取决于此前扫描和共享观测，不能因通常不触发而删去预算。
+
+问题三还对\emph{已满足保证清除条件}的计划点$a$缩短接入距离；问题四关闭此优化。取$\rho=19.9$米，先逐顶点确认$\|a-v\|\le\rho$。若$q\ne a$，令$u=(q-a)/\|q-a\|$，沿$a+tu$靠近机器人，且$0\le t\le\|q-a\|$。记$d_v=a-v$，每个顶点的安全圆盘条件等价于
+\begin{equation}
+ t^2+2(d_v\cdot u)t+\|d_v\|^2-\rho^2\le0.
+ \label{field:eq-clear-quadratic}
+\end{equation}
+由于$t=0$已可行，沿此射线的共同可行上端为
+\begin{equation}
+ t\le\min_{v\in\operatorname{vert}(P)}
+ \left[-d_v\cdot u+
+ \sqrt{(d_v\cdot u)^2+\rho^2-\|d_v\|^2}\right],
+ \qquad t\le\|q-a\|.
+ \label{field:eq-clear-approach}
+\end{equation}
+实现从上端再退$10^{-6}$米且不取负位移，并对候选点$a'$重新检验\emph{全部}顶点距离不超过19.9米。圆盘凸性保证覆盖全部顶点即覆盖$P$，故由$g\in P$可知清除合法；相对设备20米半径另留0.1米余量。根号判别式若数值为负、出现非有限值或最终顶点复验不通过，就退回原计划清除点$a$，不把负数截成零来伪造证书。此处的“原点”是$t=0$的原计划点，不是全局坐标原点。几何保证仍须由接口实际返回\texttt{success}落实，不能提前记为清除成功。
+
+\subsection{有限性不依赖效率代理准确}
+\label{field:sec-finite}
+所有路线操作都是完整任务排列，不删除任务；未知频道仍完成七点或25点的实际骨架观测。问题三沿用七点覆盖，问题四沿用定理\ref{new:thm-direction-cover}，故全骨架无信号仍能认证从未发现的频道无源。已知频道的跳过检测不构成负证据，该频道只能收到\texttt{success}后完成，不能改判无源；合法停止仍为所有频道均有清除或无源证书，或16个不同频道成功清除。
+
+在接口正常、误差模型成立且没有现实期限中断的条件下，每个局部任务最多一次预检测、六次固定测向，然后成功清除或进入有限矩形光学覆盖；真源保留于覆盖域，因而每个正常完成任务清除一个新源，任务数至多16。路线重排不增加骨架点数，负观测凸外包只缩小域，安全接近只缩短当次已认证清除的接入段。故第\ref{sec:default-finite-bound}节的旧31点范数、行程和光学次数上界仍适用，仅总检测预算增加至多16次：$M\le1212+16=1228$。这是保守有限性界，不是紧界、最优性证明或官方完成保证；现实期限中断必须如实报告，不能以解析虚拟时间界替代。

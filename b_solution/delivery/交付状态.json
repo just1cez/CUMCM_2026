@@ -1,9 +1,9 @@
 {
-  "status": "VERIFIED_RESEARCH_VERSION_OFFICIAL_TESTS_DEFERRED",
-  "official_tests": "DEFERRED_BY_USER",
+  "status": "RESEARCH_VERSION_OFFICIAL_PRACTICE_COMPLETE_FORMAL_TESTS_PENDING",
+  "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
   "human_review": "OUTSTANDING",
-  "source_files": 125,
-  "archive_bytes": 4083902,
-  "archive_sha256": "855605d5020e14a52c8eaff70bbb0f10ccf89bddf1e57765c874ffe5a485c1f7",
+  "source_files": 219,
+  "archive_bytes": 5644631,
+  "archive_sha256": "2ea602dde62afd82b851cfac75844f506ec6198d9a0f712905e23aa21ddf8eda",
   "extracted_archive_reproduction": "passed"
 }

@@ -46,6 +46,29 @@
         "perturbed_detection_distance_upper_bound_m": 999.0,
         "proof": "h=g+shift*n lies in the outer polygon; a triangle containing h has a vertex v with n.(v-g)>=shift and |v-g|<=diameter+shift"
       }
+    },
+    {
+      "variant": "fast25",
+      "triangles": 36,
+      "edges": 60,
+      "noncrossing_tiling_verified": true,
+      "maximum_edge_m": 997.9552634512071,
+      "coordinate_error_against_decimal_m": 1.5594646644301221e-12,
+      "directional_cases": 22050,
+      "adverse_single_vertex_perturbations": 44100,
+      "maximum_witness_distance_m": 998.9059652013674,
+      "minimum_witness_projection_m": 0.9999999999999647,
+      "explicit_route_length_m": 17829.350308820696,
+      "robust_certificate": {
+        "shift_m": 1.0,
+        "per_waypoint_euclidean_error_bound_m": 0.75,
+        "triangle_diameter_upper_bound_m": 998.25,
+        "guard_disk_radius_m": 1801.0,
+        "ideal_forward_projection_lower_bound_m": 1.0,
+        "perturbed_forward_projection_lower_bound_m": 0.25,
+        "perturbed_detection_distance_upper_bound_m": 1000.0,
+        "proof": "h=g+shift*n lies in the outer polygon; a triangle containing h has a vertex v with n.(v-g)>=shift and |v-g|<=diameter+shift"
+      }
     }
   ],
   "optical": {

@@ -1,7 +1,6 @@
 CUMCM 2026 B — 可复现研究版
 
-一、交付状态
-官方模拟器按用户明确要求搁置。当前论文、代码和数据是经过自动审查与本地验证的研究版本；不含六次正式测试、官方案例编码、加密日志或真实参赛队人工核验记录，不可直接冒充完整参赛提交。
+官方模拟器此前并未启动的旧版说明已经过时；当前材料包含用户提供的20轮演练观察，但仍不含六次正式测试结果、正式案例表和官方加密日志，也不含参赛队人工核验记录。合成研究、官方演练观察和正式测试证据严格分层。
 
 二、运行环境
 从解压后的项目根目录执行以下Python命令；在原仓库中对应b_solution目录。统一使用conda py314：
@@ -14,8 +13,8 @@ CUMCM 2026 B — 可复现研究版
   conda run -n py314 python run.py --problem 3 --seed 20260910
   conda run -n py314 python run.py --problem 4 --seed 20260910
   conda run -n py314 python run.py --problem 4 --scenario outward_boundary --error-mode extreme
-  conda run -n py314 python run.py --problem 3 --seed 20260910 --strategy enhanced
-  conda run -n py314 python run.py --problem 4 --seed 20260910 --strategy enhanced
+  conda run -n py314 python run.py --problem 3 --seed 20260910 --strategy refined
+  conda run -n py314 python run.py --problem 4 --seed 20260910 --strategy refined
   conda run -n py314 python experiments.py --cases 500 --output results/final_experiments.json
 
 最后一条命令执行4430次运行：每问500个世界上baseline、batched、integrated三策略的配对比较，360次压力运行、270次敏感性运行及800次恢复消融。并非4430个独立随机世界。主随机种子600000–600499，恢复消融610000–610099，压力700000–700019，敏感性800000及900000起的30个种子。所有实验通过公开动作响应决策；总源数仅在退出后用于评价。每步虚拟时间另由实验脚本复算。
@@ -34,7 +33,7 @@ CUMCM 2026 B — 可复现研究版
   conda run -n py314 python verify_refinements.py
   conda run -n py314 python verify_coverage_limits.py
 
-最终默认为refined：Q3使用1200米七点环、center联合调度、unknown扫描；Q4使用compact25（原点、12个940米内环点和12个1870米外环点，外环错相15度）、guarded联合调度和useful扫描。最终策略每次重排骨架与已知目标的共同任务路线，不再独立调用旧的骨架排序分支。均保留固定测向和rectangle光学后备。显式--strategy enhanced保留历史Q3七点/Q4间距990米31点构造，Q4滚动2-opt、separate调度、all扫描。3080次增强主比较和压力运行独立记录在enhancement_experiments.json；4430次基础运行另存，不混合分母。ring_sweep.py复用150个开发世界比较8个半径，再以500个全新世界确认两个冻结半径，共2200次执行（非2200个独立世界）。
+run.py与official_run.py最终默认field；显式--strategy refined保留20轮官方演练使用的原算法。两题probe_scale均为0.22，不将本轮短暂的Q3 0.12候选设为默认。两策略均采用Q3半径1200米七点环/center/unknown，Q4 compact25（原点、12个940米内环点、12个1870米外环点，错相15度）/guarded/useful。field增加有界route_portfolio路线组合：原nearest insertion控制、global cheapest插入、两个近邻初解，配合2-opt和Or-opt1，每初解不超过min(n,12)轮；localize前最多原地一次premeasure，不当独立降噪。Q3另用no_signal排除1000米盘内接16边形后取剩余区域凸外包，并在全部安全清除圆交内向当前位置靠近；Q4禁止负圆盘推断且approach_clear=False。固定最多6测加至多1预测、有限恢复及rectangle光学后备保留。fast25仅为内部负候选，已移除临时--coverage-policy CLI，不建议为它耗用官方机会。--strategy enhanced保留旧Q4 31点格点对照；历史文件、名称与分母不回写。
 
 enhancements.py保存策略、问题、场景和误差模式下的逐世界结果；make_enhancement_assets.py重算分母、成本分解、配对差值及图表。ring_sweep.py使用开发种子1000000–1000149和新确认种子2300000–2300499，保存全部逐世界结果、差值、均值区间和全清计数，结果仅排除现实运行耗时。早期复用1100000组的比较不充当最终新样本证据。verify_coverage_limits.py检验31点见证及Q4外向圆周下界；verify_refinements.py核验环覆盖、全部720种骨架顺序、圆域内格点六邻点和测向区间上界。
 
@@ -53,6 +52,21 @@ research_experiments.json共10700次运行：
   随机场景额外误差4210000–4210199，2误差×2策略×2题，共1600次；
   敏感性4300000–4300049，3个probe_scale×2题，共300次。
 10700是策略执行次数，不是独立随机世界数。指标是逐世界T/N后取均值，配对节省为control减refined。Q4 clustered/extreme的50对平均节省为-8.1352秒/源，近似95%区间[-57.6128,41.3424]，只有25/50对更快；保留这一压力负结果，不宣称所有场景或实例都更优。极坐标、联合调度和光学候选的notes只是推导，结论以实际结果及独立核验JSON为准。默认未采用slabs光学候选。
+用户提供的20轮官方演练离线分析位于results/official_practice_analysis.json，由canonical脚本official_analysis.py读取manifest和60个脱敏原始文件计算。20轮全部逐动作成本由request→response按微秒独立复算；StrictReplay仅8/20完整匹配，其他在坐标/排序分岔处停止，不造反馈、不报告未观测路线的收益。N、源类型、case标签仅为退出后离线评价；不能作为在线策略输入。Q3/Q4每轮等权均值237.9983/531.1776秒/源，pooled口径235.8227/519.3757秒/源，各139/138源全清，不混淆两种均值。不是正式成绩。
+
+五之二、官方演练驱动的field开发与新世界确认
+  conda run -n py314 python verify_field.py
+  conda run -n py314 python field_study.py --cases 150 --seed 6100000
+  conda run -n py314 python field_confirmation.py
+field_development.json：6100000–6100149，每问150世界，Q3七/Q4八配置，2250次开发执行。
+field_confirmation.json：7100000–7100999主组，每问1000世界，Q3四/Q4二配置，共6000次；7200000–7200049三场景×三误差×两策略×两题1800次；7210000–7210199随机场景额外两误差×两策略×两题1600次，合计9400次。control固定refined/.22，和官方及开发样本隔离，确认后不调参。主组field每题1000/1000全清；Q3逐世界均值258.9860→250.1703秒/源（-3.40395%），Q4 542.4134→508.6006（-6.23377%）。均为本地合成收益；Q4聚集smooth节省区间跨0，不能称全组显著。
+
+五之三、脱敏官方演练分析复现（不连接模拟器）
+解压支撑包根目录：
+  conda run -n py314 python official_analysis.py --handoff practice_data
+原仓库b_solution目录：
+  conda run -n py314 python official_analysis.py
+默认从相邻ai_optimization_handoff_20260912读取；--handoff可显式指定。输入不重生或修改。practice_data/manifest.csv及指定60文件逐个哈希必须等于分析JSON的input_sha256；严格回放分岔本身是保留的分析结果，不得把完整分析重建称为20/20策略回放通过。
 
 六、本地HTTP故障回归（不是官方模拟器）
 终端一运行截断响应夹具：
@@ -69,11 +83,14 @@ research_experiments.json共10700次运行：
 
 七、图表、论文和PDF检查
 在项目根目录执行：
+  conda run -n py314 python make_official_assets.py
   conda run -n py314 python make_assets.py
   conda run -n py314 python make_enhancement_assets.py
   conda run -n py314 python make_research_assets.py
+  conda run -n py314 python make_field_assets.py
+  conda run -n py314 python fast_vs_compact_410.py
 
-在report目录执行：
+在`report`目录执行：
   latexmk -xelatex -interaction=nonstopmode -halt-on-error paper.tex
   latexmk -xelatex -interaction=nonstopmode -halt-on-error ai_usage.tex
 
@@ -81,12 +98,12 @@ research_experiments.json共10700次运行：
   conda run -n py314 python audit_pdf.py --pdf report/paper.pdf --prefix paper
   conda run -n py314 python audit_pdf.py --pdf report/ai_usage.pdf --prefix ai
 
-三个资产脚本读取已保存JSON，重新计算汇总并核对；基础和增强证据保持历史标识，新研究生成research_numbers.tex、六个research表、三幅research矢量图及research_metadata.json输入哈希记录。Q1/Q2几何图与旧环筛选证据仍由原脚本生成。audit_pdf把每一页渲染至report/visual，生成六页一组拼图和结构审计JSON。它不自动宣称视觉检查合格；需实际查看所有页面，并更新results/visual_review.json。正文与摘要页要求由审计脚本检查；附录完整列出本项目可运行代码。最终独立研究审查另保存为results/research_review.json，不能由本说明代替真实审查。
+资产脚本读取已保存JSON，重新计算汇总并核对。五份report/generated下metadata.json、enhancement_metadata.json、research_metadata.json、official_practice_metadata.json、field_metadata.json都提供input_sha256，绑定其输入文件；make_field_assets.py负责field图表，make_official_assets.py负责演练表。基础、历史增强、refined研究、field研究与fast负候选分层标注。audit_pdf渲染每页并生成结构审计，不自动宣称视觉检查合格；需实际查看并更新results/visual_review.json。正文不超过30页，附录列出全部必要源码。
 
 八、匿名打包与完整复现
-打包只收集白名单文件，不含原始赛题、个人路径、账户信息、临时文件或官方私有日志。包内MANIFEST.json记录每个文件的SHA-256。完成上面的计算、审查、制图、编译及逐页检查后执行：
+打包只收集源码/结果白名单及manifest明确指定的60个脱敏演练文件，不含原始赛题、个人路径、账户信息、未脱敏private_requests.raw.jsonl、正式加密数据或模拟器。practice_data/内保留manifest相对路径，逐个检查robot_id==TEAM_REDACTED与源路径范围；后验标签仅限离线分析。包内MANIFEST.json记录每个文件SHA-256。完成计算、审查、制图、编译及逐页检查后执行：
   conda run -n py314 python package.py --verify
-命令先检查三个metadata输入哈希和PDF审计哈希，然后解压到临时目录，重跑几何、问题一、问题二、4430次基础、3080次增强、2200次环筛选、2550次独立开发和10700次冻结研究，以及终端、候选和研究独立核验，重建全部图表并编译论文及AI详情。五组实验合计22960次运行（不是世界数；其他几何、候选检查和轨迹重放不混入这五组分母），验证文件逐组保存实际重放行数。JSON仅排除真实墙钟real_duration_s及其派生最大值max_real_duration_s；所有行为行及其他汇总字段须完全相同，不得抽样替代或吞掉错误。每条解压复现命令超时上限1800秒；这只是本地复现进程限制，不是官方时间预算。复现验证.json位于delivery，关联该ZIP的哈希；不能将上次生成的验证文件用于新ZIP。每份交付不超过20MiB，保留匿名、摘要页和正文不超过30页检查。输出在delivery：
+命令先检查五份metadata输入哈希、演练源哈希和PDF审计哈希；在临时解压目录移除PYTHONPATH，执行package.py中完整命令表（保留旧命令并新增官方分析、field核验/开发/确认/资产），不借用仓库源码。严格重跑4430+3080+2200+2550+10700+2250+9400=34610次核心执行，记录各数据集实际行数。fast_vs_compact_410.py的2000次辅助筛选另存，不混核心数。official_analysis.py --handoff practice_data从真实脱敏原文件重建20轮分析并完整比较，不重生源文件；初末核对61份演练输入及源码哈希。完整JSON只排除本地real_duration_s/max_real_duration_s/max_real_s，其他行为和汇总均需相同；官方实际时间观测不排除。随后重建全部图表、编译两份PDF，初末核验资产input_sha256。任何命令失败均传播，不抽样替代。每命令1800秒超时只是本地限制，不是官方预算。delivery/复现验证.json绑定当前ZIP哈希，旧验证不能用于新ZIP。每份交付≤20MiB，保留摘要页与正文≤30页检查。输出在delivery：
   B题研究论文.pdf
   AI工具使用详情.pdf
   B题研究支撑材料.zip
@@ -96,7 +113,12 @@ research_experiments.json共10700次运行：
 只有相应验证确已完成，才能把状态记为通过。包内自动审查不是参赛队员人工审查。无须运行check_environment.py，也不需要任何个人目录中的资源。
 
 九、以后恢复官方测试时
-当前不要下载、启动、登录或调用官方模拟器。未来经授权并由官方GUI开启正确题号的演练后，official_run.py可连接已经就绪的本机HTTP接口。其参数为--problem、--robot-id、--output-dir（新目录），可选--base-url；它不启动GUI正式测试，也不伪造案例编码。
+当前已有20轮官方演练，正式测试与人工审核未完成。official_run.py连接GUI已登录、正确题号、倒计时结束后的本机接口，不负责开GUI或选择模块。参数为--problem、--robot-id、--output-dir、可选--base-url和--strategy field/refined；默认field，无--coverage-policy。
+Windows PowerShell从原仓库根目录一行启动Q3 field（GUI先选问题3）：
+  conda run -n py314 python b_solution/official_run.py --problem 3 --strategy field --robot-id "实际参赛队号" --output-dir "$HOME/cumcm_private/q3_field_practice_01"
+另一个新演练局的refined对照（GUI也选问题3）：
+  conda run -n py314 python b_solution/official_run.py --problem 3 --strategy refined --robot-id "实际参赛队号" --output-dir "$HOME/cumcm_private/q3_refined_practice_01"
+Q4同时将GUI与--problem改为4，并改用全新q4目录。解压支撑包则去掉命令中的b_solution/前缀。一局只运行一个命令，不要在同局依次运行field/refined；不同演练案例不构成严格配对。正式每题仍只有三次，不因增加策略对照而增加正式机会或额外运行。
 GUI倒计时结束后开放25分钟窗口；成功/enter后程序运行最多20分钟，两者先到为准，虚拟时间上限100小时。附件1第2.5、4.2节规定：北京时间2026年9月13日17:30之后不能启动新测试，建议15:30前完成正式测试。这是附件日期，不是当前接口已可运行的声明。问题3/4各三次正式机会，成功启动即占用；不能把本地package超时值套用到官方会话。
 
 官方明文请求日志含真实robot_id，只能保存在私有工作目录，不能未经脱敏进入匿名论文或公开分享。正式支撑材料所要求的六份官方加密日志必须由模拟器原名导出、保留原始字节并核对上传；当前研究包没有这些文件。本地JSONL和合成实验均不能替代正式成绩。正式参赛前还必须完成真实参赛队对核心模型、计算、代码和论文的逐项人工核验，并如实更新AI使用说明。

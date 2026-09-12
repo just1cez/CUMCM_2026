@@ -1,0 +1,83 @@
+{
+  "evidence": "fresh_local_paired_confirmation_not_official_counterfactual",
+  "official_calls_by_generator": 0,
+  "official_practice_runs_analyzed": 20,
+  "field_main_worlds_per_problem": 1000,
+  "field_confirmation_runs": 9400,
+  "field_development_runs": 2250,
+  "main_comparison": {
+    "Q3": {
+      "mean_saved_s": 8.815770286208794,
+      "saving_pct": 3.4039547994415673,
+      "approx_95pct_ci": [
+        8.008338898824666,
+        9.623201673592922
+      ],
+      "faster_cases": 827
+    },
+    "Q3_ablation": {
+      "control_to_route_only": {
+        "mean_saved_s": 4.917692626399266,
+        "saving_pct": 1.8988248189721177,
+        "approx_95pct_ci": [
+          4.134391219123919,
+          5.700994033674614
+        ],
+        "faster_cases": 554
+      },
+      "route_only_to_route_info": {
+        "mean_saved_s": 2.9378527093277693,
+        "saving_pct": 1.156323435889761,
+        "approx_95pct_ci": [
+          2.591746477951606,
+          3.2839589407039327
+        ],
+        "faster_cases": 694
+      },
+      "route_info_to_field": {
+        "mean_saved_s": 0.9602249504817586,
+        "saving_pct": 0.3823608381695266,
+        "approx_95pct_ci": [
+          0.8732285365381451,
+          1.047221364425372
+        ],
+        "faster_cases": 948
+      }
+    },
+    "Q4": {
+      "mean_saved_s": 33.81283119800061,
+      "saving_pct": 6.2337748358314515,
+      "approx_95pct_ci": [
+        31.612169275163716,
+        36.0134931208375
+      ],
+      "faster_cases": 843
+    },
+    "Q4_ablation": {
+      "control_to_field": {
+        "mean_saved_s": 33.81283119800061,
+        "saving_pct": 6.2337748358314515,
+        "approx_95pct_ci": [
+          31.612169275163716,
+          36.0134931208375
+        ],
+        "faster_cases": 843
+      }
+    }
+  },
+  "input_sha256": {
+    "results/field_confirmation.json": "fccf6fd3e2904f14ef71af28c3f6704f1eab7883724323ca369c4741e4d3db1a",
+    "results/field_development.json": "9458cf509df0e979d91594b94bf8da39750cc013107dd0343e36bd3d6b8985e3",
+    "results/field_verification.json": "34c1429d7dee663721417965c55472fe7adb037e101c8455438dca88425bf284",
+    "results/official_practice_analysis.json": "3bfac7f22587d9003081595d5a36564f25ee4ce76ea972cab3d6a00bcac1ab8a",
+    "field_policy.py": "993ae42bba861cb39fc63a58521290197ac75e793b2cad88cd37161b3f7ace0a",
+    "negative_geometry.py": "c691026fc033f48b3eb79bb9225ec96d91590737fa8a14fcd6bba8cd16817621",
+    "route_portfolio.py": "b9fc8d1add7771f6a1c6d5cfa24a1646a38956fedbd4e96f810c54c95c71f9a7",
+    "field_study.py": "9c32beb8b2ed0eefc1d93011b5a9af4cd12122ad6559ec0ee266ce010553223a",
+    "field_confirmation.py": "81eecafe506357b94b6bdd7fb7c416026cb8267bc6ff9cc144b928d30381933f",
+    "official_analysis.py": "15db6a49b0004471d26819fce8e37e1c910b340936ade469c07e1d2462121b16",
+    "make_field_assets.py": "22206dcb4ce110f2818ac1c4c38d309adb5a115fb21af86cb23f7d375c0ce5f9",
+    "planner.py": "dbfd8b1340a27f3a3692328fb38806298a34ec0429cebd95e593abdc31daa301",
+    "geometry.py": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357"
+  }
+}

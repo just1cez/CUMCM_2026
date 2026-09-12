@@ -1,8 +1,9 @@
-"""Build an anonymous, reproducible RESEARCH archive; official runs are deferred."""
+"""Build anonymous research materials; replay local studies and supplied practice."""
 
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import importlib.metadata
 import json
@@ -56,6 +57,18 @@ SOURCES = (
     "research_experiments.py",
     "verify_research.py",
     "make_research_assets.py",
+    "make_official_assets.py",
+    "fast_vs_compact_410.py",
+    "field_policy.py",
+    "negative_geometry.py",
+    "route_portfolio.py",
+    "field_study.py",
+    "field_confirmation.py",
+    "verify_field.py",
+    "official_analysis.py",
+    "make_field_assets.py",
+    "negative_geometry_notes.txt",
+    "route_portfolio_notes.txt",
     "contracts.json",
     "report_contracts.json",
     "enhancements.py",
@@ -88,6 +101,13 @@ RESULTS = (
     "research_experiments.json",
     "research_verification.json",
     "research_review.json",
+    "field_development.json",
+    "field_confirmation.json",
+    "field_verification.json",
+    "field_review.json",
+    "official_practice_analysis.json",
+    "fast_vs_compact_410.json",
+    "practice_optimization_screen.json",
     "http_verification.json",
     "http_deadline_verification.json",
     "review_resolutions.json",
@@ -100,7 +120,7 @@ RESULTS = (
 
 
 def verify_asset_inputs(root: Path):
-    for metadata_name in ("metadata.json", "enhancement_metadata.json", "research_metadata.json"):
+    for metadata_name in ("metadata.json", "enhancement_metadata.json", "research_metadata.json", "official_practice_metadata.json", "field_metadata.json"):
         metadata = json.loads((root / "report/generated" / metadata_name).read_text())
         for name, expected in metadata["input_sha256"].items():
             actual = hashlib.sha256((root / name).read_bytes()).hexdigest()
@@ -112,11 +132,76 @@ def deterministic_content(value):
     """Exclude measured wall clocks and their maximum, not behavioral statistics."""
     if isinstance(value, dict):
         return {key: deterministic_content(item) for key, item in value.items()
-                if key not in ("real_duration_s", "max_real_duration_s")}
+                if key not in ("real_duration_s", "max_real_duration_s", "max_real_s")}
     if isinstance(value, list):
         return [deterministic_content(item) for item in value]
     return value
 
+
+def practice_files(root: Path):
+    """Allow only the manifest's 60 sanitized practice files, never private raw logs."""
+    root = root.resolve()
+    manifest = root / "manifest.csv"
+    if manifest.is_symlink():
+        raise ValueError("Practice manifest must not be a symbolic link")
+    with manifest.open(encoding="utf-8", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    if len(rows) != 20 or {(int(r["problem"]), int(r["round"])) for r in rows} != {
+        (p, n) for p in (3, 4) for n in range(1, 11)
+    }:
+        raise ValueError("Expected exactly ten supplied practice rounds per problem")
+    files = {"manifest.csv": manifest}
+
+    def check_identifiers(value):
+        if isinstance(value, dict):
+            for key, item in value.items():
+                if key == "robot_id" and item != "TEAM_REDACTED":
+                    raise ValueError("Unredacted robot_id in practice data")
+                check_identifiers(item)
+        elif isinstance(value, list):
+            for item in value:
+                check_identifiers(item)
+
+    for row in rows:
+        controller = f"data/controller/q{int(row['problem'])}/round_{int(row['round']):02d}"
+        for key in ("private_requests", "observed_result", "simulator_result"):
+            name = row[key]
+            relative = PurePosixPath(name)
+            if relative.is_absolute() or ".." in relative.parts or "\\" in name:
+                raise ValueError(f"Unsafe practice path: {name}")
+            if key == "simulator_result":
+                allowed = (relative.parent == PurePosixPath("data/simulator_results")
+                           and re.fullmatch(r"practice-p[34]-[0-9]+-[A-Z0-9-]+\.result\.json", relative.name))
+            else:
+                filename = "private_requests.jsonl" if key == "private_requests" else "observed_result.json"
+                allowed = name == f"{controller}/{filename}"
+            path = root / relative
+            if not allowed or path.is_symlink() or not path.resolve().is_relative_to(root):
+                raise ValueError(f"Practice path outside permitted source scope: {name}")
+            if name in files:
+                raise ValueError(f"Repeated practice source: {name}")
+            text = path.read_text(encoding="utf-8")
+            values = [json.loads(line) for line in text.splitlines()] if key == "private_requests" else [json.loads(text)]
+            for value in values:
+                check_identifiers(value)
+                if key == "private_requests" and value.get("event") == "request":
+                    if value["body"].get("robot_id") != "TEAM_REDACTED":
+                        raise ValueError(f"Missing sanitized request identity: {name}")
+                if isinstance(value, dict) and "body_utf8" in value:
+                    check_identifiers(json.loads(value["body_utf8"]))
+            files[name] = path
+    if len(files) != 61:
+        raise ValueError("Expected 60 distinct practice files plus manifest")
+    return files
+
+
+def verify_practice_inputs(root: Path):
+    files = practice_files(root / "practice_data")
+    analysis = json.loads((root / "results/official_practice_analysis.json").read_text())
+    actual = {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in files.items()}
+    if actual != analysis["input_sha256"]:
+        raise ValueError("Official practice source hashes do not match analysis")
+    return actual
 
 def verify_archive(archive: Path):
     records = []
@@ -133,16 +218,23 @@ def verify_archive(archive: Path):
             raw = (extracted / name).read_bytes()
             assert hashlib.sha256(raw).hexdigest() == information["sha256"], name
         verify_asset_inputs(extracted)
+        practice_hashes = verify_practice_inputs(extracted)
+        immutable_names = [name for name in manifest["files"]
+                           if name in SOURCES or name.startswith("practice_data/")
+                           or (name.startswith("report/") and name.endswith(".tex")
+                               and not name.startswith("report/generated/"))]
         expected_runs = {
             "final_experiments.json": 4430,
             "enhancement_experiments.json": 3080,
             "ring_sweep.json": 2200,
             "refinement_development.json": 2550,
             "research_experiments.json": 10700,
+            "field_development.json": 2250,
+            "field_confirmation.json": 9400,
         }
         baselines = {
             name: json.loads((extracted / "results" / name).read_text())
-            for name in (*expected_runs, "research_verification.json")
+            for name in (*expected_runs, "research_verification.json", "field_verification.json", "official_practice_analysis.json", "fast_vs_compact_410.json", "practice_optimization_screen.json")
         }
         commands = [
             [sys.executable, "verify_geometry.py"],
@@ -164,11 +256,18 @@ def verify_archive(archive: Path):
             [sys.executable, "compare_routes.py"],
             [sys.executable, "compare_probes.py"],
             [sys.executable, "verify_research.py"],
+            [sys.executable, "official_analysis.py", "--handoff", "practice_data"],
+            [sys.executable, "make_official_assets.py"],
+            [sys.executable, "fast_vs_compact_410.py"],
             [sys.executable, "refinement_study.py", "--cases", "150", "--seed", "3100000"],
             [sys.executable, "research_experiments.py"],
+            [sys.executable, "verify_field.py"],
+            [sys.executable, "field_study.py", "--cases", "150", "--seed", "6100000"],
+            [sys.executable, "field_confirmation.py"],
             [sys.executable, "make_assets.py"],
             [sys.executable, "make_enhancement_assets.py"],
             [sys.executable, "make_research_assets.py"],
+            [sys.executable, "make_field_assets.py"],
             [
                 "latexmk",
                 "-xelatex",
@@ -184,6 +283,8 @@ def verify_archive(archive: Path):
                 "ai_usage.tex",
             ],
         ]
+        environment = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
+        environment["MPLBACKEND"] = "Agg"
         for command in commands:
             started = time.monotonic()
             cwd = extracted / "report" if command[0] == "latexmk" else extracted
@@ -195,7 +296,7 @@ def verify_archive(archive: Path):
                 stderr=subprocess.STDOUT,
                 timeout=1800,
                 check=False,
-                env={**os.environ, "MPLBACKEND": "Agg"},
+                env=environment,
             )
             records.append(
                 {
@@ -209,6 +310,7 @@ def verify_archive(archive: Path):
                     f"Extracted archive command failed: {command}\n{completed.stdout[-12000:]}"
                 )
         reproduced_runs = {}
+        auxiliary_runs = {}
         for name, baseline in baselines.items():
             replay = json.loads((extracted / "results" / name).read_text())
             if name in expected_runs:
@@ -223,8 +325,22 @@ def verify_archive(archive: Path):
                         assert deterministic_content(old) == deterministic_content(new), (name, old["seed"])
                 assert count == expected, (name, count)
                 reproduced_runs[name] = count
+            if name == "fast_vs_compact_410.json":
+                assert baseline["total_runs"] == replay["total_runs"] == 2000
+                for label in ("compact25", "fast25"):
+                    old_rows = [r for r in baseline["runs"] if r["configuration"] == label]
+                    new_rows = [r for r in replay["runs"] if r["configuration"] == label]
+                    assert [r["seed"] for r in old_rows] == list(range(4100000, 4101000))
+                    assert [r["seed"] for r in new_rows] == list(range(4100000, 4101000))
+                    for old, new in zip(old_rows, new_rows, strict=True):
+                        assert deterministic_content(old) == deterministic_content(new)
+                auxiliary_runs[name] = len(replay["runs"])
             assert deterministic_content(baseline) == deterministic_content(replay), name
         verify_asset_inputs(extracted)
+        assert verify_practice_inputs(extracted) == practice_hashes
+        for name in immutable_names:
+            assert hashlib.sha256((extracted / name).read_bytes()).hexdigest() == manifest["files"][name]["sha256"], name
+        assert sum(reproduced_runs.values()) == 34610
         for filename in ("paper", "ai_usage"):
             log = (extracted / "report" / f"{filename}.log").read_text(errors="replace")
             assert "Missing character:" not in log and "Overfull" not in log
@@ -243,10 +359,19 @@ def verify_archive(archive: Path):
         "all_10700_research_runs_reproduced_exactly": True,
         "all_2550_development_runs_reproduced_exactly": True,
         "research_verification_reproduced_exactly": True,
+        "all_2250_field_development_runs_reproduced_exactly": True,
+        "all_9400_field_confirmation_runs_reproduced_exactly": True,
+        "field_verification_reproduced_exactly": True,
+        "practice_source_hashes_verified_before_and_after": practice_hashes,
+        "immutable_source_hashes_verified_after_replay": True,
+        "pythonpath_removed": True,
+        "official_practice_analysis_reproduced_exactly": True,
+        "fast_vs_compact_screen_reproduced_exactly": True,
         "generated_asset_input_hashes_verified": True,
         "experiment_runs_reproduced_by_dataset": reproduced_runs,
         "experiment_runs_reproduced_total": sum(reproduced_runs.values()),
-        "excluded_nondeterminism": "measured wall-clock real_duration_s and its summary maximum max_real_duration_s only",
+        "auxiliary_runs_excluded_from_core_total": auxiliary_runs,
+        "excluded_nondeterminism": "local measured wall-clock real_duration_s, max_real_duration_s and max_real_s only; official timestamp/runtime observations remain exact",
         "commands": records,
     }
 
@@ -254,6 +379,8 @@ def verify_archive(archive: Path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--verify", action="store_true")
+    parser.add_argument("--handoff", type=Path, default=(ROOT / "practice_data" if (ROOT / "practice_data").is_dir()
+                                                       else ROOT.parent / "ai_optimization_handoff_20260912"))
     args = parser.parse_args()
     verify_asset_inputs(ROOT)
     for prefix, name in (("paper", "paper"), ("ai", "ai_usage")):
@@ -277,6 +404,13 @@ def main():
     )
     files = {name: ROOT / name for name in SOURCES}
     files.update({"results/" + name: ROOT / "results" / name for name in RESULTS})
+    supplied_practice = practice_files(args.handoff)
+    analysis = json.loads((ROOT / "results/official_practice_analysis.json").read_text())
+    practice_hashes = {name: hashlib.sha256(path.read_bytes()).hexdigest()
+                       for name, path in supplied_practice.items()}
+    if practice_hashes != analysis["input_sha256"]:
+        raise ValueError("Supplied practice files do not match official analysis input hashes")
+    files.update({"practice_data/" + name: path for name, path in supplied_practice.items()})
     files["AI工具使用详情.pdf"] = ROOT / "report/ai_usage.pdf"
     for path in (ROOT / "report").iterdir():
         if path.suffix in (".tex", ".pdf"):
@@ -293,7 +427,7 @@ def main():
         raise RuntimeError(f"Deliverable proof is missing: {missing}")
     anonymous_pattern = re.compile(r"/Users/[A-Za-z0-9._-]+/")
     for name, path in files.items():
-        if path.suffix in (".py", ".txt", ".tex", ".json") and anonymous_pattern.search(
+        if path.suffix in (".py", ".txt", ".tex", ".json", ".jsonl", ".csv") and anonymous_pattern.search(
             path.read_text(encoding="utf-8")
         ):
             raise ValueError(f"Personal absolute path in anonymous material: {name}")
@@ -304,9 +438,13 @@ def main():
             ):
                 raise ValueError(f"Personal absolute path in PDF: {name}")
     manifest = {
-        "status": "VERIFIED_RESEARCH_VERSION_OFFICIAL_TESTS_DEFERRED",
+        "status": "RESEARCH_VERSION_OFFICIAL_PRACTICE_COMPLETE_FORMAL_TESTS_PENDING",
         "not_ready_for_contest_submission": True,
-        "deferred_by_user": "Official simulator practice/formal runs and six encrypted logs",
+        "official_practice": "Twenty user-supplied Q3/Q4 practice observations were analyzed offline; formal tests and encrypted exports remain pending",
+        "official_practice_replay_boundary": "All 20 supplied traces are independently costed; strict baseline policy replay matches only 8/20. Divergence stops replay, with no fabricated responses.",
+        "practice_source_files": 60,
+        "default_strategy": "field",
+        "official_practice_control": "refined, probe_scale=0.22 for Q3 and Q4",
         "human_review": "No actual contestant review record; AI review is not human review",
         "python_environment": "conda py314",
         "python_version": sys.version.split()[0],
@@ -331,6 +469,11 @@ def main():
         )
     with zipfile.ZipFile(archive) as bundle:
         assert bundle.testzip() is None
+        for name, information in manifest["files"].items():
+            assert hashlib.sha256(bundle.read(name)).hexdigest() == information["sha256"], name
+    verify_asset_inputs(ROOT)
+    for name, path in supplied_practice.items():
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == practice_hashes[name], name
     shutil.copy2(ROOT / "report/paper.pdf", destination / "B题研究论文.pdf")
     shutil.copy2(ROOT / "report/ai_usage.pdf", destination / "AI工具使用详情.pdf")
     for path in (
@@ -341,7 +484,7 @@ def main():
         assert path.stat().st_size <= 20 * 2**20, path.name
     status = {
         "status": manifest["status"],
-        "official_tests": "DEFERRED_BY_USER",
+        "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
         "human_review": "OUTSTANDING",
         "source_files": len(files),
         "archive_bytes": archive.stat().st_size,
