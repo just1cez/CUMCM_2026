@@ -1,0 +1,2 @@
+# Local raw copies contain the real team identifier and must not be committed.
+data/controller/**/private_requests.raw.jsonl

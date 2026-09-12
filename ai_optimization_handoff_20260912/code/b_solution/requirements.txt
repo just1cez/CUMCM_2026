@@ -1,0 +1,7 @@
+# Runtime and report tooling dependencies for conda environment py314.
+# The algorithm itself is standard-library Python; these packages support
+# environment checks, numerical verification, figures, and PDF inspection.
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.1
+PyMuPDF==1.28.2
