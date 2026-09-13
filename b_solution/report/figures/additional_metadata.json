@@ -1,0 +1,115 @@
+{
+  "generator": "redraw_additional.py",
+  "figures": {
+    "q1_wedge.pdf": {
+      "kind": "analytic_example",
+      "stations_m": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          950.0,
+          0.0
+        ]
+      ],
+      "source_m": [
+        600.0,
+        650.0
+      ],
+      "bearings_deg": [
+        47.29,
+        118.3
+      ],
+      "error_deg": 1.005,
+      "vertices_m": [
+        [
+          598.5959413821705,
+          626.0666441142274
+        ],
+        [
+          616.9995131445213,
+          645.314790679281
+        ],
+        [
+          601.6179001118551,
+          675.122502037951
+        ],
+        [
+          582.8700674506825,
+          654.0840926228615
+        ]
+      ],
+      "diameter_m": 49.14884974438843
+    },
+    "q2_angle.pdf": {
+      "kind": "analytic_approximation",
+      "ranges_m": [
+        600,
+        600
+      ],
+      "beta_range_deg": [
+        10,
+        170
+      ],
+      "factor_20_deg": 2.9238044001630876,
+      "factor_90_deg": 1.0,
+      "varying_distance_effect_included": false
+    },
+    "q3_tradeoff.pdf": {
+      "kind": "analytic_curves",
+      "ring_radius_range_m": [
+        1200,
+        1558.8457268119894
+      ],
+      "coverage_at_1200_m": 968.9015717043839,
+      "travel_at_1200_m": 7200,
+      "travel_at_900sqrt3_m": 9353.074360871937,
+      "localization_or_measurement_cost_included": false
+    },
+    "q4_route.pdf": {
+      "kind": "analytic_route_and_saved_local_simulation",
+      "source_file": "report/generated/research_trajectory_q4.json",
+      "static_route_m": 17932.509429328325,
+      "seed": 20260910,
+      "strategy": "refined",
+      "simulated_route_m": 21852.172133184224,
+      "simulated_virtual_time_s": 6588.434429,
+      "cleared_count": 10,
+      "markers_are": "successful_clear_positions_not_source_truth",
+      "timing_independently_recomputed": true
+    },
+    "formal_compare.pdf": {
+      "kind": "observed_formal_summary",
+      "source_file": "results/formal_results.json",
+      "T_over_K_s": [
+        224.03714921428573,
+        270.1626666,
+        215.64749725,
+        407.94385520000003,
+        504.53266549999995,
+        665.5015905
+      ],
+      "K": [
+        14,
+        10,
+        16,
+        15,
+        12,
+        10
+      ],
+      "equal_run_means": {
+        "Q3": 236.6157710214286,
+        "Q4": 525.9927037333333
+      },
+      "cases_are_paired": false
+    }
+  },
+  "input_sha256": {
+    "redraw_additional.py": "d2f6feb39f7312e71e4592bf88af8aa99ce3c6987e69d1d0fd0c9aa7a5b67d1f",
+    "geometry.py": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357",
+    "intersection.py": "3c69e9cea50fb45e5d525cd5231b8c27eccd6022271857189dfc3587f2565862",
+    "results/formal_results.json": "70cfedf8496fac2b1433f0b77fe40cef50d8169905614c1d22e747ed7784616b",
+    "report/generated/research_trajectory_q4.json": "45720d62734642c7ac2e15a38a67bb6fc7c581f0c12f4abd9b976980d78f56b8"
+  }
+}

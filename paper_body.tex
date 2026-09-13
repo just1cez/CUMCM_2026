@@ -20,7 +20,6 @@
 \newcommand{\cross}[2]{\operatorname{cross}(#1,#2)}
 \newcommand{\disk}{\mathcal D}
 \newcommand{\poly}{\mathcal P}
-\newtheorem{proposition}{结论}
 \input{paper_body_data.tex}
 \begin{document}
 \begin{center}
@@ -168,6 +167,13 @@ P=\bigcap_{i=1}^mW_i.
 \end{equation}
 问题一先计算这个区域。问题三、四还可利用源所在圆域与最大接收距离收缩位置范围，这些附加条件在后文在线更新小节处理。
 
+图\ref{fig:q1-wedge}给出两次带误差测向的几何算例。左图显示检测位置和示向范围，右图放大公共区域，最远顶点连线对应待求直径。图中按$1.005^\circ$容差计算交集，局部放大不改变误差角度。
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{q1_wedge.pdf}
+\caption{两次测向的楔形交会与定位区域放大图（自设几何算例）}
+\label{fig:q1-wedge}
+\end{figure}
+
 \subsection{区域分类与顶点计算}
 将式\eqref{eq:wedge}的约束统一记为$Ag\le b$。由于测向方向和检测位置不同，交集可能为空、无界或有界，具体按以下步骤判断。
 \begin{enumerate}
@@ -179,7 +185,7 @@ P=\bigcap_{i=1}^mW_i.
 设两条边界为$a_i^{\mathsf T}g=b_i$和$a_j^{\mathsf T}g=b_j$，记$\Delta=a_{ix}a_{jy}-a_{iy}a_{jx}$。当$\Delta\ne0$时，交点坐标为
 \begin{equation}
 x=\frac{b_i a_{jy}-a_{iy}b_j}{\Delta},\qquad
- y=\frac{a_{ix}b_j-b_i a_{jx}}{\Delta}.
+y=\frac{a_{ix}b_j-b_i a_{jx}}{\Delta}.
 \end{equation}
 每个交点需检查全部约束，朴素算法的时间复杂度为$O(m^3)$。本题一次局部定位使用的测向数量较少，该方法便于处理退化情形，计算量也较小。
 
@@ -254,6 +260,7 @@ P_c=A_{180}\cap\bigcap_{i\in I_c}
 \subsection{交会几何对定位误差的影响}
 移动单站定位通过改变观测位置，获得同一源在不同方向上的测向信息\cite{qin}；交叉定位中的方位误差还会随观测几何传播到位置结果\cite{li}。本问据此考察第二检测点的交会角和目标距离，位置估计仍采用前述有界误差可行域。
 
+
 单次测向将源限制在长而窄的扇形内，但沿示向方向的距离仍不确定。设两次检测点到真实源的距离为$r_1,r_2$，视线夹角为$\beta$。对小角度误差线性化，位置扰动$\delta g$在每条视线法向$n_i$上满足
 \begin{equation}
 |n_i^{\mathsf T}\delta g|\le\alpha r_i.
@@ -265,6 +272,13 @@ A\approx\frac{4\alpha^2r_1r_2}{|\sin\beta|},
 其中$\alpha$以弧度计。固定距离时，交会角接近$90^\circ$有利于缩小误差；夹角接近$0^\circ$或$180^\circ$时，交会区域沿一个方向拉长。
 
 第二点移动还会改变$r_2$，所以不能只按夹角选择。本文先限制第二点位于可接收区域，再通过楔形裁剪计算定位效果。式\eqref{eq:intersection-area}用于解释选点趋势，实际计算仍采用完整的角度约束。
+
+图\ref{fig:q2-angle}固定两次测向距离，比较不同交会角对应的面积因子。两条视线接近平行时，误差面积迅速增大；接近直角时，该因子最小。实际选点还需同时考虑接收条件和移动距离。
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{q2_angle.pdf}
+\caption{固定测向距离时的交会角与相对误差面积}
+\label{fig:q2-angle}
+\end{figure}
 
 \subsection{由首次接收得到的候选条件}
 记首次检测点为$S_1$，读数方向为$u$，法向为$n$，第二点表示为
@@ -393,6 +407,13 @@ L_{\mathrm{ring}}^{\min}=6d.
 \end{figure}
 
 七点方案有明确的覆盖依据。作为点数比较，在900米覆盖要求下，单个接收盘对半径1800米圆周的交弧宽度最多为$60^\circ$。若仅用六盘覆盖整条圆周，六盘必须全部取到最大弧宽，并按正六边形排列；此时原点仍未被覆盖，还需增加一个中心盘。这个七点下界针对900米接收盘，1000米物理下界下的任意布局不在该下界的结论范围内。
+
+图\ref{fig:q3-tradeoff}将式\eqref{eq:ring-radius}和式\eqref{eq:ring-tour}放在同一参数范围内比较。扩大环半径能够缩短最坏接收距离，但同时增加骨架行程；1200米环在保留接收余量的同时采用较短的扫描路线。
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{q3_tradeoff.pdf}
+\caption{七点环覆盖距离与开放骨架行程的变化（不含定位及操作费用）}
+\label{fig:q3-tradeoff}
+\end{figure}
 
 \subsection{扫描任务与定位任务的联合排序}
 设当前位置为$q$。待执行任务分为两类：尚未完成的骨架扫描点，以及已经发现但未清除的源。扫描点用实际坐标表示，源任务用当前可行域的最小包围圆中心$z_c$表示。为统一符号，记各任务坐标为$z_j$，扫描任务半径为0，源任务半径为$r_j$。
@@ -570,6 +591,13 @@ L_{25}=a+22(a+b)\sin\frac\pi{12}
 \approx17932.51\ \mathrm m.
 \end{equation}
 它用于说明骨架能够连成有限路线，实际顺序由任务调度决定。相较31点骨架，若20个频道均完成全部扫描，25点方案少120次检测，对应检测项少600秒；实际任务会随频道清除和已知频道补测筛选而改变次数。
+
+图\ref{fig:q4-route}比较上述可行骨架路线与已有的refined本地模拟轨迹。右图取种子20260910的单局记录，只按已执行动作连接位置，标出的清除位置不是源坐标真值。两条路线的区别反映了局部定位支线与在线任务重排，不能把纯骨架长度直接当作完整任务行程。
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{q4_route.pdf}
+\caption{Q4双环骨架路线与本地模拟轨迹（右图为refined，非正式测试轨迹）}
+\label{fig:q4-route}
+\end{figure}
 
 \subsection{路线组合与补测筛选}
 问题四采用field路线组合，对式\eqref{eq:route-proxy}取$\gamma=1$。当首项为不确定区域较大的源任务时，半径项增加其评分；当首项是扫描点时，该项为0。由此兼顾到达距离和当前定位范围。
@@ -767,6 +795,13 @@ Q3三局共成功清除\FormalThreeK{}个源，虚拟总时间合计\FormalThree
 Q4三局共成功清除\FormalFourK{}个源，虚拟总时间合计\FormalFourT{}秒。逐局等权平均为\FormalFourMean{}秒/源，汇总指标为\FormalFourPooled{}秒/源。第三局成功清除数较少，单源时间较高，说明总时间和源数都影响$T/K$。
 
 六局均满足各频道完成清除或无源判断的停止条件。正式测试未提供每局真实源数，故只报告成功清除数、虚拟时间和停止状态，不计算清除率；该结果与第\ref{sec:experiments}节的合成配对试验分开统计。
+
+图\ref{fig:formal-compare}并列展示六局正式测试的单源时间，并标出各局成功清除数$K$。虚线分别表示两题的逐局等权均值，图中只比较本次案例的耗时分布，不将不同案例视为配对策略试验。
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{formal_compare.pdf}
+\caption{六次正式测试的单源时间与成功清除数（均采用field）}
+\label{fig:formal-compare}
+\end{figure}
 
 \section{模型检验与灵敏度分析}
 \subsection{定位与停止条件的检验}
