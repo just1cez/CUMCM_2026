@@ -3,7 +3,6 @@
   "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
   "human_review": "OUTSTANDING",
   "source_files": 242,
-  "archive_bytes": 6700331,
-  "archive_sha256": "2218cf91463341c9b8798db0f91db0abce81f785c97589065d856089db7b2dee",
-  "extracted_archive_reproduction": "passed"
+  "archive_bytes": 6700321,
+  "archive_sha256": "9c57bb6f96bb832aeb7a81bac1cc717db672c252ea5f8bbc7f9aa1e788b76caf"
 }
