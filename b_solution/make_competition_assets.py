@@ -1,9 +1,4 @@
-"""Generate compact competition-paper vector figures.
 
-This module is intentionally data-light: ring/direction/localization panels are
-schematics, while ``competition_costs.pdf`` uses only the frozen field log.
-Run from ``b_solution`` with the project conda environment.
-"""
 from __future__ import annotations
 
 import hashlib

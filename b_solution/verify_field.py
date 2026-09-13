@@ -1,4 +1,4 @@
-"""Boundary/invariant checks for field policy; synthetic and analytic evidence."""
+
 
 from __future__ import annotations
 import json
@@ -6,13 +6,13 @@ import math
 from pathlib import Path
 import random
 
-from field_policy import FieldPlanner
-from geometry import _cross, clip_bearing, enclosing_circle, initial_polygon
-from negative_geometry import exclude_omni_disk
-from planner import Track
-from route_portfolio import _control_route, _cost, _improve, choose_portfolio_task
-from joint_dispatch_candidate import choose_task
-from verify_terminal import DeadlineAdapter
+from submission.支撑材料.field_policy import FieldPlanner
+from submission.支撑材料.geometry import _cross, clip_bearing, enclosing_circle, initial_polygon
+from submission.支撑材料.negative_geometry import exclude_omni_disk
+from submission.支撑材料.planner import Track
+from submission.支撑材料.route_portfolio import _control_route, _cost, _improve, choose_portfolio_task
+from submission.支撑材料.joint_dispatch_candidate import choose_task
+from submission.支撑材料.verify_terminal import DeadlineAdapter
 
 
 def contains(poly, p, tolerance=2e-6):
@@ -121,7 +121,7 @@ def route_checks():
             )
             assert choose_portfolio_task(pos, {}, targets)[1] in targets
             cases += 1
-    # Exact two-task optimum is useful because an open tail has no return edge.
+    
     for positions in (
         ((1.0, 0.0), (2.0, 0.0)),
         ((-1.0, 0.0), (2.0, 0.0)),

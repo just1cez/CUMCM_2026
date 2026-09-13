@@ -1,4 +1,4 @@
-"""Independent geometry/behavior verification for the new research candidates."""
+
 from __future__ import annotations
 
 from collections import Counter
@@ -9,12 +9,12 @@ import math
 import random
 from pathlib import Path
 
-from geometry import clip_bearing, initial_polygon, optical_cover
-from joint_dispatch_candidate import choose_task
-from optical_policy_candidate import certified_optical_cover
-from planner import Planner, Track
-from verify_terminal import DeadlineAdapter
-from polar_coverage_candidate import polar_certificate, polar_waypoints
+from submission.支撑材料.geometry import clip_bearing, initial_polygon, optical_cover
+from submission.支撑材料.joint_dispatch_candidate import choose_task
+from submission.支撑材料.optical_policy_candidate import certified_optical_cover
+from submission.支撑材料.planner import Planner, Track
+from submission.支撑材料.verify_terminal import DeadlineAdapter
+from submission.支撑材料.polar_coverage_candidate import polar_certificate, polar_waypoints
 
 
 def cross(a, b, c):
@@ -40,7 +40,7 @@ def verify_polar(variant):
         for c,d in counts:
             if len({a,b,c,d}) < 4:
                 continue
-            # Strict crossings would invalidate the triangulation argument.
+            
             assert not (cross(points[a],points[b],points[c])*cross(points[a],points[b],points[d]) < -1e-8
                         and cross(points[c],points[d],points[a])*cross(points[c],points[d],points[b]) < -1e-8)
     area = sum(cross(*(points[i] for i in t))/2 for t in triangles)
@@ -49,7 +49,7 @@ def verify_polar(variant):
     maximum = max(math.dist(points[a],points[b]) for a,b in counts)
     bound = cert["robust_certificate"]
     assert maximum <= bound["triangle_diameter_upper_bound_m"] + 1e-9
-    # Exact rational lower/upper radical bounds used by the written proof.
+    
     assert Fraction(14142,10000)**2 < 2 < Fraction(14143,10000)**2
     assert Fraction(24494,10000)**2 < 6 < Fraction(24495,10000)**2
     a,b = map(int,(cert["inner_radius_m"],cert["outer_radius_m"]))
@@ -182,8 +182,8 @@ def verify_scan_obligations():
         adapter = DeadlineAdapter(max_virtual=360000)
         policy = Planner(adapter,problem=problem)
         policy.action("/enter")
-        # A previously detected, unresolved singleton: a ready optical target,
-        # not an absent channel even when every other channel has been scanned.
+        
+        
         policy.tracks[1] = Track(polygon=[(100.,0.)],readings=[((0.,0.),0.)])
         policy.channel_state[1] = "detected"
         for index in sorted(policy.pending):

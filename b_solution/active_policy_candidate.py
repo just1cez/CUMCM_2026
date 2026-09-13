@@ -1,14 +1,10 @@
-"""Unexecuted research candidate: observation-only, bounded active probing.
 
-No action or belief update occurs here. ``None`` means use the unchanged
-localizer/optical cover; a selected point is NOT a clearing certificate.
-"""
 
 from __future__ import annotations
 
 from math import acos, cos, dist, hypot, isfinite, nextafter, pi, radians, sin
 
-from geometry import (
+from submission.支撑材料.geometry import (
     BEARING_ERROR_DEG,
     MAX_RADIO_RADIUS,
     Point,
@@ -16,16 +12,11 @@ from geometry import (
     _padding,
     enclosing_circle,
 )
-from second_point import safe_candidates
+from submission.支撑材料.second_point import safe_candidates
 
 
 def _bearing_bound(polygon, point, radius, bins, error_deg):
-    """Upper-bound every positive-bearing posterior using overlapping wedges.
-
-    Each angular bin is enlarged by the measurement error; unlike clip_bearing,
-    the scoring relaxation has NO projected range cap. A bounding-box circle
-    encloses each relaxed polygon. The original MEC is also an enclosing disk.
-    """
+    
     half_bin = 180.0 / bins
     width = radians(error_deg + half_bin)
     scale = max(
@@ -34,8 +25,8 @@ def _bearing_bound(polygon, point, radius, bins, error_deg):
         abs(point[1]),
         *(max(abs(x), abs(y)) for x, y in polygon),
     )
-    # A padded narrow wedge is a translated exact wedge. Its apex shift is
-    # epsilon/sin(alpha); this larger pad also covers that displacement.
+    
+    
     padding = 4.0 * _padding(scale) / sin(radians(error_deg))
     worst, nonempty = 0.0, 0
     for index in range(bins):
@@ -58,17 +49,17 @@ def _bearing_bound(polygon, point, radius, bins, error_deg):
             0.5 * hypot(xmax - xmin, ymax - ymin) + padding, float("inf")
         )
         worst = max(worst, min(radius, box_radius))
-    # An unexpected empty partition must not look like perfect information.
+    
     return (worst if nonempty else radius), nonempty
 
 
 def _loss_risk(samples, readings, point, problem):
-    """Geometric risk index, NOT an identified no-signal probability."""
+    
     total = 0.0
     station = readings[-1][0]
     for source in samples:
         query_distance = dist(point, source)
-        # A positive station implies range >= its distance, even in Q4.
+        
         lower_range = max(1000.0, *(dist(s, source) for s, _ in readings))
         if query_distance > lower_range:
             total += 1.0
@@ -77,7 +68,7 @@ def _loss_risk(samples, readings, point, problem):
             continue
         old_distance = dist(station, source)
         if old_distance <= 1e-9 or query_distance <= 1e-9:
-            # Direction is undefined here; do not manufacture guaranteed signal.
+            
             total += 1.0
             continue
         cosine = sum(
@@ -102,19 +93,7 @@ def score_probes(
     loss_weight=1.0,
     include_lens=True,
 ):
-    """Return a deterministic score table; consume only public observations.
-
-    polygon: nonempty ordered convex conservative vertices, as Track.polygon.
-    readings: positive (station, svd_deg) pairs for ONE known channel only.
-    rejected_points: previous unsuccessful probes/clears; excludes locations,
-        never source hypotheses. The caller retains all underlying history.
-    probes_remaining: caller-owned remaining bound; this function cannot debit it.
-
-    Legal coordinates are finite and within +/-2,000,000 m per protocol, NOT
-    restricted to the radius-1800 source arena. Scores are dimensionless.
-    Empty output signals fallback. Malformed/contradictory inputs raise, rather
-    than resetting a belief or silently substituting a made-up polygon.
-    """
+    
     if problem not in (3, 4):
         raise ValueError("Only Q3 and Q4 localization is supported")
     if not isinstance(probes_remaining, int) or probes_remaining < 0:
@@ -138,7 +117,7 @@ def score_probes(
         raise ValueError("All points must contain two finite coordinates")
     if any(not isfinite(a) for _, a in history):
         raise ValueError("Readings must have finite public bearing angles")
-    center, radius = enclosing_circle(poly)  # Empty belief must raise.
+    center, radius = enclosing_circle(poly)  
     if not history or probes_remaining == 0 or radius <= 19.9:
         return []
 
@@ -214,12 +193,7 @@ def score_probes(
 def choose_probe(
     polygon, readings, current_position, problem, **options
 ) -> Point | None:
-    """Choose minimum score, then minimum travel, then generation-order tie.
-
-    The caller MUST debit its existing finite probe budget, apply only actual
-    positive bearings via Planner.measure, and retain the original fallback.
-    Use score_probes with identical arguments to obtain the full score table.
-    """
+    
     table = score_probes(polygon, readings, current_position, problem, **options)
     eligible = [row for row in table if row["eligible"]]
     if not eligible:

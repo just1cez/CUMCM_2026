@@ -1,7 +1,4 @@
-"""Reproducible competition-style result figures.
-Only frozen JSON inputs are read; no data are written.
-Run from b_solution: python redraw_results.py
-"""
+
 from pathlib import Path
 import json
 import numpy as np

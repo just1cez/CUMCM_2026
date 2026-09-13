@@ -1,9 +1,4 @@
-"""HTTP fault-injection regression. Local test server, never the official simulator.
 
-Start --server with hub; run without --server as a finite client verification.
-The server executes the first measure, truncates its HTTP body, then answers its
-same-ID retry from cache. Passing requires exactly-once virtual-time effects.
-"""
 
 from __future__ import annotations
 
@@ -14,8 +9,8 @@ import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
-from client import AmbiguousActionError, HTTPClient
-from environment import LocalSimulator
+from submission.支撑材料.client import AmbiguousActionError, HTTPClient
+from submission.支撑材料.environment import LocalSimulator
 
 
 def serve(port, case):

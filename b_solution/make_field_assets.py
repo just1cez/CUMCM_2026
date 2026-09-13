@@ -1,4 +1,4 @@
-"""Checked field-policy assets; official observations and synthetic gains stay separate."""
+
 
 from __future__ import annotations
 from collections import defaultdict
@@ -12,8 +12,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from field_study import pair_stats, summarize
-from make_assets import (
+from submission.支撑材料.field_study import pair_stats, summarize
+from submission.支撑材料.make_assets import (
     ROOT,
     GENERATED,
     atomic_bytes,
@@ -22,7 +22,7 @@ from make_assets import (
     save_figure,
     write_json,
 )
-from make_research_assets import checked_rows
+from submission.支撑材料.make_research_assets import checked_rows
 
 LABELS = {
     "control": "原refined",
@@ -78,8 +78,8 @@ def main():
                 ]
             )
             if name in ("control", "field"):
-                # Recover the charged movement component from the independently
-                # verified total and integer action costs, retaining microsecond rounding.
+                
+                
                 costs = [
                     statistics.mean(
                         (
@@ -204,7 +204,7 @@ def main():
         ["问题", "场景", "误差", "配对数", "节省", r"近似95\%区间", "更快"],
         stress_rows,
     )
-    # Official evidence has no new field outcomes; plot only actual cost shares.
+    
     official_rows = []
     for p in (3, 4):
         s = official["summary"][str(p)]

@@ -1,4 +1,4 @@
-"""Independent numerical geometry checks; no official simulator calls."""
+
 
 from __future__ import annotations
 
@@ -11,8 +11,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import linprog
 
-from coverage import coverage_certificate, directional_waypoints, omni_waypoints
-from geometry import (
+from submission.支撑材料.coverage import coverage_certificate, directional_waypoints, omni_waypoints
+from submission.支撑材料.geometry import (
     clip_bearing,
     diameter,
     enclosing_circle,
@@ -34,7 +34,7 @@ def contains(poly, p, tolerance=1e-6):
 
 
 def reference_circle(points):
-    """Exhaust every 1/2/3-point support, independently of incremental MEC."""
+    
     candidates = [(p, 0.0) for p in points]
     for a, b in itertools.combinations(points, 2):
         c = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
@@ -106,7 +106,7 @@ def main():
     }
     assert abs(counterexample["diameter_m"] - 36) < 1e-6
     assert counterexample["mec_radius_m"] > 20
-    # True-source containment including boundary source, wraparound and +/-1 noise.
+    
     containment_trials = 2000
     optical_trials = 0
     for index in range(containment_trials):
@@ -140,7 +140,7 @@ def main():
         p = (radius * math.cos(angle), radius * math.sin(angle))
         max_omni_distance = max(max_omni_distance, min(math.dist(p, s) for s in omni))
         nearby = [s for s in directional if math.dist(p, s) <= 990 + 1e-7]
-        # Independent convex-hull feasibility, all orientations at once for p.
+        
         points = np.asarray(nearby)
         solved = linprog(
             np.zeros(len(points)),
@@ -159,7 +159,7 @@ def main():
             ]
             min_directional_slack = min(min_directional_slack, 1000 - min(seen))
     assert max_omni_distance <= 900 + 1e-7 and min_directional_slack >= 0
-    # Exact triple-lens safe region sampled as a separate numerical sanity check.
+    
     alpha = math.radians(1.005)
     max_reception_excess = -float("inf")
     for _ in range(10000):
@@ -196,10 +196,10 @@ def main():
     Path("results/geometry_verification.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     )
-    # The default enhanced policy uses the 1200m Q3 ring and rolling Q4
-    # skeleton. The fixed-probe/local-recovery bound is deliberately separate
-    # from the optional adaptive candidate. Reflection is about the last
-    # positive station and contracts its station distance by one half.
+    
+    
+    
+    
     station_probe_bound = math.hypot(1501, 120)
     source_probe_bound = 1500 + station_probe_bound
     assert station_probe_bound < 1506 and source_probe_bound < 3006

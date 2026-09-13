@@ -2,8 +2,8 @@ import json
 import statistics
 from pathlib import Path
 
-from environment import LocalSimulator
-from planner import Planner
+from submission.支撑材料.environment import LocalSimulator
+from submission.支撑材料.planner import Planner
 
 rows, summary = [], {}
 for scenario in ("random", "minimum_radius", "outward_boundary", "clustered"):

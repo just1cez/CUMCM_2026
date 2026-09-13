@@ -1,8 +1,4 @@
-"""Generate enhancement-only paper assets from saved local experiment evidence.
 
-Run from any directory with conda run -n py314 python <path>/make_enhancement_assets.py.
-No planner, simulator, hidden world, or source file is loaded or executed.
-"""
 from __future__ import annotations
 
 import hashlib
@@ -65,7 +61,7 @@ def atomic_bytes(path, content):
 
 
 def table(name, headers, rows, widths, left_columns=(0, 1)):
-    """Fixed-width booktabs tabular only; the parent paper owns all captions."""
+    
     require(len(headers) == len(widths), "Invalid table widths")
     require(sum(widths) + 0.14 * (len(widths) - 1) <= 15.9, "Table exceeds 16 cm")
     columns = []
@@ -102,7 +98,7 @@ def check_run(row):
     close(row["average_time_s"], row["virtual_time_s"] / n, "Per-world average")
     total = (row["distance_m"] / 5 + 5 * row["measures"] + row["switches"]
              + 3 * row["failed_clears"] + 5 * row["n_cleared"])
-    # Each accepted measurement/clear rounds its movement charge to microseconds.
+    
     rounding_bound = 0.5e-6 * (row["measures"] + row["clear_attempts"]) + 1e-8
     close(total, row["virtual_time_s"], "Independent cost identity", tolerance=rounding_bound)
 
@@ -188,7 +184,7 @@ def enhancement_tables(data, groups):
                                      number(stats["median_average_time_s"]),
                                      number(stats["p90_average_time_s"]),
                                      f'{stats["all_cleared_cases"]}/{stats["cases"]}'))
-            # Average each world's cost/N; never divide pooled costs by pooled N.
+            
             components = [statistics.mean(value(r) / r["n_sources"] for r in rows)
                           for value in (lambda r: r["distance_m"] / 5,
                                         lambda r: 5 * r["measures"], lambda r: r["switches"],

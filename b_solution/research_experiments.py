@@ -1,15 +1,11 @@
-"""Frozen holdout/ablation/robustness study; all observations are synthetic.
 
-Development uses 3100000..3100149 only. No choice is made from this file's
-holdout results: refined defaults are frozen before its first execution.
-"""
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from experiments import aggregate, run_case
-from refinement_study import paired
+from submission.支撑材料.experiments import aggregate, run_case
+from submission.支撑材料.refinement_study import paired
 
 CONFIGS = {
     3: {

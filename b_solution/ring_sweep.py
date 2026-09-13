@@ -1,4 +1,4 @@
-"""Development and held-out sweep for the safe Q3 ring radius."""
+
 from __future__ import annotations
 
 import json
@@ -6,8 +6,8 @@ import math
 import statistics
 from pathlib import Path
 
-from coverage import ring_cover_radius
-from experiments import run_case
+from submission.支撑材料.coverage import ring_cover_radius
+from submission.支撑材料.experiments import run_case
 
 CANDIDATES = (1200.0, 1250.0, 1300.0, 1350.0, 1400.0,
               1450.0, 1500.0, 1550.0)
@@ -36,7 +36,7 @@ def run_radius(radius, seeds):
     for seed in seeds:
         row = run_case(seed, 3, "enhanced", ring_radius=radius,
                        anchor_policy="nearest")
-        row.pop("real_duration_s")  # Exclude wall-clock noise from geometry comparison.
+        row.pop("real_duration_s")  
         rows.append(row)
     return rows
 

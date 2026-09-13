@@ -1,10 +1,10 @@
-"""Finite Planner terminal/deadline regression using a protocol-shaped fake adapter."""
+
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from planner import Planner
+from submission.支撑材料.planner import Planner
 
 
 class DeadlineAdapter:

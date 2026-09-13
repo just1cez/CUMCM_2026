@@ -1,8 +1,4 @@
-"""Bounded deterministic open-route portfolio using public task summaries only.
 
-This module chooses an order, not an execution path or a clearance certificate.
-It never executes actions, drops obligations, or reads simulator/source state.
-"""
 
 from __future__ import annotations
 
@@ -60,12 +56,7 @@ def _insertion_delta(
 def _control_route(
     origin: list[float], edges: list[list[float]], penalty: list[float]
 ) -> list[int]:
-    """Exact route construction/move order of joint_dispatch_candidate.choose_task.
-
-    Keep this control independent of portfolio refinements: first task, nearest
-    updates, insertion arithmetic, scan order, tolerance and accepted-move cap
-    deliberately match the existing guarded implementation (center at weight 0).
-    """
+    
     n = len(origin)
     first = min(range(n), key=lambda i: (origin[i] + penalty[i], i))
     route = [first]
@@ -119,14 +110,14 @@ def _control_route(
 def _cheapest_route(
     origin: list[float], edges: list[list[float]], penalty: list[float]
 ) -> list[int]:
-    """Choose the globally cheapest (remaining task, gap), not nearest task."""
+    
     n = len(origin)
     first = min(range(n), key=lambda i: (origin[i] + penalty[i], i))
     route = [first]
     remaining = set(range(n))
     remaining.remove(first)
     while remaining:
-        # Tuple comparison makes node/gap ties independent of set iteration.
+        
         _, node, gap = min(
             (_insertion_delta(route, node, gap, origin, edges, penalty), node, gap)
             for node in remaining
@@ -154,12 +145,12 @@ def _improve(
     edges: list[list[float]],
     penalty: list[float],
 ) -> tuple[list[int], float]:
-    """Best improvement across reversals and one-node relocations, bounded passes."""
+    
     n = len(route)
     cost = _cost(route, origin, edges, penalty)
     for _ in range(min(n, 12)):
-        # Ignore changes below the scale-dependent numerical margin. Every
-        # accepted move is also checked against the complete recomputed proxy.
+        
+        
         best_delta = -1e-12 * max(1.0, cost)
         move: tuple[str, int, int] | None = None
         for left in range(n - 1):
@@ -202,8 +193,8 @@ def _improve(
                 if index + 1 < n:
                     following = route[index + 1]
                     removal += edges[before][following] - edges[node][following]
-            # Gaps are in the ORIGINAL route. The two adjacent gaps are no-ops;
-            # every other gap retains its endpoints when node is removed.
+            
+            
             for gap in range(n + 1):
                 if gap == index or gap == index + 1:
                     continue
@@ -224,7 +215,7 @@ def _improve(
             candidate.insert(right if right < left else right - 1, node)
         candidate_cost = _cost(candidate, origin, edges, penalty)
         if not candidate_cost < cost:
-            # Cancellation in an edge delta must never worsen the true proxy.
+            
             break
         route, cost = candidate, candidate_cost
     return route, cost
@@ -236,22 +227,7 @@ def choose_portfolio_task(
     targets: dict[int, tuple[Point, float]],
     risk_weight: float = 1.0,
 ) -> Task:
-    """Return the first task of the best complete deterministic open permutation.
-
-    Proxy = origin-to-first distance + all consecutive center/anchor distances
-    + risk_weight * first target radius (zero for a first anchor). Weight zero
-    reproduces the old center objective. No return-to-origin edge is charged.
-    The retained control is exactly the old nearest-insertion/capped-2-opt
-    route, so the selected complete route's computed proxy is never worse.
-    This is NOT a guarantee about the first hop, executed distance or total T.
-
-    At most four seeds (control, global cheapest insertion, two nearest-neighbor
-    starts) receive min(n, 12) best-improvement passes each. Tasks sort target
-    before anchor, then integer key; equal costs retain the earlier candidate.
-    All tasks survive, including identical coordinates/keys across task kinds.
-    Inputs are never mutated. Empty tasks, nonfinite geometry/proxy or negative
-    radii/risk weight raise ValueError. Time O(n^3), memory O(n^2).
-    """
+    
     target_keys = sorted(targets)
     anchor_keys = sorted(anchors)
     tasks: list[Task] = [("target", key) for key in target_keys]
@@ -284,8 +260,8 @@ def choose_portfolio_task(
         not isfinite(value) for row in edges for value in row
     ):
         raise ValueError("pairwise distances must be finite")
-    # This conservative finite upper bound also excludes overflow in local
-    # delta arithmetic; physical simulator distances are far below this limit.
+    
+    
     try:
         bound = fsum((max(origin), max(penalty), *(max(row) for row in edges)))
     except OverflowError as error:
@@ -296,8 +272,8 @@ def choose_portfolio_task(
     control = _control_route(origin, edges, penalty)
     control_cost = _cost(control, origin, edges, penalty)
     best_route, best_cost = control, control_cost
-    # The second start is the next distinct task in origin+penalty order, not
-    # another random restart or a second copy of the same first task.
+    
+    
     starts = sorted(range(n), key=lambda i: (origin[i] + penalty[i], i))[:2]
     seeds = [control, _cheapest_route(origin, edges, penalty)]
     seeds.extend(_nearest_route(first, edges) for first in starts)
@@ -310,7 +286,7 @@ def choose_portfolio_task(
         route, cost = _improve(seed, origin, edges, penalty)
         if cost < best_cost:
             best_route, best_cost = route, cost
-    # Explicit control fallback guards the proxy guarantee, not actual travel.
+    
     if best_cost > control_cost:
         return tasks[control[0]]
     return tasks[best_route[0]]

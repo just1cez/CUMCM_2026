@@ -1,9 +1,4 @@
-"""Validate and analyze supplied official practice logs; no simulator requests.
 
-The source count/type files are post-exit evaluation labels. The policy replay
-receives only the original responses and must match every requested action;
-unobserved actions are rejected, never simulated using guessed source truth.
-"""
 
 from __future__ import annotations
 
@@ -16,8 +11,8 @@ import math
 from pathlib import Path
 import statistics
 
-from geometry import enclosing_circle
-from planner import Planner
+from submission.支撑材料.geometry import enclosing_circle
+from submission.支撑材料.planner import Planner
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_HANDOFF = ROOT.parent / "ai_optimization_handoff_20260912"
@@ -215,7 +210,7 @@ def analyze_run(root, row):
             "reason": str(exc),
         }
         phases = []
-    # Use original coordinates, not replayed float approximations, for timing.
+    
     position = (0.0, 0.0)
     radio = 1
     clock_us = 0

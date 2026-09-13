@@ -1,4 +1,4 @@
-"""Run local synthetic practice; official GUI sessions require client.HTTPClient separately."""
+
 
 from __future__ import annotations
 
@@ -6,9 +6,9 @@ import argparse
 import json
 from pathlib import Path
 
-from environment import LocalSimulator
-from field_policy import FieldPlanner
-from planner import Planner
+from submission.支撑材料.environment import LocalSimulator
+from submission.支撑材料.field_policy import FieldPlanner
+from submission.支撑材料.planner import Planner
 
 
 def run_local(

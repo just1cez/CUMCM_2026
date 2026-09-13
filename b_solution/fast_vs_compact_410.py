@@ -2,7 +2,7 @@ from pathlib import Path
 import json, statistics, sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from experiments import run_case
+from submission.支撑材料.experiments import run_case
 
 old = []
 new = []

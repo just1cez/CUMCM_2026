@@ -1,25 +1,25 @@
-"""Coverage-certified search; consumes observations only, never simulator truth."""
+
 
 from dataclasses import dataclass, field
 from math import dist, hypot
 from time import monotonic
 
-from active_policy_candidate import choose_probe
-from client import AmbiguousActionError, DeadlineExceeded
-from coverage import directional_waypoints, omni_waypoints
-from geometry import clip_bearing, enclosing_circle, initial_polygon, optical_cover
-from route_policy_candidate import optimize_waypoints
-from joint_dispatch_candidate import choose_task
-from optical_policy_candidate import certified_optical_cover
-from polar_coverage_candidate import polar_waypoints
+from submission.支撑材料.active_policy_candidate import choose_probe
+from submission.支撑材料.client import AmbiguousActionError, DeadlineExceeded
+from submission.支撑材料.coverage import directional_waypoints, omni_waypoints
+from submission.支撑材料.geometry import clip_bearing, enclosing_circle, initial_polygon, optical_cover
+from submission.支撑材料.route_policy_candidate import optimize_waypoints
+from submission.支撑材料.joint_dispatch_candidate import choose_task
+from submission.支撑材料.optical_policy_candidate import certified_optical_cover
+from submission.支撑材料.polar_coverage_candidate import polar_waypoints
 
 
 class SessionTerminated(RuntimeError):
-    """The simulator closed after an accepted action reached its limit."""
+    pass
 
 
 class InconsistentObservations(RuntimeError):
-    """The specified bounded-error model no longer contains a possible source."""
+    pass
 
 
 @dataclass
@@ -31,11 +31,7 @@ class Track:
 
 
 class Planner:
-    """Baseline clears detections immediately; integrated batches and shares stops.
-
-    Sampling and route heuristics affect time only. Completeness comes from the
-    waypoint certificate and the conservative, finite optical-cover fallback.
-    """
+    
 
     def __init__(
         self,
@@ -182,8 +178,8 @@ class Planner:
             track.readings.append((tuple(point), float(result["svd_deg"])))
         elif status != "no_signal":
             raise RuntimeError(f"Unknown measure result: {status}")
-        # No-signal observations are not convex halfplanes. In Q4 in particular,
-        # deleting a 1000-m disk would silently exclude real sources.
+        
+        
         return status
 
     def scan_anchor(self, index):
@@ -225,8 +221,8 @@ class Planner:
         if not cover:
             raise InconsistentObservations("An empty region cannot certify clearing")
         start = min(range(len(cover)), key=lambda k: dist(self.position, cover[k]))
-        # Rotate the certified snake to the nearest cell. At most one long
-        # wraparound jump; the remaining edges are adjacent rectangle cells.
+        
+        
         order = cover[start:] + cover[:start]
         for point in order:
             if self.clear(channel, point):
@@ -249,8 +245,8 @@ class Planner:
             if radius <= 19.9:
                 self.clear(channel, center, guaranteed=True)
                 return
-            # When the remaining uncertainty is small, a 3-s failed optical
-            # attempt can cost less than travelling to take another bearing.
+            
+            
             if radius <= 38 and center not in track.failures:
                 if self.clear(channel, center):
                     return
@@ -328,7 +324,7 @@ class Planner:
             self.optical_finish(channel)
 
     def share_current_stop(self):
-        """Fuse an extra bearing for known sources at an already reached stop."""
+        
         if self.strategy not in ("integrated", "enhanced", "refined") or self.terminal_reason is not None or len(self.cleared) == 16:
             return
         for channel in list(self.tracks):
@@ -450,8 +446,8 @@ class Planner:
                 )
                 for i in ([self.next_anchor()] if self.pending and self.anchor_policy == "rolling" else self.pending)
             ]
-            # Convert a full scan to equivalent travel metres (6 s * 5 m/s).
-            # This is a myopic time heuristic, not a global-optimality claim.
+            
+            
             if targets and (not anchors or min(targets)[0] <= min(anchors)[0]):
                 self.localize(min(targets)[1])
                 self.share_current_stop()

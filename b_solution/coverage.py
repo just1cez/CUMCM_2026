@@ -1,9 +1,4 @@
-"""Finite, analytically justified discovery waypoint sets for CUMCM B Q3/Q4.
 
-These functions prescribe measurement locations, not a route or a stopping rule.
-Every unresolved channel needs its own completed coverage record.  In particular,
-Q4 waypoints outside the source arena must not be projected back into the arena.
-"""
 
 from __future__ import annotations
 
@@ -18,12 +13,7 @@ DEFAULT_SPACING = 990.0
 
 
 def omni_waypoints(ring_radius: float | None = None) -> list[Point]:
-    """Return origin plus six ring points; the legacy radius certifies 900 m.
-
-    The 1200-m contracted ring instead has exact cover radius given by
-    ring_cover_radius, still below the guaranteed 1000-m reception distance.
-    No unspecified source-position prior is used by this geometric guarantee.
-    """
+    
     ring_radius = OMNI_COVER_RADIUS * math.sqrt(3.0) if ring_radius is None else float(ring_radius)
     if not math.isfinite(ring_radius) or not 1200.0 <= ring_radius <= OMNI_COVER_RADIUS * math.sqrt(3.0):
         raise ValueError("Supported ring radius is [1200, 900*sqrt(3)] m")
@@ -37,7 +27,7 @@ def omni_waypoints(ring_radius: float | None = None) -> list[Point]:
 
 
 def ring_cover_radius(ring_radius: float) -> float:
-    """Exact covering radius of origin plus six equally spaced ring points."""
+    
     omni_waypoints(ring_radius)
     return max(ring_radius / math.sqrt(3.0),
                math.sqrt(ARENA_RADIUS**2 + ring_radius**2
@@ -45,28 +35,20 @@ def ring_cover_radius(ring_radius: float) -> float:
 
 
 def directional_waypoints(spacing: float = DEFAULT_SPACING) -> list[Point]:
-    """Return a finite triangular lattice with a full source-domain guard.
-
-    For a source g inside the arena, the elementary triangle containing g has
-    vertices within spacing of g and norm <= ARENA_RADIUS + spacing.
-    If g is a lattice vertex, all six nearest neighbours satisfy that same
-    norm bound, so every emission direction has a nonzero forward neighbour.
-    No such six-neighbour claim is made for vertices outside the source arena.
-    Support 900 <= spacing <= 999; ordering is origin then row and column.
-    """
+    
     spacing = float(spacing)
     if not math.isfinite(spacing) or not 900.0 <= spacing <= MIN_RADIO_RADIUS - 1.0:
         raise ValueError("spacing must be finite and in [900, 999] m")
 
-    # With a=(s,0), b=(s/2,s*sqrt(3)/2), the squared norm of i*a+j*b
-    # is s*s*(i*i+i*j+j*j).  Compare the radial cutoff using integers, so
-    # floating-point rounding cannot accidentally remove a boundary vertex.
+    
+    
+    
     numerator, denominator = spacing.as_integer_ratio()
     guard_numerator = 1800 * denominator + numerator
     numerator_squared = numerator * numerator
     guard_squared = guard_numerator * guard_numerator
-    # q=i*i+i*j+j*j >= 3*i*i/4 and >= 3*j*j/4.  The simpler bound
-    # |i|,|j| <= ceil(2*(1800+s)/s) safely contains the radial selection.
+    
+    
     bound = (2 * guard_numerator + numerator - 1) // numerator
     row_height = spacing * math.sqrt(3.0) / 2.0
     points: list[Point] = [(0.0, 0.0)]
@@ -81,12 +63,7 @@ def directional_waypoints(spacing: float = DEFAULT_SPACING) -> list[Point]:
 
 
 def coverage_certificate() -> dict:
-    """Return analytic constants/counts, not a sampled or experimental result.
-
-    Counts describe the default 990 m lattice.  Norm shells are exact integer
-    values of i*i+i*j+j*j; their multiplicities can be checked independently.
-    No simulator actions, numerical coverage sampling, or routing occur here.
-    """
+    
     return {
         "certificate_kind": "analytic_geometric_cover",
         "arena_radius_m": ARENA_RADIUS,

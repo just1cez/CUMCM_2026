@@ -1,8 +1,4 @@
-"""Conservative bearing geometry and whole-region optical clearing certificates.
 
-Polygons are ordered convex vertex lists (either winding); [] means infeasible,
-never unbounded. All distances are metres and bearings are counterclockwise degrees.
-"""
 
 from __future__ import annotations
 
@@ -27,7 +23,7 @@ def _padding(scale: float) -> float:
 
 
 def initial_polygon(sides: int = 180) -> list[Point]:
-    """Return a CCW circumscribed polygon, never an inscribed approximation."""
+    
     if isinstance(sides, bool) or not isinstance(sides, int) or sides < 3:
         raise ValueError("sides must be an integer at least three")
     radius = (ARENA_RADIUS + _padding(ARENA_RADIUS)) / cos(pi / sides)
@@ -40,7 +36,7 @@ def initial_polygon(sides: int = 180) -> list[Point]:
 def _clip_halfplane(
     poly: list[Point], origin: Point, normal: Point, bound: float, padding: float
 ) -> list[Point]:
-    """Clip n.(x-origin) <= bound+padding using the same shifted boundary."""
+    
     if not poly:
         return []
     nx, ny = normal
@@ -52,8 +48,8 @@ def _clip_halfplane(
     for current in poly:
         dc = nx * (current[0] - ox) + ny * (current[1] - oy) - limit
         if (dp <= 0.0) != (dc <= 0.0):
-            # Opposite signs prevent cancellation in dp-dc. Interpolate from
-            # the nearer endpoint to reduce cancellation near a polygon vertex.
+            
+            
             if abs(dp) <= abs(dc):
                 t = dp / (dp - dc)
                 crossing = (
@@ -82,12 +78,7 @@ def clip_bearing(
     bearing_deg: float,
     error_deg: float = BEARING_ERROR_DEG,
 ) -> list[Point]:
-    """Intersect a bounded region with a forward wedge and a safe range cap.
-
-    The default includes the 0.005-degree two-decimal API rounding allowance.
-    The cap is a relaxation of distance <= 1500, not an assumed known range.
-    Contradictions remain []; no fallback region or constraint reset is applied.
-    """
+    
     _check_points(poly)
     _check_points([point])
     if not isfinite(bearing_deg) or not isfinite(error_deg) or not 0 <= error_deg < 90:
@@ -104,7 +95,7 @@ def clip_bearing(
         *(max(abs(x), abs(y)) for x, y in poly),
     )
     padding = _padding(scale)
-    # cross(u_low, x-point)>=0 and cross(u_high, x-point)<=0.
+    
     result = _clip_halfplane(poly, point, (sin(low), -cos(low)), 0.0, padding)
     result = _clip_halfplane(result, point, (-sin(high), cos(high)), 0.0, padding)
     result = _clip_halfplane(result, point, (-cos(theta), -sin(theta)), 0.0, padding)
@@ -126,7 +117,7 @@ def _farthest_pair(poly: list[Point]) -> tuple[Point, Point, float]:
 
 
 def diameter(poly: list[Point]) -> float:
-    """Exact vertex-pair characterization, O(n^2); empty input is an error."""
+    
     _check_points(poly)
     if not poly:
         raise ValueError("An infeasible region has no localization diameter")
@@ -160,8 +151,8 @@ def _circumcircle(a: Point, b: Point, c: Point) -> Circle | None:
     determinant = bx * cy - by * cx
     scale = max(abs(bx), abs(by), abs(cx), abs(cy))
     if abs(determinant) <= 64 * ulp(max(1.0, scale * scale)):
-        # Decimal fallback resolves almost-collinear triples from the actual
-        # binary input values, without pretending a small determinant is zero.
+        
+        
         with localcontext() as context:
             context.prec = 80
             axd, ayd = Decimal(a[0]), Decimal(a[1])
@@ -217,12 +208,7 @@ def _two_boundary_circle(points: list[Point], end: int, a: Point, b: Point) -> C
 
 
 def enclosing_circle(poly: list[Point]) -> Circle:
-    """Minimum enclosing circle, with a tiny outward floating-point guard.
-
-    Randomized incremental 1/2/3-support construction, not a diameter-disk or
-    approximate iterative fit. The local fixed shuffle never alters global RNG.
-    Empty input raises instead of manufacturing a spurious clearing location.
-    """
+    
     _check_points(poly)
     if not poly:
         raise ValueError("An infeasible region has no enclosing-circle center")
@@ -251,13 +237,7 @@ def enclosing_circle(poly: list[Point]) -> Circle:
 
 
 def optical_cover(poly: list[Point], radius: float = 19.9) -> list[Point]:
-    """Cover the ENTIRE convex polygon, not merely its vertices or boundary.
-
-    Use its MEC when possible; otherwise tile an enclosing rectangle aligned
-    with a diameter. Every grid cell fits in its own radius-radius disk. Some
-    centers may lie outside the polygon or arena, which the API permits.
-    [] stays []: callers must treat it as infeasibility, not successful clearing.
-    """
+    
     _check_points(poly)
     if not isfinite(radius) or radius <= 0:
         raise ValueError("Optical covering radius must be finite and positive")
@@ -270,7 +250,7 @@ def optical_cover(poly: list[Point], radius: float = 19.9) -> list[Point]:
     if distance == 0.0:
         return [a]
     ux, uy = (b[0] - a[0]) / distance, (b[1] - a[1]) / distance
-    # Re-normalize before forming the orthogonal frame.
+    
     norm = hypot(ux, uy)
     ux, uy = ux / norm, uy / norm
     projected = [

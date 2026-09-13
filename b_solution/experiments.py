@@ -1,4 +1,4 @@
-"""Reproducible synthetic comparison; these are NOT official simulator scores."""
+
 
 from __future__ import annotations
 
@@ -8,8 +8,8 @@ import math
 import statistics
 from pathlib import Path
 
-from environment import LocalSimulator
-from planner import Planner
+from submission.支撑材料.environment import LocalSimulator
+from submission.支撑材料.planner import Planner
 
 
 def run_case(
@@ -48,7 +48,7 @@ def run_case(
     p = planner.run()
     assert p["certificate_complete"] is True
     s = env.summary()
-    # Independent action-by-action accounting, without reading hidden world data.
+    
     position, radio, total = (0.0, 0.0), 1, 0.0
     successes = set()
     for event in env.log:
@@ -161,7 +161,7 @@ def main():
                 ]
                 rows.extend(current)
                 stress[f"Q{problem}_{scenario}_{mode}"] = aggregate(current)
-        # Sensitivity uses different seeds, no held-out retuning afterwards.
+        
         for scale in (0.12, 0.22, 0.40):
             current = [
                 run_case(800000 + k, problem, "integrated", probe_scale=scale)

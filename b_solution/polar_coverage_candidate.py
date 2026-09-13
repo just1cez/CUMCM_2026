@@ -1,10 +1,4 @@
-"""Independent Q4 polar discovery candidates; no planner/default integration.
 
-The certificate is an analytic triangulation, not a sampled coverage result.
-Each unresolved channel must still complete every waypoint obligation.  Returned
-coordinates approximate the ideal real construction; the certificate explicitly
-allows a bounded Euclidean error at each commanded measurement location.
-"""
 
 from __future__ import annotations
 
@@ -24,11 +18,7 @@ def _parameters(variant: str) -> tuple[float, float, float, float, float]:
 
 
 def polar_waypoints(variant: str = "seed25") -> list[Point]:
-    """Return origin, 12 inner points, then 12 outer points shifted by 15 deg.
-
-    Index 1+k has angle 30*k degrees; index 13+k has angle 30*k+15.
-    This order specifies stable obligation indices, not a recommended route.
-    """
+    
     inner, outer, _, _, _ = _parameters(variant)
     points: list[Point] = [(0.0, 0.0)]
     for radius, phase in ((inner, 0.0), (outer, math.pi / 12.0)):
@@ -39,13 +29,7 @@ def polar_waypoints(variant: str = "seed25") -> list[Point]:
 
 
 def polar_certificate(variant: str = "seed25") -> dict:
-    """Return finite indices, closed-form constants, and conservative bounds.
-
-    Floats in ``analytic_values_m`` are evaluations for independent checking,
-    not interval-arithmetic proofs.  The exact proof uses the rational bounds
-    9659/10000 < cos(pi/12) and 1/4 < sin(pi/12) < 259/1000.
-    The integer/rational inequalities are documented in the companion notes.
-    """
+    
     inner, outer, shift, error, edge_bound = _parameters(variant)
     sine = (math.sqrt(6.0) - math.sqrt(2.0)) / 4.0
     cosine = (math.sqrt(6.0) + math.sqrt(2.0)) / 4.0

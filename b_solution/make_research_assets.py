@@ -1,4 +1,4 @@
-"""Generate checked research tables, vector figures and observable trajectories."""
+
 from __future__ import annotations
 
 from collections import defaultdict
@@ -13,13 +13,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from coverage import directional_waypoints
-from environment import LocalSimulator
-from experiments import aggregate
-from make_assets import atomic_bytes, table, save_figure, number, write_json, GENERATED, ROOT
-from planner import Planner
-from polar_coverage_candidate import polar_certificate, polar_waypoints
-from refinement_study import paired
+from submission.支撑材料.coverage import directional_waypoints
+from submission.支撑材料.environment import LocalSimulator
+from submission.支撑材料.experiments import aggregate
+from submission.支撑材料.make_assets import atomic_bytes, table, save_figure, number, write_json, GENERATED, ROOT
+from submission.支撑材料.planner import Planner
+from submission.支撑材料.polar_coverage_candidate import polar_certificate, polar_waypoints
+from submission.支撑材料.refinement_study import paired
 
 plt.rcParams.update({"font.size":10,"axes.labelsize":10,"legend.fontsize":9,
                      "pdf.fonttype":42,"ps.fonttype":42,"axes.spines.top":False,"axes.spines.right":False})

@@ -1,9 +1,4 @@
-"""Q1: actual bearing-halfplane intersection, without an artificial bounding box.
 
-Feasibility and four coordinate LPs distinguish empty/unbounded/bounded sets.
-For a bounded set all feasible pairwise boundary intersections are enumerated.
-This optional Q1 analysis uses SciPy; the online search policy uses stdlib only.
-"""
 
 from __future__ import annotations
 
@@ -15,7 +10,7 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import linprog
 
-from geometry import diameter, enclosing_circle
+from submission.支撑材料.geometry import diameter, enclosing_circle
 
 
 def solve_intersection(stations, bearings_deg, error_deg=1.0):

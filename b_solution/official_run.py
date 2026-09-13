@@ -1,11 +1,4 @@
-"""Connect the policy to an already started OFFICIAL simulator session.
 
-Never starts a formal test or supplies team credentials automatically. Use the
-real GUI to choose the intended practice/formal module, then invoke this CLI.
-Plaintext request logs include robot_id and are private working files: do not
-put them unredacted in anonymous submission. Official encrypted logs are exported
-separately from the simulator with unchanged filenames.
-"""
 
 from __future__ import annotations
 
@@ -14,9 +7,9 @@ import json
 from pathlib import Path
 from time import monotonic
 
-from client import HTTPClient
-from field_policy import FieldPlanner
-from planner import Planner
+from submission.支撑材料.client import HTTPClient
+from submission.支撑材料.field_policy import FieldPlanner
+from submission.支撑材料.planner import Planner
 
 
 def main():

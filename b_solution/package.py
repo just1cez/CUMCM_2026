@@ -1,4 +1,4 @@
-"""Build anonymous research materials; replay local studies and supplied practice."""
+
 
 from __future__ import annotations
 
@@ -145,7 +145,7 @@ def verify_asset_inputs(root: Path):
 
 
 def deterministic_content(value):
-    """Exclude measured wall clocks and their maximum, not behavioral statistics."""
+    
     if isinstance(value, dict):
         return {key: deterministic_content(item) for key, item in value.items()
                 if key not in ("real_duration_s", "max_real_duration_s", "max_real_s")}
@@ -155,7 +155,7 @@ def deterministic_content(value):
 
 
 def practice_files(root: Path):
-    """Allow only the manifest's 60 sanitized practice files, never private raw logs."""
+    
     root = root.resolve()
     manifest = root / "manifest.csv"
     if manifest.is_symlink():

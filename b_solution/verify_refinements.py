@@ -1,4 +1,4 @@
-"""Independent checks for ring contraction, 2-opt and interval probe bounds."""
+
 from __future__ import annotations
 
 import itertools
@@ -7,10 +7,10 @@ import math
 import random
 from pathlib import Path
 
-from active_policy_candidate import score_probes
-from coverage import directional_waypoints, omni_waypoints, ring_cover_radius
-from geometry import clip_bearing, enclosing_circle, initial_polygon
-from route_policy_candidate import optimize_waypoints
+from submission.支撑材料.active_policy_candidate import score_probes
+from submission.支撑材料.coverage import directional_waypoints, omni_waypoints, ring_cover_radius
+from submission.支撑材料.geometry import clip_bearing, enclosing_circle, initial_polygon
+from submission.支撑材料.route_policy_candidate import optimize_waypoints
 
 
 def length(points, order, start):

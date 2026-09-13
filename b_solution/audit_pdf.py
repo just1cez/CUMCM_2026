@@ -1,4 +1,4 @@
-"""Render every PDF page and record structural/layout evidence for visual review."""
+
 
 from __future__ import annotations
 
