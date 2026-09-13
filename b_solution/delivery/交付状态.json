@@ -2,7 +2,8 @@
   "status": "RESEARCH_VERSION_OFFICIAL_PRACTICE_COMPLETE_FORMAL_TESTS_PENDING",
   "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
   "human_review": "OUTSTANDING",
-  "source_files": 242,
-  "archive_bytes": 6700321,
-  "archive_sha256": "9c57bb6f96bb832aeb7a81bac1cc717db672c252ea5f8bbc7f9aa1e788b76caf"
+  "source_files": 245,
+  "archive_bytes": 7172345,
+  "archive_sha256": "b310e3e8deec25c2139c1c600b50cc75d3d3965e183ad865871d1131d3c3db56",
+  "extracted_archive_reproduction": "passed"
 }
