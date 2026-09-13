@@ -1,4 +1,4 @@
-"""Paired comparison for the interval-scored adaptive probe candidate."""
+
 from __future__ import annotations
 
 import json

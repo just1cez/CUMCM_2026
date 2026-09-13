@@ -1,25 +1,4 @@
-"""Synthetic, not official, CUMCM 2026 B environment (standard library only).
 
-Generation assumptions are deliberately explicit, not claims about official data:
-* random: N is discrete uniform on 10..16; N distinct channels sampled uniformly
-  without replacement; positions iid uniform in the radius-1800 disk (sqrt(U)
-  radial law); radio radii iid uniform [1000,1500]; orientations uniform [0,2*pi).
-  Q3 is all omni. Q4 chooses a uniform count in 1..N-1 and a uniform subset
-  of directional sources, guaranteeing both types.
-* minimum_radius: random geometry, but every radio radius is exactly 1000.
-* outward_boundary: 16 equally spaced sources on the arena boundary, a seeded
-  common rotation, all radii 1000. Q4 has 15 outward-facing directional sources
-  and one omni, so inward-only search is deliberately inadequate.
-* clustered: 16 sources uniform in a 35m disk around a seeded center at radius
-  1650; all radio radii 1000, with the random mixed-type rule for Q4.
-
-Errors are deterministic functions of (seed, channel, exact coordinate): smooth
-is a bounded two-sinusoid field; extreme is spatial-hashed +/-1 degree;
-iid_location is spatial-hashed uniform [-1,1], NOT independent repeat readings.
-The latter is a synthetic hash field, not an assertion of official IID noise.
-Sources and their parameters are private. Only post-exit summary reveals counts.
-There are no virtual-duration sleeps; movement time is rounded to microseconds.
-"""
 
 from __future__ import annotations
 
@@ -37,7 +16,7 @@ ERROR_MODES = ("smooth", "extreme", "iid_location")
 
 
 def _action_args(path: str, position: Point | None, channel: int | None):
-    """Validate before any state mutation; match protocol coordinate limits."""
+    
     if path not in ("/enter", "/exit", "/measure", "/clear"):
         raise ValueError("Unknown action path (paths must be exact)")
     if path in ("/enter", "/exit"):
@@ -74,13 +53,7 @@ class _Source:
 
 
 class LocalSimulator:
-    """One local test session; /enter initializes state, duplicate entry rejects.
-
-    log contains only observable request/response/timing data. After termination,
-    construct a new instance for another session, just as the official interface
-    requires a new GUI test. Automatic deadline termination closes this session;
-    no fabricated /exit response is generated in that case.
-    """
+    
 
     def __init__(
         self,
@@ -163,7 +136,7 @@ class LocalSimulator:
             return 0.6 * math.sin(x / 173 + y / 251 + source.phase) + 0.4 * math.sin(
                 x / 419 - y / 137 + 2 * source.phase
             )
-        # Canonicalize signed zero: it is the same physical coordinate.
+        
         packed = struct.pack("!ddB", x or 0.0, y or 0.0, channel)
         salt = str(self._seed).encode("ascii") + b":"
         value = int.from_bytes(
@@ -180,8 +153,8 @@ class LocalSimulator:
         if source.normal is None:
             return True
         a, b = dx * source.normal[0], dy * source.normal[1]
-        # Include the closed halfplane boundary despite floating-point dot error;
-        # tolerance is only a handful of machine ulps, not an angular margin.
+        
+        
         return a + b >= -8 * math.ulp(max(abs(a), abs(b), 1.0))
 
     def _response(self, accepted: bool = True, **fields) -> dict:
@@ -290,7 +263,7 @@ class LocalSimulator:
                 )
                 response = self._response(**fields)
                 if self._virtual_us >= 360000 * 1_000_000:
-                    # An action registered before the deadline is allowed to finish.
+                    
                     self._finish("virtual_timeout")
             self.log.append(
                 {
@@ -308,7 +281,7 @@ class LocalSimulator:
             return response
 
     def summary(self) -> dict:
-        """Evaluation only: inaccessible during a run; never consumed by planner."""
+        
         with self._lock:
             if self._status != "exited":
                 raise RuntimeError("summary is available only after session exit")

@@ -1,4 +1,4 @@
-"""Generate checked research tables, vector figures and observable trajectories."""
+
 from __future__ import annotations
 
 from collections import defaultdict

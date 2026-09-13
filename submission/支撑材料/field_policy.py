@@ -1,9 +1,4 @@
-"""Field-informed candidates; consumes public responses, never practice labels.
 
-Historical Planner(strategy='refined') remains unchanged. Candidate options
-are explicit for paired ablation, and only verified configurations are exposed
-by the final runner.
-"""
 
 from __future__ import annotations
 
@@ -53,8 +48,8 @@ class FieldPlanner(Planner):
             self.negative_stations[channel].append(tuple(point))
         track = self.tracks.get(channel)
         if track is not None and status in ("direction", "no_signal"):
-            # A convex outer approximation remains safe after each disk
-            # exclusion, including negatives collected before first detection.
+            
+            
             for station in self.negative_stations[channel]:
                 before = track.polygon
                 track.polygon = exclude_omni_disk(before, station, sides=16)
@@ -96,8 +91,8 @@ class FieldPlanner(Planner):
             and length > 1e-6
             and max(dist(point, p) for p in track.polygon) <= 19.9
         ):
-            # Slide toward the robot inside the intersection of all vertex
-            # radius-19.9 disks. Each vertex supplies an exact quadratic bound.
+            
+            
             u = (
                 (self.position[0] - point[0]) / length,
                 (self.position[1] - point[1]) / length,

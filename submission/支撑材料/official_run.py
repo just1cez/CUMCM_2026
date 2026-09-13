@@ -1,11 +1,4 @@
-"""Connect the policy to an already started OFFICIAL simulator session.
 
-Never starts a formal test or supplies team credentials automatically. Use the
-real GUI to choose the intended practice/formal module, then invoke this CLI.
-Plaintext request logs include robot_id and are private working files: do not
-put them unredacted in anonymous submission. Official encrypted logs are exported
-separately from the simulator with unchanged filenames.
-"""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Paired development screen of independent candidates; no official calls."""
+
 from __future__ import annotations
 
 import argparse
@@ -9,8 +9,8 @@ from pathlib import Path
 
 from submission.支撑材料.experiments import aggregate, run_case
 
-# Fixed candidates, not a Cartesian hyperparameter search. Every run retains
-# full discovery obligations and the same bounded-probe localization contract.
+
+
 CONFIGS = {
     "control": {},
     "optical": {"optical_policy": "slabs"},

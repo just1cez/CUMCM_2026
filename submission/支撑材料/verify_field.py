@@ -1,4 +1,4 @@
-"""Boundary/invariant checks for field policy; synthetic and analytic evidence."""
+
 
 from __future__ import annotations
 import json
@@ -121,7 +121,7 @@ def route_checks():
             )
             assert choose_portfolio_task(pos, {}, targets)[1] in targets
             cases += 1
-    # Exact two-task optimum is useful because an open tail has no return edge.
+    
     for positions in (
         ((1.0, 0.0), (2.0, 0.0)),
         ((-1.0, 0.0), (2.0, 0.0)),

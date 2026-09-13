@@ -1,4 +1,4 @@
-"""Finite Planner terminal/deadline regression using a protocol-shaped fake adapter."""
+
 from __future__ import annotations
 
 import json

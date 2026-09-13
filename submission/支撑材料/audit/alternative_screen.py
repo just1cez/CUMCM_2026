@@ -1,11 +1,4 @@
-"""Independent shallow alternatives screen on standard local synthetic worlds.
 
-Evidence is diagnostic only (never official).  Candidates are deliberately
-small, fixed a priori, and do not use FieldPlanner's route portfolio, negative
-geometry, or premeasure.  Candidate A bounds a global waypoint reordering to
-six pending stops; B replans a two-stop rolling prefix; C uses a fixed dual
-travel/uncertainty score when dispatching.  No output is used for tuning.
-"""
 from __future__ import annotations
 
 import json
@@ -16,16 +9,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "b_solution"))
-from submission.支撑材料.environment import LocalSimulator  # noqa: E402
-from submission.支撑材料.planner import Planner  # noqa: E402
-from submission.支撑材料.geometry import enclosing_circle  # noqa: E402
-from submission.支撑材料.route_policy_candidate import optimize_waypoints  # noqa: E402
+from submission.支撑材料.environment import LocalSimulator  
+from submission.支撑材料.planner import Planner  
+from submission.支撑材料.geometry import enclosing_circle  
+from submission.支撑材料.route_policy_candidate import optimize_waypoints  
 
-SEEDS = range(8201000, 8201040)  # outside all prior and reserved parent ranges
+SEEDS = range(8201000, 8201040)  
 
 
 class BoundedOrderPlanner(Planner):
-    """Refined mechanics plus a bounded, deterministic six-stop reorder."""
+    
     def next_anchor(self):
         indices = sorted(self.pending)
         if len(indices) <= 6 and indices:
@@ -39,12 +32,12 @@ class BoundedOrderPlanner(Planner):
 
 
 class RollingTwoPlanner(Planner):
-    """Refined mechanics with an explicit rolling two-task lookahead."""
+    
     def next_anchor(self):
         indices = sorted(self.pending)
         if not indices:
             return super().next_anchor()
-        # Recompute a route over at most the nearest two pending anchors.
+        
         nearest = sorted(indices, key=lambda i: (math.dist(self.position, self.waypoints[i]), i))[:2]
         order = optimize_waypoints([self.waypoints[i] for i in nearest], self.position)
         return nearest[order[0]]
@@ -55,14 +48,14 @@ class RollingTwoPlanner(Planner):
 
 
 class DualScorePlanner(Planner):
-    """Fixed conservative dual score: travel plus 0.25 uncertainty radius."""
+    
     uncertainty_weight = 0.25
 
     def select_task(self):
         anchors = {i: self.waypoints[i] for i in sorted(self.pending)}
         targets = {ch: enclosing_circle(track.polygon) for ch, track in self.tracks.items()}
-        # Compare one-step expected cost; radius is an information/uncertainty
-        # proxy, not simulator truth.  Anchor scan cost is fixed at 120 m proxy.
+        
+        
         options = [(math.dist(self.position, p) + 120.0, "anchor", i)
                    for i, p in anchors.items()]
         options += [(math.dist(self.position, c) + self.uncertainty_weight * r,

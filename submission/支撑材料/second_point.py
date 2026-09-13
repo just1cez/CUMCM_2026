@@ -1,4 +1,4 @@
-"""Q2 robust reception lens and explicitly sampled min-max geometry scoring."""
+
 
 from __future__ import annotations
 
@@ -31,11 +31,7 @@ def safe_candidates(station=(0.0, 0.0), bearing_deg=0.0, alpha_deg=1.005):
 
 
 def example():
-    """Normalized illustrative station/readout, not a supplied official case.
-
-    Safe reception follows the analytic lens theorem; sampled ranking does not
-    certify continuous worst-case optimality. No prior distribution is assumed.
-    """
+    
     first = clip_bearing(initial_polygon(), (0.0, 0.0), 0.0)
     source_samples = [
         (r * math.cos(math.radians(phi)), r * math.sin(math.radians(phi)))

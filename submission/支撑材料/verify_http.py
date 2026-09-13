@@ -1,9 +1,4 @@
-"""HTTP fault-injection regression. Local test server, never the official simulator.
 
-Start --server with hub; run without --server as a finite client verification.
-The server executes the first measure, truncates its HTTP body, then answers its
-same-ID retry from cache. Passing requires exactly-once virtual-time effects.
-"""
 
 from __future__ import annotations
 

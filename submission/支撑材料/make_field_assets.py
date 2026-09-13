@@ -1,4 +1,4 @@
-"""Checked field-policy assets; official observations and synthetic gains stay separate."""
+
 
 from __future__ import annotations
 from collections import defaultdict
@@ -78,8 +78,8 @@ def main():
                 ]
             )
             if name in ("control", "field"):
-                # Recover the charged movement component from the independently
-                # verified total and integer action costs, retaining microsecond rounding.
+                
+                
                 costs = [
                     statistics.mean(
                         (
@@ -204,7 +204,7 @@ def main():
         ["问题", "场景", "误差", "配对数", "节省", r"近似95\%区间", "更快"],
         stress_rows,
     )
-    # Official evidence has no new field outcomes; plot only actual cost shares.
+    
     official_rows = []
     for p in (3, 4):
         s = official["summary"][str(p)]

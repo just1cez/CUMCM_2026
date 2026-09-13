@@ -1,4 +1,4 @@
-"""Locked final paired comparison; do not retune after execution."""
+
 from __future__ import annotations
 import json, math, random, statistics
 from pathlib import Path

@@ -1,9 +1,4 @@
-"""Deterministic local-evidence assets; run with conda run -n py314 python make_assets.py.
 
-No official service is accessed. Replay logs contain public observations, not source
-coordinates. Wall-clock durations in raw replay evidence are inherently variable;
-figures, table values, and virtual-time paths do not depend on those durations.
-"""
 
 from __future__ import annotations
 
@@ -43,7 +38,7 @@ def require(condition, message):
 
 
 def atomic_bytes(path, content):
-    """Replace only our named outputs; never remove/rewrite source evidence."""
+    
     require(path.parent in (GENERATED, FIGURES), "Output outside owned directories")
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix="." + path.name + ".", dir=path.parent)
@@ -65,7 +60,7 @@ def write_json(name, value):
 
 
 def save_figure(fig, name):
-    # Fixed physical width, not bbox_inches=tight (which changes final font scale).
+    
     from io import BytesIO
 
     buffer = BytesIO()
@@ -291,7 +286,7 @@ def generate_tables(final, geometry, http):
         macros[f"Q{word}Baseline"] = number(
             summary[f"Q{problem}_baseline"]["mean_average_time_s"]
         )
-        # Numeric macro: paper supplies its own percent sign and unit.
+        
         macros[f"Q{word}Gain"] = number(
             final["paired_comparison"][f"Q{problem}"]["mean_time_reduction_pct"]
         )
@@ -473,7 +468,7 @@ def coverage_figure(geometry):
         int((~inside).sum()) == cert["directional"]["outside_arena_count"],
         "Outside-node count mismatch",
     )
-    # Draw only nearest-neighbour lattice edges, including exterior nodes.
+    
     for i, p in enumerate(lattice):
         for q in lattice[:i]:
             if math.isclose(
@@ -665,7 +660,7 @@ def replay_trajectories():
             env, problem=problem, strategy="enhanced", loss_recovery=True
         )
         result = planner.run()
-        summary = env.summary()  # Evaluation after termination; never supplied to Planner.
+        summary = env.summary()  
         require(summary["fraction_cleared"] == 1, "Trajectory replay incomplete")
         require(result["certificate_complete"] is True, "Trajectory certificate incomplete")
         points, clears = [[0.0, 0.0]], []

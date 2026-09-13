@@ -1,8 +1,4 @@
-"""Deterministic exhaustive audit of open-route dispatch proxies.
 
-Synthetic evidence only: this script never starts the official simulator and does not
-read or alter historical result files. Run from b_solution: python audit/route_exact_audit.py
-"""
 from __future__ import annotations
 import json, math, random, itertools, sys
 from pathlib import Path
@@ -15,12 +11,12 @@ from submission.支撑材料.route_portfolio import (_control_route, _cost, _imp
 from submission.支撑材料.joint_dispatch_candidate import choose_task
 
 OUT = Path(__file__).resolve().parents[1] / "results" / "audit_route_exact.json"
-SEED_RANGE = (8200150, 8200199)  # outside reserved 8200000..8200149
+SEED_RANGE = (8200150, 8200199)  
 
 def instance(origin, targets, anchors, weight):
     tasks=[("target",k) for k in sorted(targets)]+[("anchor",k) for k in sorted(anchors)]
     pts=[targets[k][0] for _,k in tasks[:len(targets)]] + [anchors[k] for _,k in tasks[len(targets):]]
-    # above task order is targets then anchors by construction
+    
     radii=[targets[k][1] for k in sorted(targets)]+[0.0 for _ in anchors]
     o=[math.dist(origin,p) for p in pts]
     e=[[math.dist(a,b) for b in pts] for a in pts]
@@ -36,8 +32,8 @@ def exact(o,e,p):
     return list(best[1]),best[0],route_count
 
 def ils(seed,o,e,p):
-    # deterministic iterated local search: exhaustive neighborhood perturbations,
-    # then the same strict best-improvement kernel used by portfolio.
+    
+    
     best,_=_improve(list(seed),o,e,p)
     bestc=_cost(best,o,e,p)
     for cut in range(1,len(seed)):
@@ -57,12 +53,12 @@ def evaluate(name, origin, targets, anchors, weight, source):
     for label,s in candidates:
         r,c=_improve(s,o,e,p); routes[label]=(r,c)
     routes["ils"]=ils(control,o,e,p)
-    # local-world T/N: paired deterministic worlds differ only in target miss radius;
-    # T is actual open travel, N is weighted unresolved exposure after the route.
+    
+    
     rows=[]
     for label,(r,c) in routes.items():
         travel=o[r[0]]+sum(e[a][b] for a,b in zip(r,r[1:]))
-        nmiss=sum((p[i] > 0 and p[i] > weight*0.5) for i in r) # transparent local-world proxy
+        nmiss=sum((p[i] > 0 and p[i] > weight*0.5) for i in r) 
         rows.append({"method":label,"route":[tasks[i] for i in r],"J":c,
           "T":travel,"N":int(nmiss),"gap_abs":c-oc,"gap_rel":(c/oc-1 if oc else 0),
           "first_hop":tasks[r[0]]})
@@ -96,7 +92,7 @@ def main():
       rs=[rng.choice([0,1,4]) for _ in range(nt)]; w=[0,1,4][j%3]
       cases.append(evaluate(f"random_{j:02d}",(rng.randrange(-3,4),rng.randrange(-3,4)),
         {i:(p,rs[i]) for i,p in enumerate(pts)},{i:p for i,p in enumerate(aps)},w,"bounded random synthetic"))
-    # rank/discordance summaries against exact J and local T/N (all methods/cases).
+    
     gaps=[r["gap_abs"] for c in cases for r in c["routes"] if r["method"]!="exact"]
     lower_higher=[]
     for c in cases:

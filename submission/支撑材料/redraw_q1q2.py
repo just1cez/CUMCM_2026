@@ -1,8 +1,4 @@
-"""Recreate Q1/Q2 geometry figures for the competition manuscript.
 
-Only uses the analytic constructions stated in paper.tex, geometry.py and
-second_point.py; no experiment data or hidden coordinates are read.
-"""
 from __future__ import annotations
 
 import math
@@ -33,7 +29,7 @@ def geometry_figure():
     tri = np.array([(0, 0), (D, 0), (D / 2, math.sqrt(3) * D / 2)])
     mec_r = D / math.sqrt(3)
     fig, ax = plt.subplots(1, 2, figsize=(10.8, 4.6), gridspec_kw={"width_ratios": [1, 1.18]})
-    # Left: realizable feasible triangle and its three stations/readout directions.
+    
     a = ax[0]
     a.add_patch(Polygon(tri, closed=True, facecolor=ORANGE, alpha=.18, edgecolor=NAVY, lw=2.1, label="可行域（等边三角形）"))
     stations = []
@@ -53,7 +49,7 @@ def geometry_figure():
     a.set_xlabel("x / m"); a.set_ylabel("y / m"); a.set_aspect("equal"); a.grid(alpha=.18)
     a.legend(loc="upper right", fontsize=7, frameon=False)
     a.set_xlim(-L*.08, D+L*.08); a.set_ylim(-L*.03, tri[2,1]+12)
-    # Right: diameter circle versus actual minimum enclosing circle.
+    
     b = ax[1]
     b.add_patch(Polygon(tri, closed=True, facecolor=ORANGE, alpha=.15, edgecolor=NAVY, lw=2, label="三角形可行域"))
     b.add_patch(Circle((18, tri[2,1]/3), D/2, fill=False, color=GREY, lw=1.8, ls="--", label="直径圆 r=18 m"))
@@ -70,7 +66,7 @@ def geometry_figure():
 
 def lens_figure():
     alpha = math.radians(1.005); ts = np.linspace(0, 1000, 500)
-    # lens is intersection of disks centered at 0 and 1000*u_{+/-}; plot by dense mask.
+    
     centers = np.array([(0., 0.), (1000*math.cos(alpha), 1000*math.sin(alpha)), (1000*math.cos(alpha), -1000*math.sin(alpha))])
     lim = 1030; gx = np.linspace(-30, lim, 700); gy = np.linspace(-530, 530, 500); X,Y=np.meshgrid(gx,gy)
     mask = np.ones_like(X, dtype=bool)
@@ -83,7 +79,7 @@ def lens_figure():
     a.scatter(0,0,color=NAVY,s=28,zorder=4); a.annotate("S1=(0,0)",(0,0),xytext=(7,8),textcoords="offset points",color=NAVY)
     a.set_title("(a) 全局：三圆交的安全候选域",color=NAVY,weight="bold"); a.set_xlabel("沿首次方向 / m"); a.set_ylabel("横向 / m"); a.set_aspect("equal"); a.grid(alpha=.18); a.legend(fontsize=7,frameon=False,loc="upper right"); a.set_xlim(-30,1030); a.set_ylim(-530,530)
     b=ax[1]; b.contourf(X,Y,mask,levels=[.5,1],colors=[ORANGE],alpha=.3)
-    # candidate curves b= +/- bmax(t), and grid candidates
+    
     def bound(t): return min(math.sqrt(max(0,1000**2-t*t)), math.sqrt(max(0,1000**2-(t-1000*math.cos(alpha))**2))-1000*math.sin(alpha))
     valid=[t for t in ts if bound(t)>=0]
     b.plot(valid,[bound(t) for t in valid],color=ORANGE,lw=1.8,label="|b| <= b_max(t)"); b.plot(valid,[-bound(t) for t in valid],color=ORANGE,lw=1.8)

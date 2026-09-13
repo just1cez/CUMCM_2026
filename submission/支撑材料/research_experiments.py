@@ -1,8 +1,4 @@
-"""Frozen holdout/ablation/robustness study; all observations are synthetic.
 
-Development uses 3100000..3100149 only. No choice is made from this file's
-holdout results: refined defaults are frozen before its first execution.
-"""
 from __future__ import annotations
 
 import json

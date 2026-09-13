@@ -1,9 +1,4 @@
-"""Deterministic routing and task-priority candidates.
 
-These helpers are deliberately separate from :mod:`planner`: they can improve
-travel order without changing the certified waypoint set or its discovery
-obligations.  No simulator/source-truth state is read here.
-"""
 
 from __future__ import annotations
 
@@ -23,14 +18,7 @@ def _point(value: object) -> tuple[float, float] | None:
 
 
 def optimize_waypoints(points: Sequence[object], start: tuple[float, float] = (0.0, 0.0)) -> list[int]:
-    """Return a deterministic nearest-neighbour + 2-opt index order.
-
-    Every valid input point occurs exactly once.  Invalid point data, or an
-    invalid start, uses the exact identity order as a safe, obligation-
-    preserving fallback; it never silently removes or fabricates a waypoint.
-    The 2-opt pass only reverses contiguous order segments, so it changes
-    travel length but cannot change the waypoint certificate.
-    """
+    
     try:
         n = len(points)
     except (TypeError, AttributeError):
@@ -55,12 +43,12 @@ def optimize_waypoints(points: Sequence[object], start: tuple[float, float] = (0
     def edge(a: tuple[float, float], b: tuple[float, float]) -> float:
         return math.hypot(a[0] - b[0], a[1] - b[1])
 
-    # First-improvement, lexicographically scanned, strict 2-opt is stable.
-    # Repeat until no improving exchange remains.
+    
+    
     changed = True
     while changed:
         changed = False
-        for i in range(-1, n - 2):  # edge from start (i=-1) or route[i]
+        for i in range(-1, n - 2):  
             a = origin if i == -1 else xy[route[i]]
             ai = i + 1
             for j in range(ai + 1, n):

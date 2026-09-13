@@ -1,4 +1,4 @@
-"""Generate a compact table from user-supplied official practice observations."""
+
 
 from __future__ import annotations
 import hashlib

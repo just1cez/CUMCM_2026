@@ -1,15 +1,4 @@
-"""Serial, append-only-logged HTTP adapter for an already-open simulator test.
 
-This module does NOT authenticate, launch a GUI, or start a formal test. The user
-must first start the intended test in the official GUI and wait for readiness.
-Only explicit act calls cause simulator actions; close never sends /exit.
-
-A new logical action receives a UUID. Transient retries preserve exactly the
-same bytes, path, and request ID. Exhausted ambiguous actions fail closed: no
-new action can be submitted on this client because the previous action may have
-executed. Logs are ordinary plaintext observations, NOT official encrypted logs.
-Real sleeps are used solely for short transport-retry backoff, never virtual time.
-"""
 
 from __future__ import annotations
 
@@ -30,7 +19,7 @@ from submission.支撑材料.environment import Point, _action_args
 
 
 class ClientError(RuntimeError):
-    """An action did not produce a verified accepted response."""
+    pass
 
 
 class RejectedActionError(ClientError):
@@ -42,7 +31,7 @@ class RejectedActionError(ClientError):
 
 
 class AmbiguousActionError(ClientError):
-    """The action may have executed; consult the log and simulator GUI."""
+    pass
 
 
 class ClientProtocolError(ClientError):
@@ -55,7 +44,7 @@ class DeadlineExceeded(ClientError):
 
 class _NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
-        # Never let urllib turn a POST into a GET or send identifiers elsewhere.
+        
         return None
 
 
@@ -77,14 +66,7 @@ def _unique_object(pairs):
 
 
 class HTTPClient:
-    """Official wire schema, no truth API, one in-flight logical action at a time.
-
-    Cached public position/radio_channel/virtual_time_s describe only confirmed
-    accepted actions. The real deadline uses /enter.remaining_real_duration_s,
-    conservatively subtracting all elapsed time since its first send, including
-    transport retries. Before entry, a bounded 20-second connection budget applies
-    because the actual GUI window deadline is not available through the API.
-    """
+    
 
     _MAX_ATTEMPTS = 4
     _REQUEST_TIMEOUT_S = 5.0
@@ -106,7 +88,7 @@ class HTTPClient:
             raise ValueError(
                 "base_url must be an HTTP(S) origin, without credentials/path/query"
             )
-        # Force port validation before sending anything.
+        
         _ = parsed.port
         if (
             not isinstance(robot_id, str)
@@ -126,11 +108,11 @@ class HTTPClient:
         self.position: Point = (0.0, 0.0)
         self.radio_channel = 1
         self.virtual_time_s = 0.0
-        self._log = Path(log_path).open("a", encoding="utf-8", buffering=1)  # noqa: SIM115 - lifecycle closed by close()
+        self._log = Path(log_path).open("a", encoding="utf-8", buffering=1)  
 
     @property
     def remaining_real_duration_s(self) -> float | None:
-        """Locally conservative seconds left; unknown until accepted /enter."""
+        
         return (
             None
             if self._deadline is None
@@ -231,11 +213,7 @@ class HTTPClient:
         self._uncertain = False
 
     def _exchange(self, request: Request, deadline: float) -> tuple[int, bytes]:
-        """Bound connection, headers and body together, not just idle sockets.
-
-        On expiry the daemon may finish the same in-flight request, but cannot
-        mutate client state or send another action. act remains fail-closed.
-        """
+        
         completed = queue.Queue(maxsize=1)
 
         def receive():
@@ -357,7 +335,7 @@ class HTTPClient:
                     headers={"Content-Type": "application/json"},
                     method="POST",
                 )
-                # From this point until a valid outcome, execution is uncertain.
+                
                 self._uncertain = True
                 try:
                     status, raw = self._exchange(request, stop)
@@ -372,8 +350,8 @@ class HTTPClient:
                         }
                     )
                 except (URLError, OSError, http.client.HTTPException) as exc:
-                    # Includes connection refusal, broken connections, timeouts,
-                    # truncated HTTP bodies. No state is inferred from any of these.
+                    
+                    
                     last_error = f"{type(exc).__name__}: {exc}"
                     self._record(
                         {
@@ -432,7 +410,7 @@ class HTTPClient:
             )
 
     def close(self):
-        """Close only this adapter's log. Never start/end a simulator session."""
+        
         with self._lock:
             if not self._closed:
                 self._log.close()

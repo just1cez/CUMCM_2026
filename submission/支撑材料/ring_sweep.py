@@ -1,4 +1,4 @@
-"""Development and held-out sweep for the safe Q3 ring radius."""
+
 from __future__ import annotations
 
 import json
@@ -36,7 +36,7 @@ def run_radius(radius, seeds):
     for seed in seeds:
         row = run_case(seed, 3, "enhanced", ring_radius=radius,
                        anchor_policy="nearest")
-        row.pop("real_duration_s")  # Exclude wall-clock noise from geometry comparison.
+        row.pop("real_duration_s")  
         rows.append(row)
     return rows
 

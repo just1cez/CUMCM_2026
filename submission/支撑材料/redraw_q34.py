@@ -1,4 +1,4 @@
-"""Redraw Q3/Q4 schematic figures as embedded-font vector PDFs."""
+
 from pathlib import Path
 import math
 import matplotlib
@@ -56,7 +56,7 @@ def localize():
     ax.set_xlabel("局部 x / m"); ax.set_ylabel("局部 y / m")
     ax.set_title("(a) 横向候选点",color=BLUE,fontsize=10)
     ax=axs[1]; ax.set_aspect("equal"); ax.set_xlim(-15,115); ax.set_ylim(-20,95)
-    # 25 m cells have half-diagonal 17.68 m < 19.9 m; circles cover every cell.
+    
     ax.add_patch(Rectangle((0,0),100,75,facecolor="#F4F7FA",edgecolor=BLUE,lw=1.5))
     for v in (25,50,75): ax.plot([v,v],[0,75],color=GREY,alpha=.4,lw=.6)
     for v in (25,50): ax.plot([0,100],[v,v],color=GREY,alpha=.4,lw=.6)

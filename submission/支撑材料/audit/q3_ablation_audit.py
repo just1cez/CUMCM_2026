@@ -1,8 +1,4 @@
-"""Deterministic paired Q3 mechanism ablation on the local synthetic simulator.
 
-This is an audit only: it does not alter production policy or consume reserved
-integration seeds.  Run from b_solution (or pass --output explicitly).
-"""
 from __future__ import annotations
 import argparse, hashlib, json, math, random, statistics
 from pathlib import Path
@@ -42,8 +38,8 @@ def metrics(env, result):
     return {"seed":s["seed"],"problem":s["problem"],"scenario":s["scenario"],"error_mode":s["error_mode"],"T_s":s["virtual_time_s"],"N":s["n_sources"],"n_sources":s["n_sources"],"T_over_N_s":s["virtual_time_s"]/s["n_sources"],"movement_distance_m":move,"movement_time_s":move/5,"measure_time_s":measure_t,"measure_count":measures,"switch_time_s":switch_t,"switch_count":switches,"success_clear_time_s":success_clear_time,"failed_clear_time_s":failed_clear_time,"failed_clear_count":failed,"clear_attempt_count":clears,"route_replanning_count":sum(1 for e in env.log if e["request"]["path"]=="/clear" and e.get("distance_m",0)>0),"probes":result.get("zero_travel_probes",0),"negative_cuts":result.get("negative_cuts",0),"certificate":bool(result.get("certificate_complete")),"cleared_count":s["n_cleared"],"termination":result.get("termination") or result.get("terminal_reason"),"action_order_hash":order_hash}
 
 def run(seed, config):
-    # FieldPlanner defaults to the full field policy; every ablation must
-    # explicitly disable omitted mechanisms so the refined row is genuine.
+    
+    
     settings = {"premeasure": False, "negative_updates": False,
                 "portfolio": False, "approach_clear": False}
     env=LocalSimulator(seed,3,"smooth","random")

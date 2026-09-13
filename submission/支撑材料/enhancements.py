@@ -1,4 +1,4 @@
-"""Frozen held-out comparison of accepted geometric/rolling enhancements."""
+
 from __future__ import annotations
 
 import json

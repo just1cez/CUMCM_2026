@@ -1,4 +1,4 @@
-"""Finite field-informed development screen; no official counterfactual claims."""
+
 
 from __future__ import annotations
 import argparse

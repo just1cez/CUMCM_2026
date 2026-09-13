@@ -1,4 +1,4 @@
-"""Development-only anchor geometry and rolling route screen, no official calls."""
+
 from __future__ import annotations
 
 import json

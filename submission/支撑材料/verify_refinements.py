@@ -1,4 +1,4 @@
-"""Independent checks for ring contraction, 2-opt and interval probe bounds."""
+
 from __future__ import annotations
 
 import itertools

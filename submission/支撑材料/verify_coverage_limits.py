@@ -1,9 +1,4 @@
-"""Generate exact, auditable coverage-limit witnesses (Python 3.14).
 
-No simulator is used: every assertion is a direct Euclidean calculation on the
-31 points returned by ``coverage.directional_waypoints``.  The JSON file is a
-reproducible calculation artifact, not a hand-entered table.
-"""
 from __future__ import annotations
 
 import json
@@ -20,7 +15,7 @@ Q = coverage.MIN_RADIO_RADIUS
 S = coverage.DEFAULT_SPACING
 EPS_CANDIDATES = (1.0,)
 
-# Six nearest-neighbour directions in axial (i,j) coordinates.
+
 DIRS = ((1, 0), (0, 1), (-1, 1), (-1, 0), (0, -1), (1, -1))
 
 def xy(ij: tuple[int, int]) -> tuple[float, float]:
@@ -47,8 +42,8 @@ def actual_lattice() -> dict[tuple[int, int], tuple[float, float]]:
     pts = coverage.directional_waypoints(S)
     axial: dict[tuple[int, int], tuple[float, float]] = {}
     for p in pts:
-        # Recover integer coordinates and verify the reconstruction, rather than
-        # silently substituting a separately hard-coded 31-point set.
+        
+        
         j = round(p[1] / (S * math.sqrt(3.0) / 2.0))
         i = round(p[0] / S - j / 2.0)
         ij = (i, j)

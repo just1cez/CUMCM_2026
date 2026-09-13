@@ -1,4 +1,4 @@
-"""Run local synthetic practice; official GUI sessions require client.HTTPClient separately."""
+
 
 from __future__ import annotations
 

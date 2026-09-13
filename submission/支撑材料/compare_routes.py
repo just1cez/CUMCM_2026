@@ -1,4 +1,4 @@
-"""Paired route-order candidate comparison on declared synthetic worlds."""
+
 from __future__ import annotations
 
 import json

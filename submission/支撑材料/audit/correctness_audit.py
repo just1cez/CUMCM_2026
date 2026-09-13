@@ -28,14 +28,14 @@ def rec(name, evidence, cases, failures, **extra):
 
 def negative_audit():
     failures = []
-    # Exact feasible witness model: all witnesses outside the open disk must
-    # remain in the returned convex outer approximation.
+    
+    
     polys = [[(-1800., -1800.), (1800., -1800.), (1800., 1800.), (-1800., 1800.)],
              [(-100., -100.), (100., -100.), (100., 100.), (-100., 100.)],
              [(0., 0.), (100., 0.), (0., 100.)]]
     witnesses = [(1400., 0.), (-1400., 0.), (0., 1400.), (0., -1400.),
                  (1000.0001, 0.), (0., 0.)]
-    # point-in-convex-polygon with boundary tolerance, independent from module
+    
     def inside(poly, p):
         signs = []
         for a, b in zip(poly, poly[1:] + poly[:1]):
@@ -58,7 +58,7 @@ def portfolio_audit():
     targets = {3: ((100., 0.), 10.), 8: ((0., 0.), 0.)}
     task = choose_portfolio_task((0., 0.), anchors, targets, risk_weight=2.)
     expected = {("anchor", 2), ("anchor", 7), ("anchor", 9), ("target", 3), ("target", 8)}
-    # Exercise dictionary order permutations and ties.
+    
     failures = []
     for reverse in (False, True):
         a = dict(reversed(list(anchors.items()))) if reverse else dict(anchors)
@@ -71,7 +71,7 @@ def portfolio_audit():
 
 
 def q4_negative_audit():
-    # All current field paths disable negative updates for Q4 by construction.
+    
     failures = []
     class E:
         def act(self, path, position=None, channel=None):
@@ -86,8 +86,8 @@ def q4_negative_audit():
 
 
 def timing_and_state_audit():
-    # Public action accounting fixture: rejected action must not mutate planner;
-    # accepted actions expose exact increments and one premeasure per localize.
+    
+    
     failures = []
     class E:
         def __init__(self): self.calls = []
@@ -105,8 +105,8 @@ def timing_and_state_audit():
     try: r.action("/measure", (1., 2.), 1)
     except RuntimeError: pass
     if (r.position, r.virtual_time) != ((0., 0.), 0.): failures.append("rejected action advanced state")
-    # Exercise the one-per-channel contract across two localize calls at
-    # different positions; the second call must not issue another probe.
+    
+    
     from submission.支撑材料.planner import Track
     spy = FieldPlanner(E(), problem=3, premeasure=True)
     spy.tracks[1] = Track(polygon=[(-100., -100.), (100., -100.), (100., 100.), (-100., 100.)])
@@ -120,7 +120,7 @@ def timing_and_state_audit():
     spy.position = (500., 0.)
     spy.localize(1)
     if len(attempts) != 1: failures.append({"premeasure_attempts": len(attempts)})
-    # Independent virtual-time recomputation from observable LocalSimulator log.
+    
     from submission.支撑材料.environment import LocalSimulator
     env = LocalSimulator(500000, problem=3, scenario="minimum_radius")
     env.act("/enter"); env.act("/measure", (300., 400.), 1); env.act("/measure", (300., 400.), 2); env.act("/exit")
