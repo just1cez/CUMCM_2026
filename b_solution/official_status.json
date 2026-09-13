@@ -1,10 +1,10 @@
 {
-  "official_status": "PRACTICE_COMPLETE_FORMAL_PENDING",
-  "reason": "User supplied ten Q3 and ten Q4 official simulator practice observations. They were validated from the manifest, sanitized request logs and post-exit result files, then analyzed offline. Formal tests remain pending; no formal result or encrypted-log claim is made.",
+  "official_status": "FORMAL_TESTS_COMPLETED_PENDING_MANUAL_REVIEW_AND_SUBMISSION_UPLOAD",
+  "reason": "Three user-provided Q3 and three Q4 formal test summaries and six simulator-exported encrypted behavior logs are now present in the private formal directory; paper integration uses the six result summaries. Manual contestant review and final submission upload remain pending.",
   "practice_evidence": ["b_solution/results/official_practice_analysis.json", "ai_optimization_handoff_20260912/manifest.csv", "ai_optimization_handoff_20260912/data/controller/q3/", "ai_optimization_handoff_20260912/data/controller/q4/", "ai_optimization_handoff_20260912/data/simulator_results/"],
   "archive_practice_inputs": "practice_data/manifest.csv and exactly 60 manifest-listed sanitized raw files; robot_id=TEAM_REDACTED, source scope and per-file hashes checked. No unsanitized private raw logs or formal encrypted data.",
   "default_strategy": "problem-specific: Q3 refined and Q4 field; --strategy explicitly overrides; probe_scale=0.22 for both questions",
-  "offline_replay_boundary": "official_analysis.py independently costs all 20 observed traces. Strict baseline replay fully matches 8/20 and stops at first unobserved request otherwise; no synthetic feedback. Post-exit case/source/type labels are offline only. Local field confirmation is not an official improvement.",
+  "offline_replay_boundary": "official_analysis.py independently costs all 20 observed practice traces. Formal summaries are recorded from six completed tests; encrypted logs remain private and unchanged.",
   "required_evidence": ["Q3 three official case codes, metrics and unchanged encrypted simulator-exported logs", "Q4 three official case codes, metrics and unchanged encrypted simulator-exported logs"],
   "available_work": ["Q1/Q2 mathematical research", "Coverage-certified Q3/Q4 algorithms", "Python py314 field and historical refined implementation", "Historical and fresh paired local simulation evidence", "20 official practice observations with canonical offline analysis", "Official HTTP client", "Report sources; final PDF/archive verification requires actual generated proof"],
   "submission_state": "NOT_READY_FOR_SUBMISSION",

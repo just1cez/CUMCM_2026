@@ -47,7 +47,7 @@
 
 \par\noindent\textbf{针对问题四，}针对定向源的背面无信号问题，采用原点、半径940米内环和半径1870米错相外环组成的25点发现骨架，并将外十二边形剖分为36个闭三角形。引入辅助点$h=g+5n$，利用重心组合证明任意源位置和任意发射方向至少对应一个前向且距离小于999米的检测点，即使存在1米总位置误差仍保留4米前向余量。对定向源不把无信号误判为位置排除，而是结合正观测可行域、失信号恢复和光学后备完成定位清除。
 
-\par\noindent\textbf{结果方面，}在用户提供的Q3、Q4各10轮官方模拟器演练中，原\texttt{refined}策略分别清除139/139和138/138个源，移动时间约占虚拟总时间的74.38\%和73.20\%。据此保留完整覆盖骨架和逐频道停止证书，并设计包含多初解、2-opt及单点搬移的\texttt{field}效率增强。冻结后的每问1000个新合成世界中，\texttt{field}相对原\texttt{refined}的平均单源耗时分别由\FieldQThreeControl{}、\FieldQFourControl{}秒降至\FieldQThreeTime{}、\FieldQFourTime{}秒，且两题均1000/1000全清。由于两组官方演练案例并非配对，新增策略的收益仅作为本地配对证据，不作官方因果结论；综合证书安全性和现有诊断，程序默认Q3使用\texttt{refined}、Q4使用\texttt{field}。
+\par\noindent\textbf{结果方面，}在用户提供的Q3、Q4各10轮官方模拟器演练中，原\texttt{refined}策略分别清除139/139和138/138个源，移动时间约占虚拟总时间的74.38\%和73.20\%。据此保留完整覆盖骨架和逐频道停止证书，并设计包含多初解、2-opt及单点搬移的\texttt{field}效率增强。冻结后的每问1000个新合成世界中，\texttt{field}相对原\texttt{refined}的平均单源耗时分别由\FieldQThreeControl{}、\FieldQFourControl{}秒降至\FieldQThreeTime{}、\FieldQFourTime{}秒，且两题均1000/1000全清。另据正式测试，Q3三局均完成证书，$T/K$等权平均为236.62秒/源；Q4三局均完成证书，$T/K$等权平均为525.99秒/源。由于官方演练案例并非配对，新增策略的合成收益不作跨案例因果比较；正式测试结果用于报告实测表现。程序默认Q3使用\texttt{refined}、Q4使用\texttt{field}。
 
 \noindent\textbf{关键词：}有界误差；交会定位；最小包围圆；覆盖证书；主动测向；定向源搜索
 \newpage
@@ -327,6 +327,7 @@ b&=\pm\kappa b_{\max}(t),\qquad \kappa\in\{1/4,1/2,3/4\}.
 \end{figure}
 \subsection{结果讨论}
 在1000个主测试世界中，field相对refined的Q3平均单源时间节省8.8158秒，Q4节省33.8128秒；两题均完成1000/1000个世界的全清。Q3的官方演练结果显示field在另一组案例中耗时较高，因此最终程序采用Q3 refined、Q4 field的分题配置。该选择同时考虑了实测时间、覆盖结构和算法复杂度。
+\input{formal_results.tex}
 
 \section{模型评价与结论}
 

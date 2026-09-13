@@ -1,9 +1,9 @@
 {
-  "status": "RESEARCH_VERSION_OFFICIAL_PRACTICE_COMPLETE_FORMAL_TESTS_PENDING",
-  "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
+  "status": "FORMAL_TEST_SUMMARIES_INTEGRATED_ENCRYPTED_LOGS_PRIVATE_MANUAL_REVIEW_PENDING",
+  "official_tests": "FORMAL_TEST_SUMMARIES_INTEGRATED_LOGS_PRIVATE",
   "human_review": "OUTSTANDING",
-  "source_files": 245,
-  "archive_bytes": 7172345,
-  "archive_sha256": "b310e3e8deec25c2139c1c600b50cc75d3d3965e183ad865871d1131d3c3db56",
+  "source_files": 248,
+  "archive_bytes": 8098922,
+  "archive_sha256": "cb5efe3f9bcf0598a1e45572b69d9b994aafa669db76df0bf51271409614f39c",
   "extracted_archive_reproduction": "passed"
 }

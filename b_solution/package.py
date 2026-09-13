@@ -87,7 +87,6 @@ SOURCES = (
     "official_status.json",
     "audit/route_exact_audit.py",
     "audit/q3_ablation_audit.py",
-    "audit/distribution_audit.py",
     "audit/correctness_audit.py",
     "audit/alternative_screen.py",
     "audit/freeze_compare.py",
@@ -133,6 +132,7 @@ RESULTS = (
     "audit_correctness.json",
     "audit_alternatives.json",
     "audit_freeze_compare.json",
+    "formal_results.json",
 )
 
 def verify_asset_inputs(root: Path):
@@ -457,10 +457,10 @@ def main():
             ):
                 raise ValueError(f"Personal absolute path in PDF: {name}")
     manifest = {
-        "status": "RESEARCH_VERSION_OFFICIAL_PRACTICE_COMPLETE_FORMAL_TESTS_PENDING",
+        "status": "FORMAL_TEST_SUMMARIES_INTEGRATED_ENCRYPTED_LOGS_PRIVATE_MANUAL_REVIEW_PENDING",
         "not_ready_for_contest_submission": True,
-        "official_practice": "Twenty user-supplied Q3/Q4 practice observations were analyzed offline; formal tests and encrypted exports remain pending",
-        "official_practice_replay_boundary": "All 20 supplied traces are independently costed; strict baseline policy replay matches only 8/20. Divergence stops replay, with no fabricated responses.",
+        "official_practice": "Twenty supplied Q3/Q4 practice observations and six formal test summaries were analyzed; six original encrypted logs remain in the private test directory",
+        "official_practice_replay_boundary": "All 20 supplied practice traces are independently costed; strict baseline policy replay matches only 8/20. Formal summaries are user-provided and are not reconstructed from encrypted payloads in the anonymous package.",
         "practice_source_files": 60,
         "default_strategy": "Q3 refined, Q4 field; explicit --strategy overrides",
         "official_practice_control": "refined, probe_scale=0.22 for Q3 and Q4",
@@ -503,7 +503,7 @@ def main():
         assert path.stat().st_size <= 20 * 2**20, path.name
     status = {
         "status": manifest["status"],
-        "official_tests": "PRACTICE_COMPLETE_FORMAL_PENDING",
+        "official_tests": "FORMAL_TEST_SUMMARIES_INTEGRATED_LOGS_PRIVATE",
         "human_review": "OUTSTANDING",
         "source_files": len(files),
         "archive_bytes": archive.stat().st_size,
