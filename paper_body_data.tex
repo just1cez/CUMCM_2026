@@ -1,0 +1,152 @@
+% 由已保存的逐世界结果计算，单位和分母见各表标题。
+\newcommand{\QThreeControlMean}{258.99}
+\newcommand{\QThreeControlPooled}{254.41}
+\newcommand{\QThreeFieldMean}{250.17}
+\newcommand{\QThreeFieldPooled}{245.65}
+\newcommand{\QThreeSaving}{8.82}
+\newcommand{\QThreeGain}{3.40}
+\newcommand{\QThreeLow}{8.01}
+\newcommand{\QThreeHigh}{9.62}
+\newcommand{\QThreeWins}{827}
+\newcommand{\FormalThree}{
+\begin{tabular}{clrrrr}
+\toprule
+次数 & 案例编码 & $K$ & $T$/秒 & $T/K$/秒 & 本机运行/秒 \\
+\midrule
+1 & \texttt{UAKK-9823-A2SU-2CNM} & 14 & 3136.520 & 224.037 & 0.7665 \\
+2 & \texttt{5CV9-WP56-W8T6-YMBM} & 10 & 2701.627 & 270.163 & 0.8526 \\
+3 & \texttt{PNKS-Z5H4-TW3T-FDV6} & 16 & 3450.360 & 215.647 & 0.8749 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\FormalThreeK}{40}
+\newcommand{\FormalThreeT}{9288.507}
+\newcommand{\FormalThreeMean}{236.616}
+\newcommand{\FormalThreePooled}{232.213}
+\newcommand{\QFourControlMean}{542.41}
+\newcommand{\QFourControlPooled}{528.09}
+\newcommand{\QFourFieldMean}{508.60}
+\newcommand{\QFourFieldPooled}{495.07}
+\newcommand{\QFourSaving}{33.81}
+\newcommand{\QFourGain}{6.23}
+\newcommand{\QFourLow}{31.61}
+\newcommand{\QFourHigh}{36.01}
+\newcommand{\QFourWins}{843}
+\newcommand{\FormalFour}{
+\begin{tabular}{clrrrr}
+\toprule
+次数 & 案例编码 & $K$ & $T$/秒 & $T/K$/秒 & 本机运行/秒 \\
+\midrule
+1 & \texttt{BEVP-4HRX-JUKY-4XKA} & 15 & 6119.158 & 407.944 & 2.7734 \\
+2 & \texttt{BJKN-YUGD-Y66E-KJ43} & 12 & 6054.392 & 504.533 & 1.9247 \\
+3 & \texttt{A6XY-YGC6-WXC8-D2TN} & 10 & 6655.016 & 665.502 & 2.3622 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\FormalFourK}{37}
+\newcommand{\FormalFourT}{18828.566}
+\newcommand{\FormalFourMean}{525.993}
+\newcommand{\FormalFourPooled}{508.880}
+\newcommand{\MainResults}{
+\begin{tabular}{llrrrrr}
+\toprule
+问题 & 策略 & 均值 & 中位数 & $p_{90}$ & 最大值 & 全清 \\
+\midrule
+Q3 & refined & 258.99 & 254.76 & 305.38 & 370.28 & 1000/1000 \\
+Q3 & 仅路线增强 & 254.07 & 250.49 & 301.86 & 352.51 & 1000/1000 \\
+Q3 & 路线与信息 & 251.13 & 246.70 & 299.49 & 340.73 & 1000/1000 \\
+Q3 & field & 250.17 & 245.79 & 298.55 & 338.79 & 1000/1000 \\
+Q4 & refined & 542.41 & 529.08 & 682.86 & 825.03 & 1000/1000 \\
+Q4 & field & 508.60 & 496.94 & 642.48 & 760.05 & 1000/1000 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\PairedResults}{
+\begin{tabular}{lrrlrr}
+\toprule
+问题 & 均值差 & 差值中位数 & 95\%区间 & 更快局数 & 平均降幅 \\
+\midrule
+Q3 & 8.82 & 6.41 & [8.01, 9.62] & 827/1000 & 3.40\% \\
+Q4 & 33.81 & 33.27 & [31.61, 36.01] & 843/1000 & 6.23\% \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\CostResults}{
+\begin{tabular}{llrrrrrr}
+\toprule
+问题 & 策略 & 移动 & 检测 & 换频 & 失败清除 & 成功清除 & 合计 \\
+\midrule
+Q3 & refined & 195.50 & 48.98 & 9.32 & 0.19 & 5.00 & 258.99 \\
+Q3 & field & 188.36 & 47.58 & 9.06 & 0.17 & 5.00 & 250.17 \\
+Q4 & refined & 383.47 & 129.62 & 23.91 & 0.41 & 5.00 & 542.41 \\
+Q4 & field & 350.93 & 128.53 & 23.66 & 0.48 & 5.00 & 508.60 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\PracticeResults}{
+\begin{tabular}{lrrrrr}
+\toprule
+问题 & 局数 & 清除源数 & 逐局等权 & 汇总指标 & 移动占比 \\
+\midrule
+Q3 & 10 & 139/139 & 237.998 & 235.823 & 74.38\% \\
+Q4 & 10 & 138/138 & 531.178 & 519.376 & 73.20\% \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\StressThree}{
+\begin{tabular}{llrrrlr}
+\toprule
+位置情形 & 误差场 & 对数 & refined & field & 节省95\%区间 & 更快 \\
+\midrule
+最小接收半径 & 平滑 & 50 & 273.27 & 261.22 & [7.84, 16.26] & 38/50 \\
+最小接收半径 & 端点 & 50 & 278.63 & 260.86 & [12.25, 23.29] & 41/50 \\
+最小接收半径 & 位置哈希 & 50 & 275.22 & 259.63 & [10.41, 20.78] & 40/50 \\
+圆周边界 & 平滑 & 50 & 284.80 & 281.87 & [2.03, 3.84] & 44/50 \\
+圆周边界 & 端点 & 50 & 285.15 & 281.29 & [2.80, 4.92] & 43/50 \\
+圆周边界 & 位置哈希 & 50 & 284.70 & 281.81 & [1.91, 3.88] & 43/50 \\
+聚集源 & 平滑 & 50 & 105.59 & 105.02 & [0.34, 0.79] & 42/50 \\
+聚集源 & 端点 & 50 & 105.96 & 105.29 & [0.40, 0.94] & 44/50 \\
+聚集源 & 位置哈希 & 50 & 105.88 & 105.23 & [0.13, 1.16] & 32/50 \\
+随机位置 & 端点 & 200 & 260.50 & 250.14 & [8.44, 12.29] & 167/200 \\
+随机位置 & 位置哈希 & 200 & 258.70 & 248.75 & [8.07, 11.83] & 157/200 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\StressFour}{
+\begin{tabular}{llrrrlr}
+\toprule
+位置情形 & 误差场 & 对数 & refined & field & 节省95\%区间 & 更快 \\
+\midrule
+最小接收半径 & 平滑 & 50 & 563.55 & 527.52 & [26.32, 45.74] & 42/50 \\
+最小接收半径 & 端点 & 50 & 562.47 & 522.74 & [29.89, 49.57] & 43/50 \\
+最小接收半径 & 位置哈希 & 50 & 558.90 & 525.95 & [23.69, 42.20] & 41/50 \\
+圆周边界 & 平滑 & 50 & 664.91 & 625.95 & [29.03, 48.89] & 42/50 \\
+圆周边界 & 端点 & 50 & 668.95 & 632.25 & [26.02, 47.39] & 41/50 \\
+圆周边界 & 位置哈希 & 50 & 663.47 & 625.63 & [25.90, 49.78] & 39/50 \\
+聚集源 & 平滑 & 50 & 350.77 & 333.04 & [-9.37, 44.84] & 32/50 \\
+聚集源 & 端点 & 50 & 360.36 & 332.49 & [4.02, 51.73] & 35/50 \\
+聚集源 & 位置哈希 & 50 & 355.06 & 318.77 & [10.95, 61.63] & 35/50 \\
+随机位置 & 端点 & 200 & 536.35 & 500.09 & [31.56, 40.95] & 173/200 \\
+随机位置 & 位置哈希 & 200 & 539.87 & 502.81 & [32.16, 41.96] & 172/200 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\SensitivityResults}{
+\begin{tabular}{lrrrrrr}
+\toprule
+问题 & 偏移比例 & 案例 & 均值 & $p_{90}$ & 失败清除/局 & 全清 \\
+\midrule
+Q3 & 0.12 & 50 & 254.26 & 306.06 & 0.84 & 50/50 \\
+Q3 & 0.22 & 50 & 254.78 & 304.77 & 0.68 & 50/50 \\
+Q3 & 0.4 & 50 & 255.87 & 306.02 & 0.66 & 50/50 \\
+Q4 & 0.12 & 50 & 526.15 & 648.72 & 2.24 & 50/50 \\
+Q4 & 0.22 & 50 & 526.46 & 648.80 & 2.18 & 50/50 \\
+Q4 & 0.4 & 50 & 525.74 & 646.00 & 2.00 & 50/50 \\
+\bottomrule
+\end{tabular}
+}
+\newcommand{\QTwoRadius}{65.426}
+\newcommand{\QTwoControlRadius}{375.231}
+\newcommand{\QTwoCost}{184.844}
+\newcommand{\QTwoControlCost}{155.000}
+\newcommand{\QTwoExtraCost}{29.844}
