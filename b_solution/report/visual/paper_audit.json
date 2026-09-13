@@ -1,8 +1,8 @@
 {
-  "pdf": "paper.pdf",
-  "sha256": "4171c6826abfce0b6e93b82de1e81f43d0cfefdb07478aaf014ca9b0279ca365",
-  "pages": 173,
-  "size_mib": 1.8560972213745117,
+  "pdf": "report/paper.pdf",
+  "sha256": "b4d58d3acb89a36a5433c184ae9d379853ec0b94157f1d89310f59172f94bf40",
+  "pages": 87,
+  "size_mib": 1.3417024612426758,
   "body_end_page": 27,
   "body_pages_excluding_abstract": 26,
   "abstract_keywords_on_first_page": true,
@@ -26,21 +26,7 @@
     "paper_sheet_12.png",
     "paper_sheet_13.png",
     "paper_sheet_14.png",
-    "paper_sheet_15.png",
-    "paper_sheet_16.png",
-    "paper_sheet_17.png",
-    "paper_sheet_18.png",
-    "paper_sheet_19.png",
-    "paper_sheet_20.png",
-    "paper_sheet_21.png",
-    "paper_sheet_22.png",
-    "paper_sheet_23.png",
-    "paper_sheet_24.png",
-    "paper_sheet_25.png",
-    "paper_sheet_26.png",
-    "paper_sheet_27.png",
-    "paper_sheet_28.png",
-    "paper_sheet_29.png"
+    "paper_sheet_15.png"
   ],
   "page_records": [
     {
@@ -52,189 +38,189 @@
     },
     {
       "page": 2,
-      "characters": 1001,
+      "characters": 910,
       "image": "paper_002.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 18.0
     },
     {
       "page": 3,
-      "characters": 866,
+      "characters": 733,
       "image": "paper_003.png",
-      "smallest_text_pt": 6.973800182342529,
+      "smallest_text_pt": 7.520400047302246,
       "largest_text_pt": 18.0
     },
     {
       "page": 4,
-      "characters": 1077,
+      "characters": 879,
       "image": "paper_004.png",
-      "smallest_text_pt": 7.970099925994873,
+      "smallest_text_pt": 6.973800182342529,
       "largest_text_pt": 18.0
     },
     {
       "page": 5,
-      "characters": 794,
+      "characters": 959,
       "image": "paper_005.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 15.0
     },
     {
       "page": 6,
-      "characters": 1027,
+      "characters": 707,
       "image": "paper_006.png",
-      "smallest_text_pt": 5.97760009765625,
-      "largest_text_pt": 18.0
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 15.0
     },
     {
       "page": 7,
-      "characters": 1081,
+      "characters": 997,
       "image": "paper_007.png",
+      "smallest_text_pt": 5.97760009765625,
+      "largest_text_pt": 18.0
+    },
+    {
+      "page": 8,
+      "characters": 974,
+      "image": "paper_008.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 15.0
+    },
+    {
+      "page": 9,
+      "characters": 927,
+      "image": "paper_009.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 18.0
+    },
+    {
+      "page": 10,
+      "characters": 1148,
+      "image": "paper_010.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 15.0
+    },
+    {
+      "page": 11,
+      "characters": 1199,
+      "image": "paper_011.png",
       "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 15.0
     },
     {
-      "page": 8,
-      "characters": 864,
-      "image": "paper_008.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 18.0
-    },
-    {
-      "page": 9,
-      "characters": 1020,
-      "image": "paper_009.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 15.0
-    },
-    {
-      "page": 10,
-      "characters": 1226,
-      "image": "paper_010.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 18.0
-    },
-    {
-      "page": 11,
-      "characters": 1164,
-      "image": "paper_011.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 18.0
-    },
-    {
       "page": 12,
-      "characters": 1059,
+      "characters": 1242,
       "image": "paper_012.png",
-      "smallest_text_pt": 7.970099925994873,
+      "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 15.0
     },
     {
       "page": 13,
-      "characters": 1034,
+      "characters": 256,
       "image": "paper_013.png",
-      "smallest_text_pt": 7.970099925994873,
+      "smallest_text_pt": 6.240240097045898,
       "largest_text_pt": 12.0
     },
     {
       "page": 14,
-      "characters": 825,
+      "characters": 1006,
       "image": "paper_014.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 18.0
+    },
+    {
+      "page": 15,
+      "characters": 933,
+      "image": "paper_015.png",
+      "smallest_text_pt": 7.360320091247559,
+      "largest_text_pt": 15.0
+    },
+    {
+      "page": 16,
+      "characters": 983,
+      "image": "paper_016.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 15.0
     },
     {
-      "page": 15,
-      "characters": 1336,
-      "image": "paper_015.png",
-      "smallest_text_pt": 5.97760009765625,
-      "largest_text_pt": 18.0
-    },
-    {
-      "page": 16,
-      "characters": 1192,
-      "image": "paper_016.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 18.0
-    },
-    {
       "page": 17,
-      "characters": 1524,
+      "characters": 1261,
       "image": "paper_017.png",
-      "smallest_text_pt": 10.5,
-      "largest_text_pt": 12.0
+      "smallest_text_pt": 5.97760009765625,
+      "largest_text_pt": 15.0
     },
     {
       "page": 18,
-      "characters": 1253,
+      "characters": 865,
       "image": "paper_018.png",
-      "smallest_text_pt": 7.970099925994873,
+      "smallest_text_pt": 7.04040002822876,
       "largest_text_pt": 18.0
     },
     {
       "page": 19,
-      "characters": 1336,
+      "characters": 705,
       "image": "paper_019.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 15.0
+      "smallest_text_pt": 6.88040018081665,
+      "largest_text_pt": 18.0
     },
     {
       "page": 20,
-      "characters": 1352,
+      "characters": 1582,
       "image": "paper_020.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 15.0
+      "smallest_text_pt": 10.5,
+      "largest_text_pt": 18.0
     },
     {
       "page": 21,
-      "characters": 1377,
+      "characters": 1481,
       "image": "paper_021.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 12.0
+      "smallest_text_pt": 6.973800182342529,
+      "largest_text_pt": 15.0
     },
     {
       "page": 22,
-      "characters": 1335,
+      "characters": 1087,
       "image": "paper_022.png",
-      "smallest_text_pt": 7.970099925994873,
-      "largest_text_pt": 18.0
-    },
-    {
-      "page": 23,
-      "characters": 1562,
-      "image": "paper_023.png",
-      "smallest_text_pt": 6.973800182342529,
-      "largest_text_pt": 18.0
-    },
-    {
-      "page": 24,
-      "characters": 1030,
-      "image": "paper_024.png",
       "smallest_text_pt": 9.000449180603027,
       "largest_text_pt": 15.0
     },
     {
+      "page": 23,
+      "characters": 1423,
+      "image": "paper_023.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 15.0
+    },
+    {
+      "page": 24,
+      "characters": 1368,
+      "image": "paper_024.png",
+      "smallest_text_pt": 7.970099925994873,
+      "largest_text_pt": 12.0
+    },
+    {
       "page": 25,
-      "characters": 1174,
+      "characters": 1012,
       "image": "paper_025.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 18.0
     },
     {
       "page": 26,
-      "characters": 1180,
+      "characters": 989,
       "image": "paper_026.png",
-      "smallest_text_pt": 12.0,
+      "smallest_text_pt": 7.920450210571289,
       "largest_text_pt": 18.0
     },
     {
       "page": 27,
-      "characters": 796,
+      "characters": 707,
       "image": "paper_027.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
     },
     {
       "page": 28,
-      "characters": 1909,
+      "characters": 1912,
       "image": "paper_028.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 18.0
@@ -283,974 +269,372 @@
     },
     {
       "page": 35,
-      "characters": 1922,
+      "characters": 3002,
       "image": "paper_035.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 36,
-      "characters": 2459,
+      "characters": 2583,
       "image": "paper_036.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 37,
-      "characters": 2667,
+      "characters": 2331,
       "image": "paper_037.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 38,
-      "characters": 1914,
+      "characters": 2313,
       "image": "paper_038.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 39,
-      "characters": 2228,
+      "characters": 2038,
       "image": "paper_039.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 40,
-      "characters": 2338,
+      "characters": 2160,
       "image": "paper_040.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 41,
-      "characters": 2358,
+      "characters": 2414,
       "image": "paper_041.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 42,
-      "characters": 2455,
+      "characters": 2390,
       "image": "paper_042.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 43,
-      "characters": 2430,
+      "characters": 2456,
       "image": "paper_043.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 44,
-      "characters": 2021,
+      "characters": 2394,
       "image": "paper_044.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 45,
-      "characters": 2437,
+      "characters": 2192,
       "image": "paper_045.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 46,
-      "characters": 2749,
+      "characters": 2255,
       "image": "paper_046.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 47,
-      "characters": 2803,
+      "characters": 2322,
       "image": "paper_047.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 48,
-      "characters": 2502,
+      "characters": 2385,
       "image": "paper_048.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 49,
-      "characters": 2329,
+      "characters": 2245,
       "image": "paper_049.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 50,
-      "characters": 2971,
+      "characters": 1832,
       "image": "paper_050.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 51,
-      "characters": 2911,
+      "characters": 1998,
       "image": "paper_051.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 52,
-      "characters": 3223,
+      "characters": 2225,
       "image": "paper_052.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 53,
-      "characters": 2497,
+      "characters": 2162,
       "image": "paper_053.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 54,
-      "characters": 2351,
+      "characters": 1508,
       "image": "paper_054.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 55,
-      "characters": 2274,
+      "characters": 2231,
       "image": "paper_055.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 56,
-      "characters": 1941,
+      "characters": 2002,
       "image": "paper_056.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 57,
-      "characters": 2166,
+      "characters": 2697,
       "image": "paper_057.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 58,
-      "characters": 2043,
+      "characters": 2867,
       "image": "paper_058.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 59,
-      "characters": 2414,
+      "characters": 2157,
       "image": "paper_059.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 60,
-      "characters": 1992,
+      "characters": 1557,
       "image": "paper_060.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 61,
-      "characters": 2437,
+      "characters": 1924,
       "image": "paper_061.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 62,
-      "characters": 2421,
+      "characters": 2629,
       "image": "paper_062.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 63,
-      "characters": 2107,
+      "characters": 3216,
       "image": "paper_063.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 64,
-      "characters": 2019,
+      "characters": 2335,
       "image": "paper_064.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 65,
-      "characters": 2023,
+      "characters": 3031,
       "image": "paper_065.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 66,
-      "characters": 2016,
+      "characters": 3484,
       "image": "paper_066.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 67,
-      "characters": 2192,
+      "characters": 3054,
       "image": "paper_067.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 68,
-      "characters": 2301,
+      "characters": 1986,
       "image": "paper_068.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 69,
-      "characters": 2251,
+      "characters": 2241,
       "image": "paper_069.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 70,
-      "characters": 2016,
+      "characters": 2145,
       "image": "paper_070.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 71,
-      "characters": 2272,
+      "characters": 2243,
       "image": "paper_071.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 72,
-      "characters": 1906,
+      "characters": 3923,
       "image": "paper_072.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 73,
-      "characters": 2116,
+      "characters": 3234,
       "image": "paper_073.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 74,
-      "characters": 1703,
+      "characters": 2989,
       "image": "paper_074.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 75,
-      "characters": 1608,
+      "characters": 2150,
       "image": "paper_075.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 76,
-      "characters": 1834,
+      "characters": 2344,
       "image": "paper_076.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 77,
-      "characters": 2161,
+      "characters": 2123,
       "image": "paper_077.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 78,
-      "characters": 1957,
+      "characters": 1725,
       "image": "paper_078.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 79,
-      "characters": 2208,
+      "characters": 2028,
       "image": "paper_079.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 80,
-      "characters": 2168,
+      "characters": 2510,
       "image": "paper_080.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 81,
-      "characters": 2452,
+      "characters": 2074,
       "image": "paper_081.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 82,
-      "characters": 2871,
+      "characters": 1961,
       "image": "paper_082.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 83,
-      "characters": 1900,
+      "characters": 3132,
       "image": "paper_083.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 84,
-      "characters": 2359,
+      "characters": 2787,
       "image": "paper_084.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 12.0
     },
     {
       "page": 85,
-      "characters": 1559,
+      "characters": 1947,
       "image": "paper_085.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 86,
-      "characters": 2075,
-      "image": "paper_086.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 87,
-      "characters": 3122,
-      "image": "paper_087.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 88,
-      "characters": 2754,
-      "image": "paper_088.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 89,
-      "characters": 2265,
-      "image": "paper_089.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 90,
-      "characters": 3493,
-      "image": "paper_090.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 91,
-      "characters": 3634,
-      "image": "paper_091.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 92,
-      "characters": 2401,
-      "image": "paper_092.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 93,
-      "characters": 2210,
-      "image": "paper_093.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 94,
-      "characters": 3062,
-      "image": "paper_094.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 95,
-      "characters": 2241,
-      "image": "paper_095.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 96,
-      "characters": 2409,
-      "image": "paper_096.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 97,
-      "characters": 2168,
-      "image": "paper_097.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 98,
-      "characters": 2939,
-      "image": "paper_098.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 99,
-      "characters": 2459,
-      "image": "paper_099.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 100,
-      "characters": 2467,
-      "image": "paper_100.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 101,
-      "characters": 3066,
-      "image": "paper_101.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 102,
-      "characters": 2316,
-      "image": "paper_102.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 103,
-      "characters": 2572,
-      "image": "paper_103.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 104,
-      "characters": 2697,
-      "image": "paper_104.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 105,
-      "characters": 2337,
-      "image": "paper_105.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 106,
-      "characters": 2812,
-      "image": "paper_106.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 107,
-      "characters": 2453,
-      "image": "paper_107.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 108,
-      "characters": 2853,
-      "image": "paper_108.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 109,
-      "characters": 3468,
-      "image": "paper_109.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 110,
-      "characters": 3518,
-      "image": "paper_110.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 111,
-      "characters": 3767,
-      "image": "paper_111.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 112,
-      "characters": 3569,
-      "image": "paper_112.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 113,
-      "characters": 3977,
-      "image": "paper_113.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 114,
-      "characters": 3280,
-      "image": "paper_114.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 115,
-      "characters": 2945,
-      "image": "paper_115.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 116,
-      "characters": 2503,
-      "image": "paper_116.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 117,
-      "characters": 2447,
-      "image": "paper_117.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 118,
-      "characters": 3170,
-      "image": "paper_118.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 119,
-      "characters": 2148,
-      "image": "paper_119.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 120,
-      "characters": 2718,
-      "image": "paper_120.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 121,
-      "characters": 2504,
-      "image": "paper_121.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 122,
-      "characters": 2750,
-      "image": "paper_122.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 123,
-      "characters": 2325,
-      "image": "paper_123.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 124,
-      "characters": 3076,
-      "image": "paper_124.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 125,
-      "characters": 3508,
-      "image": "paper_125.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 126,
-      "characters": 3311,
-      "image": "paper_126.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 127,
-      "characters": 3110,
-      "image": "paper_127.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 128,
-      "characters": 2890,
-      "image": "paper_128.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 129,
-      "characters": 4001,
-      "image": "paper_129.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 130,
-      "characters": 3817,
-      "image": "paper_130.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 131,
-      "characters": 2333,
-      "image": "paper_131.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 132,
-      "characters": 2024,
-      "image": "paper_132.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 133,
-      "characters": 2030,
-      "image": "paper_133.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 134,
-      "characters": 2215,
-      "image": "paper_134.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 135,
-      "characters": 2254,
-      "image": "paper_135.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 136,
-      "characters": 1968,
-      "image": "paper_136.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 137,
-      "characters": 2326,
-      "image": "paper_137.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 138,
-      "characters": 1942,
-      "image": "paper_138.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 139,
-      "characters": 1910,
-      "image": "paper_139.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 140,
-      "characters": 2028,
-      "image": "paper_140.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 141,
-      "characters": 3084,
-      "image": "paper_141.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 142,
-      "characters": 2632,
-      "image": "paper_142.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 143,
-      "characters": 2048,
-      "image": "paper_143.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 144,
-      "characters": 1757,
-      "image": "paper_144.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 145,
-      "characters": 1584,
-      "image": "paper_145.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 146,
-      "characters": 2246,
-      "image": "paper_146.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 147,
-      "characters": 2045,
-      "image": "paper_147.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 148,
-      "characters": 2378,
-      "image": "paper_148.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 149,
-      "characters": 2066,
-      "image": "paper_149.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 150,
-      "characters": 2103,
-      "image": "paper_150.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 151,
-      "characters": 1848,
-      "image": "paper_151.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 152,
-      "characters": 2551,
-      "image": "paper_152.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 153,
-      "characters": 2207,
-      "image": "paper_153.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 154,
-      "characters": 2504,
-      "image": "paper_154.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 155,
-      "characters": 2146,
-      "image": "paper_155.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 156,
-      "characters": 1886,
-      "image": "paper_156.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 157,
-      "characters": 1783,
-      "image": "paper_157.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 158,
-      "characters": 1931,
-      "image": "paper_158.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 159,
-      "characters": 1878,
-      "image": "paper_159.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 160,
-      "characters": 1894,
-      "image": "paper_160.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 161,
-      "characters": 2929,
-      "image": "paper_161.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 162,
-      "characters": 3902,
-      "image": "paper_162.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 163,
-      "characters": 3512,
-      "image": "paper_163.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 164,
-      "characters": 4047,
-      "image": "paper_164.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 165,
-      "characters": 4815,
-      "image": "paper_165.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 166,
-      "characters": 3283,
-      "image": "paper_166.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 167,
-      "characters": 3454,
-      "image": "paper_167.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 168,
-      "characters": 3150,
-      "image": "paper_168.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 169,
-      "characters": 3027,
-      "image": "paper_169.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 170,
-      "characters": 3271,
-      "image": "paper_170.png",
-      "smallest_text_pt": 6.5,
-      "largest_text_pt": 12.0
-    },
-    {
-      "page": 171,
-      "characters": 2877,
-      "image": "paper_171.png",
       "smallest_text_pt": 6.5,
       "largest_text_pt": 15.0
     },
     {
-      "page": 172,
-      "characters": 1517,
-      "image": "paper_172.png",
+      "page": 86,
+      "characters": 1529,
+      "image": "paper_086.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 12.0
     },
     {
-      "page": 173,
-      "characters": 1008,
-      "image": "paper_173.png",
+      "page": 87,
+      "characters": 642,
+      "image": "paper_087.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 12.0
     }

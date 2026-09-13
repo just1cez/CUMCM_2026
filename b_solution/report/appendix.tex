@@ -2,66 +2,27 @@
 \section{匿名复现附录}
 本附录只列出匿名包中实际存在、可供复现使用的源文件。代码路径均相对于本文件所在的\texttt{report/}目录；结果路径均相对于匿名包项目根目录；不含个人绝对路径、队伍身份或私有凭据。主文件应在导言区加载\texttt{listings}并设置合适的Python样式。
 
-\subsection{运行与验证源代码}
-\lstinputlisting[language=Python,caption={规划器与恢复策略}]{../planner.py}
-\lstinputlisting[language=Python,caption={实验主程序}]{../experiments.py}
-\lstinputlisting[language=Python,caption={统一运行入口}]{../run.py}
-\lstinputlisting[language=Python,caption={几何计算}]{../geometry.py}
-\lstinputlisting[language=Python,caption={几何验证}]{../verify_geometry.py}
-\lstinputlisting[language=Python,caption={问题一原始交会区域分类与直径}]{../intersection.py}
-\lstinputlisting[language=Python,caption={覆盖与采样工具}]{../coverage.py}
-\lstinputlisting[language=Python,caption={环境与模拟器接口}]{../environment.py}
-\lstinputlisting[language=Python,caption={第二交点计算}]{../second_point.py}
-\lstinputlisting[language=Python,caption={恢复策略比较}]{../compare_recovery.py}
-\lstinputlisting[language=Python,caption={HTTP 客户端}]{../client.py}
-\lstinputlisting[language=Python,caption={HTTP 验证}]{../verify_http.py}
-\lstinputlisting[language=Python,caption={官方运行入口（仅获授权后使用）}]{../official_run.py}
-\lstinputlisting[language=Python,caption={数据驱动图表与轨迹生成}]{../make_assets.py}
-\Needspace{6\baselineskip}
-\lstinputlisting[language=Python,caption={PDF逐页渲染与结构审计}]{../audit_pdf.py}
-\lstinputlisting[language=Python,caption={匿名材料打包与解压复现验证}]{../package.py}
-\lstinputlisting[language=Python,caption={区间评分自适应测点候选}]{../active_policy_candidate.py}
-\lstinputlisting[language=Python,caption={骨架路由候选}]{../route_policy_candidate.py}
-\lstinputlisting[language=Python,caption={路由候选对照实验}]{../compare_routes.py}
-\lstinputlisting[language=Python,caption={自适应测点对照实验}]{../compare_probes.py}
-\lstinputlisting[language=Python,caption={超时终端状态回归}]{../verify_terminal.py}
-\lstinputlisting[language=Python,caption={环半径与滚动调度开发比较}]{../develop_anchors.py}
-\lstinputlisting[language=Python,caption={增强策略样本外实验}]{../enhancements.py}
-\lstinputlisting[language=Python,caption={Q3环半径筛选与新世界确认}]{../ring_sweep.py}
-\lstinputlisting[language=Python,caption={增强几何及区间评分交叉验证}]{../verify_refinements.py}
-\lstinputlisting[language=Python,caption={31格点不可删反例验证}]{../verify_coverage_limits.py}
-\lstinputlisting[language=Python,caption={增强策略图表生成}]{../make_enhancement_assets.py}
-\lstinputlisting[language=Python,caption={25点极坐标覆盖候选与解析证书}]{../polar_coverage_candidate.py}
-\lstinputlisting[language=Python,caption={发现与清除联合调度候选}]{../joint_dispatch_candidate.py}
-\lstinputlisting[language=Python,caption={分层光学覆盖候选（非默认）}]{../optical_policy_candidate.py}
-\lstinputlisting[language=Python,caption={独立开发集上的候选筛选}]{../refinement_study.py}
-\lstinputlisting[language=Python,caption={冻结策略的样本外消融与压力实验}]{../research_experiments.py}
-\lstinputlisting[language=Python,caption={新覆盖与策略行为的独立核验}]{../verify_research.py}
-\lstinputlisting[language=Python,caption={历史冻结研究图表生成}]{../make_research_assets.py}
-\lstinputlisting[language=Python,caption={官方演练汇总资产生成}]{../make_official_assets.py}
-\lstinputlisting[language=Python,caption={fast25与compact25配对筛选}]{../fast_vs_compact_410.py}
-\lstinputlisting[language=Python,caption={官方演练驱动的新策略}]{../field_policy.py}
-\lstinputlisting[language=Python,caption={Q3无信号保守几何更新}]{../negative_geometry.py}
-\lstinputlisting[language=Python,caption={有界路线组合优化}]{../route_portfolio.py}
-\lstinputlisting[language=Python,caption={新策略独立开发筛选}]{../field_study.py}
-\lstinputlisting[language=Python,caption={新策略冻结后的新世界确认}]{../field_confirmation.py}
-\lstinputlisting[language=Python,caption={新策略几何和行为核验}]{../verify_field.py}
-\lstinputlisting[language=Python,caption={脱敏官方演练原始反馈分析与严格回放}]{../official_analysis.py}
-\lstinputlisting[language=Python,caption={新策略数据驱动图表生成}]{../make_field_assets.py}
-\lstinputlisting[language=Python,caption={局部最优、机制消融、分布与状态专项审查}]{../audit/route_exact_audit.py}
-\lstinputlisting[language=Python,caption={Q3八组机制消融}]{../audit/q3_ablation_audit.py}
-\lstinputlisting[language=Python,caption={分布偏差诊断}]{../audit/distribution_audit.py}
-\lstinputlisting[language=Python,caption={正确性与状态核验}]{../audit/correctness_audit.py}
-\lstinputlisting[language=Python,caption={独立候选筛选}]{../audit/alternative_screen.py}
-\lstinputlisting[language=Python,caption={补充冻结配对核验}]{../audit/freeze_compare.py}
-
-\subsection{匿名文件清单与结果接口}
+\subsection{核心运行与验证代码}
+\lstinputlisting[language=Python,caption={规划器与统一运行入口}]{../planner.py}
+\lstinputlisting[language=Python,caption={本地环境与模拟器接口}]{../environment.py}
+\lstinputlisting[language=Python,caption={几何计算与覆盖工具}]{../geometry.py}
+\lstinputlisting[language=Python,caption={官方接口客户端}]{../client.py}
+\lstinputlisting[language=Python,caption={问题三、四策略实现}]{../field_policy.py}
+\lstinputlisting[language=Python,caption={路线组合与负观测几何}]{../route_portfolio.py}
+\lstinputlisting[language=Python,caption={本地实验与官方日志分析入口}]{../field_confirmation.py}
+\lstinputlisting[language=Python,caption={统一打包与复现验证}]{../package.py}
+\lstinputlisting[language=Python,caption={关键几何和状态核验}]{../verify_field.py}
+\lstinputlisting[language=Python,caption={竞赛版图表生成}]{../make_competition_assets.py}
+\lstinputlisting[language=Python,caption={任务调度与候选策略}]{../joint_dispatch_candidate.py}
+\lstinputlisting[language=Python,caption={Q3负观测几何}]{../negative_geometry.py}
+\lstinputlisting[language=Python,caption={Q3Q4实验运行}]{../field_study.py}
+\lstinputlisting[language=Python,caption={问题一交会计算}]{../intersection.py}
+\lstinputlisting[language=Python,caption={问题二测点示例}]{../second_point.py}
+\lstinputlisting[language=Python,caption={覆盖点生成}]{../coverage.py}
+\subsection{结果文件与复现入口}
+以下文件用于复现实验、图表和论文中的数值结果。
 \begin{longtable}{p{0.60\textwidth}p{0.32\textwidth}}
 \toprule 文件或目录 & 用途\\\midrule
-\path{results/final_experiments.json} & 4430次最终合成运行\\
-\path{results/enhancement_experiments.json} & 3080次样本外增强运行\\
-\path{results/refinement_development.json} & 2550次独立开发运行\textup{（非样本外）}\\
-\path{results/research_experiments.json} & 10700次冻结策略研究运行\\
 \path{results/research_verification.json} & 新覆盖、光学与行为证书核验\\
 \path{results/research_review.json} & 本轮最终独立自动审查\\
 \path{results/field_development.json} & 2250次新策略开发运行\textup{（非样本外）}\\

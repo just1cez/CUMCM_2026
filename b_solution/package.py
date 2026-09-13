@@ -67,6 +67,7 @@ SOURCES = (
     "verify_field.py",
     "official_analysis.py",
     "make_field_assets.py",
+    "make_competition_assets.py",
     "negative_geometry_notes.txt",
     "route_portfolio_notes.txt",
     "contracts.json",

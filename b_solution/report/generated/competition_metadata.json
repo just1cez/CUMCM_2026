@@ -1,0 +1,17 @@
+{
+  "generator": "make_competition_assets.py",
+  "figures": [
+    "figures/competition_taskmap.pdf",
+    "figures/competition_ring.pdf",
+    "figures/competition_direction.pdf",
+    "figures/competition_localize.pdf",
+    "figures/competition_dispatch.pdf",
+    "figures/competition_costs.pdf"
+  ],
+  "input_sha256": {
+    "results/field_confirmation.json": "1fbec62702db945df976ebe21adca8fd615acecc2ed28c7b35bba165261aad5e",
+    "geometry.py": "f8fbd7e2ae99f369245b0974dc784479775087c94a7b8c83d97fa0605ba21357",
+    "coverage.py": "661b77f3433e6cb936ddc0be1dcccbbc1b89378fc141f6f976028551e24a374c",
+    "make_competition_assets.py": "8ca4d29b935f711a14cf96a4bf848de381c973b69667caa1bd6b12fce58e4645"
+  }
+}
