@@ -1,7 +1,4 @@
-% 本文件为 paper_body.tex 的附录副本，原稿附录保留不变。
 \section{附录：程序与支撑材料}
-本附录与正文《基于交会定位与覆盖搜索的无线电干扰源清除策略》配套，列出正文所用的主要源程序和结果文件。代码从项目根目录的\texttt{b\_solution/}下读取；文件清单中的路径以支撑包根目录为起点，仓库中对应\texttt{b\_solution/}。
-
 \subsection{核心运行与验证代码}
 \lstinputlisting[language=Python,caption={规划器与统一运行入口}]{b_solution/planner.py}
 \lstinputlisting[language=Python,caption={本地环境与模拟器接口}]{b_solution/environment.py}
@@ -23,59 +20,3 @@
 \lstinputlisting[language=Python,caption={Q3、Q4图片重绘}]{b_solution/redraw_q34.py}
 \lstinputlisting[language=Python,caption={结果图片重绘}]{b_solution/redraw_results.py}
 \lstinputlisting[language=Python,caption={新增正文图表生成}]{b_solution/redraw_additional.py}
-\subsection{结果文件与复现入口}
-以下文件用于复现实验、图表和论文中的数值结果。
-\begin{longtable}{p{0.60\textwidth}p{0.32\textwidth}}
-\path{results/formal_results.json} & 六次正式测试结果汇总\\
-\path{paper_body_data.tex} & 正文表格和数值宏\\
-\path{results/research_verification.json} & 新覆盖、光学与行为证书核验\\
-\path{results/research_review.json} & 本轮最终独立自动审查\\
-\path{results/field_development.json} & 2250次新策略开发运行\textup{（非样本外）}\\
-\path{results/field_confirmation.json} & 9400次新策略冻结确认运行\\
-\path{results/field_verification.json} & 新策略几何与行为有限核验\\
-\path{results/field_review.json} & 新策略独立自动审查\\
-\path{results/official_practice_analysis.json} & 用户提供的20轮官方演练离线动作分解\\
-\path{results/fast_vs_compact_410.json} & fast25与compact25的本地配对筛选负结果\\
-\path{results/practice_optimization_screen.json} & 官方演练轨迹驱动的参数筛选及否决记录\\
-\path{results/ring_sweep.json} & Q3环半径开发筛选及样本外配对证据\\
-\path{results/coverage_limits.json} & 全部31点不可删构造\\
-\path{results/refinement_verification.json} & 收缩环与角区间上界验证\\
-\path{results/geometry_verification.json} & 几何交叉核验与回归\\
-\path{results/intersection_verification.json} & 原始交会区域三种状态\\
-\path{results/http_verification.json} & 幂等重试与计时验证\\
-\path{results/http_deadline_verification.json} & 慢速响应绝对期限验证\\
-\path{results/second_point_example.json} & 第二测点候选评分\\
-\path{results/recovery_development.json} & 恢复策略开发对照\\
-\path{results/visual_review.json} & PDF逐页视觉检查记录\\
-\path{results/enhancement_review.json} & 增强策略独立审阅记录\\
-\path{results/paper_review.json} & 非官方自动审阅记录\\
-\path{results/final_review.json} & 历史增强结论与新世界证据的独立审查\\
-\path{report/generated/} & 自动数字、表格与轨迹证据\\
-\path{report/figures/q1_wedge.pdf}、\path{report/figures/q2_angle.pdf}、\path{report/figures/q3_tradeoff.pdf} & Q1--Q3解析示意图\\
-\path{report/figures/q4_route.pdf}、\path{report/figures/formal_compare.pdf} & Q4路线及正式测试结果图\\
-\path{b_solution/redraw_additional.py} & 新增正文图片生成程序\\
-\path{report/figures/} & 基础、历史增强及新研究矢量图\\
-\path{report/ai_usage.tex} & AI使用详情源文件\\
-\path{reproduce.txt}、\path{requirements.txt} & 命令、环境及依赖\\
-\path{MANIFEST.json} & 支撑包内文件校验值\\
-\path{results/route_candidate_comparison.json} & 路由候选负结果\\
-\path{results/adaptive_candidate_comparison.json} & 自适应测点候选负结果与子指标\\
-\path{results/terminal_verification.json} & 虚拟/现实期限终端回归\\
-\path{theory_additions.txt}、\path{paper_expansion.txt} & 独立理论草稿\\
-\path{report/generated/coverage_limits_table.tex} & 不可删性汇总表\\
-\path{polar_coverage_notes.txt} & 极坐标覆盖推导草稿\\
-\path{joint_dispatch_notes.txt} & 联合调度推导草稿\\
-\path{optical_policy_notes.txt} & 光学候选推导草稿\\
-\path{report/research_theory.tex} & 原稿覆盖与调度理论片段\\
-\path{report/generated/research_metadata.json} & 新图表输入哈希与分母记录\\
-\path{negative_geometry_notes.txt}、\path{route_portfolio_notes.txt} & 负反馈几何及路线组合推导\\
-\path{report/generated/field_metadata.json} & field图表输入哈希与分母\\
-\path{practice_data/manifest.csv} & 20轮演练脱敏原始文件对应表\\
-\path{practice_data/data/} & manifest指定的60个脱敏原始文件\\
-\path{contracts.json}、\path{report_contracts.json} & 接口与证据口径的描述性快照\\
-\bottomrule
-\end{longtable}
-原稿图表由\path{make_assets.py}、\path{make_enhancement_assets.py}、\path{make_research_assets.py}、\path{make_official_assets.py}和\path{make_field_assets.py}读取对应JSON生成。上列保留原附录中的程序，理论片段不重复以代码字体排印。notes文件只记录推导，实际结果以结果JSON为准。入口按问题默认\texttt{Q3 refined、Q4 field}，\texttt{--strategy}可显式覆盖；两题探测比例均为0.22；历史\texttt{enhanced}另列。完整复现所需审查脚本及结果也保留在支撑包中。
-\path{audit_pdf.py}渲染全部页面并检查文字边界；\path{package.py --verify}在移除\texttt{PYTHONPATH}的临时解压目录中完整重建七组核心实验，共34610次执行，逐项比较完整JSON，仅排除本地墙钟\texttt{real\_duration\_s}及派生\texttt{max\_real\_duration\_s}、\texttt{max\_real\_s}。五份metadata输入哈希在初末校验。脱敏演练文件不重生，逐个核对SHA-256，运行\path{official_analysis.py --handoff practice_data}重新分析并比较；随后重建全部图表与编译，不以原目录存在文件代替复现通过。
-
-未经脱敏的私有HTTP日志、正式加密日志及模拟器程序不进入本匿名研究包。仅收录manifest指定、经\texttt{robot\_id=TEAM\_REDACTED}及路径范围检查的60个演练原始文件；退出后源数、类型和案例标签只能用于离线评价。20轮成本均由原始请求与反馈独立复算；严格旧策略动作回放仅8轮完整匹配，其余在首次未观测动作处停止，不造反馈。随包原始材料支持离线分析复现，不代表新策略官方成绩或全部旧策略回放通过。正式测试结果见正文，六份原始加密行为日志须按模拟器要求原样纳入最终支撑材料；队员人工核验情况另行如实记录。
