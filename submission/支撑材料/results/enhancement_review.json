@@ -1,0 +1,15 @@
+{
+  "review_type":"independent AI review of the enhanced non-official research version",
+  "reviewers":["EnhancementReview","ProtocolAdversary","CoverageLowerBound"],
+  "scope":["planner.py enhanced defaults and terminal state","coverage.py contracted Q3 ring and Q4 lattice","enhancements.py and enhancement_experiments.json","enhancements.tex and bound_proof.tex"],
+  "resolved_findings":[
+    {"issue":"Development comparison inherited enhanced default and duplicated the contracted ring","resolution":"develop_anchors.py now explicitly constructs strategy='integrated' for the legacy comparison; ring_radius is passed through the constructor","evidence":"develop_anchors.py; results/anchor_development.json"},
+    {"issue":"Terminal metadata was not connected to accepted observations","resolution":"accepted responses update terminal reason, channel certificates and complete/incomplete result; no /exit is sent after virtual or ambiguous termination","evidence":"planner.py; results/terminal_verification.json"},
+    {"issue":"Previously measured no_signal locations could be queried again","resolution":"all accepted per-channel measure coordinates are retained and optional probes use exact-coordinate deduplication only","evidence":"planner.py observations and observation_points"},
+    {"issue":"Static two-opt and interval adaptive probe candidates lacked a valid default benefit","resolution":"both retained as negative controls; rolling remaining-anchor route and Q3 ring contraction are evaluated on separated held-out seeds","evidence":"results/route_candidate_comparison.json; results/adaptive_candidate_comparison.json; results/enhancement_experiments.json"},
+    {"issue":"Original finite-time bound did not justify cross-source task entry and reflection recovery","resolution":"bound_proof.tex and verify_geometry.py now use last-positive-station half-scaling, cross-source access, 216-cell cover, explicit action counts and 231152-second arithmetic bound","evidence":"report/bound_proof.tex; results/operation_bound.json"}
+  ],
+  "held_out_evidence":{"runs":3080,"Q3_enhanced_mean_s_per_source":275.6791323753034,"Q4_enhanced_mean_s_per_source":797.7585015650457,"Q3_mean_saving":39.299904003993134,"Q4_mean_saving":13.971669182645146,"Q3_faster_pairs":478,"Q4_faster_pairs":328,"all_groups_cleared":true},
+  "limitations":["All simulator evidence is local synthetic, not official.","No contestant manual review has been performed.","Enhanced finite bound excludes optional adaptive probes and arbitrary network delay.","Rolling route and contracted ring improve declared synthetic held-out means but are not globally time-optimal."],
+  "verdict":"Enhanced policy is technically coherent under declared assumptions and better on the held-out synthetic comparison; retain conservative claims and do not substitute for official tests or human review."
+}

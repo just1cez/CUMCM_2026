@@ -1,0 +1,32 @@
+\documentclass[UTF8,fontset=fandol,a4paper,zihao=-4]{ctexart}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{hyperref,enumitem}
+\hypersetup{hidelinks,pdftitle={AI工具使用情况声明},pdfauthor={}}
+\setlist{itemsep=0.35em,topsep=0.3em}
+\title{AI工具使用情况声明}
+\author{}
+\date{}
+\begin{document}
+
+\section*{一、论文声明}
+本参赛队在竞赛过程中使用了AI工具，主要用于语言润色、代码调试等辅助工作，详细使用情况见支撑材料。
+
+\section*{二、所用AI工具}
+本项目调用了\texttt{deepseek-v4.1-flash}模型。Python及相关程序库用于实际计算和编译，不属于AI工具。依赖版本见随附支撑材料中的环境清单文件。
+
+\section*{三、具体使用目的和环节}
+\begin{enumerate}
+\item 对论文文字进行语句调整、错别字检查和表达润色；
+\item 协助定位代码运行中的语法、接口和排版问题；
+\item 根据错误信息提出调试建议，由本参赛队修改代码并实际运行核验。
+\end{enumerate}
+
+\section*{四、主要提示方式和使用过程}
+主要采用围绕具体段落、报错信息和代码片段的提问方式。语言润色以保持原意为前提；代码调试以本机实际运行结果为准，不以AI输出替代程序运行、结果检查或参赛队判断。
+
+\section*{五、输出采纳与人工核验}
+AI提出的文字修改和调试建议均由本参赛队审阅后选择性采纳。采纳的代码修改均经过本机运行检查，论文文字由本参赛队结合全文内容复核。AI未替代本参赛队完成核心建模、数据分析、结果判断和结论确定。
+
+本文件依据《全国大学生数学建模竞赛人工智能工具使用规定（2026年试行）》编制。
+
+\end{document}

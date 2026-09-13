@@ -1,0 +1,7 @@
+{
+  "evidence": "local_HTTP_fault_fixture_not_official",
+  "absolute_deadline_fail_closed": true,
+  "deadline_s": 0.5,
+  "observed_elapsed_s": 0.5051756670000032,
+  "no_unconfirmed_state_advance": true
+}

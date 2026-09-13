@@ -1,0 +1,69 @@
+{
+  "cases": [
+    {
+      "cases": 5,
+      "command": "conda run -n py314 python b_solution/audit/correctness_audit.py",
+      "evidence_type": "synthetic_exact_feasible_geometry",
+      "failures": [],
+      "hard_gate": true,
+      "model": "source feasible iff distance(station)>1000; convex outer approximation",
+      "name": "q3_negative_source_retention",
+      "seed_range": "deterministic pure cases; no RNG"
+    },
+    {
+      "cases": 5,
+      "claim_scope": "current FieldPlanner paths only; not official behavior",
+      "command": "conda run -n py314 python b_solution/audit/correctness_audit.py",
+      "evidence_type": "synthetic_constructor_and_state",
+      "failures": [],
+      "hard_gate": true,
+      "name": "q4_negative_cuts",
+      "seed_range": "deterministic pure cases; no RNG"
+    },
+    {
+      "cases": 3,
+      "command": "conda run -n py314 python b_solution/audit/correctness_audit.py",
+      "complete_task_count": 5,
+      "duplicate_coordinate_keys": true,
+      "evidence_type": "synthetic_pure_route_proxy",
+      "failures": [],
+      "hard_gate": true,
+      "name": "portfolio_obligation_and_ties",
+      "seed_range": "deterministic pure cases; no RNG",
+      "selected": [
+        "anchor",
+        9
+      ]
+    },
+    {
+      "cases": 5,
+      "command": "conda run -n py314 python b_solution/audit/correctness_audit.py",
+      "evidence_type": "synthetic_public_action_fixture",
+      "failures": [],
+      "hard_gate": true,
+      "independent_virtual_time": true,
+      "initial_state": {
+        "pending_count": 7,
+        "position": [
+          0.0,
+          0.0
+        ],
+        "virtual_time": 0.0,
+        "visited": []
+      },
+      "name": "state_rejection_virtual_time_premeasure",
+      "premeasure_calls": 1,
+      "seed_range": "500000 (single synthetic LocalSimulator fixture; permitted historical family)"
+    }
+  ],
+  "command": "conda run -n py314 python b_solution/audit/correctness_audit.py",
+  "configuration": {
+    "official_simulator": false,
+    "synthetic_model": "pure geometry + public action fixture"
+  },
+  "evidence": "synthetic_targeted_audit_only",
+  "failing_case_count": 0,
+  "hard_gate": true,
+  "official_behavior_claimed": false,
+  "seed_range": null
+}

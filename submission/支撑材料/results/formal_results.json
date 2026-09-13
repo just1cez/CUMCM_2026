@@ -1,0 +1,13 @@
+{
+  "evidence": "user_provided_formal_test_summaries",
+  "formal": true,
+  "rows": [
+    {"problem":3,"attempt":1,"case_code":"UAKK-9823-A2SU-2CNM","K":14,"virtual_time_s":3136.520089,"T_over_K_s":224.03714921428573,"local_wall_duration_s":0.7665313000034075,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"},
+    {"problem":3,"attempt":2,"case_code":"5CV9-WP56-W8T6-YMBM","K":10,"virtual_time_s":2701.626666,"T_over_K_s":270.1626666,"local_wall_duration_s":0.8525780999916606,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"},
+    {"problem":3,"attempt":3,"case_code":"PNKS-Z5H4-TW3T-FDV6","K":16,"virtual_time_s":3450.359956,"T_over_K_s":215.64749725,"local_wall_duration_s":0.8748862999782432,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"},
+    {"problem":4,"attempt":1,"case_code":"BEVP-4HRX-JUKY-4XKA","K":15,"virtual_time_s":6119.157828,"T_over_K_s":407.9438552,"local_wall_duration_s":2.77338879997842,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"},
+    {"problem":4,"attempt":2,"case_code":"BJKN-YUGD-Y66E-KJ43","K":12,"virtual_time_s":6054.391986,"T_over_K_s":504.5326655,"local_wall_duration_s":1.9246760999958497,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"},
+    {"problem":4,"attempt":3,"case_code":"A6XY-YGC6-WXC8-D2TN","K":10,"virtual_time_s":6655.015905,"T_over_K_s":665.5015905,"local_wall_duration_s":2.362236100016162,"certificate_complete":true,"termination":"all_channels_cleared_or_coverage_certified_absent"}
+  ],
+  "source": "formal/q3_field_official_01..03 and formal/q4_field_official_01..03 observed_result.json; encrypted jlog files remain private and unchanged"
+}

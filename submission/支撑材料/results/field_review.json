@@ -1,0 +1,121 @@
+{
+  "review_type": "independent AI field-policy review; not contestant manual review or award prediction",
+  "status": "review_findings_resolved_with_local_execution_evidence",
+  "reviewers": [
+    "FieldMathReview",
+    "FieldEvidenceReview"
+  ],
+  "production": {
+    "default_cli_strategy": "problem-specific: refined for Q3 and field for Q4; explicit --strategy override",
+    "officially_observed_control": "refined",
+    "unchanged_probe_scale_both_questions": 0.22,
+    "Q3": "ring1200, unknown discovery scans, refined default; field remains an explicitly selectable local candidate with zero radius penalty, conservative negative-disk outer hull, one eligible zero-travel premeasure per channel, and certified clear-point approach",
+    "Q4": "compact25, useful discovery scans, field default with route portfolio and eligible one-time-per-channel premeasure; no negative-disk update and no clear-point approach",
+    "official_field_verification": "Not performed; fresh official practice is required"
+  },
+  "original_practice_evidence": {
+    "file": "results/official_practice_analysis.json",
+    "data_files": 60,
+    "manifest_rows": 20,
+    "accepted_actions": 4764,
+    "jsonl_records": 14292,
+    "all_cleared": "Q3 139/139 sources in 10/10 runs; Q4 138/138 sources in 10/10 runs",
+    "strict_policy_replay": "8/20 complete matches; other traces stop at the first unobserved action. All 20 are independently costed from original coordinates and responses.",
+    "data_preservation": "Input SHA-256 map binds all 60 original sanitized files and manifest. No raw trace bytes were changed.",
+    "runtime_boundary": "manifest timestamp_delta_s is not interpreted as program runtime; controller clock and HTTP enter-to-exit timestamp difference are separate fields."
+  },
+  "resolved_findings": [
+    "Reject finite-but-unrepresentable negative-disk geometry before constructing Q: finite 16*scale^2 guard; 1e308 regression rejects cleanly.",
+    "Negative geometry uses the robust orientation predicate and does not discard small positive hull turns; Q3 true-source containment checked in 3000 updates including the 1000m boundary and degenerate domains.",
+    "One premeasure is explicitly outside the inherited six-probe budget. Field finite-bound proof increases total measurement bound from1212 to1228; no virtual-time sleep is introduced.",
+    "Clear approach falls back to the original certified point if the discriminant is negative or the final vertex check fails. 200 regions were checked for complete vertex coverage and nonincreasing access distance.",
+    "Route portfolio retains the original full-route control and keeps all tasks. Verification includes70 random cases through n=51 and9 exact two-task cases; no global-optimality claim.",
+    "Official parser validates request identity, response path, same-ID response consistency, serial transport errors, accepted-record ordering and action/event allowlists.",
+    "Observed and manifest virtual time, T/K, source/type counts, cleared channels and certificate flags are cross-checked against accepted responses and post-exit labels.",
+    "Official movement and phase time are accumulated in microseconds. Field cost tables recover the charged movement component from the independently checked total and exact integer operation costs.",
+    "Local summary failure metric is explicitly mean_failed_clear_attempts_per_case, not a failure rate. Published field tables express failed-clear cost in seconds per source.",
+    "Historical refined and its10700-run experiment remain unchanged controls; exploratory parameter changes and guessed-world replay claims were removed."
+  ],
+  "executed_new_evidence": {
+    "development": {
+      "file": "results/field_development.json",
+      "runs": 2250,
+      "seeds": [
+        6100000,
+        6100149
+      ]
+    },
+    "confirmation": {
+      "file": "results/field_confirmation.json",
+      "runs": 9400,
+      "main_seeds": [
+        7100000,
+        7100999
+      ],
+      "main_worlds_per_question": 1000,
+      "all_confirmation_runs_complete": true
+    },
+    "Q3_main_paired": {
+      "control_s_per_source": 258.9861148466207,
+      "field_s_per_source": 250.1703445604119,
+      "reduction_percent": 3.4039547994415673,
+      "saving_ci95_s": [
+        8.008338898824666,
+        9.623201673592922
+      ]
+    },
+    "Q4_main_paired": {
+      "control_s_per_source": 542.4134186503819,
+      "field_s_per_source": 508.6005874523813,
+      "reduction_percent": 6.2337748358314515,
+      "saving_ci95_s": [
+        31.612169275163716,
+        36.0134931208375
+      ]
+    },
+    "numerical_and_state": "results/field_verification.json",
+    "local_HTTP_CLI_smoke": [
+      {
+        "problem": 3,
+        "strategy": "field",
+        "cleared": 10,
+        "virtual_time_s": 2855.583186,
+        "unique_accepted_actions": 139,
+        "same_payload_retry_count": 1,
+        "step_timing_verified": true
+      },
+      {
+        "problem": 4,
+        "strategy": "field",
+        "cleared": 10,
+        "virtual_time_s": 6011.951199,
+        "unique_accepted_actions": 345,
+        "same_payload_retry_count": 1,
+        "step_timing_verified": true
+      }
+    ],
+    "smoke_scope": "Actual official_run.py exercised against local synthetic HTTP truncation fixtures only, not official service",
+    "original_log_tamper_checks": {
+      "valid_actions": 154,
+      "rejected_mutated_traces": 6,
+      "scope": "Request ID, response path, unknown path/event, unmatched transport error and accepted ordering rejected on temporary copies; original trace unchanged"
+    }
+  },
+  "retained_limits": [
+    "Finite original logs cannot identify improved-policy responses at unobserved coordinates. No new official speedup is claimed.",
+    "Q4 clustered/smooth paired savings interval contains zero; no universal scenario or per-case dominance is claimed.",
+    "Route and convex geometry use guarded floating-point computations, not a complete machine-checked real-arithmetic proof.",
+    "Full archive replay and final PDF visual review require their own current hash-bound evidence; this review does not replace those checks.",
+    "Formal results, six unchanged encrypted formal logs and actual contestant manual review remain outstanding."
+  ],
+  "final_manuscript_review": {
+    "reviewer": "FieldFinalPaper",
+    "verdict": "correct",
+    "scope": "Complete current manuscript and field/official method/result fragments; no blocking attribution or numerical inconsistency found; no award prediction"
+  },
+  "final_package_review": {
+    "reviewer": "FieldFinalPackage",
+    "resolved_finding": "Auxiliary fast25 screen now stores2000 seed/configuration records; package verifies both1000-seed sequences and every normalized row, counting from actual stored rows separately from34610 core runs.",
+    "scope": "Read-only code/manifest review; actual replay is independently recorded by delivery/复现验证.json"
+  }
+}

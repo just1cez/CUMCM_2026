@@ -1,0 +1,19 @@
+{
+  "evidence": "local_field_geometry_and_behavior_verification_not_official",
+  "negative_geometry": {
+    "true_source_containment_cases": 3000,
+    "boundary_and_degenerate_cases": 10,
+    "maximum_observed_radius_cut_m": 738.7840104444889,
+    "scope": "sampling complements finite inscribed-polygon exclusion proof"
+  },
+  "routes": {
+    "random_route_cases": 70,
+    "exact_two_task_cases": 9,
+    "control_never_worsened": true
+  },
+  "clearing": {
+    "clearing_regions": 200,
+    "shortened_approach_total_m": 2086.322164666767,
+    "real_deadline_cases": 2
+  }
+}

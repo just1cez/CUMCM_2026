@@ -1,0 +1,68 @@
+{
+  "review_type": "independent AI research review, not contestant manual review or award prediction",
+  "strategy": "refined",
+  "source_verdict": "No known blocking mathematical or online-policy defect after the recorded corrections",
+  "reviewers": {
+    "BaselineAudit": "Read-only review of Q1/Q2, historical cover proofs and stopping rules; no new baseline defect identified",
+    "PolarIndependent": "Independent proof review of the 25-point triangulation, strict forward/range margins and total coordinate-error budget",
+    "OnlineIndependent": "Independent scan/dispatch/terminal-state review; found missing packaged runtime dependencies",
+    "PaperQuality": "Read original question and attachments, final theory and manuscript, all main tables and first 25 PDF pages; non-official pre-correction research score 92/100",
+    "EvidenceQuality": "Read experiment/asset scripts and saved evidence; checked denominators, pairing, primary numbers and negative stress result"
+  },
+  "pre_correction_nonofficial_rubric": {
+    "question_coverage": "14/15",
+    "assumptions_and_information_boundary": "10/10",
+    "Q1_Q2": "19/20",
+    "Q3_Q4_proof_and_algorithm": "27/30",
+    "synthetic_experiments_and_statistics": "13/15",
+    "presentation": "9/10",
+    "total": "92/100",
+    "meaning": "A diagnostic AI research score only, not an official score or likelihood of an award; not rescored after fixes"
+  },
+  "resolved_findings": [
+    {
+      "issue": "Planner new runtime imports were omitted from the anonymous package whitelist",
+      "resolution": "All three candidate modules and required research scripts were added to package.py SOURCES and appendix listings",
+      "direct_evidence": "A fresh temporary copy of the package source whitelist, with PYTHONPATH removed from the child environment, successfully ran official_run.py --help",
+      "full_delivery_gate": "delivery/复现验证.json must separately match the current archive SHA-256 and prove full extraction replay"
+    },
+    {
+      "issue": "Pressure-table caption wrongly assigned 50 pairs to the first 18 rows",
+      "resolution": "Caption now assigns 50 pairs by the three pressure scenarios and 200 pairs by random-position alternate-error scenarios, matching all 22 rows"
+    },
+    {
+      "issue": "Primary control-versus-refined paired intervals were not shown in the manuscript",
+      "resolution": "make_research_assets.py now generates Saved/Lower/Upper macros from paired runs; manuscript reports Q3 [13.46,16.30] and Q4 [240.71,253.64] seconds saved per source"
+    },
+    {
+      "issue": "Finite-time proof preceded the cover and dispatch definitions",
+      "resolution": "Moved bound_proof.tex after research_theory.tex; clarified why the conservative historical bound also covers refined without calling it tight"
+    },
+    {
+      "issue": "Optical candidate notes confused failed clear with negative radio observation",
+      "resolution": "Corrected: accepted failed clear excludes its radius-20 disk for a known live source; overlap of centers alone still does not justify deleting another cover cell"
+    },
+    {
+      "issue": "Pressure table floated to an isolated vertically centered page",
+      "resolution": "Placed the complete table inline; final page22 also contains sensitivity discussion/table and was inspected at full page and contact-sheet scales"
+    }
+  ],
+  "executed_evidence": {
+    "development": {"file": "results/refinement_development.json", "runs": 2550, "seed_range": [3100000,3100149]},
+    "heldout": {"file": "results/research_experiments.json", "runs": 10700, "main_worlds_per_problem": 1000, "main_seed_range": [4100000,4100999], "all_main_cleared_per_problem": 1000},
+    "geometry": {"file": "results/research_verification.json", "directional_cases_per_polar_variant": 22050, "adverse_perturbation_cases_per_variant": 44100, "compact_maximum_edge_m": 992.3160610904937, "optical_polygons": 125, "optical_samples": 24072},
+    "state": "Known skipped channels remain detected after negative readings and cannot complete an absence certificate; success resolves them. Existing terminal/deadline regression passed with refined default.",
+    "local_HTTP_smoke": [
+      {"problem":3,"cleared":10,"virtual_time_s":2894.872614,"unique_accepted_actions":133,"same_id_identical_payload_retries":1,"maximum_timing_residual_s":0.0},
+      {"problem":4,"cleared":10,"virtual_time_s":6588.434429,"unique_accepted_actions":378,"same_id_identical_payload_retries":1,"maximum_timing_residual_s":0.0}
+    ],
+    "HTTP_scope": "The actual official_run.py entrypoint was exercised only against local synthetic fault fixtures, not the official simulator. Its hardcoded evidence label does not authenticate server origin. Temporary plaintext smoke logs contained a synthetic ID only and are not official encrypted exports."
+  },
+  "retained_limits": [
+    "Q2 has a safe candidate domain and finite sampling example; the online fixed-flank rule is distinct and does not claim global optimality",
+    "25 points are not proved globally minimal; the joint route is a time surrogate, not a globally optimal online policy",
+    "Q4 clustered/extreme stress averaged 2.3173 percent slower, with a paired interval containing zero; no universal efficiency dominance is claimed",
+    "No official simulator practice or formal runs, six encrypted official logs, or contestant manual review have been supplied",
+    "Final visual and full archive reproduction evidence are separate, hash-bound delivery artifacts; this review alone cannot certify them"
+  ]
+}

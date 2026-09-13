@@ -1,0 +1,8 @@
+{
+  "evidence": "local_HTTP_fault_fixture_not_official",
+  "truncated_response_recovered": true,
+  "retry_reused_identical_request": true,
+  "virtual_time_exactly_once": true,
+  "clear_kept_radio_channel": true,
+  "final_virtual_time_s": 199
+}
