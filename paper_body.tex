@@ -28,17 +28,19 @@
 \vspace{0.7em}
 {\large\bfseries 摘要}
 \end{center}
-无线电干扰源的现场排查需要兼顾搜索范围、定位精度和清除时间。针对源数量、位置及发射方向未知的情况，本文利用带误差的示向度建立位置可行域，并将区域扫描和局部清除统一安排，形成机器狗的自动搜索策略。
+无线电干扰源的现场排查需要兼顾搜索范围、定位精度和清除时间。针对源数量、位置、接收半径及发射方向未知的情况，本文利用带误差的示向度建立位置可行域，将区域扫描与局部清除统一安排，形成机器狗的自动搜索策略。任务时间按移动、检测、换频和清除费用累计，在完成全部源清除的条件下比较不同策略。
 
-针对问题一，将示向误差转化为正向楔形的半平面约束，通过可行性判别、边界交点枚举和顶点距离计算得到交会区域直径。构造边长36米的等边三角形算例，其最小包围圆半径为20.785米，说明以区域直径为直径的圆并不总能覆盖区域。进一步用最小包围圆建立一次清除的判断条件。
+针对问题一，将示向误差转化为正向楔形的半平面约束，通过可行性判别、边界交点枚举和顶点距离计算得到交会区域直径。构造边长36米的等边三角形算例，其最小包围圆半径为20.785米，说明以区域直径为直径的圆并不总能覆盖区域。进一步以最小包围圆判断一次清除的可行性，计算半径取19.9米，为设备20米清除范围预留余量。
 
-针对问题二，分析交会夹角、目标距离与定位误差的关系。根据首次接收信息，得到由三个半径1000米圆盘组成的交集作为第二检测点候选区域，再以第二次测向后的最坏包围圆半径评价42个候选点。算例中，横向候选的包围半径为\QTwoRadius{}米，共线对照为\QTwoControlRadius{}米。
+针对问题二，分析交会夹角、目标距离与定位误差的关系。利用首次接收信息，得到三个半径1000米圆盘的交集作为第二检测点的安全候选区域，再根据第二次测向后的采样最坏包围半径评价42个候选点。算例中，横向候选点的包围半径为\QTwoRadius{}米，共线对照为\QTwoControlRadius{}米；增加\QTwoExtraCost{}秒的移动与检测费用，明显改善了距离方向的定位效果。
 
-针对问题三，以原点和正六边形环的六个点组成扫描骨架。环半径取1200米时，全域最坏覆盖距离为968.90米。结合联合任务排序、横向测向和矩形光学覆盖完成源的定位与清除，并利用逐频道扫描记录确定停止时机。在此基础上，引入路线组合、原地补测及全向负观测更新，构成增强策略field。
+针对问题三，以原点和正六边形环的六个点组成扫描骨架。环半径取1200米时，全域最坏覆盖距离为968.90米，较最小接收半径保留31.10米余量。将未访问的扫描点和已发现源共同排序，每次执行首项任务后重新规划。局部定位最多进行6次测向，随后直接清除或转入矩形光学覆盖；逐频道记录扫描和清除状态，确定任务停止时机。在refined基础上加入多初解路线组合、原地补测、全向负观测更新及安全接近，构成增强策略field。
 
-针对问题四，采用原点、940米内环和1870米错相外环组成的25点骨架。通过36个闭三角形的剖分，证明任意源位置和发射方向都能被至少一个检测点接收；信号中断后采用回退测向，并保留光学覆盖。每题1000个同世界合成案例中，field相对refined的平均单源时间分别降低\QThreeGain\%和\QFourGain\%。六次正式测试均使用field，问题三、四的三局等权平均时间分别为\FormalThreeMean{}和\FormalFourMean{}秒/源，均以频道完成判据结束。
+针对问题四，采用原点、940米内环和1870米错相外环组成的25点骨架。通过36个闭三角形剖分及辅助点$h=g+5n$，证明任意源位置和发射方向都能被至少一个检测点接收；计入1米位置误差后，仍有4米前向余量且到源距离小于999米。信号中断后采用反射收缩的回退测向，并保留光学覆盖。结合有限任务数、检测次数和行程估计，得到总虚拟时间小于100小时的上界。
 
-\noindent\textbf{关键词：}交会定位；最小包围圆；全域覆盖；任务排序；定向干扰源
+每题1000个同世界合成案例中，field相对refined的平均单源时间分别降低\QThreeGain\%和\QFourGain\%，两题主组均完成全清。六次正式测试均采用field，问题三、四分别成功清除\FormalThreeK{}个和\FormalFourK{}个源，三局等权平均时间分别为\FormalThreeMean{}和\FormalFourMean{}秒/源，均按频道完成条件结束。结果说明，覆盖布点与交会定位能够衔接全域搜索和近距清除，联合调度则有助于降低完整任务的移动费用。
+
+\noindent\textbf{关键词：}交会定位；最小包围圆；全域覆盖；任务排序；定向干扰源；机器狗搜索
 \clearpage
 
 \section{问题重述}
@@ -118,6 +120,7 @@ $P_c$ & 频道$c$的位置可行域 & 凸多边形\\
 $D(P),z_*(P),r_*(P)$ & 直径、最小包围圆圆心及半径 & 米\\
 $q,V,V_c$ & 机器狗位置、扫描骨架、频道已测索引 & 位置及集合\\
 $L,M,S,F$ & 总行程、检测数、换频数、失败清除数 & 米、次\\
+$C$ & 清除调用总次数，$C=F+K$ & 次\\
 $K,N,T$ & 成功清除数、实际源数、虚拟总时间 & 个、秒\\\bottomrule
 \end{tabular}
 \end{table}
@@ -229,7 +232,7 @@ z_*(P)=\argmin_z\max_{p\in P}\norm{p-z}.
 \begin{equation}\label{eq:jung}
 \frac{D(P)}2\le r_*(P)\le\frac{D(P)}{\sqrt3}.
 \end{equation}
-左侧来自圆盘中任意两点距离不超过直径。若包围圆由两个点确定，则$r_*=D/2$；若由三个点确定，三个支持点中必有一对对应的圆心角不小于$120^\circ$，弦长不小于$\sqrt3r_*$，由此得到右侧。
+左侧来自圆盘中任意两点距离不超过直径。若包围圆由两个点确定，则$r_*=D/2$；若由三个点确定，三个支持点中必有一对对应的圆心角不小于$120^\circ$，弦长不小于$\sqrt3r_*$，由此得到右侧。该平面包围圆界可由Jung定理得到\cite{jung}。
 
 因此，$r_*(P)\le20$是存在一次全域清除位置的判断条件。若只使用直径，则$D(P)\le20\sqrt3$为充分条件，$D(P)>40$时不能一次覆盖；介于二者之间时需继续求最小包围圆。程序实际采用19.9米半径，并在选定点复算全部顶点距离。
 
@@ -245,10 +248,12 @@ P_c=A_{180}\cap\bigcap_{i\in I_c}
 \end{equation}
 真实源初始位于$A_{180}$内，每条新增正观测约束也包含它，故逐步更新后仍有$g_c\in P_c$。外切近似的最大径向偏差为$1800(\sec(\pi/180)-1)<0.275$米。
 
-新增一次观测时依次对当前凸多边形作半平面裁剪，保留满足条件的顶点与边界交点。若出现空域，说明观测或数值计算需要检查，当前频道不能据此记为无源。该表示同时提供局部测向的候选范围和清除位置判断。
+新增一次观测时，采用逐边界裁剪的方式更新凸多边形，保留满足条件的顶点与边界交点\cite{sutherland}。若出现空域，说明观测或数值计算需要检查，当前频道不能据此记为无源。该表示同时提供局部测向的候选范围和清除位置判断。
 
 \section{问题二：第二检测点的选择}
 \subsection{交会几何对定位误差的影响}
+移动单站定位通过改变观测位置，获得同一源在不同方向上的测向信息\cite{qin}；交叉定位中的方位误差还会随观测几何传播到位置结果\cite{li}。本问据此考察第二检测点的交会角和目标距离，位置估计仍采用前述有界误差可行域。
+
 单次测向将源限制在长而窄的扇形内，但沿示向方向的距离仍不确定。设两次检测点到真实源的距离为$r_1,r_2$，视线夹角为$\beta$。对小角度误差线性化，位置扰动$\delta g$在每条视线法向$n_i$上满足
 \begin{equation}
 |n_i^{\mathsf T}\delta g|\le\alpha r_i.
@@ -397,7 +402,7 @@ L_{\mathrm{ring}}^{\min}=6d.
 J_\gamma(\pi)=\norm{q-z_{\pi_1}}+
 \sum_{j=1}^{n-1}\norm{z_{\pi_{j+1}}-z_{\pi_j}}+\gamma r_{\pi_1}.
 \end{equation}
-问题三取$\gamma=0$，按任务中心之间的行程排序。基准策略refined先用最近插入法形成完整排列，再进行有界2-opt改进：反转一段连续路线，若首尾连接费用下降则接受。每轮只执行得到的第一项任务，执行后重新计算位置区域和剩余任务。
+问题三取$\gamma=0$，按任务中心之间的行程排序。基准策略refined先用最近插入法形成完整排列\cite{rosenkrantz}，再进行有界2-opt改进\cite{croes}：反转一段连续路线，若首尾连接费用下降则接受。每轮只执行得到的第一项任务，执行后重新计算位置区域和剩余任务。
 
 扫描点与源任务保持各自身份，即使坐标相同也不合并。这样既可减少定位结束后返回原扫描点的绕行，也能保留未知频道的扫描义务。由于后续观测可能改变目标中心和清除终点，式\eqref{eq:route-proxy}作为当前任务排序依据，实际费用仍按式\eqref{eq:time}累计。
 
@@ -443,7 +448,7 @@ P_c\subseteq\bigcup_{i=0}^{N_x-1}\bigcup_{j=0}^{N_y-1}B(a_{ij},19.9).
 \end{equation}
 这些圆盘的并集覆盖整个区域，而非只覆盖多边形顶点。逐个中心并不需要覆盖整个$P_c$，因此部分清除失败属于正常搜索过程。
 
-按蛇形排列访问各中心，再将序列循环移位，使首点靠近当前位置。真实源在某个单元内，遍历过程中至少有一个中心落在它的清除范围内，收到成功反馈后立即结束该频道。
+区域分解后逐行往复访问，是机器人覆盖规划中的常用思路\cite{galceran}。本文按蛇形排列访问各中心，再将序列循环移位，使首点靠近当前位置。真实源在某个单元内，遍历过程中至少有一个中心落在它的清除范围内，收到成功反馈后立即结束该频道。
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{competition_localize.pdf}
@@ -644,7 +649,37 @@ N_{\rm cell}\le\left\lceil\frac{1501}{\sqrt2(19.9-\varepsilon)}\right\rceil
 \left\lceil\frac{106}{\sqrt2(19.9-\varepsilon)}\right\rceil
 =54\times4=216
 \end{equation}
-个中心，其中$\varepsilon$取实现中的微小向内余量。实际可行域通常经过多次裁剪，所需网格少于此上界。有限测向次数和有限网格共同保证一个局部任务不会因持续无信号而无限循环；现实运行期限则由程序单独检查。
+个中心，其中$\varepsilon$取实现中的微小向内余量。实际可行域通常经过多次裁剪，所需网格少于此上界。
+
+\subsection{算法终止性与时间上界}\label{subsec:termination-bound}
+设接口正常响应，测向误差满足题设条件。问题三、四分别有7个和25个骨架任务，完成后即从任务集合中删除。对已发现频道，局部过程至多进行6次测向，随后直接清除或进入至多216个中心的光学覆盖。由于真实源始终位于覆盖区域内，遍历全部中心前必有一次清除成功。因此，每轮调度至少完成一个骨架任务或清除一个新源，已完成任务不再加入；源数又不超过16，算法最终满足式\eqref{eq:stop}。
+
+按较大的25点骨架计，骨架检测至多$25\times20$次；停靠共享只在局部任务结束后进行，至多16轮，每轮至多检测16个已知频道；局部测向和field预检测分别至多$16\times6$次和16次。由此有
+\begin{equation}\label{eq:measurement-bound}
+M\le25\times20+16\times16+16\times6+16=868\le1228.
+\end{equation}
+下文按$M\le1228$统一估计检测费用。每源计入216次网格清除、至多6次无信号后试清、一次小区域试清，并为其他位置的成功清除留一次余量，则清除调用总数满足
+\begin{equation}\label{eq:clear-call-bound}
+C=F+K\le16(216+6+1+1)=3584.
+\end{equation}
+
+时间上界还需计入行程。由前述位置域尺寸，包围圆中心距最近正测点小于1501米，横向偏移不超过120米，故首个候选测点距该正测点小于$\sqrt{1501^2+120^2}<1506$米。恢复操作只缩短这一距离，因而局部测点距源小于$1500+1506=3006$米，距原点小于4806米。骨架点和已清除源的终点距原点均小于2620米，于是每段骨架抵达、局部任务接入和两次测向间的行程可分别放宽为5240、7500和6020米。圆心清除与光学搜索的接入段各不超过4520米；矩形内蛇形路径连同一次循环移位跳跃小于7570米。
+\begin{equation}\label{eq:travel-bound}
+\begin{aligned}
+L&\le25\times5240+
+16(7500+5\times6020+2\times4520+7570)\\
+&=998360\ \mathrm m.
+\end{aligned}
+\end{equation}
+每次检测至多附带一次换频，每次清除至多耗时5秒。将上述上界代入计时模型，得到
+\begin{equation}\label{eq:virtual-time-bound}
+\begin{aligned}
+T&\le\frac L5+6M+5C\\
+&\le\frac{998360}{5}+6\times1228+5\times3584\\
+&=224960\ \mathrm s<100\times3600\ \mathrm s.
+\end{aligned}
+\end{equation}
+该估计将各阶段的最大费用相加，用于核对100小时虚拟时间限制；现实运行期限仍按接口返回的剩余时间执行。
 
 \section{数值试验与结果分析}\label{sec:experiments}
 为了比较任务调度和局部机制，在同一合成世界上分别运行各配置。常规世界中，源数在10至16之间离散均匀取值，频道无放回抽样，位置在半径1800米圆域内按面积均匀生成，接收半径在1000至1500米之间均匀生成。问题三全部为全向源；问题四设置混合源，定向源的方向均匀生成。
@@ -665,7 +700,7 @@ N_{\rm cell}\le\left\lceil\frac{1501}{\sqrt2(19.9-\varepsilon)}\right\rceil
 \begin{equation}
 d_j=\tau_j^{\mathrm{refined}}-\tau_j^{\mathrm{field}}.
 \end{equation}
-正值表示field较快。配对均值差的近似95\%区间采用
+正值表示field较快。对配对差的均值作正态近似\cite{wasserman}，近似95\%区间采用
 \begin{equation}\label{eq:paired-ci}
 \bar d\ \pm\ 1.96\frac{s_d}{\sqrt n},
 \end{equation}
@@ -790,10 +825,18 @@ Q4全部组也完成全清。圆周朝外发射组检验了外环点的作用，
 
 主组合成配对试验中，field相对refined的平均单源时间分别降低\QThreeGain\%和\QFourGain\%，全部主组和列示边界组均全清。六次正式测试采用field，Q3、Q4三局等权平均分别为\FormalThreeMean{}和\FormalFourMean{}秒/源，均按频道完成条件结束。
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \raggedright
 \bibitem{problem} 全国大学生数学建模竞赛组委会. 2026年高教社杯全国大学生数学建模竞赛B题：无线电干扰源的快速自动定位与清除，以及附件1、附件2[Z]. 2026.
-\bibitem{welzl} Welzl E. Smallest enclosing disks (balls and ellipsoids)[C]//New Results and New Trends in Computer Science. Lecture Notes in Computer Science, vol. 555. Springer, 1991: 359--370. DOI: 10.1007/BFb0038202.
+\bibitem{welzl} Welzl E. Smallest enclosing disks (balls and ellipsoids)[C]//Maurer H, ed. New Results and New Trends in Computer Science. Lecture Notes in Computer Science, 555. Berlin, Heidelberg: Springer, 1991: 359--370. DOI: \nolinkurl{10.1007/BFb0038202}.
+\bibitem{jung} Jung H. Ueber die kleinste Kugel, die eine räumliche Figur einschliesst[J]. Journal für die reine und angewandte Mathematik, 1901, 123: 241--257. DOI: \nolinkurl{10.1515/crll.1901.123.241}.
+\bibitem{sutherland} Sutherland I E, Hodgman G W. Reentrant polygon clipping[J]. Communications of the ACM, 1974, 17(1): 32--42. DOI: \nolinkurl{10.1145/360767.360802}.
+\bibitem{qin} 秦明峰, 郝青儒, 范广伟. 运动单站无源定位性能分析[J]. 无线电工程, 2014, 44(4): 50--53.
+\bibitem{li} 李亚军. 机载塔康无源定位方法研究[J]. 无线电工程, 2019, 49(3): 229--233.
+\bibitem{rosenkrantz} Rosenkrantz D J, Stearns R E, Lewis P M II. An analysis of several heuristics for the traveling salesman problem[J]. SIAM Journal on Computing, 1977, 6(3): 563--581. DOI: \nolinkurl{10.1137/0206041}.
+\bibitem{croes} Croes G A. A method for solving traveling-salesman problems[J]. Operations Research, 1958, 6(6): 791--812. DOI: \nolinkurl{10.1287/opre.6.6.791}.
+\bibitem{galceran} Galceran E, Carreras M. A survey on coverage path planning for robotics[J]. Robotics and Autonomous Systems, 2013, 61(12): 1258--1276. DOI: \nolinkurl{10.1016/j.robot.2013.09.004}.
+\bibitem{wasserman} Wasserman L. All of Statistics: A Concise Course in Statistical Inference[M]. New York: Springer, 2004. DOI: \nolinkurl{10.1007/978-0-387-21736-9}.
 \end{thebibliography}
 \label{endbody}
 \end{document}
