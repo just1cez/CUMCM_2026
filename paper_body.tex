@@ -1,8 +1,9 @@
 \documentclass[UTF8,fontset=fandol,a4paper,zihao=-4]{ctexart}
 \usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,bm,booktabs,array,graphicx,float,enumitem,hyperref,fancyhdr,needspace}
+\usepackage{amsmath,amssymb,amsthm,bm,booktabs,array,longtable,graphicx,float,enumitem,hyperref,fancyhdr,needspace,listings}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric}
+\lstset{basicstyle=\ttfamily\fontsize{7.5}{9}\selectfont,breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,showstringspaces=false,frame=single,numbers=left,numberstyle=\tiny,numbersep=5pt,tabsize=4,keywordstyle=\color{blue!55!black},commentstyle=\color{black!65},stringstyle=\color{green!35!black},captionpos=t,xleftmargin=1.5em}
 \hypersetup{hidelinks,pdftitle={基于交会定位与覆盖搜索的无线电干扰源清除策略},pdfauthor={}}
 \graphicspath{{b_solution/report/figures/}}
 \setlength{\parindent}{2em}
@@ -860,6 +861,11 @@ Q4全部组也完成全清。圆周朝外发射组检验了外环点的作用，
 
 主组合成配对试验中，field相对refined的平均单源时间分别降低\QThreeGain\%和\QFourGain\%，全部主组和列示边界组均全清。六次正式测试采用field，Q3、Q4三局等权平均分别为\FormalThreeMean{}和\FormalFourMean{}秒/源，均按频道完成条件结束。
 
+\clearpage
+\section*{AI 工具使用声明}
+本参赛队在竞赛过程中使用了AI工具，主要用于语言润色、代码调试等辅助工作，详细使用情况见支撑材料。
+\thispagestyle{plain}
+\clearpage
 \begin{thebibliography}{99}
 \raggedright
 \bibitem{problem} 全国大学生数学建模竞赛组委会. 2026年高教社杯全国大学生数学建模竞赛B题：无线电干扰源的快速自动定位与清除，以及附件1、附件2[Z]. 2026.
@@ -873,5 +879,7 @@ Q4全部组也完成全清。圆周朝外发射组检验了外环点的作用，
 \bibitem{galceran} Galceran E, Carreras M. A survey on coverage path planning for robotics[J]. Robotics and Autonomous Systems, 2013, 61(12): 1258--1276. DOI: \nolinkurl{10.1016/j.robot.2013.09.004}.
 \bibitem{wasserman} Wasserman L. All of Statistics: A Concise Course in Statistical Inference[M]. New York: Springer, 2004. DOI: \nolinkurl{10.1007/978-0-387-21736-9}.
 \end{thebibliography}
-\label{endbody}
+\clearpage
+\appendix
+\input{paper_body_appendix.tex}
 \end{document}
