@@ -1,8 +1,8 @@
 {
-  "pdf": "report/paper.pdf",
-  "sha256": "13ef9bcd7ba7f0c528ad1e699dbdb20c6495d4e69bca4bbc3a1f60da0042cb15",
+  "pdf": "paper.pdf",
+  "sha256": "5b324b2acf629f5256f4aaab7accea4783b2b7a033d854422c9a312685d16a1a",
   "pages": 92,
-  "size_mib": 1.612563133239746,
+  "size_mib": 1.6326541900634766,
   "body_end_page": 27,
   "body_pages_excluding_abstract": 26,
   "abstract_keywords_on_first_page": true,
@@ -32,14 +32,14 @@
   "page_records": [
     {
       "page": 1,
-      "characters": 1049,
+      "characters": 1303,
       "image": "paper_001.png",
-      "smallest_text_pt": 12.0,
+      "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 22.0
     },
     {
       "page": 2,
-      "characters": 910,
+      "characters": 913,
       "image": "paper_002.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 18.0
@@ -67,14 +67,14 @@
     },
     {
       "page": 6,
-      "characters": 902,
+      "characters": 905,
       "image": "paper_006.png",
       "smallest_text_pt": 4.477410316467285,
       "largest_text_pt": 15.0
     },
     {
       "page": 7,
-      "characters": 893,
+      "characters": 936,
       "image": "paper_007.png",
       "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 18.0
@@ -88,28 +88,28 @@
     },
     {
       "page": 9,
-      "characters": 1075,
+      "characters": 1042,
       "image": "paper_009.png",
       "smallest_text_pt": 4.422389984130859,
       "largest_text_pt": 18.0
     },
     {
       "page": 10,
-      "characters": 1125,
+      "characters": 1105,
       "image": "paper_010.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 15.0
     },
     {
       "page": 11,
-      "characters": 1268,
+      "characters": 1232,
       "image": "paper_011.png",
       "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 15.0
     },
     {
       "page": 12,
-      "characters": 1192,
+      "characters": 1242,
       "image": "paper_012.png",
       "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 15.0
@@ -123,28 +123,28 @@
     },
     {
       "page": 14,
-      "characters": 1026,
+      "characters": 1006,
       "image": "paper_014.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 18.0
     },
     {
       "page": 15,
-      "characters": 1111,
+      "characters": 1069,
       "image": "paper_015.png",
       "smallest_text_pt": 4.772670269012451,
       "largest_text_pt": 15.0
     },
     {
       "page": 16,
-      "characters": 968,
+      "characters": 1070,
       "image": "paper_016.png",
       "smallest_text_pt": 7.970099925994873,
       "largest_text_pt": 15.0
     },
     {
       "page": 17,
-      "characters": 1149,
+      "characters": 1261,
       "image": "paper_017.png",
       "smallest_text_pt": 5.97760009765625,
       "largest_text_pt": 15.0
@@ -214,7 +214,7 @@
     },
     {
       "page": 27,
-      "characters": 796,
+      "characters": 1345,
       "image": "paper_027.png",
       "smallest_text_pt": 12.0,
       "largest_text_pt": 18.0
